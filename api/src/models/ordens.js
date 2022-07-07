@@ -10,6 +10,10 @@ const Ordens = (sequelize) => {
             type: Datatypes.STRING,
             allowNull: false,
         }
+    },
+    {
+        createdAt: false,
+        updatedAt: false
     })
 
     return model
