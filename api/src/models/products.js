@@ -1,4 +1,5 @@
 const Axios = require('axios')
+const fs = require('fs')
 
 const { DataTypes } = require('sequelize');
 
@@ -13,7 +14,7 @@ const Products = (sequelize)=>{
       type: DataTypes.STRING
     },
     price: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     img: {
@@ -21,7 +22,7 @@ const Products = (sequelize)=>{
       allowNull: false
     },
     stock: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     color: {
@@ -40,7 +41,7 @@ const Products = (sequelize)=>{
       type: DataTypes.STRING
     },
     rating: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   },
@@ -49,12 +50,13 @@ const Products = (sequelize)=>{
     updatedAt: false
   })
 
-  /*const start = async () => {
-    const response = await Axios.get('https://github.com/Stupidism/goat-sneakers/blob/master/api.json')
-    console.log(response)
+  const start = async () => {
+    const response = await fs.readFile('../temporal-json/api.json', () => {
+      
+    })
   }
 
-  setTimeout(start, 2000)*/
+  setTimeout(start, 2000)
 
   return model
 };
