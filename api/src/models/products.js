@@ -22,6 +22,21 @@ const Products = (sequelize)=>{
       type: DataTypes.NUMBER,
       allowNull: false
     },
+    color: {
+      type: DataTypes.ARRAY
+    },
+    brand_name: {
+      type: DataTypes.STRING
+    },
+    size_range: {
+      type: DataTypes.ARRAY
+    },
+    material: {
+      type: DataTypes.STRING
+    },
+    released: {
+      type: DataTypes.STRING
+    },
     rating: {
       type: DataTypes.NUMBER,
       allowNull: false
