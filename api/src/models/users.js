@@ -40,6 +40,9 @@ const Users = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         }
+    }, {
+        createAt: false,
+        updateAt: false
     })
 
     return model
