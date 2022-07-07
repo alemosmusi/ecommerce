@@ -25,13 +25,13 @@ const Products = (sequelize)=>{
       allowNull: false
     },
     color: {
-      type: DataTypes.ARRAY
+      type: DataTypes.ARRAY(DataTypes.STRING)
     },
     brand_name: {
       type: DataTypes.STRING
     },
     size_range: {
-      type: DataTypes.ARRAY
+      type: DataTypes.ARRAY(DataTypes.STRING)
     },
     material: {
       type: DataTypes.STRING
@@ -49,10 +49,12 @@ const Products = (sequelize)=>{
     updatedAt: false
   })
 
-  sequelize.authenticate().then(async () => {
+  /*const start = async () => {
     const response = await Axios.get('https://github.com/Stupidism/goat-sneakers/blob/master/api.json')
     console.log(response)
-  })
+  }
+
+  setTimeout(start, 2000)*/
 
   return model
 };

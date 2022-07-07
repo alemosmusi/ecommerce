@@ -14,3 +14,5 @@ const Roles = (sequelize) => {
 
     return model
 } 
+
+module.exports = Roles

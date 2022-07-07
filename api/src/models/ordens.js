@@ -1,13 +1,13 @@
-const { Datatypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 const Ordens = (sequelize) => {
     const model = sequelize.define('ordens', {
-        id_user:{
-            type:Datatypes.STRING,
+        id_user: {
+            type:DataTypes.STRING,
             allowNull: false,
         },
-        status:{
-            type: Datatypes.STRING,
+        status: {
+            type: DataTypes.STRING,
             allowNull: false,
         }
     },
