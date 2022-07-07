@@ -8,8 +8,8 @@ const Roles = (sequelize) => {
             unique: true
         }
     }, {
-        createAt: false,
-        updateAt: false
+        createdAt: false,
+        updatedAt: false
     })
 
     return model

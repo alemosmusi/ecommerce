@@ -41,8 +41,8 @@ const Users = (sequelize) => {
             allowNull: false
         }
     }, {
-        createAt: false,
-        updateAt: false
+        createdAt: false,
+        updatedAt: false
     })
 
     return model
