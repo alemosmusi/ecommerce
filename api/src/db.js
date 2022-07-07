@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { Sequelize } = require('sequelize')
 
-const Template  = require('./models/templates.js')
+
 
 const { DB_USER, DB_PASS, DB_HOST } = process.env
 
@@ -11,9 +11,14 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:543
   }
 );
 
-const modelTemplate = Template(sequelize)
+const { Products, Ordens} = Sequelize.models
+
+Products.belongsToMany(Ordens, { through: 'products_orders'})
+Ordens.belongsToMany(Products, { through: 'products_orders'})
+
+const modelProducts = Products(sequelize)
 
 module.exports = {
   sequelize,
-  modelTemplate
+  modelProducts
 }
