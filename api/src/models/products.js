@@ -1,3 +1,5 @@
+const Axios = require('axios')
+
 const { DataTypes } = require('sequelize');
 
 const Products = (sequelize)=>{
@@ -45,6 +47,11 @@ const Products = (sequelize)=>{
   {
     createdAt: false,
     updatedAt: false
+  })
+
+  sequelize.authenticate().then(async () => {
+    const response = await Axios.get('https://github.com/Stupidism/goat-sneakers/blob/master/api.json')
+    console.log(response)
   })
 
   return model
