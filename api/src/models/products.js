@@ -9,7 +9,7 @@ const Products = (sequelize)=>{
       type: DataTypes.STRING
     },
     description: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     price: {
       type: DataTypes.INTEGER,
@@ -56,34 +56,28 @@ const Products = (sequelize)=>{
   const start = async () => {
     const response = require('../temporal-json/api.json')
 
-    const array = new Array(response)
-    
-    array.forEach(async (value) => {
+    response.sneakers.forEach(async (value) => {
       const { brand_name, category, color, designer, details, gender, original_picture_url: img, release_year: released, retail_price_cents: price, shoe_condition, size_range, story_html: description, upper_material: material } = value
 
-      try {
-        const product = await model.create({
-          brand_name,
-          category,
-          color,
-          designer,
-          details,
-          gender,
-          img,
-          released,
-          price,
-          shoe_condition,
-          size_range,
-          description,
-          material,
-          stock: 1,
-          rating: Math.floor(Math.random()*5)
-        })
+      const product = await model.create({
+        brand_name,
+        category,
+        color,
+        designer,
+        details,
+        gender,
+        img,
+        released,
+        price,
+        shoe_condition,
+        size_range,
+        description,
+        material,
+        stock: 1,
+        rating: Math.floor(Math.random()*5)
+      })
 
-        console.log('Zapatilla creada!')
-      } catch (error) {
-        console.log(error)
-      }     
+      console.log('Zapatilla creada!')
     })
   }
 
