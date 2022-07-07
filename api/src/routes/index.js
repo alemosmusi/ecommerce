@@ -1,10 +1,9 @@
 const { Router } = require('express')
 
-const { getTemplates, createTemplate } = require('../controllers/templates.js')
+const getShoes = require('../controllers/shoes.js')
 
 const routes = Router() 
 
-routes.get('/templates', getTemplates)
-routes.post('/templates', createTemplate)
+routes.get('/shoes', getShoes)
 
 module.exports = routes
