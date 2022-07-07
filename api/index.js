@@ -9,4 +9,4 @@ sequelize.sync({force: false}).then(() => {
     app.listen(APP_PORT, () => {
         console.log(`Server started port ${APP_PORT}`)
     })    
-})d
+})
