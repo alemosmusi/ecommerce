@@ -83,11 +83,11 @@ const Products = (sequelize)=>{
         rating: Math.floor(Math.random()*5)
       })
 
-      console.log('Zapatilla creada! ')
+      console.log('Zapatilla creada!')
     })
   }
 
-  setTimeout(start, 2000)
+  setTimeout(start, 5000)
 
   return model
 };

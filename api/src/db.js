@@ -21,9 +21,6 @@ const modelOrdens = Ordens(sequelize)
 const modelRoles = Roles(sequelize)
 const modelCategorys = Categorys(sequelize)
 
-modelProducts.belongsToMany(modelOrdens, { through: 'products_orders'})
-modelOrdens.belongsToMany(modelProducts, { through: 'products_orders'})
-
 module.exports = {
   sequelize,
   modelProducts,

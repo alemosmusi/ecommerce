@@ -12,18 +12,6 @@ const Categorys = (sequelize) => {
         updatedAt: false 
     })
 
-
-    const start = async () => {
-        const response = require('../temporal-json/api.json')
-        const z = response.sneakers.forEach(async (value)  => {
-            const  category  = value.category.join('')
-            const x = await model.findOrCreate({
-                where: { name: category}
-            })
-        })
-    } 
-       
-    setTimeout(start, 1000)
     return model
 
 
