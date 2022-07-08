@@ -69,7 +69,7 @@ const Products = (sequelize)=>{
     response.sneakers.forEach(async (value) => {
       const { brand_name, category, color, designer, details, gender, original_picture_url: img, release_year: released, retail_price_cents: price, shoe_condition, size_range, story_html: description, upper_material: material } = value
 
-      const product = await model.create({
+      const product = await model.findOrCreate({
         brand_name,
         description,
         price,
@@ -86,7 +86,7 @@ const Products = (sequelize)=>{
         rating: Math.floor(Math.random()*5)
       })
 
-      console.log('Zapatilla creada!')
+      console.log('Zapatilla creada! ')
     })
   }
 
