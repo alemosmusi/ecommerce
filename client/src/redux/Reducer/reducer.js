@@ -1,7 +1,8 @@
-import { GET_ALL_SHOES } from "../Actions/actions";
+import { GET_ALL_SHOES ,  GET_ALL_CATEGORIES} from "../Actions/actions";
 
 const initialState = {
-Shoes:[]
+Shoes:[],
+categories:[]
   };
   
   const rootReducer = (state = initialState, action) => {
@@ -12,6 +13,11 @@ Shoes:[]
             ...state,
             Shoes:action.payload,
           }
+      case  GET_ALL_CATEGORIES:
+            return{
+              ...state,
+              categories:action.payload,
+            }
           default : return state
         } 
 }
