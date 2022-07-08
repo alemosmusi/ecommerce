@@ -9,7 +9,7 @@ const Products = (sequelize)=>{
       type: DataTypes.STRING
     },
     description: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT 
     },
     price: {
       type: DataTypes.INTEGER,
