@@ -1,6 +1,8 @@
+
 import React ,{useEffect} from "react";
 import {useDispatch} from 'react-redux'
 import { getAllShoes , getAllCategories} from "../../redux/Actions/actions";
+import { Wrapper } from "../wrapper/wrapper";
 
 export function Home(){
     const dispatch = useDispatch()
@@ -12,6 +14,7 @@ export function Home(){
         
         <div className="home">
             este es el home         
+            <Wrapper></Wrapper>
         
         </div>
     )
