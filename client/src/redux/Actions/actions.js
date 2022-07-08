@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const GET_ALL_SHOES= 'GET_ALL_SHOES'
+export const GET_ALL_CATEGORIES= 'GET_ALL_CATEGORIES'
 
 export const getAllShoes = () => {
     return async function (dispatch) {
@@ -20,3 +21,18 @@ export const getAllShoes = () => {
         }
       };
     }
+
+    export const getAllCategories = () => {
+        return async function (dispatch) {
+           try {
+              let categories = await axios(`http://localhost:3001/categories`);
+              return dispatch({
+                type: GET_ALL_CATEGORIES,
+                payload: categories.data,
+              });
+            } catch (error) {
+              console.log(error.response);
+          };
+        }
+    }
+    
