@@ -68,7 +68,7 @@ const Products = (sequelize)=>{
 
       const product = await model.create({
         brand_name,
-        description: story_html ? story_html.replace('/(<([^>]+)>)/ig', '') : '',
+        description: story_html ? story_html.replace(/(<([^>]+)>)/ig, '') : '',
         price: retail_price_cents ? retail_price_cents : 0,
         img,
         stock: 1,
