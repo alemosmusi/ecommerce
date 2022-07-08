@@ -1,23 +1,23 @@
-
-import React ,{useEffect} from "react";
-import {useDispatch} from 'react-redux'
-import { getAllShoes , getAllCategories} from "../../redux/Actions/actions";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllShoes, getAllCategories } from "../../redux/Actions/actions";
 import { Wrapper } from "../wrapper/wrapper";
-import Footer from '../footer/footer.jsx'
+import Footer from "../footer/footer.jsx";
+import Cards from "../cards/Cards";
 // import Loading from "../loading/loading";
 
-export function Home(){
-    const dispatch = useDispatch()
-    useEffect(()=>{
-    dispatch(getAllShoes())
-    dispatch(getAllCategories())
-    },[dispatch])
-    return (
-        
-        <div className="home">
-            <Wrapper></Wrapper>
-            <Footer/>
-        
-        </div>
-    )
+export function Home() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllShoes());
+    dispatch(getAllCategories());
+  }, [dispatch]);
+  const shoes = useSelector((state) => state.Shoes);
+  return (
+    <div className="home">
+      <Wrapper></Wrapper>
+      {/* <Footer /> */}
+      <Cards shoes={shoes} />
+    </div>
+  );
 }
