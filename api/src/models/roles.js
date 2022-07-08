@@ -7,10 +7,13 @@ const Roles = (sequelize) => {
             allowNull: false,
             unique: true
         }
-    }, {
-        createAt: false,
-        updateAt: false
-    })
+    },  {
+            createdAt: false,
+            updatedAt: false
+        }
+    )
 
     return model
 } 
+
+module.exports = Roles
