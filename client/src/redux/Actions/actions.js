@@ -1,16 +1,22 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 export const GET_ALL_SHOES= 'GET_ALL_SHOES'
 
 export const getAllShoes = () => {
     return async function (dispatch) {
-      fetch('http://localhost:3001/shoes')
-    .then(res => res.json())
-    .then(info=>
-     dispatch({
-      type: GET_ALL_SHOES,
-      payload: info
-    }))
-    
-    };
-}
+       try {
+          let info = await axios(`http://localhost:3001/shoes`);
+          return dispatch({
+            type: GET_ALL_SHOES,
+            payload: info.data,
+          });
+        } catch (error) {
+          console.log(error.response);
+        //   alert(
+        //     error.response && error.response.data
+        //       ? error.response.data
+        //       : error.message
+        //   );
+        }
+      };
+    }
