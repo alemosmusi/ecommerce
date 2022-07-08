@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux'
 import { getAllShoes , getAllCategories} from "../../redux/Actions/actions";
 import { Wrapper } from "../wrapper/wrapper";
 import Footer from '../footer/footer.jsx'
+// import Loading from "../loading/loading";
 
 export function Home(){
     const dispatch = useDispatch()
