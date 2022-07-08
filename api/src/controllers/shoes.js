@@ -38,7 +38,28 @@ const createShoes = (req, res) => {
     }
 }
 
+const getDetailsProduct = async (req, res) => {
+    const { id } = req.params
+
+    try {
+        const response = await modelProducts.findOne({
+            where: {
+                id
+            }
+        }, {raw: true})
+
+        if (!response) {
+            return res.status(204).send({msg: 'No results!'})
+        }
+
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(500).send({msg: 'Error internal server', error})
+    }
+}
+
 module.exports = {
     getShoes,
-    createShoes
+    createShoes,
+    getDetailsProduct
 }
