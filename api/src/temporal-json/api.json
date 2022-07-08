@@ -91,7 +91,7 @@
         "designer": "Tinker Hatfield",
         "details": "Black/Cement Grey-Summit White-Fire Red",
         "gender": [
-          "youth"
+          "men"
         ],
         "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/020/806/444/original/507844_00.png.png",
         "has_picture": true,
@@ -128,7 +128,7 @@
         "sku": "408452 060",
         "slug": "air-jordan-4-retro-og-gs-bred-408452-060",
         "status": "active",
-        "story_html": null,
+        "story_html": "",
         "upper_material": ""
       },
       {
@@ -410,7 +410,7 @@
         "sku": "CD0461 007",
         "slug": "wmns-air-jordan-1-retro-high-og-panda-cd0461-007",
         "status": "active",
-        "story_html": null,
+        "story_html": "",
         "upper_material": ""
       },
       {
@@ -442,9 +442,9 @@
         "nickname": "Multicolor Swoosh Black",
         "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/012/910/690/original/554724_065.png.png",
         "product_template_id": 397517,
-        "release_date": null,
-        "release_date_unix": null,
-        "release_year": null,
+        "release_date": "",
+        "release_date_unix": "",
+        "release_year": "",
         "retail_price_cents": 11000,
         "shoe_condition": "new_with_defects",
         "silhouette": "Air Jordan 1",
@@ -483,7 +483,7 @@
         "sku": "554724 065",
         "slug": "air-jordan-1-mid-554724-065",
         "status": "active",
-        "story_html": null,
+        "story_html": "",
         "upper_material": ""
       },
       {
@@ -713,7 +713,7 @@
         "slug": "wmns-air-jordan-12-retro-reptile-ao6068-007",
         "status": "active",
         "story_html": "<p>The Wmns Air Jordan 12 Retro &#39;Reptile&#39; sneaker draws details from the 1996 classic and elevates them with luxe style additions. This April 2019-released, women&#39;s-exclusive shoe features the AJ12’s original stitching, inspired by the Rising Sun Flag of Japan. Its black leather upper is laden with exotic reptile-inspired texture and embellished with gold accents. This edition is completed with classic Zoom cushioning and sections of herringbone tread.</p>\n",
-        "upper_material": null
+        "upper_material": ""
       },
       {
         "box_condition": "no_original_box",
@@ -931,8 +931,8 @@
         "sku": "CI1899 400",
         "slug": "trophy-room-x-air-jordan-5-retro-ice-blue-tr-jsp-5-ice",
         "status": "active",
-        "story_html": null,
-        "upper_material": null
+        "story_html": "",
+        "upper_material": ""
       },
       {
         "box_condition": "good_condition",
@@ -1250,7 +1250,7 @@
         "slug": "patta-x-air-jordan-7-retro-og-sp-shimmer-patta-aj7-shm",
         "status": "active",
         "story_html": "<p>Amsterdam-based boutique and streetwear brand, Patta joins forces with Jordan Brand to lend their signature aesthetic to the Patta x Air Jordan 7 Retro OG SP &#39;Shimmer&#39; sneaker. Part of a limited-edition capsule collection released in May 2019, this rendition sports an earth-toned color palette of Shimmer, Mahogany Mink, Velvet Brown and Tough Red hues on a premium leather and suede upper. Unique perforation patterns and an offset Jumpman logo accent the underlay, while signature Patta script dresses the triple-tone midsole. A durable rubber outsole equipped with Air technology reinforces the design, which is inspired by Michael Jordan&#39;s run with the Dream Team at the 1992 Summer Games in Barcelona.</p>\n",
-        "upper_material": null
+        "upper_material": ""
       },
       {
         "box_condition": "badly_damaged",
@@ -1535,8 +1535,8 @@
         "sku": "CD6578 507",
         "slug": "air-jordan-1-high-og-defiant-cd6578-507",
         "status": "active",
-        "story_html": null,
-        "upper_material": null
+        "story_html": "",
+        "upper_material": ""
       },
       {
         "box_condition": "good_condition",
@@ -1885,7 +1885,7 @@
         "release_date": "2019-05-25T07:00:00.000Z",
         "release_date_unix": 1558767600,
         "release_year": 2019,
-        "retail_price_cents": null,
+        "retail_price_cents": 16000,
         "shoe_condition": "new_no_defects",
         "silhouette": "Air Jordan 1",
         "size_range": [
@@ -1924,7 +1924,7 @@
         "slug": "air-jordan-1-retro-high-sb-light-bone-cd6578-006",
         "status": "active",
         "story_html": "<p>The Air Jordan SB 1 Retro High is representative of the decades-old influence that the iconic shoe has had on skate culture. Revealed in May 2019, this &#39;Light Bone&#39; update is formed by a classic leather upper treated with a wear-away finish concealing an alternate tint. Custom branding resurfaces via the lateral Swooshes, Jumpman tongue label and Wings logo. The encapsulated Air unit and concentric circle outsole are mainstays on this classic silhouette.</p>\n",
-        "upper_material": null
+        "upper_material": ""
       },
       {
         "box_condition": "good_condition",
@@ -2066,8 +2066,8 @@
         "sku": "CQ3587 119",
         "slug": "sneaker-politics-x-air-jordan-1-low-block-party-sp-aj1-low-bp",
         "status": "active",
-        "story_html": null,
-        "upper_material": null
+        "story_html": "",
+        "upper_material": ""
       },
       {
         "box_condition": "no_original_box",
@@ -2381,9 +2381,9 @@
         "nickname": "Black",
         "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/015/567/335/original/CM100018M.png.png",
         "product_template_id": 468155,
-        "release_date": null,
-        "release_date_unix": null,
-        "release_year": null,
+        "release_date": "",
+        "release_date_unix": "",
+        "release_year": "",
         "retail_price_cents": 10000,
         "shoe_condition": "new_no_defects",
         "silhouette": "Rally Pro",
@@ -2586,9 +2586,9 @@
         "nickname": "Black",
         "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/009/249/006/original/259509_00.png.png",
         "product_template_id": 259509,
-        "release_date": null,
-        "release_date_unix": null,
-        "release_year": null,
+        "release_date": "",
+        "release_date_unix": "",
+        "release_year": "",
         "retail_price_cents": 21000,
         "shoe_condition": "used",
         "silhouette": "Gucci Slide",
@@ -2695,8 +2695,8 @@
         "sku": "AO2918 006",
         "slug": "friends-x-kyrie-5-ao2918-006",
         "status": "active",
-        "story_html": null,
-        "upper_material": null
+        "story_html": "",
+        "upper_material": ""
       },
       {
         "box_condition": "no_original_box",
@@ -2766,7 +2766,7 @@
         "slug": "air-max-97-neon-seoul-am-97-seoul",
         "status": "active",
         "story_html": "<p>In celebration of Air Max Day, Nike hosted the Nike: On Air contest in 2018, giving residents the chance to create their own Air Max designs inspired by their hometowns. After working alongside Nike developers, winner Gwang Shin debuted his Nike Air Max 97 &#39;Neon Seoul&#39; sneaker in April 2019. Paying tribute to his city, Seoul, Shin draws influences from the famed neon signs in South Korea’s capital, decorating the leather upper with vivid-colored piping.</p>\n",
-        "upper_material": null
+        "upper_material": ""
       },
       {
         "box_condition": "good_condition",
@@ -3108,7 +3108,7 @@
           "underRetail"
         ],
         "main_picture_url": "https://image.goat.com/750/attachments/product_template_pictures/images/021/545/501/original/507173_00.png.png",
-        "midsole": null,
+        "midsole": "",
         "name": "Blazer Mid '77 Vintage 'City Pride Chicago'",
         "nickname": "City Pride Chicago",
         "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/021/545/501/original/507173_00.png.png",
@@ -3154,8 +3154,8 @@
         "sku": "CD9318 100",
         "slug": "blazer-mid-77-vintage-cream-navy-cd9318-100",
         "status": "active",
-        "story_html": null,
-        "upper_material": null
+        "story_html": "",
+        "upper_material": ""
       },
       {
         "box_condition": "good_condition",
@@ -3296,7 +3296,7 @@
         "sku": "AJ7747 800",
         "slug": "air-force-1-07-lv8-team-orange-aj7747-800",
         "status": "active",
-        "story_html": null,
+        "story_html": "",
         "upper_material": ""
       },
       {
@@ -3695,7 +3695,7 @@
         "sku": "CI5545 100",
         "slug": "air-force-1-low-earth-day-ci5545-100",
         "status": "active",
-        "story_html": null,
+        "story_html": "",
         "upper_material": ""
       },
       {
@@ -3766,7 +3766,7 @@
         "sku": " BQ9044 100",
         "slug": "air-force-1-low-gs-have-a-nike-day-white-af1-gs-hand-wht",
         "status": "active",
-        "story_html": null,
+        "story_html": "",
         "upper_material": ""
       },
       {
@@ -3793,9 +3793,9 @@
         "nickname": "University Blue",
         "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/018/898/008/original/482531_00.png.png",
         "product_template_id": 482531,
-        "release_date": null,
-        "release_date_unix": null,
-        "release_year": null,
+        "release_date": "",
+        "release_date_unix": "",
+        "release_year": "",
         "retail_price_cents": 9000,
         "shoe_condition": "used",
         "silhouette": "Air Force 1",
@@ -3834,8 +3834,8 @@
         "sku": "AO2423 100",
         "slug": "air-force-1-07-low-university-blue-ao2423-100",
         "status": "active",
-        "story_html": null,
-        "upper_material": null
+        "story_html": "",
+        "upper_material": ""
       },
       {
         "box_condition": "no_original_box",
@@ -3873,9 +3873,9 @@
         "nickname": "White",
         "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/010/222/352/original/240_00.png.png",
         "product_template_id": 240,
-        "release_date": null,
-        "release_date_unix": null,
-        "release_year": null,
+        "release_date": "",
+        "release_date_unix": "",
+        "release_year": "",
         "retail_price_cents": 9000,
         "shoe_condition": "used",
         "silhouette": "Air Force 1",
@@ -3986,7 +3986,7 @@
         "sku": "921826 404",
         "slug": "air-max-97-game-royal-921826-404",
         "status": "active",
-        "story_html": null,
+        "story_html": "",
         "upper_material": ""
       },
       {
@@ -4422,9 +4422,9 @@
         "nickname": "Yacht Club",
         "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
         "product_template_id": 335725,
-        "release_date": null,
-        "release_date_unix": null,
-        "release_year": null,
+        "release_date": "",
+        "release_date_unix": "",
+        "release_year": "",
         "retail_price_cents": 6000,
         "shoe_condition": "used",
         "silhouette": "Old Skool",
@@ -4564,9 +4564,9 @@
         "nickname": "Vanta",
         "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/021/147/972/original/504187_00.png.png",
         "product_template_id": 504187,
-        "release_date": null,
-        "release_date_unix": null,
-        "release_year": null,
+        "release_date": "",
+        "release_date_unix": "",
+        "release_year": "",
         "retail_price_cents": 30000,
         "shoe_condition": "new_no_defects",
         "silhouette": "Yeezy Boost 700",
@@ -4605,7 +4605,7 @@
         "sku": "FU6684",
         "slug": "yeezy-boost-700-v2-vanta-yzy-700-v2-vanta",
         "status": "active",
-        "story_html": null,
+        "story_html": "",
         "upper_material": ""
       },
       {
@@ -4752,8 +4752,8 @@
         "sku": "EF7387",
         "slug": "pharrell-x-billionaire-boys-club-x-nmd-human-race-trail-blue-plaid-ef7387",
         "status": "active",
-        "story_html": null,
-        "upper_material": null
+        "story_html": "",
+        "upper_material": ""
       },
       {
         "box_condition": "good_condition",
@@ -5781,9 +5781,9 @@
         "nickname": "Speckle Pack - White",
         "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/020/249/956/original/EF3326.png.png",
         "product_template_id": 504982,
-        "release_date": null,
-        "release_date_unix": null,
-        "release_year": null,
+        "release_date": "",
+        "release_date_unix": "",
+        "release_year": "",
         "retail_price_cents": 13000,
         "shoe_condition": "new_no_defects",
         "silhouette": "NMD Runner",
@@ -5822,8 +5822,8 @@
         "sku": "EF3326",
         "slug": "nmd_r1-speckle-pack-white-ef3326",
         "status": "active",
-        "story_html": null,
-        "upper_material": null
+        "story_html": "",
+        "upper_material": ""
       },
       {
         "box_condition": "good_condition",
@@ -6012,9 +6012,9 @@
         "nickname": "Blizzard",
         "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/011/292/904/original/298048_00.png.png",
         "product_template_id": 298048,
-        "release_date": null,
-        "release_date_unix": null,
-        "release_year": null,
+        "release_date": "",
+        "release_date_unix": "",
+        "release_year": "",
         "retail_price_cents": 13000,
         "shoe_condition": "used",
         "silhouette": "NMD Runner",

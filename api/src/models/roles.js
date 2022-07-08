@@ -7,10 +7,11 @@ const Roles = (sequelize) => {
             allowNull: false,
             unique: true
         }
-    }, {
-        createdAt: false,
-        updatedAt: false
-    })
+    },  {
+            createdAt: false,
+            updatedAt: false
+        }
+    )
 
     return model
 } 
