@@ -3,7 +3,7 @@ import React from 'react';
 export default function Footer() {
   return (
     <div>
-<div className="container my-5 bg-secondary" >
+<div className="container my-6 bg-secondary" >
 
 <footer style={{"background-color":"#deded5;"}}>
 <div className="container p-4">
@@ -18,16 +18,16 @@ export default function Footer() {
       <h5 className="mb-3 text-light" style={{"letter-spacing":"2px", "color":"#818963;"}}>links</h5>
       <ul className="list-unstyled mb-0">
         <li className="mb-1">
-          <a href="#!" style={{"color": "#4f4f4f;"}}>Preguntas frecuentes</a>
+          <a href="#!" className='text-dark'>Preguntas frecuentes</a>
         </li>
         <li className="mb-1">
-          <a href="#!" style={{"color":" #4f4f4f;"}}>Metodos de pagos</a>
+          <a href="#!" className='text-dark'>Metodos de pagos</a>
         </li>
         <li className="mb-1">
-          <a href="#!" style={{"color": "#4f4f4f;"}}>Terminos y condiciones</a>
+          <a href="#!" className='text-dark'>Terminos y condiciones</a>
         </li>
         <li>
-          <a href="#!" style={{"color":"#4f4f4f;"}}>Nuestros locales</a>
+          <a href="#!" className='text-dark'>Nuestros locales</a>
         </li>
       </ul>
     </div>
@@ -48,15 +48,10 @@ export default function Footer() {
     </div>
   </div>
 </div>
-<div className="text-center p-3 text-light" style={{"background-color": "rgba(0, 0, 0, 0.2);"}}>
-  © 2020 Copyright:
-  <a className="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-</div>
-{/* <!-- Copyright --> */}
+
 </footer>
 
 </div>
-{/* <!-- End of .container --> */}
     </div>
   )
 }
