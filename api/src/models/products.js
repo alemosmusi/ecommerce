@@ -7,10 +7,7 @@ const Products = (sequelize)=>{
       allowNull: false
     },
     description: {
-      type: DataTypes.TEXT,
-      set(value) {
-        this.setDataValue(value.replace('/(<([^>]+)>)/ig', ''))
-      }
+      type: DataTypes.TEXT
     },
     price: {
       type: DataTypes.INTEGER,
@@ -67,12 +64,12 @@ const Products = (sequelize)=>{
     const response = require('../temporal-json/api.json')
 
     response.sneakers.forEach(async (value) => {
-      const { brand_name, category, color, designer, details, gender, original_picture_url: img, release_year: released, retail_price_cents: price, shoe_condition, size_range, story_html: description, upper_material: material } = value
+      const { brand_name, category, color, designer, details, gender, original_picture_url: img, release_year: released, retail_price_cents, shoe_condition, size_range, story_html, upper_material: material } = value
 
-      const product = await model.findOrCreate({
+      const product = await model.create({
         brand_name,
-        description,
-        price,
+        description: story_html ? story_html.replace('/(<([^>]+)>)/ig', '') : '',
+        price: retail_price_cents ? retail_price_cents : 0,
         img,
         stock: 1,
         color,
