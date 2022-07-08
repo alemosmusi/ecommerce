@@ -1,4 +1,4 @@
-import Card from "../card/Card";
+import Card from "../cardProduct/CardProduct";
 
 export default function Cards({ shoes }) {
   return (
