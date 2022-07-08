@@ -58,8 +58,34 @@ const getDetailsProduct = async (req, res) => {
     }
 }
 
+const deleteShoes = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const deleteShoes = await modelProducts.findAll({
+            where: {
+                id: id
+            }
+        })
+        if (deleteShoes) {
+            modelProducts.destroy({
+                where: {
+                    id: id
+                }
+            })
+            return res.status(200).send({msg: 'Removed  shoe successfully'})
+        } else {
+            return res.status(500).send({msg: 'Error internal server', error})
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     getShoes,
     createShoes,
-    getDetailsProduct
+    getDetailsProduct,
+    deleteShoes
 }

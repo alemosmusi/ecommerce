@@ -1,43 +1,43 @@
-const { modelCategories } = require('../db.js')
+const { modelColors } = require('../db')
 
-const getCategories = async (req, res) => {
+const getColors = async (req, res) => {
     try {
-        const response = await modelCategories.findAll({raw: true})
+        const response = await modelColors.findAll({raw: true})
         res.status(200).json(response)
     } catch (error) {
         res.status(500).send({msg: 'Error internal server!'})
     }
 }
 
-const createCategory = async (req, res) => {
+const createColor = async (req, res) => {
     const { name } = req.body
 
     try {
-        const category = await modelCategories.create({
+        const colors = await modelColors.create({
             name
         })
 
-        res.status(200).send({msg: 'Category created successfully!'})
+        res.status(200).send({msg: 'Color created successfully!'})
     } catch (error) {
         res.status(500).send({msg: 'Error internal server!'})
     }
 }
-const deleteCategory = async (req, res) => {
+const deleteColor = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const deleteCategory = await modelCategories.findAll({
+        const deleteColor = await modelColors.findAll({
             where: {
                 id: id
             }
         })
-        if (deleteCategory) {
-            modelCategories.destroy({
+        if (deleteColor) {
+            modelColors.destroy({
                 where: {
                     id: id
                 }
             })
-            return res.status(200).send({msg: 'Removed category successfully!'})
+            return res.status(200).send({msg: 'Removed  color successfully'})
         } else {
             return res.status(500).send({msg: 'Error internal server', error})
         }
@@ -48,7 +48,7 @@ const deleteCategory = async (req, res) => {
 }
 
 module.exports = {
-    getCategories,
-    createCategory,
-    deleteCategory
+    getColors,
+    createColor,
+    deleteColor
 }
