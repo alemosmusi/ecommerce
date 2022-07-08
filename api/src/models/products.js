@@ -1,30 +1,36 @@
-const Axios = require('axios')
-const fs = require('fs')
-
 const { DataTypes } = require('sequelize');
 
 const Products = (sequelize)=>{
   const model = sequelize.define('products', {
     brand_name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     description: {
-      type: DataTypes.TEXT 
+      type: DataTypes.TEXT,
+      set(value) {
+        this.setDataValue(value.replace('/(<([^>]+)>)/ig', ''))
+      }
     },
     price: {
       type: DataTypes.INTEGER,
+      allowNull: false
     },
     img: {
       type: DataTypes.STRING,
+      allowNull: false
     },
     stock: {
       type: DataTypes.INTEGER,
+      allowNull: false
     },
     color: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     size_range: {
-      type: DataTypes.ARRAY(DataTypes.STRING)
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false
     },
     material: {
       type: DataTypes.STRING
@@ -33,19 +39,23 @@ const Products = (sequelize)=>{
       type: DataTypes.STRING
     },
     gender: {
-      type: DataTypes.ARRAY(DataTypes.STRING)
+      type: DataTypes.STRING,
+      allowNull: false
     },
     designer: {
       type: DataTypes.STRING
     },
     details : {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     shoe_condition: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     rating: {
       type: DataTypes.INTEGER,
+      allowNull: false
     }
   },
   {
@@ -61,19 +71,18 @@ const Products = (sequelize)=>{
 
       const product = await model.create({
         brand_name,
-        category,
+        description,
+        price,
+        img,
+        stock: 1,
         color,
+        size_range,
+        material,
+        released,
+        gender: gender.join(''),
         designer,
         details,
-        gender,
-        img,
-        released,
-        price,
         shoe_condition,
-        size_range,
-        description,
-        material,
-        stock: 1,
         rating: Math.floor(Math.random()*5)
       })
 
