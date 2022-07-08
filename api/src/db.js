@@ -1,7 +1,12 @@
 require('dotenv').config()
 const { Sequelize } = require('sequelize')
 
-const Template  = require('./models/templates.js')
+const Categories = require('./models/categories.js')
+const Genders = require('./models/genders.js')
+const Ordens = require('./models/ordens.js')
+const Products = require('./models/products.js')
+const Roles = require('./models/roles.js')
+const Users = require('./models/users.js')
 
 const { DB_USER, DB_PASS, DB_HOST } = process.env
 
@@ -11,9 +16,19 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:543
   }
 );
 
-const modelTemplate = Template(sequelize)
+const modelCategories = Categories(sequelize)
+const modelGenders = Genders(sequelize)
+const modelOrdens = Ordens(sequelize)
+const modelProducts = Products(sequelize)
+const modelRoles = Roles(sequelize)
+const modelUsers = Users(sequelize)
 
 module.exports = {
   sequelize,
-  modelTemplate
+  modelCategories,
+  modelGenders,
+  modelOrdens,
+  modelProducts,
+  modelRoles,
+  modelUsers
 }

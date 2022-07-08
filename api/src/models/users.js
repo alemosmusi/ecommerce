@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize')
 const Users = (sequelize) => {
     const model = sequelize.define('users', {
         dni: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             unique: true
         },
@@ -29,7 +29,7 @@ const Users = (sequelize) => {
             allowNull: false
         },
         telephone: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         adress: {
@@ -40,7 +40,11 @@ const Users = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         }
-    })
+    }, {
+            createdAt: false,
+            updatedAt: false
+        }
+    )
 
     return model
 }
