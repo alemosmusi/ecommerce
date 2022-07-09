@@ -26,7 +26,7 @@ export default function FiltersContainer() {
   const [filters, setFilters] = useState({
     colors: [],
     brands: [],
-    prices: {min:0, max:3000},
+    prices: {min:0, max:10000},
     genders: [],
 
   })
@@ -103,6 +103,7 @@ export default function FiltersContainer() {
 //  Submit
   function handleSubmitGenders(){
     dispatch(getFilterGenders(filters.genders))
+    
   }
 
   function handleSubmitColors(){
