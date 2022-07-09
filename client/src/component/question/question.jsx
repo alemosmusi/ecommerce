@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllShoes, getAllCategories } from "../../redux/Actions/actions";
-import { Wrapper } from "../wrapper/wrapper";
-import Footer from "../footer/footer.jsx";
-import Cards from "../cards/Cards";
-// import Loading from "../loading/loading";
+import { getQuestions } from "../../redux/Actions/actions";
+
 
 export function Questions() {
+
+    const questions = useSelector((state) => state.Questions);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllShoes());
-    dispatch(getAllCategories());
-  }, [dispatch]);
-  const shoes = useSelector((state) => state.Shoes);
+    dispatch(getQuestions());
+  }, []);
+
   return (
-    <div className="home">
-      <Wrapper></Wrapper>
+    <div className="questions">
+        {
+            questions && questions.length>0 ? questions.map((q)=><div className="col-lg-12 col-md-12 mb-4"><h1>{q.question}</h1><p>{q.answers}</p></div>):""
+        }
       
     </div>
   );

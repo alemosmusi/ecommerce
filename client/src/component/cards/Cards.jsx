@@ -32,6 +32,7 @@ export default function Cards({ shoes }) {
                 shoe_condition={s.shoe_condition}
                 rating={s.rating}
                 categories={s.categories}
+                id={s.id}
               />
             </div>
           ))}
