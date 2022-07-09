@@ -96,15 +96,15 @@ export default function FiltersContainer() {
   }
 
   function handleSubmitColors(){
-    dispatch(getFilterColors(filters.genders))
+    dispatch(getFilterColors(filters.colors))
   }
 
   function handleSubmitPrices(){
-    dispatch(getFilterColors(filters.genders))
+    
   }
 
   function handleSubmitBrands(){
-    dispatch(getFilterBrands(filters.genders))
+    dispatch(getFilterBrands(filters.brands))
   }
   
   
