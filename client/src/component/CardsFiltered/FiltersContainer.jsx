@@ -9,7 +9,7 @@ export default function FiltersContainer() {
         dispatch(getAllColors())
     },[dispatch])
 
-    const colors = useSelector((state) => state.Colors)
+    const Colors = useSelector((state) => state.Colors)
 
     
     const [filters, setFilters] = useState({
@@ -24,7 +24,7 @@ export default function FiltersContainer() {
      
           setFilters({
             ...filters,
-            colors: colors.includes(e.target.value)? colors.filters(value=>value!== e.target.value):colors.push(e.target.value)
+            colors: filters.colors.includes(e.target.value)? filters.colors.filters(value=>value!== e.target.value):filters.push(e.target.value)
         })
        console.log(filters)
     }
@@ -47,10 +47,9 @@ export default function FiltersContainer() {
       <div className="col w-90 p-2" style={{ width: "200px" }}>
         Filtro de Colores
         <div>
-           
             <div>
                 {
-                    colors.map((e) =>(
+                    Colors.map((e) =>(
                         <div>
                             <input key= {e.name} identy='colors' type="checkbox" name={e.name} value={e.name} onClick={(e) => handleInputColorsClick(e)} />
                             <label>{e.name}</label>
