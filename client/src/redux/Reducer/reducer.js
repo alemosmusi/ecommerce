@@ -43,66 +43,81 @@ const rootReducer = (state = initialState, action) => {
         Genders: action.payload,
       };
     case actionTypes.GET_FILTERS_BRANDS:
-      const arrayBrands = state.Shoes.filter((value) => {
-        if (Array.isArray(action.payload)) {
-          return action.payload.include(value.brand_name) && value;
-        } else {
-          if (action.payload === "All") return value;
+      let arrayBrands;
 
-          return (
-            value.brand_name.toLowerCase() === action.payload.toLowerCase() &&
-            value
-          );
-        }
-      });
+      if (!action.payload.length) {
+        arrayBrands = state.Shoes 
+      } else {
+        arrayBrands = state.Filters.filter(product => {
+            if (typeof action.payload === "string") return product.brand_name === action.payload
+            if (Array.isArray(action.payload)) return action.payload.includes(product.brand_name)
+        });
+      }
 
       return {
         ...state,
         Filters: arrayBrands,
       };
     case actionTypes.GET_FILTERS_CATEGORY:
-      const arrayCategorys = state.Shoes.filter((value) => {
-        return value.category.toLowerCase() === action.payload.toLowerCase();
-      });
+      let arrayCategorys;
+
+      if (!action.payload.length) {
+        arrayCategorys = state.Shoes
+      } else {
+        arrayCategorys = state.Filters.filter(product => {
+          if (typeof action.payload === "string") return product.category === action.payload
+          if (Array.isArray(action.payload)) return action.payload.includes(product.category)
+        })
+      }
 
       return {
         ...state,
         Filters: arrayCategorys,
       };
     case actionTypes.GET_FILTERS_COLORS:
-      const arrayColors = state.Shoes.filter((value) => {
-        if (Array.isArray(action.payload)) {
-          return action.payload.include(value.color);
-        } else {
-          return value.color === action.payload;
-        }
-      });
+      let arrayColors;
+
+      if (!action.payload.length) {
+        arrayColors = state.Shoes
+      } else {
+        arrayColors = state.Filters.filter(product => {
+          if (!action.payload.length) return product
+          if (typeof action.payload === "string") return product.category === action.payload
+          if (Array.isArray(action.payload)) return action.payload.includes(product.color)
+        })
+      }
 
       return {
         ...state,
         Filters: arrayColors,
       };
-    case actionTypes.GET_FILTERS_GENDERS:
-      const arrayGenders = state.Shoes.filter((value) => {
-        if (Array.isArray(action.payload)) {
-          return action.payload.include(value.genders.join(" "));
-        } else {
-          return value.color === action.payload;
-        }
-      });
+    case actionTypes.GET_FILTERS_GENDERS: 
+      let arrayGenders;
+
+      if (!action.payload.length) {
+        arrayGenders = state.Shoes
+      } else {
+        arrayGenders = state.Shoes.filter((product) => {
+          if (typeof action.payload === "string") return product.genders.includes(action.payload)
+          if (Array.isArray(action.payload)) {
+            const find = product.genders.find(value => action.payload.includes(value))
+            return find && product
+          }
+        });
+      }
 
       return {
         ...state,
-
         Filters: arrayGenders,
       };
 
     case actionTypes.GET_FILTERS_PRICE_RANGE:
       const { min, max } = action.payload;
 
-      const arraySizeRange = state.Shoes.filter((value) => {
-        return value.price >= min && value.price <= max && value;
-      });
+      const arraySizeRange = state.Filters.filter((product) => {
+        return product.price >= min && product.price <= max && product;
+      })
+
       return {
         ...state,
         Filters: arraySizeRange,
