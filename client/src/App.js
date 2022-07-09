@@ -6,7 +6,8 @@ import ProductDetail from "./component/productDetail/productDetail";
 import Footer from "./component/footer/footer";
 import { Questions } from "./component/question/question";
 import GeneralContainer from "./component/CardsFiltered/GeneralContainer";
-import "./App.css";
+import './App.css';
+
 
 function App() {
   return (
