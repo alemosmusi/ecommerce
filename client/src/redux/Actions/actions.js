@@ -12,6 +12,10 @@ export const GET_FILTERS_COLORS = "GET_FILTERS_COLORS"
 export const GET_FILTERS_GENDERS = "GET_FILTERS_GENDERS"
 export const GET_FILTERS_SIZE_RANGE = "GET_FILTERS_SIZE_RANGE"
 
+export const GET_QUESTIONS = "GET_QUESTIONS"
+export const DELETE_QUESTIONS = "DELETE_QUESTIONS"
+export const CREATE_QUESTION = "CREATE_QUESTION"
+
 const URL = "http://localhost:3001"
 
 export const getAllShoes = () => {
@@ -124,4 +128,54 @@ export const getFilterGenders = (payload) => {
       payload
     })
   }
+}
+
+
+
+export const getQuestions = () => {
+  return async function (dispatch) {
+    try {
+      let info = await axios(`${URL}/questions`);
+      return dispatch({
+        type: GET_QUESTIONS,
+        payload: info.data,
+      });
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+};
+
+export function deleteQuestions(id){
+  
+  return function(dispatch){
+      
+      return axios.delete(`${URL}/questions/${id}`)
+      .then((response) => {
+          dispatch({
+              type: DELETE_QUESTIONS,
+              payload: response.data
+          })
+      })
+  }
+
+}
+
+
+export function createQuestion(question){
+
+  
+  return function(dispatch){
+      return axios.post(`${URL}/questions`, question)
+      .then((response) => {
+          dispatch({
+              type: CREATE_QUESTION,
+              payload: response.data
+          })
+      })
+  }
+
+
+     
+
 }
