@@ -16,8 +16,8 @@ export function Home() {
   return (
     <div className="home">
       <Wrapper></Wrapper>
-      {/* <Footer /> */}
       <Cards shoes={shoes} />
+      
     </div>
   );
 }

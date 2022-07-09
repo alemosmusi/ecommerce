@@ -4,6 +4,7 @@ const { getShoes, createShoes, getDetailsProduct, deleteShoes } = require('../co
 const { getCategories, createCategory, deleteCategory } = require('../controllers/categories.js')
 const { getGenders, createGenders, deleteGender } = require('../controllers/genders.js')
 const { getColors, createColor, deleteColor } = require('../controllers/colors.js')
+const { getQuestions, createQuestions, deleteQuestions } = require('../controllers/quetions.js')
 
 const routes = Router() 
 
@@ -27,5 +28,10 @@ routes.delete('/colors/:id', deleteColor)
 
 
 routes.get('/getDetailsProduct/:id', getDetailsProduct)
+
+routes.get('/questions', getQuestions)
+routes.post('/questions', createQuestions)
+routes.delete('/questions/:id', deleteQuestions)
+
 
 module.exports = routes
