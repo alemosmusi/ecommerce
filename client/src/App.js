@@ -5,7 +5,7 @@ import Navbar from './component/navbar/navbar.jsx'
 import ProductDetail from './component/productDetail/productDetail';
 import Footer from "./component/footer/footer";
 import { Questions } from "./component/question/question";
-import GeneralContainer from "./component/cardsFiltered/GeneralContainer";
+import GeneralContainer from "./component/CardsFiltered/GeneralContainer";
 import './App.css';
 
 function App() {
