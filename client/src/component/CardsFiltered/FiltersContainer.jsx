@@ -25,10 +25,12 @@ export default function FiltersContainer() {
   const [filters, setFilters] = useState({
     colors: [],
     brands: [],
-    prices: [],
+    prices: {min:0, max:3000},
     genders: [],
+
   })
   
+  // Input
   function handleInputGendersClick (event) {
     let array;
 
@@ -43,11 +45,7 @@ export default function FiltersContainer() {
       genders: array
     }) 
   }
-  function handleSubmitGenders(){
-    dispatch(getFilterGenders(filters.genders))
-  }
   
-
   function handleInputBrandsClick (event) {
     let array;
 
@@ -63,7 +61,20 @@ export default function FiltersContainer() {
     }) 
   }
 
+  function handleInputGendersPrices (event) {
+    let array;
 
+    if (filters.genders.includes(event.target.value)) {
+      array = filters.genders.filter(value => value !== event.target.value)
+    } else {
+      array = filters.genders
+      array.push(event.target.value)
+    }
+    setFilters({
+      ...filters,
+      genders: array
+    }) 
+  }
 
   function handleInputColorsClick (event) {
     let array;
@@ -78,6 +89,22 @@ export default function FiltersContainer() {
       ...filters,
       colors: array
     })
+  }
+//  Submit
+  function handleSubmitGenders(){
+    dispatch(getFilterGenders(filters.genders))
+  }
+
+  function handleSubmitColors(){
+    dispatch(getFilterColors(filters.genders))
+  }
+
+  function handleSubmitPrices(){
+    dispatch(getFilterColors(filters.genders))
+  }
+
+  function handleSubmitBrands(){
+    dispatch(getFilterBrands(filters.genders))
   }
   
   
@@ -105,17 +132,17 @@ export default function FiltersContainer() {
               </div>
             ))
           }
-          <button type="submit">Aplicar </button>
+          <button onClick={handleSubmitBrands}>Aplicar </button>
       </div>
       
       <div className="col w-90 p-2" style={{ width: "200px" }}>Filtro de Precio</div>
       <div className='modal-content'>
+           
+            <input type="range" min="0" max="3000" step="1" onChange={handleInputGendersPrices}/>
             <label>Min</label>
-            <input type="" value=""/>
-            
             <label>Max</label>
-            <input type="" value=""/>
-            <button type="submit" >Aplicar</button>
+          
+            <button onClick={handleSubmitPrices} >Aplicar</button>
       </div>
             
       
@@ -129,7 +156,7 @@ export default function FiltersContainer() {
               </div>
             ))
           }
-          <button type="submit">Aplicar </button>
+          <button onClick={handleSubmitColors}>Aplicar </button>
         </div>
       
         </div>
