@@ -14,13 +14,13 @@ const Colors = (sequelize) => {
     )
 
     const preStart = async () => {
-        const response = require('../temporal-json/api.json')
+        const json = require('../temporal-json/colors.json')
 
-        response.sneakers.forEach(async (value) => {
-            await model.findOrCreate({
-                where: {
-                    name: value.color
-                }
+        json.forEach(async (value) => {
+            const { name } = value
+            
+            await model.create({
+                name
             })
         })
     }

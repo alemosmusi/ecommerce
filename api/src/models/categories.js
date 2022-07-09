@@ -14,11 +14,13 @@ const Categories = (sequelize) => {
     )
 
     const preStart = async () => {
-        const response = require('../temporal-json/categories.json')
+        const json = require('../temporal-json/categories.json')
 
-        response.forEach(async (value) => {
+        json.forEach(async (value) => {
+            const { name } = value
+
             await model.create({
-                name: value.name
+                name
             })
         })
     }

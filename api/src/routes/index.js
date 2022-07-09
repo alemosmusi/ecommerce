@@ -11,30 +11,28 @@ const routes = Router()
 
 routes.get('/shoes', getShoes)
 routes.post('/shoes', createShoes)
-routes.delete('/deleteshoes/:id', deleteShoes)
+routes.delete('/shoes/:id', deleteShoes)
 
 routes.get('/brands', getBrands)
 routes.post('/brands', createBrands)
-routes.delete('/brands', deleteBrands)
+routes.delete('/brands/:name', deleteBrands)
 
 routes.get('/categories', getCategories)
 routes.post('/categories', createCategory)
-routes.delete('/deletecategory/:id', deleteCategory)
+routes.delete('/categories/:name', deleteCategory)
 
 routes.get('/genders', getGenders)
 routes.post('/genders', createGenders)
-routes.delete('/deletegender/:id', deleteGender)
+routes.delete('/genders/:name', deleteGender)
 
 routes.get('/colors', getColors)
 routes.post('/colors', createColor)
-routes.delete('/colors/:id', deleteColor)
-
-
-routes.get('/getDetailsProduct/:id', getDetailsProduct)
+routes.delete('/colors/:name', deleteColor)
 
 routes.get('/questions', getQuestions)
 routes.post('/questions', createQuestions)
 routes.delete('/questions/:id', deleteQuestions)
 
+routes.get('/getDetailsProduct/:id', getDetailsProduct)
 
 module.exports = routes

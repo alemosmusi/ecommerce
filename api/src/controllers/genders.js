@@ -24,27 +24,18 @@ const createGenders = async (req, res) => {
 }
 
 const deleteGender = async (req, res) => {
-    const { id } = req.params;
+    const { name } = req.params;
 
     try {
-        const deleteGender = await modelGenders.findAll({
+        const gender = await modelGenders.destroy({
             where: {
-                id: id
+                name
             }
         })
-        if (deleteGender) {
-            modelGenders.destroy({
-                where: {
-                    id: id
-                }
-            })
-            return res.status(200).send({msg: 'Removed gender successfully'})
-        } else {
-            return res.status(500).send({msg: 'Error internal server', error})
-        }
-
+        
+        res.status(200).send({msg: 'Gender removed successfully'})
     } catch (error) {
-        console.log(error)
+        res.status(500).send({msg: 'Error internal server', error})
     }
 }
 

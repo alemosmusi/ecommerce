@@ -23,27 +23,18 @@ const createColor = async (req, res) => {
     }
 }
 const deleteColor = async (req, res) => {
-    const { id } = req.params;
+    const { name } = req.params;
 
     try {
-        const deleteColor = await modelColors.findAll({
+        const color = await modelColors.destroy({
             where: {
-                id: id
+                name
             }
         })
-        if (deleteColor) {
-            modelColors.destroy({
-                where: {
-                    id: id
-                }
-            })
-            return res.status(200).send({msg: 'Removed  color successfully'})
-        } else {
-            return res.status(500).send({msg: 'Error internal server', error})
-        }
-
+        
+        res.status(200).send({msg: 'Removed  color successfully'})
     } catch (error) {
-        console.log(error)
+        res.status(500).send({msg: 'Error internal server', error})
     }
 }
 
