@@ -10,7 +10,7 @@ const getShoes = async (req, res) => {
 }
 
 const createShoes = (req, res) => {
-    const { name, brand_name, description, price, img, color, size_range, material, released, gender, designer, details, shoe_condition, rating, categories} = req.body
+    const { name, brand_name, description, price, img, color, size_range, material, released, genders, designer, details, shoe_condition, rating, category} = req.body
 
     try {
         const product = modelProducts.create({
@@ -24,12 +24,12 @@ const createShoes = (req, res) => {
             size_range,
             material,
             released,
-            gender,
+            genders,
             designer,
             details,
             shoe_condition,
             rating,
-            categories
+            category
         })
 
         res.status(200).send({msg: 'Shoes created successfully!'})
