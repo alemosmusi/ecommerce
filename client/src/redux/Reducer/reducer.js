@@ -1,5 +1,7 @@
 import * as actionTypes from "../Actions/actions";
 
+var q = 1;
+
 const initialState = {
   Shoes: [],
   Filters: [],
@@ -7,6 +9,9 @@ const initialState = {
   Brands: [],
   Colors: [],
   Genders: [],
+  Questions: [],
+  Qdelete: [],
+  ShoesDetails: {},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -88,8 +93,10 @@ const rootReducer = (state = initialState, action) => {
 
       return {
         ...state,
+
         Filters: arrayGenders,
       };
+
     case actionTypes.GET_FILTERS_PRICE_RANGE:
       const { min, max } = action.payload;
 
@@ -110,9 +117,37 @@ const rootReducer = (state = initialState, action) => {
         Filters: arraySearch,
       };
 
+    case actionTypes.GET_QUESTIONS:
+      return {
+        ...state,
+        Questions: action.payload,
+      };
+
+    case actionTypes.DELETE_QUESTIONS:
+      return {
+        ...state,
+        Qdelete: q++,
+      };
+    case actionTypes.CREATE_QUESTION:
+      return {
+        ...state,
+        Qdelete: q++,
+      };
+    case actionTypes.GET_SHOES_DETAILS:
+      return {
+        ...state,
+        ShoesDetails: action.payload,
+      };
+    case actionTypes.CLEAN_DETAIL:
+      return {
+        ...state,
+        ShoesDetails: {},
+      };
+
     default:
       return state;
   }
 };
 
 export default rootReducer;
+
