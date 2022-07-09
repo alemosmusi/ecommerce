@@ -6,11 +6,8 @@ import ProductDetail from "./component/productDetail/productDetail";
 import Footer from "./component/footer/footer";
 import { Questions } from "./component/question/question";
 import GeneralContainer from "./component/CardsFiltered/GeneralContainer";
-<<<<<<< HEAD
 import './App.css';
-=======
-import "./App.css";
->>>>>>> 615ec1c2cab49938b54e7b17f532f17eb40cb8b6
+
 
 function App() {
   return (
