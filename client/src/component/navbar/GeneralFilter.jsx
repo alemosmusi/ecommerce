@@ -14,6 +14,13 @@ export default function GeneralFilter({ categories, dispatch, funtionFilter }) {
         <hr className="dropdown-divider" />
       </li>
 
+      <div
+      className="dropdown-item"
+      id='All'
+      onClick={(e) => handleClick(e)}>
+        All
+      </div>
+
       {categories &&
         categories?.map((category) => (
           <li key={category.id}>
