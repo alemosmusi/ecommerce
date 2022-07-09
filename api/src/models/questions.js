@@ -9,8 +9,7 @@ const Questions = (sequelize)=>{
       answers: {
         type: DataTypes.TEXT,
         allowNull: false
-      },
-      
+      }
     },
     {
       createdAt: false,
@@ -19,9 +18,9 @@ const Questions = (sequelize)=>{
   )
 
   const preStart = async () => {
-    const response = require('../temporal-json/questions.json')
+    const json = require('../temporal-json/questions.json')
 
-    response.sneakers.forEach(async (value) => {
+    json.forEach(async (value) => {
       const { question, answers} = value
 
       await model.create({
