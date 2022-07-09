@@ -40,7 +40,7 @@ const Products = (sequelize)=>{
       released: {
         type: DataTypes.STRING
       },
-      gender: {
+      genders: {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
       },
@@ -59,8 +59,8 @@ const Products = (sequelize)=>{
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      categories: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+      category: {
+        type: DataTypes.STRING,
         allowNull: false
       }
     },
@@ -74,7 +74,7 @@ const Products = (sequelize)=>{
     const response = require('../temporal-json/api.json')
 
     response.sneakers.forEach(async (value) => {
-      const { name, brand_name, story_html: description, retail_price_cents: price, original_picture_url: img, color, size_range, material, release_year: released, gender, designer, details, shoe_condition, rating, category: categories} = value
+      const { name, brand_name, story_html: description, retail_price_cents: price, original_picture_url: img, color, size_range, material, release_year: released, gender: genders, designer, details, shoe_condition, category} = value
 
       await model.create({
         name,
@@ -87,12 +87,12 @@ const Products = (sequelize)=>{
         size_range,
         material,
         released,
-        gender,
+        genders,
         designer,
         details,
         shoe_condition,
         rating: Math.floor(Math.random()*5),
-        categories
+        category: category.join('')
       })
     })
   }
