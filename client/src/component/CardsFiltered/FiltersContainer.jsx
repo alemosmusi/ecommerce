@@ -6,7 +6,8 @@ import {
    getAllGenders, 
    getFilterGenders, 
    getAllBrands, 
-   getFilterBrands 
+   getFilterBrands,
+   getFiltersPriceRange, 
   } from "../../redux/Actions/actions";
 
 export default function FiltersContainer() {
@@ -109,7 +110,7 @@ export default function FiltersContainer() {
   }
 
   function handleSubmitPrices(){
-    
+    dispatch(getFiltersPriceRange(filters.prices))
   }
 
   function handleSubmitBrands(){
