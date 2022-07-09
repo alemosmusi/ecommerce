@@ -5,7 +5,8 @@ import { Home } from "./component/home/home";
 import Navbar from "./component/navbar/navbar.jsx";
 import Footer from "./component/footer/footer";
 import { Questions } from "./component/question/question";
-import GeneralContainer from "./component/cardsFiltered/GeneralContainer";
+import GeneralContainer from "./component/CardsFiltered/GeneralContainer";
+
 function App() {
   return (
     <div className="App">
