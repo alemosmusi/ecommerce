@@ -43,6 +43,10 @@ export default function FiltersContainer() {
       genders: array
     }) 
   }
+  function handleSubmitGenders(){
+    dispatch(getFilterGenders(filters.genders))
+  }
+  
 
   function handleInputBrandsClick (event) {
     let array;
@@ -59,6 +63,8 @@ export default function FiltersContainer() {
     }) 
   }
 
+
+
   function handleInputColorsClick (event) {
     let array;
 
@@ -74,11 +80,7 @@ export default function FiltersContainer() {
     })
   }
   
-  function handleSubmitGenders (event) {
-    event.preventDefault()
-    dispatch(getFilterGenders(genders))
-
-  }
+  
   return ( 
     <div className="d-flex align-items-start flex-column" style={{ height: "200px" }}>
       <div className='modal-content'>
@@ -91,7 +93,7 @@ export default function FiltersContainer() {
               </div>
             ))
           }
-          <button type="submit" onClick={handleSubmitGenders}>Aplicar </button>
+          <button  onClick={handleSubmitGenders}>Aplicar </button>
       </div>
       <div  className='modal-content' >
         <div className="col w-90 p-2" style={{ width: "200px" }}>Filtro de Marca</div>
@@ -108,7 +110,17 @@ export default function FiltersContainer() {
       
       <div className="col w-90 p-2" style={{ width: "200px" }}>Filtro de Precio</div>
       <div className='modal-content'>
+            <label>Min</label>
+            <input type="" value=""/>
+            
+            <label>Max</label>
+            <input type="" value=""/>
+            <button type="submit" >Aplicar</button>
+      </div>
+            
+      
         <div className="col w-90 p-2" style={{ width: "200px" }}>Filtro de Colores<div>
+        <div >
           {
             colors.map(e => (
               <div>
@@ -118,7 +130,7 @@ export default function FiltersContainer() {
             ))
           }
           <button type="submit">Aplicar </button>
-      </div>
+        </div>
       
         </div>
       </div> 
