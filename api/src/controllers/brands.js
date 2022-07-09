@@ -1,11 +1,11 @@
-const modelBrands = require('../db.js')
+const { modelBrands } = require('../db.js')
 
 const getBrands = async (req, res) => {
     try {
         const response = await modelBrands.findAll({raw: true})
         res.status(200).json(response)
     } catch (error) {
-        res.status(500).send({msg: 'Error internal server'})
+        res.status(500).send({msg: 'Error internal server', error})
     }
 }
 
@@ -19,7 +19,7 @@ const createBrands = async (req, res) => {
 
         res.status(200).send({msg: 'Brand create successfully'})
     } catch (error) {
-        res.status(500).send({msg: 'Error internal server'})
+        res.status(500).send({msg: 'Error internal server', error})
     }
 }
 
