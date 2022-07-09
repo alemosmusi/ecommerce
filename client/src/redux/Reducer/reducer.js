@@ -40,7 +40,7 @@ const rootReducer = (state = initialState, action) => {
     case actionTypes.GET_FILTERS_BRANDS:
       if (!action.payload || action.payload.length) return
 
-      const Filters = Shoes.filter(value => {
+      const arrayBrands = state.Shoes.filter(value => {
         if (Array.isArray(action.payload)) {
           return action.payload.include(value.brand_name)
         } else {
@@ -50,7 +50,42 @@ const rootReducer = (state = initialState, action) => {
 
       return {
         ...state,
-        Filters
+        Filters: arrayBrands
+      }
+    case actionTypes.GET_FILTERS_CATEGORY: 
+      const arrayCategorys = state.Shoes.filter(value => {
+        return value.category === action.payload
+      })
+
+      return {
+        ...state,
+        Filters: arrayCategorys
+      }
+    case actionTypes.GET_FILTERS_COLORS: 
+      const arrayColors = state.Shoes.filter(value => {
+        if (Array.isArray(action.payload)) {
+          return action.payload.include(value.color)
+        } else {
+          return value.color === action.payload
+        }
+      })
+
+      return {
+        ...state,
+        Filters: arrayColors
+      }
+    case actionTypes.GET_FILTERS_GENDERS: 
+      const arrayGenders = state.Shoes.filter(value => {
+        if (Array.isArray(action.payload)) {
+          return action.payload.include(value.genders.join(' '))
+        } else {
+          return value.color === action.payload
+        }
+      })
+
+      return {
+        ...state,
+        Filters: arrayGenders
       }
     default : 
       return state
