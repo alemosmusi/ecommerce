@@ -82,7 +82,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         Filters: arrayColors,
       };
-    case actionTypes.GET_FILTERS_GENDERS:
+    case actionTypes.GET_FILTERS_GENDERS: 
       const arrayGenders = state.Shoes.filter((value) => {
         if (!action.payload.length) return value
         if (typeof action.payload === "string") value.genders.includes(action.payload)
