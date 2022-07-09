@@ -85,7 +85,16 @@ const rootReducer = (state = initialState, action) => {
     case actionTypes.GET_FILTERS_GENDERS:
       const arrayGenders = state.Shoes.filter((value) => {
         if (!action.payload.length) return value
-        if (typeof action.payload === "string") 
+        if (typeof action.payload === "string") value.genders.includes(action.payload)
+        if (Array.isArray(action.payload)) {
+          const find = value.genders.find(v => {
+            for (let va of action.payload) {
+              if (va.toLowerCase() === v.toLowerCase()) return v
+            }
+          })
+
+          return find !== undefined && value
+        }
       });
 
       return {
