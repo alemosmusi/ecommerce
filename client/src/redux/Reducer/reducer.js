@@ -1,12 +1,16 @@
 import * as actionTypes from "../Actions/actions";
 
+var q = 1
+
 const initialState = {
   Shoes : [],
   Filters : [],
   Categories : [],
   Brands : [],
   Colors : [],
-  Genders: []
+  Genders: [],
+  Questions: [],
+  Qdelete: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -87,6 +91,32 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         Filters: arrayGenders
       }
+
+    
+    case actionTypes.GET_QUESTIONS:
+        return  {
+          ...state,
+          Questions: action.payload,
+        }
+    
+    case actionTypes.DELETE_QUESTIONS:
+            
+          return {
+              ...state,
+              Qdelete: q++
+          
+          }
+    case actionTypes.CREATE_QUESTION:
+
+            return{
+                ...state,
+                Qdelete: q++
+                
+
+            }
+
+
+
     case actionTypes.GET_FILTERS_PRICE_RANGE:
       const { min, max } = action.payload
 
@@ -98,6 +128,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         Filters: arraySizeRange
       }
+
     default : 
       return state
   } 
