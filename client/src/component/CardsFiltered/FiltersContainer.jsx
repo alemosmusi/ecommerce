@@ -62,18 +62,27 @@ export default function FiltersContainer() {
   }
 
   function handleInputGendersPrices (event) {
-    let array;
-
-    if (filters.genders.includes(event.target.value)) {
-      array = filters.genders.filter(value => value !== event.target.value)
-    } else {
-      array = filters.genders
-      array.push(event.target.value)
+    let confi;
+    if(event.target.id === 'filterPrice_min'){
+      confi={
+        ...filters.prices,
+        min: event.target.value
+      }
     }
+    if(event.target.id === 'filterPrice_max'){
+      confi={
+        ...filters.prices,
+        max: event.target.value
+      }
+    }
+
     setFilters({
       ...filters,
-      genders: array
-    }) 
+         prices: confi 
+    })
+
+  
+    
   }
 
   function handleInputColorsClick (event) {
@@ -137,11 +146,12 @@ export default function FiltersContainer() {
       
       <div className="col w-90 p-2" style={{ width: "200px" }}>Filtro de Precio</div>
       <div className='modal-content'>
-           
-            <input type="range" min="0" max="3000" step="1" onChange={handleInputGendersPrices}/>
+
             <label>Min</label>
+            <input id="filterPrice_min" type="numbers" min="0" max="100000" value={filters.prices.min} onChange={handleInputGendersPrices}/>
             <label>Max</label>
-          
+            <input id="filterPrice_max" type="numbers" min="0" max="100000" value={filters.prices.max} onChange={handleInputGendersPrices}/>
+            
             <button onClick={handleSubmitPrices} >Aplicar</button>
       </div>
             
