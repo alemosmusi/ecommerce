@@ -87,6 +87,17 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         Filters: arrayGenders
       }
+    case actionTypes.GET_FILTERS_PRICE_RANGE:
+      const { min, max } = action.payload
+
+      const arraySizeRange = state.Shoes.filter(value => {
+        return value.price >= min && value.price <= max && value
+      })
+
+      return {
+        ...state,
+        Filters: arraySizeRange
+      }
     default : 
       return state
   } 
