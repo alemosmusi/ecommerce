@@ -1,8 +1,15 @@
+import { useState } from "react";
 import Card from "../cardProduct/CardProduct";
-
+const style = {
+  padding: "0 5% 0 5%",
+};
 export default function Cards({ shoes }) {
+  shoes = shoes.slice(0, 4);
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={style}>
+      <div className="row m-2">
+        <h1>OUR PRODUCTS</h1>
+      </div>
       <div className="row">
         {shoes &&
           shoes?.map((s) => (

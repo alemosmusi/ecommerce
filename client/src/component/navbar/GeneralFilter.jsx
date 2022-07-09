@@ -1,9 +1,4 @@
-export default function GeneralFilter({
-  name,
-  categories,
-  dispatch,
-  funtionFilter,
-}) {
+export default function GeneralFilter({ categories, funtionFilter }) {
   function handleClick(e) {
     funtionFilter(e.target.id);
   }
