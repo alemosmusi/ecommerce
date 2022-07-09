@@ -8,6 +8,7 @@ const Products = require('./models/products.js')
 const Roles = require('./models/roles.js')
 const Users = require('./models/users.js')
 const Colors = require('./models/colors.js')
+const Questions = require('./models/questions.js')
 
 const { DB_USER, DB_PASS, DB_HOST } = process.env
 
@@ -24,6 +25,7 @@ const modelProducts = Products(sequelize)
 const modelRoles = Roles(sequelize)
 const modelUsers = Users(sequelize)
 const modelColors = Colors(sequelize)
+const modelQuestions = Questions(sequelize)
 
 module.exports = {
   sequelize,
@@ -33,5 +35,6 @@ module.exports = {
   modelProducts,
   modelRoles,
   modelUsers,
-  modelColors
+  modelColors,
+  modelQuestions
 }

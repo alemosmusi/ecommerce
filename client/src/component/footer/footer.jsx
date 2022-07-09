@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -18,7 +19,7 @@ export default function Footer() {
       <h5 className="mb-3 text-light" style={{"letter-spacing":"2px", "color":"#818963;"}}>links</h5>
       <ul className="list-unstyled mb-0">
         <li className="mb-1">
-          <a href="#!" className='text-dark'>Preguntas frecuentes</a>
+          <Link to='/questions' className='text-dark'>Preguntas frecuentes</Link>
         </li>
         <li className="mb-1">
           <a href="#!" className='text-dark'>Metodos de pagos</a>
