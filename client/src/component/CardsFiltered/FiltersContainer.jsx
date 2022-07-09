@@ -18,10 +18,19 @@ export default function FiltersContainer() {
     genders: [],
   })
 
-  function handleInputColorsClick (e) {
+  function handleInputColorsClick (event) {
+    let array;
+
+    if (filters.colors.includes(event.target.value)) {
+      array = filters.colors.filter(value => value !== event.target.value)
+    } else {
+      array = filters.colors
+      array.push(event.target.value)
+    }
+
     setFilters({
       ...filters,
-      colors: filters.colors.includes(e.target.value) ? filters.colors.filters(value=>value !== e.target.value) : filters.colors.push(e.target.value)
+      colors: array
     })
   }
 
@@ -35,7 +44,7 @@ export default function FiltersContainer() {
           {
             colors.map(e => (
               <div>
-                  <input key= {e.name} identy='colors' type="checkbox" name={e.name} value={e.name} onClick={(e) => handleInputColorsClick(e)} />
+                  <input key= {e.name} type="checkbox" name={e.name} value={e.name} onClick={handleInputColorsClick} />
                   <label>{e.name}</label>
               </div>
             ))
