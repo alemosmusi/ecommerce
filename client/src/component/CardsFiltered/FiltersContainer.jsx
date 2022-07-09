@@ -25,7 +25,7 @@ export default function FiltersContainer() {
     })
   }
 
-  return (
+  return ( 
     <div className="d-flex align-items-start flex-column" style={{ height: "200px" }}>
       <div className="col w-90 p-2" style={{ width: "200px" }}>Filtro de Generos</div>
       <div className="col w-90 p-2" style={{ width: "200px" }}>Filtro de Marca</div>
