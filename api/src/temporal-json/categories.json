@@ -1,30 +1,22 @@
 [
-    {
-      "id": 1,
-      "name": "Air Jordan"
-    },
-    {
-      "id": 2,
-      "name": "Gucci"
-    },
-    {
-      "id": 3,
-      "name": "Champion"
-    },
-    {
-      "id": 4,
-      "name": "Converse"
-    },
-    {
-      "id": 5,
-      "name": "Nike"
-    },
-    {
-      "id": 6,
-      "name": "Vans"
-    },
-    {
-      "id": 7,
-      "name": "Adidas"
-    }
+  {
+    "id": 1,
+    "name": "Basketball"
+  },
+  {
+    "id": 2,
+    "name": "Lifestyle"
+  },
+  {
+    "id": 3,
+    "name": "Other"
+  },
+  {
+    "id": 4,
+    "name": "Running"
+  },
+  {
+    "id": 5,
+    "name": "Skateboarding"
+  }
 ]
