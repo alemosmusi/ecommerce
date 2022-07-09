@@ -14,7 +14,7 @@ const Roles = (sequelize) => {
     )
 
     const preStart = () => {
-        const json = require('../temporal-json/roles.js')
+        const json = require('../temporal-json/roles.json')
 
         json.forEach(async (value) => {
             const { name } = value
