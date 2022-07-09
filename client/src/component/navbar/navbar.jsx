@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,6 +11,7 @@ import {
   getFilterBrands,
 } from "../../redux/Actions/actions";
 import GeneralFilter from "./GeneralFilter";
+import SearchBar from "./SearchBar";
 export default function Navbar() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -23,20 +25,19 @@ export default function Navbar() {
   }, [dispatch]);
   const categories = useSelector((state) => state.Categories);
   const brands = useSelector((state) => state.Brands);
-
-  const history = useNavigate();
+  const [nameSearch, setNameSearch] = useState("");
+  const navigate = useNavigate();
   const filterCategory = (e) => {
-    console.log(e, "cat");
-    history("/filters");
+    navigate("/filters");
     dispatch(getFilterCategories(e));
   };
   const filterBrand = (e) => {
-    console.log(e, "br");
-    history("/filters");
+    navigate("/filters");
     dispatch(getFilterBrands(e));
   };
+
   return (
-    <div>
+    <div style={{ height: "80px" }}>
       <div className="collapse" id="navbarToggleExternalContent">
         <div className="bg-dark p-4">
           <h5 className="text-white h4">Collapsed content</h5>
@@ -90,7 +91,6 @@ export default function Navbar() {
                 <GeneralFilter
                   categories={categories}
                   funtionFilter={filterCategory}
-                  dispatch={dispatch}
                 />
               </li>
               <li className="nav-item dropdown">
@@ -107,25 +107,16 @@ export default function Navbar() {
                 <GeneralFilter
                   categories={brands}
                   funtionFilter={filterBrand}
-                  dispatch={dispatch}
                 />
               </li>
             </ul>
 
-            <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button
-                className="btn btn-outline-success bg-dark "
-                type="submit"
-              >
-                Search
-              </button>
-            </form>
+            <SearchBar
+              dispatch={dispatch}
+              name={nameSearch}
+              setName={setNameSearch}
+              navigate={navigate}
+            />
           </div>
         </div>
       </nav>

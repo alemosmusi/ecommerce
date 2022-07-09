@@ -1,23 +1,29 @@
 import axios from "axios";
 export const GET_ALL_SHOES = "GET_ALL_SHOES";
-export const GET_ALL_BRANDS = "GET_ALL_BRANDS"
+export const GET_ALL_BRANDS = "GET_ALL_BRANDS";
 export const GET_ALL_CATEGORIES = "GET_ALL_CATEGORIES";
 export const GET_SHOES_DETAILS = "GET_SHOES_DETAILS";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const GET_ALL_COLORS = "GET_ALL_COLORS";
 export const GET_ALL_GENDERS = "GET_ALL_GENDERS";
 
-export const GET_FILTERS_BRANDS = "GET_FILTERS_BRANDS"
-export const GET_FILTERS_CATEGORY = "GET_FILTERS_CATEGORY"
-export const GET_FILTERS_COLORS = "GET_FILTERS_COLORS"
-export const GET_FILTERS_GENDERS = "GET_FILTERS_GENDERS"
-export const GET_FILTERS_PRICE_RANGE = "GET_FILTERS_PRICE_RANGE"
+export const GET_FILTERS_BRANDS = "GET_FILTERS_BRANDS";
+export const GET_FILTERS_CATEGORY = "GET_FILTERS_CATEGORY";
+export const GET_FILTERS_COLORS = "GET_FILTERS_COLORS";
+export const GET_FILTERS_GENDERS = "GET_FILTERS_GENDERS";
+export const GET_FILTERS_PRICE_RANGE = "GET_FILTERS_PRICE_RANGE";
+
+
+export const GET_FILTERS_SEARCHBAR = "GET_FILTERS_SEARCHBAR";
+
+
 
 export const GET_QUESTIONS = "GET_QUESTIONS"
 export const DELETE_QUESTIONS = "DELETE_QUESTIONS"
 export const CREATE_QUESTION = "CREATE_QUESTION"
 
 const URL = "http://localhost:3001"
+
 
 
 export const getAllShoes = () => {
@@ -38,17 +44,17 @@ export const getAllBrands = () => {
   return async function (dispatch) {
     try {
       const response = await axios(`${URL}/brands`);
-      const { data: payload } = response
+      const { data: payload } = response;
 
       return dispatch({
         type: GET_ALL_BRANDS,
-        payload
-      })
+        payload,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-}
+  };
+};
 
 export const getAllCategories = () => {
   return async function (dispatch) {
@@ -61,76 +67,76 @@ export const getAllCategories = () => {
     } catch (error) {
       console.log(error.response);
     }
-  }
+  };
 };
 
 export const getAllColors = () => {
   return async function (dispatch) {
     try {
       const response = await axios(`${URL}/colors`);
-      const { data: payload } = response
+      const { data: payload } = response;
 
       return dispatch({
         type: GET_ALL_COLORS,
-        payload
-      })
+        payload,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-}
+  };
+};
 
 export const getAllGenders = () => {
   return async function (dispatch) {
     try {
       const response = await axios(`${URL}/genders`);
-      const { data: payload } = response
+      const { data: payload } = response;
 
       return dispatch({
         type: GET_ALL_GENDERS,
-        payload
-      })
+        payload,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-}
+  };
+};
 
 export const getFilterBrands = (payload) => {
-  return async function (dispatch) {
+  return function (dispatch) {
     return dispatch({
       type: GET_FILTERS_BRANDS,
-      payload
-    })
-  }
-}
+      payload,
+    });
+  };
+};
 
 export const getFilterCategories = (payload) => {
-  return async function (dispatch) {
+  return function (dispatch) {
     return dispatch({
       type: GET_FILTERS_CATEGORY,
-      payload
-    })
-  }
-}
+      payload,
+    });
+  };
+};
 
 export const getFilterColors = (payload) => {
-  return async function (dispatch) {
+  return function (dispatch) {
     return dispatch({
       type: GET_FILTERS_COLORS,
-      payload
-    })
-  }
-}
+      payload,
+    });
+  };
+};
 
 export const getFilterGenders = (payload) => {
-  return async function (dispatch) {
+  return function (dispatch) {
     return dispatch({
       type: GET_FILTERS_GENDERS,
-      payload
-    })
-  }
-}
+      payload,
+    });
+  };
+};
 
 
 
@@ -202,11 +208,19 @@ export function createQuestion(question){
 }
 
 export const getFiltersPriceRange = (payload) => {
-  return async function (dispatch) {
+  return function (dispatch) {
     return dispatch({
       type: GET_FILTERS_PRICE_RANGE,
-      payload
-    })
-  }
-}
+      payload,
+    });
+  };
+};
 
+export const getFiltersSearchbar = (payload) => {
+  return function (dispatch) {
+    return dispatch({
+      type: GET_FILTERS_SEARCHBAR,
+      payload,
+    });
+  };
+};

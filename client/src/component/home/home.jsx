@@ -4,6 +4,7 @@ import { getAllShoes, getAllCategories } from "../../redux/Actions/actions";
 import { Wrapper } from "../wrapper/wrapper";
 import Footer from "../footer/footer.jsx";
 import Cards from "../cards/Cards";
+import Carousel from "../carousel/Carousel";
 // import Loading from "../loading/loading";
 
 export function Home() {
@@ -14,10 +15,10 @@ export function Home() {
   }, [dispatch]);
   const shoes = useSelector((state) => state.Shoes);
   return (
-    <div className="home">
-      <Wrapper></Wrapper>
+    <div className="home p-1">
       <Cards shoes={shoes} />
-      
+      {/* <Carousel shoes={shoes} /> */}
+      <Wrapper></Wrapper>
     </div>
   );
 }

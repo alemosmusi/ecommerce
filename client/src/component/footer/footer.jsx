@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
     <div>
-<div className="container my-6 bg-secondary" >
+      {/* <div className="container my-6 bg-secondary" >
 
 <footer style={{"background-color":"#deded5;"}}>
 <div className="container p-4">
@@ -52,7 +52,7 @@ export default function Footer() {
 
 </footer>
 
-</div>
+</div> */}
     </div>
-  )
+  );
 }
