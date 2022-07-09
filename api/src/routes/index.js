@@ -1,6 +1,7 @@
 const { Router } = require('express')
 
 const { getShoes, createShoes, getDetailsProduct, deleteShoes } = require('../controllers/shoes.js')
+const { getBrands, createBrands, deleteBrands } = require('../controllers/brands.js')
 const { getCategories, createCategory, deleteCategory } = require('../controllers/categories.js')
 const { getGenders, createGenders, deleteGender } = require('../controllers/genders.js')
 const { getColors, createColor, deleteColor } = require('../controllers/colors.js')
@@ -12,11 +13,13 @@ routes.get('/shoes', getShoes)
 routes.post('/shoes', createShoes)
 routes.delete('/deleteshoes/:id', deleteShoes)
 
+routes.get('/brands', getBrands)
+routes.post('/brands', createBrands)
+routes.delete('/brands', deleteBrands)
 
 routes.get('/categories', getCategories)
 routes.post('/categories', createCategory)
 routes.delete('/deletecategory/:id', deleteCategory)
-
 
 routes.get('/genders', getGenders)
 routes.post('/genders', createGenders)
