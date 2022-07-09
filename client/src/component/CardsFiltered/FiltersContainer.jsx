@@ -74,8 +74,10 @@ export default function FiltersContainer() {
     })
   }
   
-  function handleSubmitGenders () {
+  function handleSubmitGenders (event) {
+    event.preventDefault()
     dispatch(getFilterGenders(genders))
+
   }
   return ( 
     <div className="d-flex align-items-start flex-column" style={{ height: "200px" }}>
