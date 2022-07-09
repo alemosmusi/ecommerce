@@ -45,7 +45,7 @@ export default function Card({
         {/* <div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3"> */}
         <div className="col hp">
           <div className="card h-100 shadow-sm">
-            <Link to="/detail">
+            <Link to={`/getDetailsProduct/`+id}>
               <img src={img} className="card-img-top" alt="product.title" />
             </Link>
 
@@ -59,7 +59,7 @@ export default function Card({
 
                 <span className="float-end">
                   <Link
-                    to="/detail"
+                    to={`/getDetailsProduct/`+id}
                     className="small text-muted text-uppercase aff-link"
                   >
                     See Details

@@ -1,7 +1,10 @@
 import axios from "axios";
-import { URL_ALL_CATEGORIES, URL_ALL_SHOES } from "../URL/URL";
+import { URL_ALL_CATEGORIES, URL_ALL_SHOES , URL_SHOESDETAILS } from "../URL/URL";
 export const GET_ALL_SHOES = "GET_ALL_SHOES";
 export const GET_ALL_CATEGORIES = "GET_ALL_CATEGORIES";
+export const GET_SHOES_DETAILS = "GET_SHOES_DETAILS";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
+
 
 export const getAllShoes = () => {
   return async function (dispatch) {
@@ -35,3 +38,23 @@ export const getAllCategories = () => {
     }
   };
 };
+
+export const getAllDetails = (id) => {
+  return async function (dispatch) {
+    try {
+      let categories = await axios(URL_SHOESDETAILS + id);
+      return dispatch({
+        type: GET_SHOES_DETAILS,
+        payload: categories.data,
+      });
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+};
+export function CleanStateDetail(payload){
+  return{
+    type:CLEAN_DETAIL,
+    payload
+  }
+}
