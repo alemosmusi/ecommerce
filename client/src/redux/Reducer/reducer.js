@@ -38,8 +38,14 @@ const rootReducer = (state = initialState, action) => {
         Genders: action.payload
       }
     case actionTypes.GET_FILTERS_BRANDS:
-      const Filters = Filters.filter(value => {
-        return value.brand_name === action.payload
+      if (!action.payload || action.payload.length) return
+
+      const Filters = Shoes.filter(value => {
+        if (Array.isArray(action.payload)) {
+          return action.payload.include(value.brand_name)
+        } else {
+          return value.brand_name === action.payload
+        }
       })
 
       return {
