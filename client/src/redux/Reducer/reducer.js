@@ -54,7 +54,7 @@ const rootReducer = (state = initialState, action) => {
       }
     case actionTypes.GET_FILTERS_CATEGORY: 
       const arrayCategorys = state.Shoes.filter(value => {
-        return value.category === action.payload
+        return value.category.toLowerCase() === action.payload.toLowerCase()
       })
 
       return {
