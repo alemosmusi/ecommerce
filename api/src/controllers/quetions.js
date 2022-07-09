@@ -26,28 +26,18 @@ const createQuestions = (req, res) => {
 
 
 const deleteQuestions = async (req, res) => {
-    const { id } = req.params;
-    console.log(id)
+    const { id } = req.params
 
     try {
-        const deleteQuestions = await modelQuestions.findAll({
+        const question = await modelQuestions.destroy({
             where: {
-                id: id
+                id
             }
         })
-        if (deleteQuestions) {
-            modelQuestions.destroy({
-                where: {
-                    id: id
-                }
-            })
-            return res.status(200).send({msg: 'Removed  question successfully'})
-        } else {
-            return res.status(500).send({msg: 'Error internal server', error})
-        }
-
+        
+        res.status(200).send({msg: 'Removed  question successfully'})
     } catch (error) {
-        console.log(error)
+        res.status(500).send({msg: 'Error internal server', error})
     }
 }
 

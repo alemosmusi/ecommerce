@@ -48,10 +48,6 @@ const getDetailsProduct = async (req, res) => {
             }
         }, {raw: true})
 
-        if (!response) {
-            return res.status(204).send({msg: 'No results!'})
-        }
-
         res.status(200).json(response)
     } catch (error) {
         res.status(500).send({msg: 'Error internal server', error})
@@ -62,24 +58,14 @@ const deleteShoes = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const deleteShoes = await modelProducts.findAll({
+        const product = await modelProducts.destroy({
             where: {
-                id: id
+                id
             }
         })
-        if (deleteShoes) {
-            modelProducts.destroy({
-                where: {
-                    id: id
-                }
-            })
-            return res.status(200).send({msg: 'Removed  shoe successfully'})
-        } else {
-            return res.status(500).send({msg: 'Error internal server', error})
-        }
-
+        res.status(200).send({msg: 'Removed  shoe successfully'})
     } catch (error) {
-        console.log(error)
+        res.status(500).send({msg: 'Error internal server', error})
     }
 }
 

@@ -71,9 +71,9 @@ const Products = (sequelize)=>{
   )
 
   const preStart = async () => {
-    const response = require('../temporal-json/api.json')
+    const json = require('../temporal-json/api.json')
 
-    response.sneakers.forEach(async (value) => {
+    json.sneakers.forEach(async (value) => {
       const { name, brand_name, story_html: description, retail_price_cents: price, original_picture_url: img, color, size_range, material, release_year: released, gender: genders, designer, details, shoe_condition, category} = value
 
       await model.create({

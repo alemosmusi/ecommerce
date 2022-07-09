@@ -23,7 +23,21 @@ const createBrands = async (req, res) => {
     }
 }
 
-const deleteBrands = () => {}
+const deleteBrands = async (req, res) => {
+    const { name } = req.params
+
+    try {
+        const brand = await modelBrands.destroy({
+            where: {
+                name
+            }
+        })
+
+        res.status(200).send({msg: "Brand delete successfully"})
+    } catch (error) {
+        res.status(500).send({msg: 'Error internal server', error})
+    }
+}
 
 module.exports = {
     getBrands,

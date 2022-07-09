@@ -1,8 +1,7 @@
 const { DataTypes } = require("sequelize");
 
 const Brands = (sequelize) => {
-  const model = sequelize.define(
-    "brands",
+  const model = sequelize.define("brands",
     {
       name: {
         type: DataTypes.STRING,
@@ -17,13 +16,13 @@ const Brands = (sequelize) => {
   );
 
   const preStart = () => {
-    const response = require("../temporal-json/brands.json");
+    const json = require("../temporal-json/brands.json");
 
-    response.forEach(async (value) => {
-      await model.findOrCreate({
-        where: {
-          name: value.name,
-        },
+    json.forEach(async (value) => {
+      const { name } = value
+
+      await model.create({
+        name
       });
     });
   };
