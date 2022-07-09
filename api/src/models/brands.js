@@ -14,13 +14,11 @@ const Brands = (sequelize) => {
     )
 
     const preStart = () => {
-        const response = require('../temporal-json/api.json')
+        const response = require('../temporal-json/brands.json')
 
-        response.sneakers.forEach(async (value) => {
-            await model.findOrCreate({
-                where: {
-                    name: value.brand_name
-                }
+        response.forEach(async (value) => {
+            await model.create({
+                name: value.name
             })
         })
     }
