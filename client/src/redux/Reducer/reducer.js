@@ -38,13 +38,13 @@ const rootReducer = (state = initialState, action) => {
         Genders: action.payload
       }
     case actionTypes.GET_FILTERS_BRANDS:
-      if (!action.payload || action.payload.length) return
-
       const arrayBrands = state.Shoes.filter(value => {
         if (Array.isArray(action.payload)) {
-          return action.payload.include(value.brand_name)
+          return action.payload.include(value.brand_name) && value
         } else {
-          return value.brand_name === action.payload
+          if (action.payload === 'All') return value
+          
+          return value.brand_name.toLowerCase() === action.payload.toLowerCase() && value
         }
       })
 
@@ -86,6 +86,17 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Filters: arrayGenders
+      }
+    case actionTypes.GET_FILTERS_PRICE_RANGE:
+      const { min, max } = action.payload
+
+      const arraySizeRange = state.Shoes.filter(value => {
+        return value.price >= min && value.price <= max && value
+      })
+
+      return {
+        ...state,
+        Filters: arraySizeRange
       }
     default : 
       return state

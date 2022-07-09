@@ -10,7 +10,7 @@ export const GET_FILTERS_BRANDS = "GET_FILTERS_BRANDS"
 export const GET_FILTERS_CATEGORY = "GET_FILTERS_CATEGORY"
 export const GET_FILTERS_COLORS = "GET_FILTERS_COLORS"
 export const GET_FILTERS_GENDERS = "GET_FILTERS_GENDERS"
-export const GET_FILTERS_SIZE_RANGE = "GET_FILTERS_SIZE_RANGE"
+export const GET_FILTERS_PRICE_RANGE = "GET_FILTERS_PRICE_RANGE"
 
 const URL = "http://localhost:3001"
 
@@ -125,3 +125,13 @@ export const getFilterGenders = (payload) => {
     })
   }
 }
+
+export const getFiltersPriceRange = (payload) => {
+  return async function (dispatch) {
+    return dispatch({
+      type: GET_FILTERS_PRICE_RANGE,
+      payload
+    })
+  }
+}
+
