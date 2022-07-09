@@ -13,18 +13,13 @@ export const GET_FILTERS_COLORS = "GET_FILTERS_COLORS";
 export const GET_FILTERS_GENDERS = "GET_FILTERS_GENDERS";
 export const GET_FILTERS_PRICE_RANGE = "GET_FILTERS_PRICE_RANGE";
 
-
 export const GET_FILTERS_SEARCHBAR = "GET_FILTERS_SEARCHBAR";
 
+export const GET_QUESTIONS = "GET_QUESTIONS";
+export const DELETE_QUESTIONS = "DELETE_QUESTIONS";
+export const CREATE_QUESTION = "CREATE_QUESTION";
 
-
-export const GET_QUESTIONS = "GET_QUESTIONS"
-export const DELETE_QUESTIONS = "DELETE_QUESTIONS"
-export const CREATE_QUESTION = "CREATE_QUESTION"
-
-const URL = "http://localhost:3001"
-
-
+const URL = "http://localhost:3001";
 
 export const getAllShoes = () => {
   return async function (dispatch) {
@@ -138,9 +133,6 @@ export const getFilterGenders = (payload) => {
   };
 };
 
-
-
-
 export const getQuestions = () => {
   return async function (dispatch) {
     try {
@@ -157,7 +149,7 @@ export const getQuestions = () => {
 export const getAllDetails = (id) => {
   return async function (dispatch) {
     try {
-      let categories = await axios(`${URL}/${id}`);
+      let categories = await axios(`${URL}/getDetailsProduct/${id}`);
       return dispatch({
         type: GET_SHOES_DETAILS,
         payload: categories.data,
@@ -167,44 +159,32 @@ export const getAllDetails = (id) => {
     }
   };
 };
-export function CleanStateDetail(payload){
-  return{
-    type:CLEAN_DETAIL,
-    payload
-  }
+export function CleanStateDetail(payload) {
+  return {
+    type: CLEAN_DETAIL,
+    payload,
+  };
 }
-export function deleteQuestions(id){
-  
-  return function(dispatch){
-      
-      return axios.delete(`${URL}/questions/${id}`)
-      .then((response) => {
-          dispatch({
-              type: DELETE_QUESTIONS,
-              payload: response.data
-          })
-      })
-  }
-
+export function deleteQuestions(id) {
+  return function (dispatch) {
+    return axios.delete(`${URL}/questions/${id}`).then((response) => {
+      dispatch({
+        type: DELETE_QUESTIONS,
+        payload: response.data,
+      });
+    });
+  };
 }
 
-
-export function createQuestion(question){
-
-  
-  return function(dispatch){
-      return axios.post(`${URL}/questions`, question)
-      .then((response) => {
-          dispatch({
-              type: CREATE_QUESTION,
-              payload: response.data
-          })
-      })
-  }
-
-
-     
-
+export function createQuestion(question) {
+  return function (dispatch) {
+    return axios.post(`${URL}/questions`, question).then((response) => {
+      dispatch({
+        type: CREATE_QUESTION,
+        payload: response.data,
+      });
+    });
+  };
 }
 
 export const getFiltersPriceRange = (payload) => {

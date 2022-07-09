@@ -52,6 +52,7 @@ export default function CardsFiltered() {
               >
                 <Card
                   key={s.id}
+                  id={s.id}
                   name={s.name}
                   brand_name={s.brand_name}
                   description={s.description}
