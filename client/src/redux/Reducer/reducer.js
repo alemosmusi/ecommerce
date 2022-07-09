@@ -43,57 +43,47 @@ const rootReducer = (state = initialState, action) => {
         Genders: action.payload,
       };
     case actionTypes.GET_FILTERS_BRANDS:
-      const arrayBrands = state.Shoes.filter((value) => {
-        if (Array.isArray(action.payload)) {
-          return action.payload.include(value.brand_name) && value;
-        } else {
-          if (action.payload === "All") return value;
-
-          return (
-            value.brand_name.toLowerCase() === action.payload.toLowerCase() &&
-            value
-          );
-        }
+      const arrayBrands = state.Shoes.filter(product => {
+          if (!action.payload.length) return product
+          if (typeof action.payload === "string") return product.brand_name === action.payload
+          if (Array.isArray(action.payload)) return action.payload.includes(product.brand_name)
       });
+
+      console.log(action.payload)
 
       return {
         ...state,
         Filters: arrayBrands,
       };
     case actionTypes.GET_FILTERS_CATEGORY:
-      const arrayCategorys = state.Shoes.filter((value) => {
-        return value.category.toLowerCase() === action.payload.toLowerCase();
-      });
+      const arrayCategorys = state.Shoes.filter(product => {
+        if (!action.payload.length) return product
+        if (typeof action.payload === "string") return product.category === action.payload
+        if (Array.isArray(action.payload)) return action.payload.includes(product.category)
+      })
 
       return {
         ...state,
         Filters: arrayCategorys,
       };
     case actionTypes.GET_FILTERS_COLORS:
-      const arrayColors = state.Shoes.filter((value) => {
-        if (Array.isArray(action.payload)) {
-          return action.payload.include(value.color);
-        } else {
-          return value.color === action.payload;
-        }
-      });
+      const arrayColors = state.Shoes.filter(product => {
+        if (!action.payload.length) return product
+        if (typeof action.payload === "string") return product.category === action.payload
+        if (Array.isArray(action.payload)) return action.payload.includes(product.color)
+      })
 
       return {
         ...state,
         Filters: arrayColors,
       };
     case actionTypes.GET_FILTERS_GENDERS: 
-      const arrayGenders = state.Shoes.filter((value) => {
-        if (!action.payload.length) return value
-        if (typeof action.payload === "string") value.genders.includes(action.payload)
+      const arrayGenders = state.Shoes.filter((product) => {
+        if (!action.payload.length) return product
+        if (typeof action.payload === "string") return product.genders.includes(action.payload)
         if (Array.isArray(action.payload)) {
-          const find = value.genders.find(v => {
-            for (let va of action.payload) {
-              if (va.toLowerCase() === v.toLowerCase()) return v
-            }
-          })
-
-          return find !== undefined && value
+          const find = product.genders.find(value => action.payload.includes(value))
+          return find && product
         }
       });
 
