@@ -1,3 +1,4 @@
+
 import * as actionTypes from "../Actions/actions";
 
 var q = 1
@@ -10,8 +11,10 @@ const initialState = {
   Colors : [],
   Genders: [],
   Questions: [],
-  Qdelete: []
+  Qdelete: [],
+  ShoesDetails:{}
 };
+
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type){
@@ -108,30 +111,35 @@ const rootReducer = (state = initialState, action) => {
           }
     case actionTypes.CREATE_QUESTION:
 
-            return{
-                ...state,
-                Qdelete: q++
-                
-
+   return{
+       ...state,
+       Qdelete: q++
+  
+     }
+     case  actionTypes.GET_SHOES_DETAILS:
+             return{
+               ...state,
+               ShoesDetails:action.payload,
+             }
+     case actionTypes.CLEAN_DETAIL:
+          return{
+            ...state,
+            ShoesDetails:{}
+          }
+          case actionTypes.GET_FILTERS_PRICE_RANGE:
+            const { min, max } = action.payload
+      
+            const arraySizeRange = state.Shoes.filter(value => {
+              return value.price >= min && value.price <= max && value
+            })
+      
+            return {
+              ...state,
+              Filters: arraySizeRange
             }
-
-
-
-    case actionTypes.GET_FILTERS_PRICE_RANGE:
-      const { min, max } = action.payload
-
-      const arraySizeRange = state.Shoes.filter(value => {
-        return value.price >= min && value.price <= max && value
-      })
-
-      return {
-        ...state,
-        Filters: arraySizeRange
-      }
-
-    default : 
-      return state
-  } 
+      
+          default : return state
+} 
 }
-
+              
 export default rootReducer;
