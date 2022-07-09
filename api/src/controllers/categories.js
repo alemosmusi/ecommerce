@@ -23,27 +23,18 @@ const createCategory = async (req, res) => {
     }
 }
 const deleteCategory = async (req, res) => {
-    const { id } = req.params;
+    const { name } = req.params;
 
     try {
-        const deleteCategory = await modelCategories.findAll({
+        const brand = await modelCategories.destroy({
             where: {
-                id: id
+                name
             }
         })
-        if (deleteCategory) {
-            modelCategories.destroy({
-                where: {
-                    id: id
-                }
-            })
-            return res.status(200).send({msg: 'Removed category successfully!'})
-        } else {
-            return res.status(500).send({msg: 'Error internal server', error})
-        }
-
+        
+        res.status(200).send({msg: 'Category removed successfully!'})
     } catch (error) {
-        console.log(error)
+        res.status(500).send({msg: 'Error internal server', error})
     }
 }
 
