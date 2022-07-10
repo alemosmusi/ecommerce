@@ -1,11 +1,11 @@
-import CardShop from "../Card/CardShop";
+import CardShop from '../Card/CardShop'
 
 export default function ProductsContainer({ carProducts }) {
   return (
     <div className="container-fluid General">
       <div className="row ">
         {carProducts && carProducts.length ? (
-          carProducts?.map((s) => (
+          carProducts?.map(s => (
             <div key={s.id} className="col-12 Card">
               <CardShop
                 id={s.id}
@@ -34,5 +34,5 @@ export default function ProductsContainer({ carProducts }) {
         )}
       </div>
     </div>
-  );
+  )
 }

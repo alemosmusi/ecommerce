@@ -1,24 +1,13 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { addCarrito } from "../../redux/Actions";
-import "./Card.css";
-export default function Card({
-  id,
-  name,
-  img,
-  price,
-  color,
-  size_range,
-  details,
-  rating,
-  stock,
-  gender,
-  brand_name,
-}) {
-  const dispatch = useDispatch();
-  const [amount, setAmount] = useState(1);
-  const [heart, setheart] = useState(1);
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { addCarrito } from '../../redux/actions'
+import './Card.css'
+
+export default function Card({ id, name, img, price, color, size_range, details, rating, stock, gender, brand_name }) {
+  const dispatch = useDispatch()
+  const [amount, setAmount] = useState(1)
+  const [heart, setheart] = useState(1)
 
   const AddCar = () => {
     // if (addbag < 10) {
@@ -38,30 +27,27 @@ export default function Card({
         rating,
         amount,
       })
-    );
-  };
+    )
+  }
   const DecBag = () => {
     if (amount >= 1) {
-      setAmount(amount - 1);
+      setAmount(amount - 1)
     }
-  };
+  }
   const Heart = () => {
     if (heart) {
-      setheart(0);
+      setheart(0)
     } else {
-      setheart(1);
+      setheart(1)
     }
-  };
+  }
   let arrRating = new Array(5).fill(0, 0).map((e, i) => {
-    return i < rating ? (e = 1) : e;
-  });
+    return i < rating ? (e = 1) : e
+  })
 
   return (
     <>
-      <div
-        className="container-fluid bg-trasparent my-4 p-3"
-        style={{ position: "relative" }}
-      >
+      <div className="container-fluid bg-trasparent my-4 p-3" style={{ position: 'relative' }}>
         {/* <div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3"> */}
         <div className="col hp">
           <div className="card h-100 shadow-sm">
@@ -73,15 +59,10 @@ export default function Card({
 
             <div className="card-body">
               <div className="clearfix mb-3">
-                <span className="float-start badge rounded-pill bg-success">
-                  {price}$
-                </span>
+                <span className="float-start badge rounded-pill bg-success">{price}$</span>
 
                 <span className="float-end">
-                  <Link
-                    to={`/getDetailsProduct/` + id}
-                    className="small text-muted text-uppercase aff-link"
-                  >
+                  <Link to={`/getDetailsProduct/` + id} className="small text-muted text-uppercase aff-link">
                     See Details
                   </Link>
                 </span>
@@ -103,22 +84,14 @@ export default function Card({
                   <div className="ratings">
                     {arrRating &&
                       arrRating?.map((s, i) => (
-                        <i
-                          key={i}
-                          className={`fa ${
-                            s === 1 ? "fa-star" : "fa-star grey"
-                          } `}
-                        ></i>
+                        <i key={i} className={`fa ${s === 1 ? 'fa-star' : 'fa-star grey'} `}></i>
                       ))}
                   </div>
                   <h6 className="text-muted ml-1">{rating}/5</h6>
                 </div>
                 {/* Heart */}
                 <small className="float-end ">
-                  <i
-                    onClick={Heart}
-                    className={`${heart ? "far" : "fa"} fa-heart`}
-                  ></i>
+                  <i onClick={Heart} className={`${heart ? 'far' : 'fa'} fa-heart`}></i>
                 </small>
               </div>
             </div>
@@ -127,5 +100,5 @@ export default function Card({
         {/* </div> */}
       </div>
     </>
-  );
+  )
 }

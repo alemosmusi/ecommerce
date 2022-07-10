@@ -1,37 +1,26 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { deleteProductCarrito } from "../../../redux/Actions";
-import FormAmount from "./FormAmount";
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { deleteProductCarrito } from '../../../redux/actions'
+import FormAmount from './FormAmount'
 
-import "./CardShop.css";
-export default function CardShop({
-  id,
-  name,
-  brand_name,
-  price,
-  img,
-  color,
-  size_range,
-  gender,
-  rating,
-  amount,
-}) {
+import './CardShop.css'
+export default function CardShop({ id, name, brand_name, price, img, color, size_range, gender, rating, amount }) {
   let arrRating = new Array(5).fill(0, 0).map((e, i) => {
-    return i < rating ? (e = 1) : e;
-  });
+    return i < rating ? (e = 1) : e
+  })
 
-  const [heart, setheart] = useState(1);
-  const dispatch = useDispatch();
+  const [heart, setheart] = useState(1)
+  const dispatch = useDispatch()
   function handleDelete() {
-    dispatch(deleteProductCarrito(id));
+    dispatch(deleteProductCarrito(id))
   }
   const Heart = () => {
     if (heart) {
-      setheart(0);
+      setheart(0)
     } else {
-      setheart(1);
+      setheart(1)
     }
-  };
+  }
 
   return (
     <div className="container-fluid General">
@@ -39,12 +28,7 @@ export default function CardShop({
         <img src={img} alt={name} />
         <div className="ratings">
           {arrRating &&
-            arrRating?.map((s, i) => (
-              <i
-                key={i}
-                className={`fa ${s === 1 ? "fa-star" : "fa-star grey"} `}
-              ></i>
-            ))}
+            arrRating?.map((s, i) => <i key={i} className={`fa ${s === 1 ? 'fa-star' : 'fa-star grey'} `}></i>)}
         </div>
       </div>
       <div className="middleDetails">
@@ -56,15 +40,11 @@ export default function CardShop({
         </div>
 
         <div className="actions">
-          <i
-            className="fa fa-trash"
-            aria-hidden="true"
-            onClick={() => handleDelete()}
-          >
+          <i className="fa fa-trash" aria-hidden="true" onClick={() => handleDelete()}>
             Eliminar
           </i>
 
-          <i onClick={Heart} className={`${heart ? "far" : "fa"} fa-heart`}>
+          <i onClick={Heart} className={`${heart ? 'far' : 'fa'} fa-heart`}>
             Favoritos
           </i>
         </div>
@@ -93,5 +73,5 @@ export default function CardShop({
         </div>
       </div>
     </div>
-  );
+  )
 }
