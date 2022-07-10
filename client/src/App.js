@@ -7,6 +7,7 @@ import Footer from "./component/footer/footer";
 import { Questions } from "./component/question/question";
 import GeneralContainer from "./component/CardsFiltered/GeneralContainer";
 import "./App.css";
+import CarShopContainer from "./component/carShop/Container/CarShopContainer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         />
         <Route exact path="/questions" element={<Questions />} />
         <Route exact path="/filters" element={<GeneralContainer />} />
+        <Route exact path="/c" element={<CarShopContainer />} />
       </Routes>
       <Footer />
     </div>
