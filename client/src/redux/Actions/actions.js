@@ -206,3 +206,12 @@ export const getFiltersSearchbar = (payload) => {
     });
   };
 };
+
+export const AddCarrito= (producto) => {
+  return function (dispatch) {
+    return dispatch({
+      type: GET_ADD_CARRITO,
+      payload: producto
+    });
+  };
+};
