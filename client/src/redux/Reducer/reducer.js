@@ -12,6 +12,7 @@ const initialState = {
   Questions: [],
   Qdelete: [],
   ShoesDetails: {},
+  Carrito:[]
 };
 
 const rootReducer = (state = initialState, action) => {
