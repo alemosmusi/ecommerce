@@ -20,7 +20,7 @@ export default function ProductDetail() {
   const [addbag, setaddbag] = useState(1)
   const [heart, setheart] = useState(1)
   const [talle, setTalle] = useState('')
-
+  const [añadido , setAñadido]=useState(false)
   const AddCar = () => {
     if (addbag < 10) {
       setaddbag(addbag + 1)
@@ -50,9 +50,11 @@ export default function ProductDetail() {
         ...details, 
         size_range: talle
        }))
-     alert('el producto a sido añadido a carrito')
+       setAñadido(true)
      setTalle('')  
-
+    setTimeout(()=>{
+      setAñadido(false)
+    }, 3000)
   }
   const onChane = e => {
     e.preventDefault()
@@ -184,8 +186,12 @@ export default function ProductDetail() {
                 </div>
               </div>
             </div>
+          {!!añadido === false ? <p>{' '}</p> : <div className="alert alert-dark" role="alert">
+            Se añadió el producto a carrito
+                 </div>}
           </div>
         </div>
+        
       ) : (
         <Loading />
       )}
