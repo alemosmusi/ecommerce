@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllShoes, getAllCategories } from "../../redux/Actions/actions";
+import { getAllShoes, getAllCategories } from "../../redux/Actions";
 import { Wrapper } from "../wrapper/wrapper";
 import Footer from "../footer/footer.jsx";
 import Cards from "../cards/Cards";
-import Carousel from "../carousel/Carousel";
+
 // import Loading from "../loading/loading";
 
 export function Home() {

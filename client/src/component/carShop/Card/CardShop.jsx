@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteProductCarrito } from "../../../redux/Actions/actions";
+import { deleteProductCarrito } from "../../../redux/Actions";
+import FormAmount from "./FormAmount";
 
 import "./CardShop.css";
-import FormAmount from "./FormAmount";
 export default function CardShop({
   id,
   name,
@@ -51,6 +51,7 @@ export default function CardShop({
         <h4>{name.split("'")[1]}</h4>
         <div className="amount">
           <label> Cantidad:</label>
+
           <FormAmount amountP={amount} id={id} dispatch={dispatch} />
         </div>
 

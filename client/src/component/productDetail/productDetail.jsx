@@ -5,19 +5,22 @@ import {
   getAllDetails,
   CleanStateDetail,
   addCarrito,
-} from "../../redux/Actions/actions";
+} from "../../redux/Actions";
 import Loading from "../loading/loading.jsx";
 import Footer from "../footer/footer";
+
 export default function ProductDetail() {
   const dispatch = useDispatch();
+
   const { id } = useParams();
-  console.log(id);
+
   const details = useSelector((state) => state.ShoesDetails);
 
   useEffect(() => {
     dispatch(getAllDetails(id));
     dispatch(CleanStateDetail());
   }, [dispatch, id]);
+
   const [addbag, setaddbag] = useState(1);
   const [heart, setheart] = useState(1);
   const [talle, setTalle] = useState("");
@@ -195,6 +198,7 @@ export default function ProductDetail() {
                         className={`${heart ? "far" : "fa"} fa-heart`}
                       ></i>
                     </small>
+
                     <button
                       className="btn btn-warning bold-btn"
                       onClick={(e) => AddCarro(e)}

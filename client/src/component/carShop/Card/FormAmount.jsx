@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import { amountSchema } from "../../../Validations/amountSchema.js";
-import { changeAmount } from "../../../redux/Actions/actions.js";
+import { changeAmount } from "../../../redux/Actions";
 
 export default function FormAmount({ amountP, id, dispatch }) {
   return (

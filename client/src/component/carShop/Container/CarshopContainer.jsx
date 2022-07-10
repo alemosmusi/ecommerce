@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAllShoes } from "../../../redux/Actions/actions";
+import { getAllShoes } from "../../../redux/Actions";
 import Total from "../Total/Total";
 import ProductsContainer from "../Products/Products";
 import "./CarshopContainer.css";

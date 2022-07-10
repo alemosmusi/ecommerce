@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addCarrito } from "../../redux/Actions/actions";
+import { addCarrito } from "../../redux/Actions";
 import "./Card.css";
 export default function Card({
   id,

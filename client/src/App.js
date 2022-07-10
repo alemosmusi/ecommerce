@@ -6,12 +6,11 @@ import ProductDetail from "./component/productDetail/productDetail";
 import Footer from "./component/footer/footer";
 import { Questions } from "./component/question/question";
 
-import GeneralContainer from "./component/CardsFiltered/GeneralContainer";
-
 import Copyright from "./component/copyright/copyright";
 import Terms from "./component/terms/terms";
 import "./App.css";
 import CarShopContainer from "./component/carShop/Container/CarshopContainer";
+import GeneralContainer from "./component/cardFilters/GeneralContainer";
 
 function App() {
   return (

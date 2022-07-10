@@ -1,4 +1,4 @@
-import { getFiltersSearchbar } from "../../redux/Actions/actions";
+import { getFiltersSearchbar } from "../../redux/Actions";
 
 export default function SearchBar({ dispatch, setName, name, navigate }) {
   //   const [name, SetName] = useState();

@@ -1,26 +1,24 @@
 import axios from "axios";
-export const GET_ALL_SHOES = "GET_ALL_SHOES";
-export const GET_ALL_BRANDS = "GET_ALL_BRANDS";
-export const GET_ALL_CATEGORIES = "GET_ALL_CATEGORIES";
-export const GET_SHOES_DETAILS = "GET_SHOES_DETAILS";
-export const CLEAN_DETAIL = "CLEAN_DETAIL";
-export const GET_ALL_COLORS = "GET_ALL_COLORS";
-export const GET_ALL_GENDERS = "GET_ALL_GENDERS";
 
-export const GET_FILTERS_BRANDS = "GET_FILTERS_BRANDS";
-export const GET_FILTERS_CATEGORY = "GET_FILTERS_CATEGORY";
-export const GET_FILTERS_COLORS = "GET_FILTERS_COLORS";
-export const GET_FILTERS_GENDERS = "GET_FILTERS_GENDERS";
-export const GET_FILTERS_PRICE_RANGE = "GET_FILTERS_PRICE_RANGE";
-
-export const GET_FILTERS_SEARCHBAR = "GET_FILTERS_SEARCHBAR";
-export const GET_ADD_CARRITO = "GET_ADD_CARRITO";
-export const DELETE_PRODUCT_CARRITO = "DELETE_PRODUCT_CARRITO";
-export const CHANGE_AMOUNT_PRODUCT = "CHANGE_AMOUNT_PRODUCT";
-
-export const GET_QUESTIONS = "GET_QUESTIONS";
-export const DELETE_QUESTIONS = "DELETE_QUESTIONS";
-export const CREATE_QUESTION = "CREATE_QUESTION";
+const {
+  GET_ALL_SHOES,
+  GET_ALL_BRANDS,
+  GET_ALL_CATEGORIES,
+  GET_ALL_COLORS,
+  GET_ALL_GENDERS,
+  GET_SHOES_DETAILS,
+  CLEAN_DETAIL,
+  GET_FILTERS_BRANDS,
+  GET_FILTERS_CATEGORY,
+  UPDATE_FILTERS,
+  GET_FILTERS_SEARCHBAR,
+  GET_ADD_CARRITO,
+  GET_QUESTIONS,
+  DELETE_QUESTIONS,
+  CREATE_QUESTION,
+  CHANGE_AMOUNT_PRODUCT,
+  DELETE_PRODUCT_CARRITO,
+} = require("../action-types");
 
 const URL = "http://localhost:3001";
 
@@ -100,14 +98,26 @@ export const getAllGenders = () => {
   };
 };
 
-export const getFilterBrands = (payload) => {
-  return function (dispatch) {
-    return dispatch({
-      type: GET_FILTERS_BRANDS,
-      payload,
-    });
+export const getAllDetails = (id) => {
+  return async function (dispatch) {
+    try {
+      let categories = await axios(`${URL}/getDetailsProduct/${id}`);
+      return dispatch({
+        type: GET_SHOES_DETAILS,
+        payload: categories.data,
+      });
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 };
+
+export function CleanStateDetail(payload) {
+  return {
+    type: CLEAN_DETAIL,
+    payload,
+  };
+}
 
 export const getFilterCategories = (payload) => {
   return function (dispatch) {
@@ -118,19 +128,28 @@ export const getFilterCategories = (payload) => {
   };
 };
 
-export const getFilterColors = (payload) => {
+export const getFilterBrands = (payload) => {
   return function (dispatch) {
     return dispatch({
-      type: GET_FILTERS_COLORS,
+      type: GET_FILTERS_BRANDS,
       payload,
     });
   };
 };
 
-export const getFilterGenders = (payload) => {
+export const updateFilters = (payload) => {
+  return (dispatch) => {
+    return dispatch({
+      type: UPDATE_FILTERS,
+      payload,
+    });
+  };
+};
+
+export const getFiltersSearchbar = (payload) => {
   return function (dispatch) {
     return dispatch({
-      type: GET_FILTERS_GENDERS,
+      type: GET_FILTERS_SEARCHBAR,
       payload,
     });
   };
@@ -149,25 +168,7 @@ export const getQuestions = () => {
     }
   };
 };
-export const getAllDetails = (id) => {
-  return async function (dispatch) {
-    try {
-      let categories = await axios(`${URL}/getDetailsProduct/${id}`);
-      return dispatch({
-        type: GET_SHOES_DETAILS,
-        payload: categories.data,
-      });
-    } catch (error) {
-      console.log(error.response);
-    }
-  };
-};
-export function CleanStateDetail(payload) {
-  return {
-    type: CLEAN_DETAIL,
-    payload,
-  };
-}
+
 export function deleteQuestions(id) {
   return function (dispatch) {
     return axios.delete(`${URL}/questions/${id}`).then((response) => {
@@ -190,24 +191,6 @@ export function createQuestion(question) {
   };
 }
 
-export const getFiltersPriceRange = (payload) => {
-  return function (dispatch) {
-    return dispatch({
-      type: GET_FILTERS_PRICE_RANGE,
-      payload,
-    });
-  };
-};
-
-export const getFiltersSearchbar = (payload) => {
-  return function (dispatch) {
-    return dispatch({
-      type: GET_FILTERS_SEARCHBAR,
-      payload,
-    });
-  };
-};
-
 export const addCarrito = (producto) => {
   return function (dispatch) {
     return dispatch({
@@ -216,7 +199,6 @@ export const addCarrito = (producto) => {
     });
   };
 };
-
 export const deleteProductCarrito = (payload) => {
   return function (dispatch) {
     return dispatch({

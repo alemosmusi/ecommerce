@@ -1,30 +1,16 @@
-import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
+import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider'
 
-export function Wrapper(){
-    
-    return (
-        <div>
-
-            <ReactCompareSlider
-            itemOne={<ReactCompareSliderImage src="modified.jpeg" srcSet="modified.jpeg" alt="Image one" />}
-            itemTwo={<ReactCompareSliderImage src="normal.jpeg" srcSet="normal.jpeg" alt="Image two" />}
-            />
-            <h1>Ponele color a tu estilo</h1>
-        </div>
-        
-    )
+export function Wrapper() {
+  return (
+    <div>
+      <ReactCompareSlider
+        itemOne={<ReactCompareSliderImage src="modified.jpeg" srcSet="modified.jpeg" alt="Image one" />}
+        itemTwo={<ReactCompareSliderImage src="normal.jpeg" srcSet="normal.jpeg" alt="Image two" />}
+      />
+      <h1>Ponele color a tu estilo</h1>
+    </div>
+  )
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // <!DOCTYPE html>
 // <html lang="en" dir="ltr">
