@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllShoes, getFilterCategories, getFilterBrands } from '../../redux/actions'
+import { getAllShoes } from '../../redux/actions'
 import CardsFiltered from './CardsFiltered'
 import FiltersContainer from './FiltersContainer'
 const style = {
