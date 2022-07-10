@@ -46,6 +46,8 @@ export default function ProductDetail() {
         ...details, 
         size_range: talle
        }))
+     alert('el producto a sido añadido a carrito')
+     setTalle('')  
   }
   const onChane =(e)=>{
     e.preventDefault()
@@ -101,15 +103,13 @@ export default function ProductDetail() {
                       details.size_range.map((e, i) => {
                         return (
                           <div>
-                            <input
-                              type="checkbox"
-                              className="checkbox"
-                              id={i}
-                              key={i}
-                              value={e}
-                              onChange={(e)=>onChane(e)}
-                            />
-                            <label className="form-check-label">{e}</label>
+                            <button
+                            className="dropdown-item"
+                            id={i}
+                            key={i}
+                            value={e}
+                            onClick={(e)=>onChane(e)}
+                            >{e}</button>
                           </div>
                         );
                       })
@@ -118,6 +118,7 @@ export default function ProductDetail() {
                     )}
                   </ul>
                 </div>
+                {talle === '' ? null : <p>{talle}</p>}
                 {/* <li><a className="dropdown-item" href="#">genero</a></li>
             <li><a className="dropdown-item" href="#">precios</a></li>
             <li><hr className="dropdown-divider"/></li>
