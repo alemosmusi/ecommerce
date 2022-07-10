@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getQuestions } from "../../redux/Actions";
+import { getQuestions } from "../../redux/actions";
 
 export function Questions() {
   const questions = useSelector((state) => state.Questions);
