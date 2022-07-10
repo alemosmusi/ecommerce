@@ -16,7 +16,7 @@ export default function ProductDetail() {
   }, [dispatch, id]);
   const [addbag, setaddbag] = useState(1);
   const [heart, setheart] = useState(1);
-  const [talle, setTalle]= useState(0)
+  const [talle, setTalle]= useState('')
   
   const AddCar = () => {
     if (addbag < 10) {
@@ -44,7 +44,7 @@ export default function ProductDetail() {
     e.preventDefault()
        dispatch(AddCarrito({
         ...details, 
-        size_range:talle
+        size_range: talle
        }))
   }
   const onChane =(e)=>{
@@ -106,10 +106,8 @@ export default function ProductDetail() {
                               className="checkbox"
                               id={i}
                               key={i}
-                              onSelect={(e)=>onChane(e)}
                               value={e}
-                              
-
+                              onChange={(e)=>onChane(e)}
                             />
                             <label className="form-check-label">{e}</label>
                           </div>
@@ -193,7 +191,7 @@ export default function ProductDetail() {
                         className={`${heart ? "far" : "fa"} fa-heart`}
                       ></i>
                     </small>
-                    <button className="btn btn-warning bold-btn">
+                    <button className="btn btn-warning bold-btn" onClick={(e)=>AddCarro(e)}>
                       <i className="fa-thin fa-cart-plus"></i>add to cart
                     </button>
                   </div>
