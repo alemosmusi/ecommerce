@@ -4,7 +4,7 @@ import { getAllShoes, getAllCategories } from '../../redux/actions'
 import { Wrapper } from '../wrapper/wrapper'
 import Footer from '../footer/footer.jsx'
 import Cards from '../cards/Cards'
-import Carousel from '../carousel/Carousel'
+
 // import Loading from "../loading/loading";
 
 export function Home() {

@@ -72,7 +72,11 @@ export default function Navbar() {
                   Quiero empezar
                 </a>
               </li>
-
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/carshop">
+                  Carrito
+                </Link>
+              </li>
               <li className="nav-item dropdown">
                 <div
                   className="nav-link dropdown-toggle"

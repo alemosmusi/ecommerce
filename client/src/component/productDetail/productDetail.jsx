@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-
-import { getAllDetails, CleanStateDetail, AddCarrito } from '../../redux/actions'
-
+import { getAllDetails, CleanStateDetail, addCarrito } from '../../redux/actions'
 import Loading from '../loading/loading.jsx'
-//import Footer from '../footer/footer'
+import Footer from '../footer/footer'
 
 export default function ProductDetail() {
   const dispatch = useDispatch()
@@ -47,12 +45,14 @@ export default function ProductDetail() {
 
   const AddCarro =(e)=>{
     e.preventDefault()
-       dispatch(AddCarrito({
+
+       dispatch(addCarrito({
         ...details, 
         size_range: talle
        }))
      alert('el producto a sido añadido a carrito')
      setTalle('')  
+
   }
   const onChane = e => {
     e.preventDefault()
@@ -172,6 +172,7 @@ export default function ProductDetail() {
                     <small className="float-end ">
                       <i onClick={Heart} className={`${heart ? 'far' : 'fa'} fa-heart`}></i>
                     </small>
+
                     <button className="btn btn-warning bold-btn" onClick={e => AddCarro(e)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
