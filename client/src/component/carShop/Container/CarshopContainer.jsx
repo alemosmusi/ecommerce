@@ -28,6 +28,7 @@ export default function CarShopContainer() {
   useEffect(() => {
     dispatch(getAllShoes())
   }, [dispatch])
+
   return (
     <div className="App">
       <h1>CAR SHOP</h1>
