@@ -1,26 +1,29 @@
+<<<<<<< HEAD
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getQuestions } from "../../redux/actions";
+=======
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getQuestions } from '../../redux/actions'
+>>>>>>> 0a89e3969173e2a65b1eea8a0e22ff8992062a01
 
 export function Questions() {
-  const questions = useSelector((state) => state.Questions);
+  const questions = useSelector(state => state.Questions)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getQuestions());
-  }, [dispatch]);
+    dispatch(getQuestions())
+  }, [dispatch])
 
   return (
     <div className="col-6">
       {questions && questions.length > 0
-        ? questions.map((q) => (
+        ? questions.map(q => (
             <div className="accordion-item " key={q.id}>
               <div className="accordion-item">
-                <h2
-                  className="accordion-header"
-                  id={`panelsStayOpen-heading${q.id}`}
-                >
+                <h2 className="accordion-header" id={`panelsStayOpen-heading${q.id}`}>
                   <button
                     className="accordion-button"
                     type="button"
@@ -44,7 +47,7 @@ export function Questions() {
               </div>
             </div>
           ))
-        : ""}
+        : ''}
     </div>
-  );
+  )
 }
