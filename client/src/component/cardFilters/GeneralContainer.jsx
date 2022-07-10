@@ -8,10 +8,12 @@ const style = {
 }
 export default function GeneralContainer() {
   const dispatch = useDispatch()
+
+  let shoes = useSelector(state => state.Shoes)
+
   useEffect(() => {
-    dispatch(getAllShoes())
-  }, [dispatch])
-  let shoes = useSelector(state => state.shoes)
+    if (!shoes.length) dispatch(getAllShoes())
+  }, [])
 
   return (
     <div className="container-fluid justify-content-center d-flex p-0" style={style}>

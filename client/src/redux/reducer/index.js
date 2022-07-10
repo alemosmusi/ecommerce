@@ -129,8 +129,9 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Filters: state.Shoes.filter(product => {
+          let name = product.name.toLowerCase()
           if (!action.payload.length) return product
-          if (product.name.includes(action.payload)) return product
+          if (name.includes(action.payload.toLowerCase())) return product
           return false
         }),
       }
