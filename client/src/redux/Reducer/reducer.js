@@ -12,7 +12,7 @@ const initialState = {
   Questions: [],
   Qdelete: [],
   ShoesDetails: {},
-  Carrito:[]
+  Carrito: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -47,11 +47,13 @@ const rootReducer = (state = initialState, action) => {
       let arrayBrands;
 
       if (!action.payload.length) {
-        arrayBrands = state.Shoes 
+        arrayBrands = state.Shoes;
       } else {
-        arrayBrands = state.Filters.filter(product => {
-            if (typeof action.payload === "string") return product.brand_name === action.payload
-            if (Array.isArray(action.payload)) return action.payload.includes(product.brand_name)
+        arrayBrands = state.Filters.filter((product) => {
+          if (typeof action.payload === "string")
+            return product.brand_name === action.payload;
+          if (Array.isArray(action.payload))
+            return action.payload.includes(product.brand_name);
         });
       }
 
@@ -63,12 +65,14 @@ const rootReducer = (state = initialState, action) => {
       let arrayCategorys;
 
       if (!action.payload.length) {
-        arrayCategorys = state.Shoes
+        arrayCategorys = state.Shoes;
       } else {
-        arrayCategorys = state.Filters.filter(product => {
-          if (typeof action.payload === "string") return product.category === action.payload
-          if (Array.isArray(action.payload)) return action.payload.includes(product.category)
-        })
+        arrayCategorys = state.Filters.filter((product) => {
+          if (typeof action.payload === "string")
+            return product.category === action.payload;
+          if (Array.isArray(action.payload))
+            return action.payload.includes(product.category);
+        });
       }
 
       return {
@@ -79,30 +83,35 @@ const rootReducer = (state = initialState, action) => {
       let arrayColors;
 
       if (!action.payload.length) {
-        arrayColors = state.Shoes
+        arrayColors = state.Shoes;
       } else {
-        arrayColors = state.Filters.filter(product => {
-          if (!action.payload.length) return product
-          if (typeof action.payload === "string") return product.category === action.payload
-          if (Array.isArray(action.payload)) return action.payload.includes(product.color)
-        })
+        arrayColors = state.Filters.filter((product) => {
+          if (!action.payload.length) return product;
+          if (typeof action.payload === "string")
+            return product.category === action.payload;
+          if (Array.isArray(action.payload))
+            return action.payload.includes(product.color);
+        });
       }
 
       return {
         ...state,
         Filters: arrayColors,
       };
-    case actionTypes.GET_FILTERS_GENDERS: 
+    case actionTypes.GET_FILTERS_GENDERS:
       let arrayGenders;
 
       if (!action.payload.length) {
-        arrayGenders = state.Shoes
+        arrayGenders = state.Shoes;
       } else {
         arrayGenders = state.Shoes.filter((product) => {
-          if (typeof action.payload === "string") return product.genders.includes(action.payload)
+          if (typeof action.payload === "string")
+            return product.genders.includes(action.payload);
           if (Array.isArray(action.payload)) {
-            const find = product.genders.find(value => action.payload.includes(value))
-            return find && product
+            const find = product.genders.find((value) =>
+              action.payload.includes(value)
+            );
+            return find && product;
           }
         });
       }
@@ -117,7 +126,7 @@ const rootReducer = (state = initialState, action) => {
 
       const arraySizeRange = state.Filters.filter((product) => {
         return product.price >= min && product.price <= max && product;
-      })
+      });
 
       return {
         ...state,
@@ -160,14 +169,27 @@ const rootReducer = (state = initialState, action) => {
         ShoesDetails: {},
       };
 
-  case actionTypes.GET_ADD_CARRITO:
-    
+    case actionTypes.GET_ADD_CARRITO:
       return {
         ...state,
-        Carrito:[...state.Carrito, action.payload],
+        Carrito: [...state.Carrito, action.payload],
       };
-
-
+    case actionTypes.DELETE_PRODUCT_CARRITO:
+      return {
+        ...state,
+        Carrito: state.Carrito.filter(
+          (product) => product.id !== action.payload
+        ),
+      };
+    case actionTypes.CHANGE_AMOUNT_PRODUCT:
+      return {
+        ...state,
+        Carrito: state.Carrito.map((product) => {
+          if (product.id === action.payload.id)
+            product.amount = action.payload.amount;
+          return product;
+        }),
+      };
     default:
       return state;
   }

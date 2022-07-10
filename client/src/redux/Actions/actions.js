@@ -14,8 +14,9 @@ export const GET_FILTERS_GENDERS = "GET_FILTERS_GENDERS";
 export const GET_FILTERS_PRICE_RANGE = "GET_FILTERS_PRICE_RANGE";
 
 export const GET_FILTERS_SEARCHBAR = "GET_FILTERS_SEARCHBAR";
-export const GET_ADD_CARRITO= "GET_ADD_CARRITO";
-
+export const GET_ADD_CARRITO = "GET_ADD_CARRITO";
+export const DELETE_PRODUCT_CARRITO = "DELETE_PRODUCT_CARRITO";
+export const CHANGE_AMOUNT_PRODUCT = "CHANGE_AMOUNT_PRODUCT";
 
 export const GET_QUESTIONS = "GET_QUESTIONS";
 export const DELETE_QUESTIONS = "DELETE_QUESTIONS";
@@ -207,11 +208,29 @@ export const getFiltersSearchbar = (payload) => {
   };
 };
 
-export const AddCarrito= (producto) => {
+export const addCarrito = (producto) => {
   return function (dispatch) {
     return dispatch({
       type: GET_ADD_CARRITO,
-      payload: producto
+      payload: producto,
+    });
+  };
+};
+
+export const deleteProductCarrito = (payload) => {
+  return function (dispatch) {
+    return dispatch({
+      type: DELETE_PRODUCT_CARRITO,
+      payload,
+    });
+  };
+};
+
+export const changeAmount = (payload) => {
+  return function (dispatch) {
+    return dispatch({
+      type: CHANGE_AMOUNT_PRODUCT,
+      payload,
     });
   };
 };
