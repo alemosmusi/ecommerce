@@ -5,6 +5,10 @@ var q = 1
 const initialState = {
   Shoes: [],
   Filters: [],
+  getFilters: {
+    category: 'All',
+    brand: 'All',
+  },
   Categories: [],
   Brands: [],
   Colors: [],
@@ -44,27 +48,54 @@ const rootReducer = (state = initialState, action) => {
         Genders: action.payload,
       }
     case actionTypes.GET_FILTERS_CATEGORY:
+      const filterCategories = state.Shoes.filter(product => {
+        if (action.payload === 'All') return product
+        if (action.payload.toLowerCase() === product.category.toLowerCase()) return product
+        return false
+      })
+
       return {
         ...state,
-        Filters: state.Shoes.filter(product => {
-          if (action.payload === 'All') return product
-          if (action.payload.toLowerCase() === product.category.toLowerCase()) return product
-          return false
-        }),
+        Filters: filterCategories,
+        getFilters: {
+          ...state.getFilters,
+          category: action.payload,
+        },
       }
     case actionTypes.GET_FILTERS_BRANDS:
+      const filterBrands = state.Shoes.filter(product => {
+        if (action.payload === 'All') return product
+        if (action.payload.toLowerCase() === product.brand_name.toLowerCase()) return product
+        return false
+      })
+
       return {
         ...state,
-        Filters: state.Shoes.filter(product => {
-          if (action.payload === 'All') return product
-          if (action.payload.toLowerCase() === product.brand_name.toLowerCase()) return product
-          return false
-        }),
+        Filters: filterBrands,
+        getFilters: {
+          ...state.getFilters,
+          brand: action.payload,
+        },
       }
     case actionTypes.UPDATE_FILTERS:
       const { brands, genders, prices, colors } = action.payload
 
-      const productsBrands = state.Shoes.filter(product => {
+      const productSelects = state.Shoes.filter(product => {
+        const { category, brand } = state.getFilters
+        if (category === 'All' && brand === 'All') return product
+        if (category === 'All' && product.brand_name.toLowerCase() === brand.toLowerCase()) return product
+        if (brand === 'All' && product.category.toLowerCase() === category.toLowerCase()) return product
+        if (
+          product.category.toLowerCase() === category.toLowerCase() &&
+          product.brand_name.toLowerCase() === brand.toLowerCase()
+        )
+          return product
+        return false
+      })
+
+      console.log(productSelects)
+
+      const productsBrands = productSelects.filter(product => {
         if (!brands.length) return product
         if (typeof brands === 'string') return brands.toLowerCase() === product.brand_name.toLowerCase()
         if (Array.isArray(brands)) return brands.includes(product.brand_name)
