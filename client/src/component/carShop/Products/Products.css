@@ -1,0 +1,15 @@
+.General {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+br {
+  background-color: gray;
+  color: gray;
+}
+.text {
+  display: flex;
+  justify-self: center;
+  text-align: center;
+}

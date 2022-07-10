@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { getAllDetails, CleanStateDetail ,AddCarrito} from "../../redux/Actions/actions";
+import {
+  getAllDetails,
+  CleanStateDetail,
+  addCarrito,
+} from "../../redux/Actions";
 import Loading from "../loading/loading.jsx";
 import Footer from "../footer/footer";
+
 export default function ProductDetail() {
   const dispatch = useDispatch();
+
   const { id } = useParams();
-  console.log(id);
+
   const details = useSelector((state) => state.ShoesDetails);
 
   useEffect(() => {
     dispatch(getAllDetails(id));
     dispatch(CleanStateDetail());
   }, [dispatch, id]);
+
   const [addbag, setaddbag] = useState(1);
   const [heart, setheart] = useState(1);
-  const [talle, setTalle]= useState('')
-  
+  const [talle, setTalle] = useState("");
+
   const AddCar = () => {
     if (addbag < 10) {
       setaddbag(addbag + 1);
@@ -39,19 +46,19 @@ export default function ProductDetail() {
     return i < details.rating ? (e = 1) : e;
   });
 
-
-  const AddCarro =(e)=>{
-    e.preventDefault()
-       dispatch(AddCarrito({
-        ...details, 
-        size_range: talle
-       }))
-  }
-  const onChane =(e)=>{
-    e.preventDefault()
-    setTalle(e.target.value)
-  }
-
+  const AddCarro = (e) => {
+    e.preventDefault();
+    dispatch(
+      addCarrito({
+        ...details,
+        size_range: talle,
+      })
+    );
+  };
+  const onChane = (e) => {
+    e.preventDefault();
+    setTalle(e.target.value);
+  };
 
   return (
     <div>
@@ -107,7 +114,7 @@ export default function ProductDetail() {
                               id={i}
                               key={i}
                               value={e}
-                              onChange={(e)=>onChane(e)}
+                              onChange={(e) => onChane(e)}
                             />
                             <label className="form-check-label">{e}</label>
                           </div>
@@ -191,7 +198,11 @@ export default function ProductDetail() {
                         className={`${heart ? "far" : "fa"} fa-heart`}
                       ></i>
                     </small>
-                    <button className="btn btn-warning bold-btn" onClick={(e)=>AddCarro(e)}>
+
+                    <button
+                      className="btn btn-warning bold-btn"
+                      onClick={(e) => AddCarro(e)}
+                    >
                       <i className="fa-thin fa-cart-plus"></i>add to cart
                     </button>
                   </div>

@@ -3,15 +3,18 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+
 import logotoro from "../../logotoro.png";
 import {
   getAllCategories,
   getAllBrands,
   getFilterCategories,
   getFilterBrands,
-} from "../../redux/Actions/actions";
+} from "../../redux/Actions";
+
 import GeneralFilter from "./GeneralFilter";
 import SearchBar from "./SearchBar";
+
 export default function Navbar() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -23,14 +26,18 @@ export default function Navbar() {
     // getAllGenders;
     // getPricesRange;
   }, [dispatch]);
+
   const categories = useSelector((state) => state.Categories);
   const brands = useSelector((state) => state.Brands);
   const [nameSearch, setNameSearch] = useState("");
+
   const navigate = useNavigate();
+
   const filterCategory = (e) => {
     navigate("/filters");
     dispatch(getFilterCategories(e));
   };
+
   const filterBrand = (e) => {
     navigate("/filters");
     dispatch(getFilterBrands(e));
@@ -76,7 +83,11 @@ export default function Navbar() {
                   Quiero empezar
                 </a>
               </li>
-
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/carshop">
+                  Carrito
+                </Link>
+              </li>
               <li className="nav-item dropdown">
                 <div
                   className="nav-link dropdown-toggle"
