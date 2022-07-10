@@ -6,11 +6,7 @@ import ProductDetail from "./component/productDetail/productDetail";
 import Footer from "./component/footer/footer";
 import { Questions } from "./component/question/question";
 
-<<<<<<< HEAD
-import GeneralContainer from "./component/cardsFiltered/GeneralContainer";
-=======
 import Copyright from "./component/copyright/copyright";
->>>>>>> main
 
 import Terms from "./component/terms/terms";
 import "./App.css";
