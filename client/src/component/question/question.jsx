@@ -13,9 +13,23 @@ export function Questions() {
   }, []);
 
   return (
-    <div className="questions">
+    <div className="col-6">
+      
         {
-            questions && questions.length>0 ? questions.map((q)=><div className="col-lg-12 col-md-12 mb-4"><h1>{q.question}</h1><p>{q.answers}</p></div>):""
+            questions && questions.length>0 ? questions.map((q)=>
+            
+            <div className="accordion-item " key={q.id}><div className="accordion-item">
+            <h2 className="accordion-header" id={`panelsStayOpen-heading${q.id}`}>
+              <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#panelsStayOpen-collapse${q.id}`} aria-expanded="false" aria-controls={`panelsStayOpen-collapse${q.id}`}>
+              {q.question}
+              </button>
+            </h2>
+            <div id={`panelsStayOpen-collapse${q.id}`} className="accordion-collapse collapse show" aria-labelledby={`panelsStayOpen-heading${q.id}`}>
+              <div className="accordion-body">
+                <strong>{q.answers}</strong>
+              </div>
+            </div>
+          </div></div>):""
         }
       
     </div>
