@@ -7,6 +7,7 @@ import Footer from "./component/footer/footer";
 import { Questions } from "./component/question/question";
 
 import Copyright from "./component/copyright/copyright";
+
 import Terms from "./component/terms/terms";
 import "./App.css";
 import CarShopContainer from "./component/carShop/Container/CarshopContainer";
