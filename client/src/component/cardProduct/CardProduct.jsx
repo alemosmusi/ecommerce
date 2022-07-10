@@ -1,28 +1,48 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addCarrito } from "../../redux/Actions";
 import "./Card.css";
 export default function Card({
   id,
   name,
   img,
   price,
+  color,
+  size_range,
   details,
   rating,
   stock,
   gender,
   brand_name,
 }) {
-  const [addbag, setaddbag] = useState(1);
+  const dispatch = useDispatch();
+  const [amount, setAmount] = useState(1);
   const [heart, setheart] = useState(1);
 
   const AddCar = () => {
-    if (addbag < 10) {
-      setaddbag(addbag + 1);
-    }
+    // if (addbag < 10) {
+    //   setaddbag(addbag + 1);
+    // }
+    dispatch(
+      addCarrito({
+        id,
+        name,
+        brand_name,
+        price,
+        img,
+        stock,
+        color,
+        size_range,
+        gender,
+        rating,
+        amount,
+      })
+    );
   };
   const DecBag = () => {
-    if (addbag >= 1) {
-      setaddbag(addbag - 1);
+    if (amount >= 1) {
+      setAmount(amount - 1);
     }
   };
   const Heart = () => {
@@ -45,7 +65,7 @@ export default function Card({
         {/* <div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3"> */}
         <div className="col hp">
           <div className="card h-100 shadow-sm">
-            <Link to={`/getDetailsProduct/`+id}>
+            <Link to={`/getDetailsProduct/` + id}>
               <img src={img} className="card-img-top" alt="product.title" />
             </Link>
 
@@ -59,7 +79,7 @@ export default function Card({
 
                 <span className="float-end">
                   <Link
-                    to={`/getDetailsProduct/`+id}
+                    to={`/getDetailsProduct/` + id}
                     className="small text-muted text-uppercase aff-link"
                   >
                     See Details
