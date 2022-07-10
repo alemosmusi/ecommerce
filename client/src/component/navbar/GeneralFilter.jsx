@@ -1,4 +1,4 @@
-export default function GeneralFilter({ categories, dispatch, funtionFilter }) {
+export default function GeneralFilter({ categories, funtionFilter }) {
   function handleClick(e) {
     funtionFilter(e.target.id);
   }
@@ -9,15 +9,11 @@ export default function GeneralFilter({ categories, dispatch, funtionFilter }) {
       placeholder="hola"
       aria-labelledby="navbarDropdown"
     >
-      <li>Cetegories</li>
-      <li>
+      {/* <li>
         <hr className="dropdown-divider" />
-      </li>
+      </li> */}
 
-      <div
-      className="dropdown-item"
-      id='All'
-      onClick={(e) => handleClick(e)}>
+      <div className="dropdown-item" id="All" onClick={(e) => handleClick(e)}>
         All
       </div>
 

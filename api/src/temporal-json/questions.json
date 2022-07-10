@@ -1,43 +1,26 @@
-{
-    "healthcheck": {
-      "message": "OK"
-    },
-    "sneakers": [
-      {
-        
-        "question": "Como lo hago?",
-        "answers": "se hace de tal manera"
-        
-      },
-      {
-        
-        "question": "Como pago?",
-        "answers": "se paga asi"
-        
-      },
-      {
-        
-        "question": "cuando lo recibo?",
-        "answers": "cuando llegue"
-        
-      },
-      {
-        
-        "question": "como reenvolso?",
-        "answers": "no se puede"
-        
-      },
-      {
-        
-        "question": "atienden en persona?",
-        "answers": "no"
-        
-      },
-      {
-        
-        "question": "me cagaron plata??",
-        "answers": "si"
-        
-      }
-    ]
+[
+  { 
+    "question": "Como lo hago?",
+    "answers": "se hace de tal manera"
+  },
+  {
+    "question": "Como pago?",
+    "answers": "se paga asi"
+  },
+  {
+    "question": "cuando lo recibo?",
+    "answers": "cuando llegue"
+  },
+  {
+    "question": "como reenvolso?",
+    "answers": "no se puede" 
+  },
+  {
+    "question": "atienden en persona?",
+    "answers": "no" 
+  },
+  {
+    "question": "me cagaron plata??",
+    "answers": "si" 
   }
+]

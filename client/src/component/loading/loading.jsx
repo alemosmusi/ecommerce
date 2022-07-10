@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react";
 
 export default function loading() {
   return (
     <div>
-        <div class="d-flex justify-content-center">
-  <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-</div>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
-
