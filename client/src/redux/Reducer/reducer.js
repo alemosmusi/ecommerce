@@ -159,6 +159,14 @@ const rootReducer = (state = initialState, action) => {
         ShoesDetails: {},
       };
 
+  case actionTypes.GET_ADD_CARRITO:
+    
+      return {
+        ...state,
+        Carrito:[...state.Carrito, action.payload],
+      };
+
+
     default:
       return state;
   }

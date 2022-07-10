@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { getAllDetails, CleanStateDetail } from "../../redux/Actions/actions";
+import { getAllDetails, CleanStateDetail ,AddCarrito} from "../../redux/Actions/actions";
 import Loading from "../loading/loading.jsx";
 import Footer from "../footer/footer";
 export default function ProductDetail() {
@@ -16,7 +16,8 @@ export default function ProductDetail() {
   }, [dispatch, id]);
   const [addbag, setaddbag] = useState(1);
   const [heart, setheart] = useState(1);
-
+  const [talle, setTalle]= useState(0)
+  
   const AddCar = () => {
     if (addbag < 10) {
       setaddbag(addbag + 1);
@@ -37,6 +38,20 @@ export default function ProductDetail() {
   let arrRating = new Array(5).fill(0, 0).map((e, i) => {
     return i < details.rating ? (e = 1) : e;
   });
+
+
+  const AddCarro =(e)=>{
+    e.preventDefault()
+       dispatch(AddCarrito({
+        ...details, 
+        size_range:talle
+       }))
+  }
+  const onChane =(e)=>{
+    e.preventDefault()
+    setTalle(e.target.value)
+  }
+
 
   return (
     <div>
@@ -91,6 +106,10 @@ export default function ProductDetail() {
                               className="checkbox"
                               id={i}
                               key={i}
+                              onSelect={(e)=>onChane(e)}
+                              value={e}
+                              
+
                             />
                             <label className="form-check-label">{e}</label>
                           </div>
