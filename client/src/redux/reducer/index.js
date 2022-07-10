@@ -88,9 +88,7 @@ const rootReducer = (state = initialState, action) => {
       const productsColors = productsPrices.filter(product => {
         if (!colors.length) return product
         if (typeof colors === 'string') return product.colors.includes(colors)
-        if (Array.isArray(colors)) {
-          return product.colors.find(value => colors.includes(value))
-        }
+        if (Array.isArray(colors)) return colors.includes(product.color)
         return false
       })
 
