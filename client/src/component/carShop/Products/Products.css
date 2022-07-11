@@ -1,10 +1,10 @@
 .Products {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  overflow: auto;
-  border: 1px solid black;
+  overflow-y: auto;
   margin: 0 2% 0 0;
+  width: 90%;
+  border: 1px solid black;
 }
 br {
   background-color: gray;
