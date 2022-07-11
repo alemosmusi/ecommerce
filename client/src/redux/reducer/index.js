@@ -1,14 +1,11 @@
-import * as actionTypes from "../action-types/";
+import * as actionTypes from '../action-types/'
 
-var q = 1;
+var q = 1
 
 const initialState = {
   Shoes: [],
   Filters: [],
-  getFilters: {
-    category: "All",
-    brand: "All",
-  },
+  backupFilters: [],
   Categories: [],
   Brands: [],
   Colors: [],
@@ -17,7 +14,7 @@ const initialState = {
   Qdelete: [],
   ShoesDetails: {},
   Carrito: [],
-};
+}
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -57,10 +54,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Filters: filterCategories,
-        getFilters: {
-          ...state.getFilters,
-          category: action.payload,
-        },
+        backupFilters: filterCategories,
       }
     case actionTypes.GET_FILTERS_BRANDS:
       const filterBrands = state.Shoes.filter(product => {
@@ -72,28 +66,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Filters: filterBrands,
-        getFilters: {
-          ...state.getFilters,
-          brand: action.payload,
-        },
+        backupFilters: filterBrands,
       }
     case actionTypes.UPDATE_FILTERS:
       const { brands, genders, prices, colors } = action.payload
 
-      const productSelects = state.Shoes.filter(product => {
-        const { category, brand } = state.getFilters
-        if (category === 'All' && brand === 'All') return product
-        if (category === 'All' && product.brand_name.toLowerCase() === brand.toLowerCase()) return product
-        if (brand === 'All' && product.category.toLowerCase() === category.toLowerCase()) return product
-        if (
-          product.category.toLowerCase() === category.toLowerCase() &&
-          product.brand_name.toLowerCase() === brand.toLowerCase()
-        )
-          return product
-        return false
-      })
-
-      const productsBrands = productSelects.filter(product => {
+      const productsBrands = state.backupFilters.filter(product => {
         if (!brands.length) return product
         if (typeof brands === 'string') return brands.toLowerCase() === product.brand_name.toLowerCase()
         if (Array.isArray(brands)) return brands.includes(product.brand_name)
@@ -161,14 +139,11 @@ const rootReducer = (state = initialState, action) => {
         ShoesDetails: {},
       }
     case actionTypes.GET_ADD_CARRITO:
-      let existProduct = state.Carrito.filter(
-        (p) => p.id === action.payload.id
-      );
-      if (!existProduct.length)
-        state.Carrito = [...state.Carrito, action.payload];
+      let existProduct = state.Carrito.filter(p => p.id === action.payload.id)
+      if (!existProduct.length) state.Carrito = [...state.Carrito, action.payload]
       return {
         ...state,
-      };
+      }
 
     case actionTypes.DELETE_PRODUCT_CARRITO:
       return {
@@ -186,6 +161,6 @@ const rootReducer = (state = initialState, action) => {
     default:
       return state
   }
-};
+}
 
-export default rootReducer;
+export default rootReducer
