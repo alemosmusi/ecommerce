@@ -119,16 +119,16 @@ export default function FiltersContainer() {
         <button onClick={handleSubmitGenders}>Aplicar </button>
       </div>
       <div className="modal-content">
-        <div className="col w-90 p-2" style={{ width: '200px' }}>
+        {/* <div className="col w-90 p-2" style={{ width: '200px' }}>
           Filtro de Marca
-        </div>
-        {brands.map(e => (
+        </div> */}
+        {/* {brands.map(e => (
           <div>
             <input key={e.name} type="checkbox" name={e.name} value={e.name} onClick={handleInputBrandsClick} />
             <label>{e.name}</label>
           </div>
         ))}
-        <button onClick={handleSubmitBrands}>Aplicar </button>
+        <button onClick={handleSubmitBrands}>Aplicar </button> */}
       </div>
 
       <div className="col w-90 p-2" style={{ width: '200px' }}>
