@@ -15,30 +15,16 @@
   justify-content: center;
   flex-direction: column;
   /* margin: 100px 0 0 0; */
-  /* width: 100vw; */
+  width: 90%;
+  margin: 0;
 }
 .App h1 {
   font-family: var(--font2);
 }
 .Container {
   margin: 5px 0 0 0;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-}
-.Total {
-  max-width: 300px;
-  /* position: fixed; */
-  left: 1000px;
-}
-.Total table {
-  background-color: #80808060;
-}
-.Products {
-  min-height: 300px;
-  min-width: 500px;
-  text-align: center;
-  width: 70%;
-  overflow: auto;
-  border: 1px solid gray;
-  margin: 0 1% 0 0;
+  padding: 0;
+  min-width: 80%;
 }
