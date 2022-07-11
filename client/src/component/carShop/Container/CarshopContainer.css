@@ -22,9 +22,10 @@
   font-family: var(--font2);
 }
 .Container {
+  display: flex;
   margin: 5px 0 0 0;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 0;
-  min-width: 80%;
+  width: 90%;
 }
