@@ -12,12 +12,13 @@
 .Card {
   overflow: auto;
   overflow-x: hidden;
-width: 100%; 
-justify-content: space-between;
+  width: 100%;
+  justify-content: space-between;
   display: flex;
-
+  align-content: center;
   font-family: var(--font1);
   padding: 1%;
+  padding: 2% 0 2% 0;
 }
 
 .image img {
@@ -25,11 +26,12 @@ justify-content: space-between;
 }
 .middleDetails {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
   /* justify-content: center; */
-  max-width: 20%;
+  min-width: 22%;
 }
+
 .amount {
   min-width: 100px;
   padding: 2% 0 2% 0;
@@ -48,8 +50,9 @@ justify-content: space-between;
   border: 1px solid gray;
 }
 .actions {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-around;
   align-self: flex-end;
 }
@@ -64,12 +67,12 @@ justify-content: space-between;
 .endDetails {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 20%;
+  justify-content: flex-start;
+  max-width: 22%;
 }
 .title {
-  display: flex;
-  flex-direction: row;
+  display: inline-flex;
+
 }
 .title p {
   font-weight: bold;
