@@ -1,13 +1,13 @@
-import * as actionTypes from '../action-types/'
+import * as actionTypes from "../action-types/";
 
-var q = 1
+var q = 1;
 
 const initialState = {
   Shoes: [],
   Filters: [],
   getFilters: {
-    category: 'All',
-    brand: 'All',
+    category: "All",
+    brand: "All",
   },
   Categories: [],
   Brands: [],
@@ -17,7 +17,7 @@ const initialState = {
   Qdelete: [],
   ShoesDetails: {},
   Carrito: [],
-}
+};
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -167,9 +167,13 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case actionTypes.GET_ADD_CARRITO:
+      let existProduct = state.Carrito.filter(
+        (p) => p.id === action.payload.id
+      );
+      if (!existProduct.length)
+        state.Carrito = [...state.Carrito, action.payload];
       return {
         ...state,
-        Carrito: [...state.Carrito, action.payload],
       };
     case actionTypes.DELETE_PRODUCT_CARRITO:
       return {
@@ -190,6 +194,6 @@ const rootReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
-export default rootReducer
+export default rootReducer;

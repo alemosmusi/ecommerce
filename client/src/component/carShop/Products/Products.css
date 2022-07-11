@@ -1,8 +1,10 @@
-.General {
-  border: 1px solid black;
+.Products {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  overflow: auto;
+  border: 1px solid black;
+  margin: 0 2% 0 0;
 }
 br {
   background-color: gray;
