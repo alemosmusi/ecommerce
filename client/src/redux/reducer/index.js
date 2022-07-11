@@ -104,14 +104,17 @@ const rootReducer = (state = initialState, action) => {
         Filters: [...productsColors],
       }
     case actionTypes.GET_FILTERS_SEARCHBAR:
+      const filterSearch = state.Shoes.filter(product => {
+        let name = product.name.toLowerCase()
+        if (!action.payload.length) return product
+        if (name.includes(action.payload.toLowerCase())) return product
+        return false
+      })
+
       return {
         ...state,
-        Filters: state.Shoes.filter(product => {
-          let name = product.name.toLowerCase()
-          if (!action.payload.length) return product
-          if (name.includes(action.payload.toLowerCase())) return product
-          return false
-        }),
+        Filters: filterSearch,
+        backupFilters: filterSearch,
       }
     case actionTypes.GET_QUESTIONS:
       return {
