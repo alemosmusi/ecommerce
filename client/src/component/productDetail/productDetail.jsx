@@ -21,9 +21,11 @@ export default function ProductDetail() {
     dispatch(CleanStateDetail());
   }, [dispatch, id]);
 
-  const [addbag, setaddbag] = useState(1);
-  const [heart, setheart] = useState(1);
-  const [talle, setTalle] = useState("");
+
+  const [addbag, setaddbag] = useState(1)
+  const [heart, setheart] = useState(1)
+  const [talle, setTalle] = useState('')
+  const [añadido , setAñadido]=useState(false)
 
   const AddCar = () => {
     if (addbag < 10) {
@@ -46,19 +48,25 @@ export default function ProductDetail() {
     return i < details.rating ? (e = 1) : e;
   });
 
-  const AddCarro = (e) => {
-    e.preventDefault();
-    dispatch(
-      addCarrito({
-        ...details,
-        size_range: talle,
-      })
-    );
-  };
-  const onChane = (e) => {
-    e.preventDefault();
-    setTalle(e.target.value);
-  };
+
+
+  const AddCarro =(e)=>{
+    e.preventDefault()
+
+       dispatch(addCarrito({
+        ...details, 
+        size_range: talle
+       }))
+       setAñadido(true)
+     setTalle('')  
+    setTimeout(()=>{
+      setAñadido(false)
+    }, 3000)
+  }
+  const onChane = e => {
+    e.preventDefault()
+    setTalle(e.target.value)
+  }
 
   return (
     <div>
@@ -108,16 +116,17 @@ export default function ProductDetail() {
                     {details.size_range.length ? (
                       details.size_range.map((e, i) => {
                         return (
-                          <div>
-                            <input
-                              type="checkbox"
-                              className="checkbox"
-                              id={i}
-                              key={i}
-                              value={e}
-                              onChange={(e) => onChane(e)}
-                            />
-                            <label className="form-check-label">{e}</label>
+
+                          <div key={i}>
+                            <button
+                            className="dropdown-item"
+                            id={i}
+                            key={i}
+                            value={e}
+                            onClick={(e)=>onChane(e)}
+                            >{e}</button>
+
+
                           </div>
                         );
                       })
@@ -126,6 +135,7 @@ export default function ProductDetail() {
                     )}
                   </ul>
                 </div>
+                {talle === '' ? null : <strong>Talle: {talle}</strong>}
                 {/* <li><a className="dropdown-item" href="#">genero</a></li>
             <li><a className="dropdown-item" href="#">precios</a></li>
             <li><hr className="dropdown-divider"/></li>
@@ -200,12 +210,14 @@ export default function ProductDetail() {
                       ></i>
                     </small>
 
-                    <button
-                      className="btn btn-warning bold-btn"
-                      onClick={(e) => AddCarro(e)}
-                    >
-                      <i className="fa-thin fa-cart-plus"></i>add to cart
+
+                    <button className="btn btn-warning bold-btn" onClick={e => AddCarro(e)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
+  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+</svg> add to cart
+
                     </button>
+                   
                   </div>
                   <span className="float-start badge rounded-pill bg-success">
                     {details.price}$
@@ -213,8 +225,12 @@ export default function ProductDetail() {
                 </div>
               </div>
             </div>
+          {!!añadido === false ? <p>{' '}</p> : <div className="alert alert-dark" role="alert">
+            Se añadió el producto a carrito
+                 </div>}
           </div>
         </div>
+        
       ) : (
         <Loading />
       )}

@@ -13,7 +13,9 @@ export function Home() {
     dispatch(getAllShoes())
     dispatch(getAllCategories())
   }, [dispatch])
+
   const shoes = useSelector(state => state.Shoes)
+
   return (
     <div className="home p-1">
       <Cards shoes={shoes} />

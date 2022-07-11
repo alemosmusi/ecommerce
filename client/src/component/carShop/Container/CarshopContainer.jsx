@@ -29,9 +29,10 @@ export default function CarShopContainer() {
     .map((product) => product.price * product.amount)
     .reduce((prev, curr) => prev + curr, 0);
 
-  useEffect(() => {
+
     dispatch(getAllShoes());
   }, [dispatch]);
+
   return (
     <div className="App container-fluid">
       <h1>CAR SHOP</h1>
