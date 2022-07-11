@@ -30,8 +30,10 @@ export default function CarShopContainer() {
     .reduce((prev, curr) => prev + curr, 0);
 
 
+  useEffect(() => {
     dispatch(getAllShoes());
   }, [dispatch]);
+
 
   return (
     <div className="App container-fluid">
