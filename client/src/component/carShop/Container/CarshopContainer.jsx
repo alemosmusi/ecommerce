@@ -38,7 +38,7 @@ export default function CarShopContainer() {
   return (
     <div className="App container-fluid">
       <h1>CAR SHOP</h1>
-      <div className=" d-flex Container">
+      <div className="Container">
         <ProductsContainer carProducts={carProducts} />
         <Total totalProducts={totalProducts} totalPrice={totalPrice} />
       </div>

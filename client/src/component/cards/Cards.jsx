@@ -26,7 +26,7 @@ export default function Cards({ shoes }) {
                 size_range={s.size_range}
                 material={s.material}
                 released={s.released}
-                gender={s.gender}
+                gender={s.genders[0]}
                 designer={s.designer}
                 details={s.details}
                 shoe_condition={s.shoe_condition}
