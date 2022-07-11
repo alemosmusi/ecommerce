@@ -62,6 +62,20 @@ export default function Copyright() {
           href="https://ar.linkedin.com/in/alexis1614?trk=profile-badge"
         ></a>
       </div>
+      <div
+        class="badge-base LI-profile-badge col"
+        data-locale="es_ES"
+        data-size="medium"
+        data-theme="light"
+        data-type="VERTICAL"
+        data-vanity="anthony-urbina-5773b9173"
+        data-version="v1"
+      >
+        <a
+          class="badge-base__link LI-simple-link"
+          href="https://pe.linkedin.com/in/anthony-urbina-5773b9173?trk=profile-badge"
+        ></a>
+      </div>
       </div>
      </div>
   )
