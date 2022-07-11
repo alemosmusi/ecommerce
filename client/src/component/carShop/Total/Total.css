@@ -1,3 +1,12 @@
+.Total {
+  max-width: 300px;
+  /* position: relative; */
+  /* left: 1000px; */
+}
+.Total table {
+  background-color: #80808060;
+}
+
 h5 {
   text-align: left;
 }

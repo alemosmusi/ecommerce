@@ -1,9 +1,13 @@
-import React from 'react'
-import { Formik, Form, Field } from 'formik'
-import { amountSchema } from '../../../Validations/amountSchema.js'
-import { changeAmount } from '../../../redux/actions'
+import React from "react";
+import { Formik, Form, Field } from "formik";
+import { amountSchema } from "../../../Validations/amountSchema.js";
+import { changeAmount } from "../../../redux/actions";
 
 export default function FormAmount({ amountP, id, dispatch }) {
+  if (!amountP) {
+    amountP = 1;
+    dispatch(changeAmount({ id, amount: 1 }));
+  }
   return (
     <div>
       <Formik
@@ -12,7 +16,7 @@ export default function FormAmount({ amountP, id, dispatch }) {
         }}
         validationSchema={amountSchema}
         onSubmit={({ amount }) => {
-          dispatch(changeAmount({ id, amount: Number(amount) }))
+          dispatch(changeAmount({ id, amount: Number(amount) }));
         }}
       >
         {({ errors, touched }) => (
@@ -22,11 +26,14 @@ export default function FormAmount({ amountP, id, dispatch }) {
              */}
             {touched.amount && errors.amount && <div>{errors.amount}</div>}
             <button type="submit" className="submitBtn">
-              <i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true"></i>
+              <i
+                className="fa fa-chevron-circle-right fa-lg"
+                aria-hidden="true"
+              ></i>
             </button>
           </Form>
         )}
       </Formik>
     </div>
-  )
+  );
 }

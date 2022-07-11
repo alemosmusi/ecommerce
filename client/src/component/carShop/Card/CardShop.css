@@ -9,17 +9,17 @@
   --font3: "Roboto", sans-serif;
 }
 
-.General {
+.Card {
   overflow: auto;
   overflow-x: hidden;
-
+width: 100%; 
+justify-content: space-between;
   display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
+
   font-family: var(--font1);
   padding: 1%;
 }
+
 .image img {
   width: 110px;
 }
