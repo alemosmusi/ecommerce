@@ -118,7 +118,10 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to="/carshop">
-                  <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                  <i
+                    className="fa fa-shopping-cart fa-lg"
+                    aria-hidden="true"
+                  ></i>
                 </Link>
               </li>
             </ul>
