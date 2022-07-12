@@ -11,6 +11,9 @@ import {
   getFilterCategories,
   getFilterBrands,
 } from "../../redux/actions";
+import { LoginButton } from "../login/login";
+import { LogoutButton } from "../login/logout";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import GeneralFilter from "./GeneralFilter";
 import SearchBar from "./SearchBar";
@@ -42,6 +45,8 @@ export default function Navbar() {
     navigate("/filters");
     dispatch(getFilterBrands(e));
   };
+
+  const { isAuthenticated } = useAuth0();
 
   return (
     <div style={{ height: "80px" }}>
@@ -78,11 +83,22 @@ export default function Navbar() {
                   Inicio
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <a className="nav-link" href="/start">
-                  Quiero empezar
-                </a>
-              </li> */}
+              {isAuthenticated ? 
+              <>
+              <li className="nav-item">
+              <LogoutButton></LogoutButton>
+            </li>
+              <Link className="nav-link active" aria-current="page" to="/infoperfil">Perfil</Link>
+              </>
+                :
+              <>
+              <li className="nav-item">
+                <LoginButton></LoginButton>
+              </li>
+              </>
+              }
+              
+              
 
               <li className="nav-item dropdown">
                 <div
