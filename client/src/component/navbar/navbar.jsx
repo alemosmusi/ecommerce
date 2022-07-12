@@ -78,27 +78,32 @@ export default function Navbar() {
                 height="30"
                 alt="logo"
               />
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
-                  Inicio
-                </Link>
-              </li>
-              {isAuthenticated ? 
-              <>
-              <li className="nav-item">
-              <LogoutButton></LogoutButton>
-            </li>
-              <Link className="nav-link active" aria-current="page" to="/infoperfil">Perfil</Link>
-              </>
-                :
-              <>
-              <li className="nav-item">
-                <LoginButton></LoginButton>
-              </li>
-              </>
-              }
-              
-              
+              <Link className="nav-link active" aria-current="page" to="/admin">
+                <li className="nav-item">Soy Admin</li>
+              </Link>
+              <Link className="nav-link active" aria-current="page" to="/">
+                <li className="nav-item">Inicio</li>
+              </Link>
+              {isAuthenticated ? (
+                <>
+                  <li className="nav-item">
+                    <LogoutButton></LogoutButton>
+                  </li>
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    to="/infoperfil"
+                  >
+                    Perfil
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <LoginButton></LoginButton>
+                  </li>
+                </>
+              )}
 
               <li className="nav-item dropdown">
                 <div
