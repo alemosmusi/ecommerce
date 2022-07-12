@@ -44,7 +44,7 @@ export default function Navbar() {
   };
 
   return (
-    <div style={{ height: "40px", marginBottom: "20px" }}>
+    <div style={{ height: "80px" }}>
       <div className="collapse" id="navbarToggleExternalContent">
         <div className="bg-dark p-4">
           <h5 className="text-white h4">Collapsed content</h5>
@@ -73,17 +73,17 @@ export default function Navbar() {
                 height="30"
                 alt="logo"
               />
-              <Link className="nav-link active" aria-current="page" to="/">
-                <li className="nav-item">Inicio</li>
-              </Link>
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/">
+                  Inicio
+                </Link>
+              </li>
               {/* <li className="nav-item">
                 <a className="nav-link" href="/start">
                   Quiero empezar
                 </a>
               </li> */}
-              <Link className="nav-link active" aria-current="page" to="/admin">
-                <li className="nav-item">Soy Admin</li>
-              </Link>
+
               <li className="nav-item dropdown">
                 <div
                   className="nav-link dropdown-toggle"
