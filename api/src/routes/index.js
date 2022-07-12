@@ -6,8 +6,11 @@ const { getCategories, createCategory, deleteCategory } = require('../controller
 const { getGenders, createGenders, deleteGender } = require('../controllers/genders.js')
 const { getColors, createColor, deleteColor } = require('../controllers/colors.js')
 const { getQuestions, createQuestions, deleteQuestions } = require('../controllers/quetions.js')
+const { getUsers } = require('../controllers/users.js')
 
 const routes = Router() 
+
+routes.get('/users', getUsers)
 
 routes.get('/shoes', getShoes)
 routes.post('/shoes', createShoes)
