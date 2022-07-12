@@ -18,9 +18,9 @@ export function Home() {
 
   return (
     <div className="home p-1">
+      <Wrapper></Wrapper>
       <Cards shoes={shoes} />
       {/* <Carousel shoes={shoes} /> */}
-      <Wrapper></Wrapper>
     </div>
   )
 }

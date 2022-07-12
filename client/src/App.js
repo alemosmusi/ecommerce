@@ -11,6 +11,7 @@ import Terms from "./component/terms/terms";
 import "./App.css";
 import CarShopContainer from "./component/carShop/Container/CarshopContainer";
 import GeneralContainer from "./component/cardFilters/GeneralContainer";
+import { InfoProfile } from "./component/infoProfile/infoProfile.jsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/terms" element={<Terms />} />
         <Route exact path="/filters" element={<GeneralContainer />} />
         <Route exact path="/carshop" element={<CarShopContainer />} />
+        <Route exact path="/infoperfil" element={<InfoProfile />} />
       </Routes>
       <Footer />
     </div>
