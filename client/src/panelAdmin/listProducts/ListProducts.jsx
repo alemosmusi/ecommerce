@@ -19,7 +19,6 @@ const ListProducts = () => {
     {
       field: "action",
       headerName: "Action",
-      // no
       width: 200,
       renderCell: ({ row }) => {
         return (

@@ -32,7 +32,7 @@ export default function CarShopContainer() {
 
   useEffect(() => {
     dispatch(getAllShoes());
-  }, [dispatch]);
+  },[dispatch]);
 
 
   return (
