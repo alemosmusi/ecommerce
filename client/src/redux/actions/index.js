@@ -18,6 +18,7 @@ const {
   CREATE_QUESTION,
   CHANGE_AMOUNT_PRODUCT,
   DELETE_PRODUCT_CARRITO,
+  CREATE_SHOES
 } = require('../action-types')
 
 const URL = 'http://localhost:3001'
@@ -215,4 +216,17 @@ export const changeAmount = payload => {
       payload,
     })
   }
+}
+
+export const createShoes = shoes =>{
+    return async function(){
+      try {
+        const post = await axios.post('http://localhost:3001/shoes',shoes)
+        return post
+        
+      } catch (error) {
+        console.log(error)
+      }
+      }
+   
 }

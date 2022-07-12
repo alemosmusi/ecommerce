@@ -161,6 +161,10 @@ const rootReducer = (state = initialState, action) => {
           return product
         }),
       }
+    case actionTypes.CREATE_SHOES:
+      return{
+        ...state,
+      }
     default:
       return state
   }
