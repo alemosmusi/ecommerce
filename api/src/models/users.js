@@ -7,7 +7,7 @@ const Users = (sequelize) => {
             allowNull: false,
             unique: true
         },
-        user: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
@@ -16,7 +16,7 @@ const Users = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        last: {
+        lastName: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -28,7 +28,7 @@ const Users = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        telephone: {
+        phone: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
@@ -46,7 +46,29 @@ const Users = (sequelize) => {
         }
     )
 
-    return model
+    const preStart = async () => {
+        const json = require('../temporal-json/users.json')
+    
+        json.forEach(async (value) => {
+          const { dni, name, lastName, username, genre, email, phone, adress, country, } = value
+    
+          await model.create({
+            dni,
+            name,
+            lastName,
+            username,
+            genre,
+            email,
+            phone,
+            adress,
+            country,
+          })
+        })
+      }
+    
+      setTimeout(preStart, 3000)
+    
+      return model
 }
 
 module.exports = Users
