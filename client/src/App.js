@@ -1,4 +1,3 @@
-import "./App.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./component/home/home";
@@ -12,11 +11,10 @@ import Terms from "./component/terms/terms";
 import CarShopContainer from "./component/carShop/Container/CarshopContainer";
 import GeneralContainer from "./component/cardFilters/GeneralContainer";
 import { InfoProfile } from "./component/infoProfile/infoProfile.jsx";
-import ListProducts from "./panelAdmin/listProducts/ListProducts";
-
+import ListProducts from "./panelAdmin/listproducts/ListProducts";
 function App() {
   return (
-    <div className="App">
+    <div className="container-fluid text-center">
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />

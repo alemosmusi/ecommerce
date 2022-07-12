@@ -78,9 +78,7 @@ export default function Navbar() {
                 height="30"
                 alt="logo"
               />
-              <Link className="nav-link active" aria-current="page" to="/admin">
-                <li className="nav-item">Soy Admin</li>
-              </Link>
+
               <Link className="nav-link active" aria-current="page" to="/">
                 <li className="nav-item">Inicio</li>
               </Link>
@@ -104,7 +102,9 @@ export default function Navbar() {
                   </li>
                 </>
               )}
-
+              <Link className="nav-link active" aria-current="page" to="/admin">
+                <li className="nav-item">Soy Admin</li>
+              </Link>
               <li className="nav-item dropdown">
                 <div
                   className="nav-link dropdown-toggle"
