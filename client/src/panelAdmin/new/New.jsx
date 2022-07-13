@@ -2,10 +2,35 @@ import "./new.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import {
+  createShoes,
+  getAllGenders,
+  getAllColors,
+  getAllCategories,
+  getAllBrands,
+  // createBrands,
+  // createCategories,
+  // createColors,
+  // createGenders,
+} from "../../redux/actions/index.js";
 
 const New = ({ inputs, title }) => {
-  const [file, setFile] = useState("");
+  // const [file, setFile] = useState("");
+  const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(getAllGenders());
+      dispatch(getAllCategories());
+      dispatch(getAllColors());
+      dispatch(getAllBrands());
+    }, [dispatch]);
+    const Categories = useSelector((state) => state.Categories);
+    const Brands = useSelector((state) => state.Brands);
+    const Colors = useSelector((state) => state.Colors);
+    const Genders = useSelector((state) => state.Genders);
+
 
   return (
     <div className="new">
@@ -15,12 +40,42 @@ const New = ({ inputs, title }) => {
         <div className="top">
           <h1>{title}</h1>
         </div>
-        <div className="bottom">
+        <Formik 
+        className="bottom"
+        initialValues={{
+          name: "",
+          brand_name: "",
+          description: "",
+          price: 0,
+          img: "",
+          stock: 0,
+          color: "",
+          size_range: [],
+          material: "",
+          released: "",
+          genders: [],
+          designer: "",
+          details: "",
+          shoe_condition: "",
+          rating: 0,
+          category: "",
+        }}
+        onSubmit={(valores, { resetForm }) => {
+          resetForm();
+          dispatch(createShoes(valores))
+          console.log("Formulario enviado");
+          // cambiarFormularioEnviado(true);
+          //      setTimeout(() => cambiarFormularioEnviado(false), 5000);
+          }}
+        >
+   {({ values, errors }) => (
+
+          <Form>
           <div className="left">
             <img
               src={
-                file
-                  ? URL.createObjectURL(file)
+                values.img
+                  ? URL.createObjectURL(values.img)
                   : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
               }
               alt=""
@@ -32,10 +87,11 @@ const New = ({ inputs, title }) => {
                 <label htmlFor="file">
                   Image: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
-                <input
+                <Field
                   type="file"
                   id="file"
-                  onChange={(e) => setFile(e.target.files[0])}
+                  name='img'
+                  // onChange={(e) => setFile(e.target.files[0])}
                   style={{ display: "none" }}
                 />
               </div>
@@ -43,16 +99,19 @@ const New = ({ inputs, title }) => {
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input type={input.type} placeholder={input.placeholder} />
+                  <Field type={input.type} placeholder={input.placeholder} />
                 </div>
               ))}
               <button>Send</button>
             </form>
           </div>
-        </div>
+          </Form>
+   )}
+        </Formik>
       </div>
     </div>
   );
 };
 
 export default New;
+
