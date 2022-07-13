@@ -48,7 +48,7 @@ const ListProducts = () => {
         <Datatable
           name={"Mis Productos"}
           buttonName={"Nuevo"}
-          pathButton={"newProduct"}
+          pathButton={"new"}
           rows={productRows}
           columns={[...productColumns, ...actionColum]}
           rowsInPage={9}
