@@ -5,9 +5,9 @@ import Navbar from "../components/navbar/Navbar";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { productColumns } from "./productColumns";
+import { ordersColumns } from "./ordersColumns";
 import { getAllShoes } from "../../redux/actions";
-const ListProducts = () => {
+const ListOrders = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllShoes());
@@ -46,11 +46,11 @@ const ListProducts = () => {
       <div className="listContainer">
         <Navbar />
         <Datatable
-          name={"Mis Productos"}
-          buttonName={"Nuevo"}
-          pathButton={"new"}
+          name={"Ordenes"}
+          buttonName={null}
+          pathButton={null}
           rows={productRows}
-          columns={[...productColumns, ...actionColum]}
+          columns={[...ordersColumns, ...actionColum]}
           rowsInPage={9}
         />
       </div>
@@ -58,4 +58,4 @@ const ListProducts = () => {
   );
 };
 
-export default ListProducts;
+export default ListOrders;
