@@ -36,6 +36,7 @@ function createData(name, calories, fat, carbs, protein, price) {
         img: "https://image.goat.com/attachments/product_template_pictures/images/011/119/994/original/218099_00.png.png",
         color: 'Black',
         price: 16000,
+        talla: 10.5,
       },
       {
         id: 2,
@@ -43,6 +44,7 @@ function createData(name, calories, fat, carbs, protein, price) {
         img: "https://image.goat.com/attachments/product_template_pictures/images/020/806/444/original/507844_00.png.png",
         color: 'Black',
         price: 14000,
+        talla: 10,
       },
     ],
   };
@@ -75,7 +77,7 @@ function Row(props) {
           {row.name}
         </TableCell>
         <TableCell align="right">{row.calories}</TableCell>
-        <TableCell align="right">{row.fat}</TableCell>
+        <TableCell align="right">{row.calories * row.fat}</TableCell>
         {/* <TableCell align="right">{row.carbs}</TableCell> */}
         {/* <TableCell align="right">{row.protein}</TableCell> */}
       </TableRow>
@@ -91,6 +93,8 @@ function Row(props) {
                   <TableRow>
                     <TableCell>Productos</TableCell>
                     <TableCell>Color</TableCell>
+                    <TableCell>Talla</TableCell>
+                    <TableCell>Unidades</TableCell>
                     <TableCell align="right">Price</TableCell>
                     <TableCell align="right">Total price ($)</TableCell>
                   </TableRow>
@@ -102,9 +106,11 @@ function Row(props) {
                       <img className="cellImg" src={historyRow.img} alt="avatar" />
                       </TableCell>
                       <TableCell>{historyRow.color}</TableCell>
+                      <TableCell>{historyRow.talla}</TableCell>
+                      <TableCell>{historyRow.id}</TableCell>
                       <TableCell align="right">{historyRow.price}</TableCell>
                       <TableCell align="right">
-                        {Math.round(historyRow.price * row.calories * 100) / 100}
+                        {Math.round(historyRow.price * historyRow.id * 100) / 100}
                       </TableCell>
                     </TableRow>
                   ))}
@@ -130,7 +136,7 @@ export default function CollapsibleTable() {
             <TableCell align="right">Product (#)</TableCell>
             {/* <TableCell align="right">Fat&nbsp;(g)</TableCell>
             <TableCell align="right">Carbs&nbsp;(g)</TableCell> */}
-            <TableCell align="right">Total ($)</TableCell>
+            <TableCell align="right">Total de Orden($)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
