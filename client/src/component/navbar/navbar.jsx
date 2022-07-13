@@ -105,6 +105,9 @@ export default function Navbar() {
               <Link className="nav-link active" aria-current="page" to="/admin">
                 <li className="nav-item">Soy Admin</li>
               </Link>
+              <Link className="nav-link active" aria-current="page" to="/user">
+                <li className="nav-item">Soy Usuario</li>
+              </Link>
               <li className="nav-item dropdown">
                 <div
                   className="nav-link dropdown-toggle"
