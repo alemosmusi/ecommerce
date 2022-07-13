@@ -165,6 +165,22 @@ const rootReducer = (state = initialState, action) => {
       return{
         ...state,
       }
+    case actionTypes.CREATE_CATEGORIES:
+        return{
+          ...state,
+        }
+    case actionTypes.CREATE_COLORS:
+        return{
+          ...state,
+        }
+    case actionTypes.CREATE_BRANDS:
+        return{
+          ...state,
+        }
+    case actionTypes.CREATE_GENDERS:
+        return{
+          ...state,
+        }
     default:
       return state
   }
