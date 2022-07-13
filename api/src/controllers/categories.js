@@ -2,14 +2,14 @@ const { modelCategories } = require('../db.js')
 
 const getCategories = async (req, res) => {
     try {
-        const response = await modelCategories.findAll({raw: true})
+        const response = await modelCategories.findAll()
         res.status(200).json(response)
     } catch (error) {
         res.status(500).send({msg: 'Error internal server!'})
     }
 }
 
-const createCategory = async (req, res) => {
+const createCategories = async (req, res) => {
     const { name } = req.body
 
     try {
@@ -22,13 +22,13 @@ const createCategory = async (req, res) => {
         res.status(500).send({msg: 'Error internal server!'})
     }
 }
-const deleteCategory = async (req, res) => {
-    const { name } = req.params;
+const deleteCategories = async (req, res) => {
+    const { id } = req.body;
 
     try {
-        const brand = await modelCategories.destroy({
+        await modelCategories.destroy({
             where: {
-                name
+                id
             }
         })
         
@@ -40,6 +40,6 @@ const deleteCategory = async (req, res) => {
 
 module.exports = {
     getCategories,
-    createCategory,
-    deleteCategory
+    createCategories,
+    deleteCategories
 }
