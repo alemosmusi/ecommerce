@@ -10,16 +10,17 @@ const getShoes = async (req, res) => {
 }
 
 const createShoes = (req, res) => {
-  const { name, brand_name, description, price, img, stock, color, size_range, material, released, genders, designer, details, shoe_condition, rating, category } = req.body
+  const { name, nickname, brand_name, description, price, img, stock_total, color, size_range, material, released, genders, designer, details, shoe_condition, rating, category } = req.body
 
   try {
     const product = modelProducts.create({
       name,
+      nickname: !nickname ? name : nickname,
       brand_name,
       description,
       price,
       img,
-      stock,
+      stock_total: size_range.reduce((a, value) => a+=value.stock, 0),
       color,
       size_range,
       material,

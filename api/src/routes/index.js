@@ -9,7 +9,7 @@ const { getQuestions, createQuestions, deleteQuestions } = require('../controlle
 
 const routes = Router() 
 
-routes.get('/shoes', getShoes)
+routes.get('/shoes' , getShoes)
 routes.post('/shoes', createShoes)
 routes.delete('/shoes/:id', deleteShoes)
 
@@ -34,5 +34,10 @@ routes.post('/questions', createQuestions)
 routes.delete('/questions/:id', deleteQuestions)
 
 routes.get('/getDetailsProduct/:id', getDetailsProduct)
+
+//routes.get('/login', logIn)
+//routes.get('/users')
+
+
 
 module.exports = routes
