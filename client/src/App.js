@@ -10,9 +10,10 @@ import Copyright from "./component/copyright/copyright";
 import Terms from "./component/terms/terms";
 import CarShopContainer from "./component/carShop/Container/CarshopContainer";
 import GeneralContainer from "./component/cardFilters/GeneralContainer";
-import { InfoProfile } from "./component/infoProfile/infoProfile.jsx";
-import ListProducts from "./panelAdmin/listproducts/ListProducts";
+import { InfoProfile } from "./component/infoProfile/infoProfile";
 
+import ListProducts from "./panelAdmin/listproducts/ListProducts";
+import New from "./panelAdmin/new/New";
 function App() {
   return (
     <div className="container-fluid text-center">
@@ -33,10 +34,7 @@ function App() {
         <Route path="admin">
           <Route index element={<ListProducts />} />
           <Route path="products" element={<ListProducts />} />
-          <Route
-            path="new"
-            // element={<New inputs={userInputs} title="Add New User" />}
-          />
+          <Route path="products/new" element={<New />} />
         </Route>
 
       </Routes>

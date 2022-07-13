@@ -1,9 +1,10 @@
 import "./new.scss";
-import Sidebar from "../../components/sidebar/Sidebar";
-import Navbar from "../../components/navbar/Navbar";
+import Sidebar from "../components/sidebar/Sidebar";
+import Navbar from "../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { productInputs } from "./formSource";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import {
   createShoes,
@@ -17,7 +18,7 @@ import {
   // createGenders,
 } from "../../redux/actions/index.js";
 
-const New = ({ inputs, title }) => {
+const New = () => {
   // const [file, setFile] = useState("");
   const dispatch = useDispatch();
     useEffect(() => {
@@ -30,7 +31,7 @@ const New = ({ inputs, title }) => {
     const Brands = useSelector((state) => state.Brands);
     const Colors = useSelector((state) => state.Colors);
     const Genders = useSelector((state) => state.Genders);
-
+    const inputs = productInputs;
 
   return (
     <div className="new">
@@ -38,7 +39,7 @@ const New = ({ inputs, title }) => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>{title}</h1>
+          <h1>Agregar Nuevo Producto</h1>
         </div>
         <Formik 
         className="bottom"
