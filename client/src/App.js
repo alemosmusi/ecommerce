@@ -12,6 +12,7 @@ import CarShopContainer from "./component/carShop/Container/CarshopContainer";
 import GeneralContainer from "./component/cardFilters/GeneralContainer";
 import { InfoProfile } from "./component/infoProfile/infoProfile.jsx";
 import ListProducts from "./panelAdmin/listproducts/ListProducts";
+import ListOrders from "./panelUser/listOrders/ListOrdenes"
 function App() {
   return (
     <div className="container-fluid text-center">
@@ -37,8 +38,13 @@ function App() {
             // element={<New inputs={userInputs} title="Add New User" />}
           />
         </Route>
-        ;
+        ; 
+        <Route path="user">
+          <Route index element={<ListOrders />} />
+          <Route path="orders" element={<ListOrders />} />
+       </Route>
       </Routes>
+     
       <Footer />
     </div>
   );

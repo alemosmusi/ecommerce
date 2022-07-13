@@ -45,18 +45,18 @@ const Sidebar = () => {
             </li>
           </Link>
           <p className="title">LISTAS</p>
-          <Link to="/admin/users" style={{ textDecoration: "none" }}>
+          {/* <Link to="/admin/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Clientes</span>
             </li>
-          </Link>
-          <Link to="/admin/products" style={{ textDecoration: "none" }}>
+          </Link> */}
+          {/* <Link to="/admin/products" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
               <span>Productos</span>
             </li>
-          </Link>
+          </Link> */}
           <Link to="/admin/orders" style={{ textDecoration: "none" }}>
             <li>
               <CreditCardIcon className="icon" />

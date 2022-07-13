@@ -15,7 +15,7 @@ export const ordersColumns = [
   { field: "stock", headerName: "Stock", width: 70 },
   { field: "price", headerName: "Precio $/.", width: 100 },
   { field: "color", headerName: "Color", width: 80 },
-  { field: "size_range", headerName: "Tallas", width: 240 },
+  { field: "size_range", headerName: "Tallas", width: 70 },
   {
     field: "category",
     headerName: "Categoria",
