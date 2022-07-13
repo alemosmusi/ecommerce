@@ -1,0 +1,28 @@
+[
+    {
+        "dni": 12346,
+        "username": "john_smith",
+        "password": "1234",
+        "name": "John Smith",
+        "lastname": "Smith",
+        "genre":"Men",
+        "email":"John@example.com",
+        "phone":60,
+        "adress":"Calle Siempre Alegre",
+        "country":"Colombia",
+        "avatar_url": "https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-File.png"
+    },
+    {   
+        "dni": 27654,
+        "username": "Maria_smith",
+        "password": "4321",
+        "name": "Maria Smith" ,
+        "lastName": "Smith",
+        "genre":"Women",
+        "email":"Maria@example.com",
+        "phone":50,
+        "adress":"Calle Siempre Viva",
+        "country":"Argentina",
+        "avatar_url": "https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-File.png"
+    }
+]

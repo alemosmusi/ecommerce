@@ -19,8 +19,10 @@ const Colors = (sequelize) => {
         json.forEach(async (value) => {
             const { name } = value
             
-            await model.create({
-                name
+            await model.findOrCreate({
+                where: {
+                    name
+                }
             })
         })
     }
