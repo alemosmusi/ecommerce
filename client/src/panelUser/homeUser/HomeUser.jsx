@@ -5,25 +5,25 @@ import "./home.scss";
 // import Featured from "../components/featured/Featured";
 // import Chart from "../components/chart/Chart";
 // import Table from "../components/table/Table";
-import { dataBalance, dataEarning, dataOrder, dataUser } from "./dataWidget";
+// import { dataBalance, dataEarning, dataOrder, dataUser } from "./dataWidget";
 
 const HomeUser = () => {
-  const users = {
-    amount: 20,
-    diff: 5,
-  };
-  const orders = {
-    amount: 6,
-    diff: 2,
-  };
-  const earnings = {
-    amount: 500,
-    diff: 20,
-  };
-  const balance = {
-    amount: 100,
-    diff: 13,
-  };
+  // const users = {
+  //   amount: 20,
+  //   diff: 5,
+  // };
+  // const orders = {
+  //   amount: 6,
+  //   diff: 2,
+  // };
+  // const earnings = {
+  //   amount: 500,
+  //   diff: 20,
+  // };
+  // const balance = {
+  //   amount: 100,
+  //   diff: 13,
+  // };
 
   return (
     <div className="home">
