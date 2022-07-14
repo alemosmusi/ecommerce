@@ -9,7 +9,7 @@ const getQuestions = async (req, res) => {
     }
 }
 
-const createQuestions = (req, res) => {
+const createQuestion = (req, res) => {
     const { question , answers} = req.body
 
     try {
@@ -24,8 +24,9 @@ const createQuestions = (req, res) => {
     }
 }
 
+const updateQuestion = () => {}
 
-const deleteQuestions = async (req, res) => {
+const deleteQuestion = async (req, res) => {
     const { id } = req.params
 
     try {
@@ -43,6 +44,7 @@ const deleteQuestions = async (req, res) => {
 
 module.exports = {
     getQuestions,
-    createQuestions,
-    deleteQuestions
+    createQuestion,
+    updateQuestion,
+    deleteQuestion
 }
