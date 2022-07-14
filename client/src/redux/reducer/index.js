@@ -23,6 +23,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         Shoes: action.payload,
         Filters: action.payload,
+        backupFilters: action.payload,
       }
     case actionTypes.GET_ALL_BRANDS:
       return {
@@ -47,7 +48,10 @@ const rootReducer = (state = initialState, action) => {
     case actionTypes.GET_FILTERS_CATEGORY:
       const filterCategories = state.Shoes.filter(product => {
         if (action.payload === 'All') return product
-        if (action.payload.toLowerCase() === product.category.toLowerCase()) return product
+        if (product.categories.length) {
+          const filter = product.categories.filter(value => value.name.toLowerCase() === action.payload.toLowerCase())
+          if (filter.length) return true
+        }
         return false
       })
 
@@ -59,7 +63,7 @@ const rootReducer = (state = initialState, action) => {
     case actionTypes.GET_FILTERS_BRANDS:
       const filterBrands = state.Shoes.filter(product => {
         if (action.payload === 'All') return product
-        if (action.payload.toLowerCase() === product.brand_name.toLowerCase()) return product
+        if (action.payload.toLowerCase() === product.brand.name.toLowerCase()) return product
         return false
       })
 
@@ -69,21 +73,13 @@ const rootReducer = (state = initialState, action) => {
         backupFilters: filterBrands,
       }
     case actionTypes.UPDATE_FILTERS:
-      const { brands, genders, prices, colors } = action.payload
+      const { genders, prices, colors } = action.payload
 
-      const productsBrands = state.backupFilters.filter(product => {
-        if (!brands.length) return product
-        if (typeof brands === 'string') return brands.toLowerCase() === product.brand_name.toLowerCase()
-        if (Array.isArray(brands)) return brands.includes(product.brand_name)
-        return false
-      })
-
-      const productsGenders = productsBrands.filter(product => {
+      const productsGenders = state.backupFilters.filter(product => {
+        if (product.gender.name === 'Unisex') return product
         if (!genders.length) return product
-        if (typeof genders === 'string') return product.genders.includes(genders)
-        if (Array.isArray(genders)) {
-          return product.genders.find(value => genders.includes(value))
-        }
+        if (typeof genders === 'string') return genders.toLowerCase() === product.gender.name
+        if (Array.isArray(genders)) return genders.includes(product.gender.name)
         return false
       })
 
@@ -94,8 +90,8 @@ const rootReducer = (state = initialState, action) => {
 
       const productsColors = productsPrices.filter(product => {
         if (!colors.length) return product
-        if (typeof colors === 'string') return product.colors.includes(colors)
-        if (Array.isArray(colors)) return colors.includes(product.color)
+        if (typeof colors === 'string') return colors.toLowerCase() === product.color.name.toLowerCase()
+        if (Array.isArray(colors)) return colors.includes(product.color.name)
         return false
       })
 
