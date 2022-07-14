@@ -21,9 +21,10 @@ import HomeAdmin from "./panelAdmin/homeAdmin/HomeAdmin";
 import ListOrdersAdmin from "./panelAdmin/listOrders/ListOrdersAdmin";
 import DetailAdmin from "./panelAdmin/single/DetailAdmin";
 
-
-import ListOrders from "./panelUser/listOrders/ListOrdenes"
-
+// User Panel
+import HomeUser from "./panelUser/homeUser/HomeUser";
+import ListOrders from "./panelUser/listOrders/ListOrdenes";
+import UserDetail from "./panelUser/userDetail/userDetail";
 
 
 function App() {
@@ -54,8 +55,9 @@ function App() {
         </Route>
         ; 
         <Route path="user">
-          <Route index element={<ListOrders />} />
+          <Route index element={<HomeUser />} />
           <Route path="orders" element={<ListOrders />} />
+          <Route path="profile" element={<UserDetail />} />
        </Route>
       </Routes>
      

@@ -38,7 +38,7 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           <p className="title">PRINCIPAL</p>
-          <Link to="/admin" style={{ textDecoration: "none" }}>
+          <Link to="/user" style={{ textDecoration: "none" }}>
             <li>
               <DashboardIcon className="icon" />
               <span>Dashboard</span>
@@ -57,13 +57,13 @@ const Sidebar = () => {
               <span>Productos</span>
             </li>
           </Link> */}
-          <Link to="/admin/orders" style={{ textDecoration: "none" }}>
+          <Link to="/user/orders" style={{ textDecoration: "none" }}>
             <li>
               <CreditCardIcon className="icon" />
               <span>Ordenes</span>
             </li>
           </Link>
-          <Link to="/admin/delivery" style={{ textDecoration: "none" }}>
+          <Link to="/user/orders" style={{ textDecoration: "none" }}>
             <li>
               <LocalShippingIcon className="icon" />
               <span>Delivery</span>
@@ -88,20 +88,20 @@ const Sidebar = () => {
             <PsychologyOutlinedIcon className="icon" />
             <span>Logs</span>
           </li> */}
-          <Link to="/admin/settings" style={{ textDecoration: "none" }}>
+          <Link to="/user" style={{ textDecoration: "none" }}>
             <li>
               <SettingsApplicationsIcon className="icon" />
               <span>Ajustes</span>
             </li>
           </Link>
           <p className="title">USUARIO</p>
-          <Link to="/admin/profile" style={{ textDecoration: "none" }}>
+          <Link to="/user/profile" style={{ textDecoration: "none" }}>
             <li>
               <AccountCircleOutlinedIcon className="icon" />
               <span>Perfil</span>
             </li>
           </Link>
-          <Link to="/admin/logout" style={{ textDecoration: "none" }}>
+          <Link to="/user" style={{ textDecoration: "none" }}>
             <li>
               <ExitToAppIcon className="icon" />
               <span>Salir</span>
