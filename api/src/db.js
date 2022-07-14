@@ -29,25 +29,27 @@ const modelUsers = Users(sequelize)
 const modelColors = Colors(sequelize)
 const modelQuestions = Questions(sequelize)
 
-modelProducts.hasOne(modelCategories)
-modelCategories.hasMany(modelProducts)
+modelProducts.belongsToMany(modelCategories, { through: 'product_category' })
+modelCategories.belongsToMany(modelProducts, { through: 'product_category' })
 
-modelProducts.hasOne(modelBrands)
+modelProducts.belongsTo(modelBrands)
 modelBrands.hasMany(modelProducts)
 
-modelProducts.belongsToMany(modelGenders)
+modelProducts.belongsTo(modelGenders)
 modelGenders.hasMany(modelProducts)
 
-modelUsers.hasOne(modelRoles)
+modelProducts.belongsTo(modelColors)
+modelColors.hasMany(modelProducts)
+
+modelUsers.belongsTo(modelRoles)
 modelRoles.hasMany(modelUsers)
 
+modelUsers.belongsToMany(modelOrdens, { through: 'user_order' })
 modelOrdens.hasOne(modelUsers)
-modelUsers.hasMany(modelOrdens)
-modelOrdens.hasMany(modelProducts)
-modelProducts.belongsToMany(modelOrdens, {througt: ''})
 
-modelProducts.hasOne(modelColors)
-modelColors.hasMany(modelProducts)
+modelOrdens.hasMany(modelProducts)
+modelProducts.belongsToMany(modelOrdens, { through: 'product_order' })
+
 
 module.exports = {
   sequelize,

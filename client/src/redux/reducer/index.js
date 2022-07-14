@@ -3,6 +3,7 @@ import * as actionTypes from '../action-types/'
 var q = 1
 
 const initialState = {
+  Users:[],
   Shoes: [],
   Filters: [],
   backupFilters: [],
@@ -18,6 +19,11 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.GET_ALL_USERS:
+      return {
+        ...state,
+        Users: action.payload,
+      }
     case actionTypes.GET_ALL_SHOES:
       return {
         ...state,

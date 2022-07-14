@@ -1,4 +1,4 @@
-const { modelBrands } = require('../db.js')
+const { modelBrands, modelProducts } = require('../db.js')
 
 const getBrands = async (req, res) => {
     try {
@@ -24,16 +24,62 @@ const createBrands = async (req, res) => {
 }
 
 const deleteBrands = async (req, res) => {
-    const { name } = req.params
+    const { id } = req.body
 
     try {
         const brand = await modelBrands.destroy({
             where: {
-                name
+                id
             }
         })
 
+        if (!brand) {
+            return res.status(200).send({msg: "Brand not found!"})
+        }
+
         res.status(200).send({msg: "Brand delete successfully"})
+    } catch (error) {
+        res.status(500).send({msg: 'Error internal server', error})
+    }
+}
+
+const updateBrands = async (req, res) => {
+    const { id, name } = req.body
+
+    try {
+        const response = await modelBrands.update(
+            {
+                name
+            },
+            {
+                where: {id}
+            }
+        )
+
+        if (!response) {
+            return res.status(204).send({msg: 'Brand not found!'})
+        }
+
+        res.status(200).send({msg: 'Brand update!'})
+    } catch (error) {
+        res.status(500).send({msg: 'Error internal server', error})
+    }
+}
+
+const getBrandProducts = async (req, res) => {
+    const { id } = req.params
+
+    try {
+        const response = await modelBrands.findOne({
+            where: {
+                id
+            },
+            include: {
+                model: modelProducts
+            }
+        })
+
+        res.status(200).json(response)
     } catch (error) {
         res.status(500).send({msg: 'Error internal server', error})
     }
@@ -42,5 +88,7 @@ const deleteBrands = async (req, res) => {
 module.exports = {
     getBrands,
     createBrands,
-    deleteBrands
+    deleteBrands,
+    updateBrands,
+    getBrandProducts
 }

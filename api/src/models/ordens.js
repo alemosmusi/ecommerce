@@ -1,14 +1,13 @@
 const { DataTypes } = require('sequelize');
-const { all } = require('../routes');
 
 const Ordens = (sequelize) => {
     const model = sequelize.define('ordens', {
         amount: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         price_total: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         product_size: {
@@ -20,7 +19,7 @@ const Ordens = (sequelize) => {
             allowNull: false
         },
         view: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false
         }
 
@@ -32,4 +31,3 @@ const Ordens = (sequelize) => {
 }
 
 module.exports = Ordens
-

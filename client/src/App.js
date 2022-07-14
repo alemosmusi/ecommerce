@@ -13,7 +13,9 @@ import GeneralContainer from "./component/cardFilters/GeneralContainer";
 import { InfoProfile } from "./component/infoProfile/infoProfile";
 
 import ListProducts from "./panelAdmin/listproducts/ListProducts";
+import ListOrders from "./panelUser/listOrders/ListOrdenes"
 import New from "./panelAdmin/new/New";
+
 function App() {
   return (
     <div className="container-fluid text-center">
@@ -36,8 +38,12 @@ function App() {
           <Route path="products" element={<ListProducts />} />
           <Route path="products/new" element={<New />} />
         </Route>
-
+        <Route path="user">
+          <Route index element={<ListOrders />} />
+          <Route path="orders" element={<ListOrders />} />
+       </Route>
       </Routes>
+     
       <Footer />
     </div>
   );
