@@ -5,6 +5,7 @@ const { getBrands, createBrand, updateBrand, getProductsBrand} = require('../con
 const { getCategories, createCategory, updateCategory, getProductsCategory } = require('../controllers/categories')
 const { getGenders, createGender, updateGender, getProductsGender } = require('../controllers/genders')
 const { getColors, createColor, updateColor, getProductsColor } = require('../controllers/colors')
+const { getRoles, createRole, updateUserRole } = require('../controllers/roles')
 const { getQuestions, createQuestion, updateQuestion, deleteQuestion } = require('../controllers/quetions')
 const { getUsers } = require('../controllers/users')
 
@@ -40,13 +41,10 @@ routes.post('/questions', createQuestion)
 routes.put('/questions/:id', updateQuestion)
 routes.delete('/questions/:id', deleteQuestion)
 
-routes.get('/productDetails/:id', productDetails)
-
-//routes.get('/login', logIn)
+routes.get('/roles', getRoles)
+routes.post('/roles', createRole)
+routes.put('/rolesUser/:id', updateUserRole)
 
 routes.get('/users', getUsers)
-//routes.put('/userClient', updateUserClient)
-//routes.put('/userAdmin', updateUserAdmin)
-//routes.delete('/userDelete', deleteUser)*/
 
 module.exports = routes

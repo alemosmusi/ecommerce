@@ -54,7 +54,6 @@ modelOrdens.hasOne(modelUsers)
 modelOrdens.hasMany(modelProducts)
 modelProducts.belongsToMany(modelOrdens, { through: 'product_order' })
 
-
 module.exports = {
   sequelize,
   modelBrands,
