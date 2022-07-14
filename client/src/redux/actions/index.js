@@ -101,7 +101,7 @@ export const getAllGenders = () => {
 export const getAllDetails = id => {
   return async function (dispatch) {
     try {
-      let categories = await axios(`${URL}/getDetailsProduct/${id}`)
+      let categories = await axios(`${URL}/productDetails/${id}`)
       return dispatch({
         type: GET_SHOES_DETAILS,
         payload: categories.data,

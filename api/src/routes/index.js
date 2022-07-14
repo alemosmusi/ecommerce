@@ -7,6 +7,7 @@ const { getGenders, createGender, updateGender, getProductsGender } = require('.
 const { getColors, createColor, updateColor, getProductsColor } = require('../controllers/colors')
 const { getRoles, createRole, updateUserRole } = require('../controllers/roles')
 const { getQuestions, createQuestion, updateQuestion, deleteQuestion } = require('../controllers/quetions')
+const { getOrdens, createOrden, updateOrden } = require('../controllers/ordens')
 const { getUsers } = require('../controllers/users')
 
 const routes = Router() 
@@ -44,6 +45,10 @@ routes.delete('/questions/:id', deleteQuestion)
 routes.get('/roles', getRoles)
 routes.post('/roles', createRole)
 routes.put('/rolesUser/:id', updateUserRole)
+
+routes.get('/ordens', getOrdens)
+routes.post('/ordens', createOrden)
+routes.put('/ordens/:id', updateOrden)
 
 routes.get('/users', getUsers)
 

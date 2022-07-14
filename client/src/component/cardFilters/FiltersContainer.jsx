@@ -13,11 +13,9 @@ export default function FiltersContainer() {
 
   const colors = useSelector(state => state.Colors)
   const genders = useSelector(state => state.Genders)
-  const brands = useSelector(state => state.Brands)
 
   const [filters, setFilters] = useState({
     genders: [],
-    brands: [],
     prices: { min: 0, max: 100000 },
     colors: [],
   })
@@ -34,21 +32,6 @@ export default function FiltersContainer() {
     setFilters({
       ...filters,
       genders: array,
-    })
-  }
-
-  function handleInputBrandsClick(event) {
-    let array
-
-    if (filters.brands.includes(event.target.value)) {
-      array = filters.brands.filter(value => value !== event.target.value)
-    } else {
-      array = filters.brands
-      array.push(event.target.value)
-    }
-    setFilters({
-      ...filters,
-      brands: array,
     })
   }
 
@@ -100,10 +83,6 @@ export default function FiltersContainer() {
     dispatch(updateFilters(filters))
   }
 
-  function handleSubmitBrands() {
-    dispatch(updateFilters(filters))
-  }
-
   return (
     <div className="d-flex align-items-start flex-column" style={{ height: '200px' }}>
       <div className="modal-content">
@@ -118,41 +97,14 @@ export default function FiltersContainer() {
         ))}
         <button onClick={handleSubmitGenders}>Aplicar </button>
       </div>
-      <div className="modal-content">
-        {/* <div className="col w-90 p-2" style={{ width: '200px' }}>
-          Filtro de Marca
-        </div> */}
-        {/* {brands.map(e => (
-          <div>
-            <input key={e.name} type="checkbox" name={e.name} value={e.name} onClick={handleInputBrandsClick} />
-            <label>{e.name}</label>
-          </div>
-        ))}
-        <button onClick={handleSubmitBrands}>Aplicar </button> */}
-      </div>
-
       <div className="col w-90 p-2" style={{ width: '200px' }}>
         Filtro de Precio
       </div>
       <div className="modal-content">
         <label>Min</label>
-        <input
-          id="filterPrice_min"
-          type="numbers"
-          min="0"
-          max="100000"
-          value={filters.prices.min}
-          onChange={handleInputGendersPrices}
-        />
+        <input id="filterPrice_min" type="numbers" min="0" max="100000" value={filters.prices.min} onChange={handleInputGendersPrices} />
         <label>Max</label>
-        <input
-          id="filterPrice_max"
-          type="numbers"
-          min="0"
-          max="100000"
-          value={filters.prices.max}
-          onChange={handleInputGendersPrices}
-        />
+        <input id="filterPrice_max" type="numbers" min="0" max="100000" value={filters.prices.max} onChange={handleInputGendersPrices} />
 
         <button onClick={handleSubmitPrices}>Aplicar</button>
       </div>
