@@ -34,7 +34,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route
           exact
-          path="/getDetailsProduct/:id"
+          path="/productDetails/:id"
           element={<ProductDetail />}
         />
         <Route exact path="/questions" element={<Questions />} />
