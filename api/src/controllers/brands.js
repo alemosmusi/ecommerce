@@ -9,11 +9,14 @@ const getBrands = async (req, res) => {
     }
 }
 
-const createBrands = async (req, res) => {
+const createBrand = async (req, res) => {
     const { name } = req.body
 
     try {
-        const brand = await modelBrands.create({
+        const brand = await modelBrands.findOne({where: {name}}, {raw: true})
+        if (brand) return res.status(200).send({msg: 'Brand exists database!'})
+
+        await modelBrands.create({
             name
         })
 
@@ -23,7 +26,50 @@ const createBrands = async (req, res) => {
     }
 }
 
-const deleteBrands = async (req, res) => {
+const updateBrand = async (req, res) => {
+    const { id } = req.params
+    const { name } = req.body
+
+    try {
+        const brand = await modelBrands.findByPk(id)
+        if (!brand) return res.status(200).send({msg: 'Brand not exists database!'})
+
+        await modelBrands.update(
+            { name },
+            {
+                where: {id}
+            }
+        )
+
+        res.status(200).send({msg: 'Brand update!'})
+    } catch (error) {
+        res.status(500).send({msg: 'Error internal server', error})
+    }
+}
+
+const getProductsBrand = async (req, res) => {
+    const { id } = req.params
+
+    try {
+        const brand = await modelBrands.findByPk(id)
+        if (!brand) return res.status(200).send({msg: 'Brand not exists database!'})
+
+        const response = await modelBrands.findOne({
+            where: {
+                id
+            },
+            include: {
+                model: modelProducts
+            }
+        })
+
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(500).send({msg: 'Error internal server', error})
+    }
+}
+
+/*const deleteBrands = async (req, res) => {
     const { id } = req.body
 
     try {
@@ -41,54 +87,11 @@ const deleteBrands = async (req, res) => {
     } catch (error) {
         res.status(500).send({msg: 'Error internal server', error})
     }
-}
-
-const updateBrands = async (req, res) => {
-    const { id, name } = req.body
-
-    try {
-        const response = await modelBrands.update(
-            {
-                name
-            },
-            {
-                where: {id}
-            }
-        )
-
-        if (!response) {
-            return res.status(204).send({msg: 'Brand not found!'})
-        }
-
-        res.status(200).send({msg: 'Brand update!'})
-    } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
-    }
-}
-
-const getBrandProducts = async (req, res) => {
-    const { id } = req.params
-
-    try {
-        const response = await modelBrands.findOne({
-            where: {
-                id
-            },
-            include: {
-                model: modelProducts
-            }
-        })
-
-        res.status(200).json(response)
-    } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
-    }
-}
+}*/
 
 module.exports = {
     getBrands,
-    createBrands,
-    deleteBrands,
-    updateBrands,
-    getBrandProducts
+    createBrand,
+    updateBrand,
+    getProductsBrand
 }

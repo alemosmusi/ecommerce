@@ -1,20 +1,30 @@
-const { modelProducts, modelColors, modelBrands, modelCategories, modelGenders } = require('../db.js')
+const { modelProducts, modelColors, modelBrands, modelCategories, modelGenders, sequelize } = require('../db.js')
 
-const getShoes = async (req, res) => {
+const getProducts = async (req, res) => {
   try {
     const response = await modelProducts.findAll({
       include: [modelCategories, modelBrands, modelColors, modelGenders]
-    })
+    }, {raw: true})
+    
     res.status(200).json(response)
   } catch (error) {
     res.status(500).send({ msg: 'Error internal server', error })
   }
 }
 
-const createShoes = async (req, res) => {
-  const { name, nickname, description, price, img, size_range, material, released, designer, details, shoe_condition, rating, categories, brandID, colorID, genderID } = req.body
+const createProduct = async (req, res) => {
+  const { name, nickname, description, price, img, size_range, material, released, designer, details, shoe_condition, rating, categories = [], brandID, colorID, genderID } = req.body
 
   try {
+    const existsCategory = await Promise.all(categories.map(value => modelCategories.findByPk(value)))
+    const existsColor = await modelColors.findByPk(colorID)
+    const existsBrand = await modelBrands.findByPk(brandID)
+    const existsGender = await modelGenders.findByPk(genderID)
+
+    if (!existsCategory || !existsColor || !existsBrand || !existsGender) {
+      return res.status(400).send({msg: 'Incorrect associations'})
+    }
+
     const product = await modelProducts.create({
       name,
       nickname: !nickname ? name : nickname,
@@ -31,14 +41,14 @@ const createShoes = async (req, res) => {
       rating
     })
 
-    product.setCategories(categories)
-    product.setBrand(brandID)
-    product.setColor(colorID)
-    product.setGender(genderID)
+    await product.setCategories(categories)
+    await product.setBrand(brandID)
+    await product.setColor(colorID)
+    await product.setGender(genderID)
 
     res.status(200).send({ msg: 'Shoes created successfully!', product})
   } catch (error) {
-    res.status(500).send({ msg: 'Error internal server', error })
+    res.status(500).send({ msg: 'Error internal server', error})
   }
 }
 
@@ -51,9 +61,55 @@ const productDetails = async (req, res) => {
         id
       },
       include: [modelCategories, modelBrands, modelColors, modelGenders]
-    })
+    }, {raw: true})
 
     res.status(200).json(response)
+  } catch (error) {
+    res.status(500).send({ msg: 'Error internal server', error })
+  }
+}
+
+const updateProduct = async (req, res) => {
+  const { id } = req.params
+  const { propertys, categories, color, brand, gender } = req.body
+
+  try {
+    await modelProducts.update(
+      propertys,
+      {
+        where: {
+          id
+        }
+      }
+    )
+
+    const product = await modelProducts.findByPk(id)
+
+    if (categories) {
+      const existsCategory = await Promise.all(categories.map(value => modelCategories.findByPk(value)))
+      if (!existsCategory) return res.status(200).send({msg: 'Product update but associations not'})
+      product.setCategories(categories)
+    }
+
+    if (color) {
+      const existsColor = await modelColors.findByPk(color)
+      if (!existsColor) return res.status(200).send({msg: 'Product update but associations not'})
+      product.setColor(color)
+    }
+
+    if (brand) {
+      const existsBrand = await modelBrands.findByPk(brand)
+      if (!existsBrand) return res.status(200).send({msg: 'Product update but associations not'})
+      product.setBrand(brand)
+    }
+
+    if (gender) {
+      const existsGender = await modelGenders.findByPk(genderID)
+      if (!existsGender) return res.status(200).send({msg: 'Product update but associations not'})
+      product.setGender(gender)
+    }
+  
+    res.status(200).send({msg: `Product #${id} update successfully!`})
   } catch (error) {
     res.status(500).send({ msg: 'Error internal server', error })
   }
@@ -75,7 +131,8 @@ const productDetails = async (req, res) => {
 }*/
 
 module.exports = {
-  getShoes,
-  createShoes,
-  productDetails
+  getProducts,
+  createProduct,
+  productDetails,
+  updateProduct
 }

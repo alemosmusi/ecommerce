@@ -26,7 +26,7 @@ const Products = (sequelize)=>{
         allowNull: false
       },
       size_range: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.ARRAY(DataTypes.JSON),
         allowNull: false
       },
       material: {
@@ -88,32 +88,32 @@ const Products = (sequelize)=>{
           where: {
             name: value
           }
-        })
+        }, {raw: true})
 
-        return responseCategory.dataValues.id
+        return responseCategory.id
       })
 
       const responseBrand = await modelBrands.findOne({
         where: {
           name: brand_name
         }
-      })
+      }, {raw: true})
 
       const responseColor = await modelColors.findOne({
         where: {
           name: color
         }
-      })
+      }, {raw: true})
 
       const responseGender = await modelGenders.findOne({
         where: {
           name: gender[0]
         }
-      })
+      }, {raw: true})
 
-      const { id: brandID } = responseBrand.dataValues
-      const { id: colorID } = responseColor.dataValues
-      const { id: genderID } = responseGender.dataValues
+      const { id: brandID } = responseBrand
+      const { id: colorID } = responseColor
+      const { id: genderID } = responseGender
 
       const categories = await Promise.all(mapCategories)
       product.setCategories(categories)
