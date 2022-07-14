@@ -60,7 +60,7 @@ export default function Card({ id, name, img, price, color, size_range, details,
               <img src={img} className="card-img-top" alt="product.title" />
             </Link>
 
-            <div className="label-top shadow-sm text-white">{brand}</div>
+            <div className="label-top shadow-sm text-white">{brand.name}</div>
 
             <div className="card-body">
               <div className="clearfix mb-3">
@@ -75,7 +75,7 @@ export default function Card({ id, name, img, price, color, size_range, details,
               <h5 className="card-title">{name}</h5>
               <div className="gender">
                 <h6>Gender:</h6>
-                <span>{gender}</span>
+                <span>{gender.name}</span>
               </div>
               <div className="d-grid gap-2 my-4" onClick={AddCar}>
                 <button className="btn btn-warning bold-btn">
