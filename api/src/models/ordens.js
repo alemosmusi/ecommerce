@@ -2,22 +2,32 @@ const { DataTypes } = require('sequelize');
 
 const Ordens = (sequelize) => {
     const model = sequelize.define('ordens', {
-        id_user: {
-            type:DataTypes.STRING,
-            allowNull: false,
+        amount: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        price_total: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        product_size: {
+            type: DataTypes.ARRAY(DataTypes.JSON),
+            allowNull: false
         },
         status: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
+        },
+        view: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
-    },  {
-            createdAt: false,
-            updatedAt: false
-        }
-    )
+
+    })
+
+
 
     return model
 }
 
 module.exports = Ordens
-

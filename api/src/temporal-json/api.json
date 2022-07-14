@@ -7,7 +7,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "basketball"
+          "Basketball", "Running", "Other"
         ],
         "collection_slugs": [
           "air-jordan-1",
@@ -82,7 +82,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "basketball"
+          "Basketball"
         ],
         "collection_slugs": [
           "air-jordan-4-bred"
@@ -135,7 +135,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Air Jordan",
         "category": [
-          "basketball"
+          "Basketball"
         ],
         "collection_slugs": [
           "2016",
@@ -208,7 +208,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Air Jordan",
         "category": [
-          "basketball"
+          "Basketball"
         ],
         "collection_slugs": [
           "goat-clean",
@@ -279,7 +279,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Air Jordan",
         "category": [
-          "basketball"
+          "Basketball"
         ],
         "collection_slugs": [
           "goat-clean",
@@ -350,7 +350,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-1",
@@ -417,7 +417,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "under-retail-10"
@@ -490,7 +490,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-4",
@@ -583,7 +583,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-6",
@@ -656,7 +656,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "just-dropped",
@@ -719,7 +719,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-4",
@@ -792,7 +792,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-1",
@@ -868,7 +868,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "just-dropped"
@@ -938,7 +938,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-4",
@@ -1013,7 +1013,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "jordan",
@@ -1087,7 +1087,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-1",
@@ -1185,7 +1185,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "just-dropped",
@@ -1256,7 +1256,7 @@
         "box_condition": "badly_damaged",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-1",
@@ -1323,7 +1323,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-1",
@@ -1389,7 +1389,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "just-dropped",
@@ -1451,7 +1451,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "belly",
@@ -1542,7 +1542,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-1",
@@ -1617,7 +1617,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-1",
@@ -1694,7 +1694,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "jordan",
@@ -1767,7 +1767,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "just-dropped"
@@ -1839,7 +1839,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "belly",
@@ -1930,7 +1930,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-jordan-1",
@@ -2003,7 +2003,7 @@
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "just-dropped-1"
@@ -2073,7 +2073,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "jordan"
@@ -2145,7 +2145,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "goat-clean",
@@ -2213,14 +2213,14 @@
         "sku": "378037 100",
         "slug": "air-jordan-11-retro-concord-2018-378037-100",
         "status": "active",
-        "story_html": "<p>The 2018 edition of the Air Jordan 11 Retro ‘Concord’ features ‘45’ stamped on the black heel tab—a nod to the jersey number that Michael Jordan wore upon his return to basketball following his first retirement. The rest of the build keeps the shoe’s signature details intact, including a white ballistic mesh upper, black patent leather overlays and an icy translucent outsole underfoot. </p>\n",
+        "story_html": "<p>The 2018 edition of the Air Jordan 11 Retro ‘Concord’ features ‘45’ stamped on the black heel tab—a nod to the jersey number that Michael Jordan wore upon his return to Basketball following his first retirement. The rest of the build keeps the shoe’s signature details intact, including a white ballistic mesh upper, black patent leather overlays and an icy translucent outsole underfoot. </p>\n",
         "upper_material": ""
       },
       {
         "box_condition": "good_condition",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "top-20-trending",
@@ -2286,7 +2286,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Air Jordan",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "2016",
@@ -2361,7 +2361,7 @@
         "box_condition": "good_condition",
         "brand_name": "Champion",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [],
         "color": "Black",
@@ -2423,14 +2423,14 @@
         "sku": "CM100018M",
         "slug": "rally-pro-black-cm100018m",
         "status": "active",
-        "story_html": "<p>The Champion Rally Pro sneaker packages street style in a sleek, basketball-inspired silhouette with heritage Champion detailing throughout. This ‘Black’ version is styled for growing kids’ feet and features a one-piece bootie construction made from woven mesh and elastic textile with suede trim on the sidewall and heel. It offers a snug, sock-like fit that’s reinforced with tabs at the tongue and heel for easy on and off. A textured chenille ‘C’ logo on the sidewall and branded elastic strap across the forefoot complement the design.</p>\n",
+        "story_html": "<p>The Champion Rally Pro sneaker packages street style in a sleek, Basketball-inspired silhouette with heritage Champion detailing throughout. This ‘Black’ version is styled for growing kids’ feet and features a one-piece bootie construction made from woven mesh and elastic textile with suede trim on the sidewall and heel. It offers a snug, sock-like fit that’s reinforced with tabs at the tongue and heel for easy on and off. A textured chenille ‘C’ logo on the sidewall and branded elastic strap across the forefoot complement the design.</p>\n",
         "upper_material": ""
       },
       {
         "box_condition": "good_condition",
         "brand_name": "Converse",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "converse",
@@ -2495,7 +2495,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Converse",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "coachella",
@@ -2563,7 +2563,7 @@
         "box_condition": "good_condition",
         "brand_name": "Gucci",
         "category": [
-          "other"
+          "Other"
         ],
         "collection_slugs": [
           "gucci",
@@ -2631,7 +2631,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "basketball"
+          "Basketball"
         ],
         "collection_slugs": [
           "just-dropped",
@@ -2702,7 +2702,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-max-day"
@@ -2772,7 +2772,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "fear-of-god",
@@ -2848,7 +2848,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-max-90",
@@ -2923,7 +2923,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "diy",
@@ -2998,7 +2998,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "belly",
@@ -3091,7 +3091,7 @@
         "box_condition": "missing_lid",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [],
         "color": "Cream",
@@ -3161,7 +3161,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-max-day",
@@ -3235,7 +3235,7 @@
         "box_condition": "badly_damaged",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [],
         "color": "Orange",
@@ -3303,7 +3303,7 @@
         "box_condition": "missing_lid",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "cosmic-inspiration",
@@ -3380,7 +3380,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-max-90",
@@ -3458,7 +3458,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "air-vapormax",
@@ -3536,7 +3536,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "af1",
@@ -3611,7 +3611,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "belly",
@@ -3702,7 +3702,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "af1",
@@ -3773,7 +3773,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [],
         "color": "White",
@@ -3841,7 +3841,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "af1",
@@ -3921,7 +3921,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [],
         "color": "White",
@@ -3993,7 +3993,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "belly",
@@ -4085,14 +4085,14 @@
         "sku": "AT8087 001",
         "slug": "air-fear-of-god-strap-light-bone-at8087-001",
         "status": "active",
-        "story_html": "<p>Created by acclaimed streetwear designer Jerry Lorenzo for release in April 2019, the Air Fear of God Raid &#39;Light Bone&#39; draws inspiration from Lorenzo&#39;s favorite silhouette, the Air Raid outdoor basketball shoe first introduced in 1992. Incorporating the same distinct cross straps into the Light Bone upper, a contrasting black Swoosh stands out along with the visible double-stacked Zoom Air units. Modern design lines combine with premium comfort to define this lifestyle shoe.</p>\n",
+        "story_html": "<p>Created by acclaimed streetwear designer Jerry Lorenzo for release in April 2019, the Air Fear of God Raid &#39;Light Bone&#39; draws inspiration from Lorenzo&#39;s favorite silhouette, the Air Raid outdoor Basketball shoe first introduced in 1992. Incorporating the same distinct cross straps into the Light Bone upper, a contrasting black Swoosh stands out along with the visible double-stacked Zoom Air units. Modern design lines combine with premium comfort to define this Lifestyle shoe.</p>\n",
         "upper_material": ""
       },
       {
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "fear-of-god",
@@ -4162,14 +4162,14 @@
         "sku": "AT8086 001",
         "slug": "air-fear-of-god-moccasin-pure-platinum-afog-moc-plat",
         "status": "active",
-        "story_html": "<p>From streetwear fashion designer Jerry Lorenzo comes the Air Fear of God Moc &#39;Pure Platinum,&#39; released on April 27th, 2019, as part of the second wave of his collaboration with Nike. With a Pure Platinum upper over a Sail midsole and outsole, this lifestyle Moc gets its bounce from stacked visible Zoom Air units in the heel. A toggle drawstring in back allows for on-the-spot adjustments to its streamlined textile upper, which features a forefoot strap for lockdown and a snap button on the side for easy on/off.</p>\n",
+        "story_html": "<p>From streetwear fashion designer Jerry Lorenzo comes the Air Fear of God Moc &#39;Pure Platinum,&#39; released on April 27th, 2019, as part of the second wave of his collaboration with Nike. With a Pure Platinum upper over a Sail midsole and outsole, this Lifestyle Moc gets its bounce from stacked visible Zoom Air units in the heel. A toggle drawstring in back allows for on-the-spot adjustments to its streamlined textile upper, which features a forefoot strap for lockdown and a snap button on the side for easy on/off.</p>\n",
         "upper_material": ""
       },
       {
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "running"
+          "Other"
         ],
         "collection_slugs": [
           "air-vapormax",
@@ -4259,7 +4259,7 @@
         "box_condition": "good_condition",
         "brand_name": "Nike",
         "category": [
-          "running"
+          "Other"
         ],
         "collection_slugs": [],
         "color": "White",
@@ -4327,7 +4327,7 @@
         "box_condition": "no_original_box",
         "brand_name": "Nike",
         "category": [
-          "running"
+          "Other"
         ],
         "collection_slugs": [],
         "color": "White",
@@ -4397,7 +4397,7 @@
         "box_condition": "good_condition",
         "brand_name": "Vans",
         "category": [
-          "skateboarding"
+          "Skateboarding"
         ],
         "collection_slugs": [
           "quarterly-sneaker-trends",
@@ -4409,7 +4409,7 @@
         "designer": "Paul Van Doren",
         "details": "Blue/Green-Yellow",
         "gender": [
-          "Men"
+          "Unisex"
         ],
         "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
         "has_picture": true,
@@ -4462,9 +4462,9 @@
       },
       {
         "box_condition": "no_original_box",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "yeezy-1"
@@ -4473,7 +4473,7 @@
         "designer": "Kanye West",
         "details": "Black/Black/Black",
         "gender": [
-          "Men"
+          "Unisex"
         ],
         "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/020/624/696/original/FU9013.png.png",
         "has_picture": true,
@@ -4531,14 +4531,14 @@
         "sku": "FU9006",
         "slug": "yeezy-boost-350-v2-black-yzy-350-v2-blk",
         "status": "active",
-        "story_html": "<p>The adidas Yeezy Boost 350 V2 lives up to its cult appeal through evolved design elements and advanced technology. Released June 2019, this ‘Black Non-Reflective&#39; edition&#39;s re-engineered Primeknit bootie sees futuristic updates including a translucent side stripe and bold stitching on the heel pull. Integrated lacing customizes the fit while a translucent black Boost-equipped midsole complements the covert feel.</p>\n",
+        "story_html": "<p>The Adidas Yeezy Boost 350 V2 lives up to its cult appeal through evolved design elements and advanced technology. Released June 2019, this ‘Black Non-Reflective&#39; edition&#39;s re-engineered Primeknit bootie sees futuristic updates including a translucent side stripe and bold stitching on the heel pull. Integrated lacing customizes the fit while a translucent black Boost-equipped midsole complements the covert feel.</p>\n",
         "upper_material": "Primeknit"
       },
       {
         "box_condition": "no_original_box",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "yeezy-1"
@@ -4547,7 +4547,7 @@
         "designer": "Kanye West",
         "details": "Vanta/Vanta/Vanta",
         "gender": [
-          "Men"
+          "Unisex"
         ],
         "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/021/147/972/original/504187_00.png.png",
         "has_picture": true,
@@ -4610,13 +4610,13 @@
       },
       {
         "box_condition": "no_original_box",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
-          "adidas-boost",
-          "adidas-boost-1",
+          "Adidas-boost",
+          "Adidas-boost-1",
           "goat-clean",
           "kanye-west",
           "yeezy",
@@ -4689,9 +4689,9 @@
       },
       {
         "box_condition": "good_condition",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [],
         "color": "Blue",
@@ -4757,12 +4757,12 @@
       },
       {
         "box_condition": "good_condition",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
-          "adidas-boost-1",
+          "Adidas-boost-1",
           "belly",
           "brokenrecord",
           "bs",
@@ -4857,9 +4857,9 @@
       },
       {
         "box_condition": "no_original_box",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "belly",
@@ -4947,14 +4947,14 @@
         "sku": "EG5293",
         "slug": "yeezy-350-v2-glow-in-the-dark-eh5360",
         "status": "active",
-        "story_html": "<p>Regarded as a cultural phenomenon, the adidas Yeezy Boost 350 silhouette generated a cult following when it was initially released in 2015. This ‘Glow’ makeover—released in May 2019—equips the Primeknit upper with a high-visibility treatment and a translucent stripe to the lateral profile. Integrated lacing and a coordinating heel pull provide easy on/off. Underfoot, the signature full-length Boost midsole looks to the future with a bright glow in the dark finish.</p>\n",
+        "story_html": "<p>Regarded as a cultural phenomenon, the Adidas Yeezy Boost 350 silhouette generated a cult following when it was initially released in 2015. This ‘Glow’ makeover—released in May 2019—equips the Primeknit upper with a high-visibility treatment and a translucent stripe to the lateral profile. Integrated lacing and a coordinating heel pull provide easy on/off. Underfoot, the signature full-length Boost midsole looks to the future with a bright glow in the dark finish.</p>\n",
         "upper_material": "Primeknit"
       },
       {
         "box_condition": "good_condition",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "goat-clean",
@@ -5029,9 +5029,9 @@
       },
       {
         "box_condition": "good_condition",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "coachella",
@@ -5102,14 +5102,14 @@
         "sku": "EG7597",
         "slug": "yeezy-boost-700-inertia-yeezy-boost-700-inertia",
         "status": "active",
-        "story_html": "<p>The adidas Yeezy Boost 700 ‘Inertia’ is part of the Yeezy Season 8 lineup that launched March 2019. The ‘Inertia’ colorway showcases the original 700 upper, with a heavily paneled construction made with premium suede, mesh and smooth leather sections. Cast primarily in cool grey tones, the sneaker includes hits of Tangerine for contrast. The shoe’s signature chunky midsole is equipped with full-length Boost cushioning for responsive comfort.</p>\n",
+        "story_html": "<p>The Adidas Yeezy Boost 700 ‘Inertia’ is part of the Yeezy Season 8 lineup that launched March 2019. The ‘Inertia’ colorway showcases the original 700 upper, with a heavily paneled construction made with premium suede, mesh and smooth leather sections. Cast primarily in cool grey tones, the sneaker includes hits of Tangerine for contrast. The shoe’s signature chunky midsole is equipped with full-length Boost cushioning for responsive comfort.</p>\n",
         "upper_material": ""
       },
       {
         "box_condition": "no_original_box",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "goat-clean",
@@ -5183,13 +5183,13 @@
       },
       {
         "box_condition": "badly_damaged",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
-          "adidas-boost",
-          "adidas-boost-1",
+          "Adidas-boost",
+          "Adidas-boost-1",
           "hypefest",
           "kanye-west",
           "new-york-fashion-week-fall-2019",
@@ -5266,9 +5266,9 @@
       },
       {
         "box_condition": "good_condition",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "goat-clean",
@@ -5341,18 +5341,18 @@
         "sku": "EF2905",
         "slug": "yeezy-boost-350-v2-static-ef2905",
         "status": "active",
-        "story_html": "<p>The Yeezy Boost 350 V2 ‘Static Non-Reflective’ is designed to stand out, thanks to the addition of never-before-seen features. They include a translucent side stripe and 3M reflective detailing on the shoe’s rope laces, Primeknit upper and Three-Stripes branding on the interior heel. The midsole makes use of ridged TPU sidewalls with semi-translucent properties, revealing full-length adidas Boost cushioning within.</p>\n",
+        "story_html": "<p>The Yeezy Boost 350 V2 ‘Static Non-Reflective’ is designed to stand out, thanks to the addition of never-before-seen features. They include a translucent side stripe and 3M reflective detailing on the shoe’s rope laces, Primeknit upper and Three-Stripes branding on the interior heel. The midsole makes use of ridged TPU sidewalls with semi-translucent properties, revealing full-length Adidas Boost cushioning within.</p>\n",
         "upper_material": "Primeknit"
       },
       {
         "box_condition": "badly_damaged",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "cny-2018",
-          "pharrell-human-race-adidas",
+          "pharrell-human-race-Adidas",
           "quarterly-sneaker-trends",
           "under-retail-10"
         ],
@@ -5417,14 +5417,14 @@
         "sku": "EE8701",
         "slug": "pharrell-x-solar-hu-glide-st-chinese-new-year-ee8701",
         "status": "active",
-        "story_html": "<p>Alongside an accompanying Crazy BYW, the Pharrell x Solar Hu Glide ST ‘Chinese New Year’ rings in the Year of the Pig as part of a collaborative CNY Pack. The lifestyle runner features a red and black knitted upper with gold accents and special embroidery on the toe of each shoe: ‘Hu’ on the right and the Chinese ‘Fu’ symbol on the left. It all sits on a full-length Boost midsole in classic white.</p>\n",
+        "story_html": "<p>Alongside an accompanying Crazy BYW, the Pharrell x Solar Hu Glide ST ‘Chinese New Year’ rings in the Year of the Pig as part of a collaborative CNY Pack. The Lifestyle runner features a red and black knitted upper with gold accents and special embroidery on the toe of each shoe: ‘Hu’ on the right and the Chinese ‘Fu’ symbol on the left. It all sits on a full-length Boost midsole in classic white.</p>\n",
         "upper_material": ""
       },
       {
         "box_condition": "good_condition",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "belly",
@@ -5512,14 +5512,14 @@
         "sku": "EG7490",
         "slug": "yeezy-boost-350-v2-clay-yzy-350-v2-clay",
         "status": "active",
-        "story_html": "<p>The adidas Yeezy Boost 350 V2 ‘Clay’ updates the silhouette with a warm palette and semi-translucent, three-tone vent at the side. This ‘Clay’ colorway retains the stand-out features of the original 350 V2 shoe, first seen in September 2016, including a flexible Primeknit upper and full-length Boost cushioning. This shoe released March 2019 exclusively in select cities in North America and Latin America.</p>\n",
+        "story_html": "<p>The Adidas Yeezy Boost 350 V2 ‘Clay’ updates the silhouette with a warm palette and semi-translucent, three-tone vent at the side. This ‘Clay’ colorway retains the stand-out features of the original 350 V2 shoe, first seen in September 2016, including a flexible Primeknit upper and full-length Boost cushioning. This shoe released March 2019 exclusively in select cities in North America and Latin America.</p>\n",
         "upper_material": "Primeknit"
       },
       {
         "box_condition": "no_original_box",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "coachella",
@@ -5598,14 +5598,14 @@
         "sku": "CP9366",
         "slug": "yeezy-boost-350-v2-cream-white-cp9366",
         "status": "active",
-        "story_html": "<p>First released on April 29, 2017, the Yeezy Boost 350 V2 ‘Cream White’ combines a cream Primeknit upper with tonal cream SPLY 350 branding, and a translucent white midsole housing full-length Boost. Released again in October 2018, this retro helped fulfill Kanye West’s oft-repeated ‘YEEZYs for everyone’ Twitter mantra, as adidas organized the biggest drop in Yeezy history by promising pre-sale to anyone who signed up on the website. Similar to the first release, the ‘Triple White’ 2018 model features a Primeknit upper, a Boost midsole and custom adidas and Yeezy co-branding on the insole.</p>\n",
+        "story_html": "<p>First released on April 29, 2017, the Yeezy Boost 350 V2 ‘Cream White’ combines a cream Primeknit upper with tonal cream SPLY 350 branding, and a translucent white midsole housing full-length Boost. Released again in October 2018, this retro helped fulfill Kanye West’s oft-repeated ‘YEEZYs for everyone’ Twitter mantra, as Adidas organized the biggest drop in Yeezy history by promising pre-sale to anyone who signed up on the website. Similar to the first release, the ‘Triple White’ 2018 model features a Primeknit upper, a Boost midsole and custom Adidas and Yeezy co-branding on the insole.</p>\n",
         "upper_material": "Primeknit"
       },
       {
         "box_condition": "good_condition",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "quarterly-sneaker-trends",
@@ -5675,14 +5675,14 @@
         "sku": "EG7487",
         "slug": "yeezy-boost-700-salt-yzy-700-salt",
         "status": "active",
-        "story_html": "<p>The Yeezy Boost 700 ‘Salt’ follows a design trail originally blazed by the Yeezy 500 in November 2018. Like its predecessor, the lifestyle silhouette features a monochromatic light grey finish on a mesh base with tonal overlays in suede and leather. A sculpted midsole in matching grey, concealing full-length Boost cushioning within, features a subtle black accent, matched by the rubber outsole underfoot.</p>\n",
+        "story_html": "<p>The Yeezy Boost 700 ‘Salt’ follows a design trail originally blazed by the Yeezy 500 in November 2018. Like its predecessor, the Lifestyle silhouette features a monochromatic light grey finish on a mesh base with tonal overlays in suede and leather. A sculpted midsole in matching grey, concealing full-length Boost cushioning within, features a subtle black accent, matched by the rubber outsole underfoot.</p>\n",
         "upper_material": ""
       },
       {
         "box_condition": "badly_damaged",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "goat-clean",
@@ -5752,14 +5752,14 @@
         "sku": "CP9654",
         "slug": "yeezy-boost-350-v2-zebra-cp9654",
         "status": "active",
-        "story_html": "<p>Released on February 25, 2017, the Yeezy Boost 350 V2 ‘Zebra’ combines a white/core black Primeknit upper with red SPLY 350 branding and a translucent white midsole housing full-length Boost. Sold exclusively at adidas.com, Yeezy Supply, and select adidas flagship stores, the ‘Zebra’ sold out instantly but was restocked on June 24th, 2017. Another restock of the ‘Zebra’ arrived November 16, 2018, with more pairs hitting the marketplace and delivering on Kanye’s promise of Yeezy’s being more accessible to anyone that wanted them.</p>\n",
+        "story_html": "<p>Released on February 25, 2017, the Yeezy Boost 350 V2 ‘Zebra’ combines a white/core black Primeknit upper with red SPLY 350 branding and a translucent white midsole housing full-length Boost. Sold exclusively at Adidas.com, Yeezy Supply, and select Adidas flagship stores, the ‘Zebra’ sold out instantly but was restocked on June 24th, 2017. Another restock of the ‘Zebra’ arrived November 16, 2018, with more pairs hitting the marketplace and delivering on Kanye’s promise of Yeezy’s being more accessible to anyone that wanted them.</p>\n",
         "upper_material": "Primeknit"
       },
       {
         "box_condition": "good_condition",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [],
         "color": "White",
@@ -5827,9 +5827,9 @@
       },
       {
         "box_condition": "good_condition",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "diy",
@@ -5902,14 +5902,14 @@
         "sku": "F36980",
         "slug": "yeezy-boost-350-v2-ice-yellow-f36980",
         "status": "active",
-        "story_html": "<p>Kanye West and adidas continued their partnership with the Yeezy Boost 350 V2 ‘Butter,’ which hit stores in June 2018. The minimalist silhouette features distinct center stitching on a reverse Primeknit upper, with the signature ‘SPLY-350’ inscription now printed on the interior side. The heel tab remains, finished in a bright yellow hue that matches the knitted upper, rope laces, and Boost-infused midsole.</p>\n",
+        "story_html": "<p>Kanye West and Adidas continued their partnership with the Yeezy Boost 350 V2 ‘Butter,’ which hit stores in June 2018. The minimalist silhouette features distinct center stitching on a reverse Primeknit upper, with the signature ‘SPLY-350’ inscription now printed on the interior side. The heel tab remains, finished in a bright yellow hue that matches the knitted upper, rope laces, and Boost-infused midsole.</p>\n",
         "upper_material": "Primeknit"
       },
       {
         "box_condition": "good_condition",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "lifestyle"
+          "Lifestyle"
         ],
         "collection_slugs": [
           "kanye-west",
@@ -5980,14 +5980,14 @@
         "sku": "B37572",
         "slug": "yeezy-boost-350-v2-b37572",
         "status": "active",
-        "story_html": "<p>Kanye West’s Yeezy Boost 350 V2 in Semi Frozen Yellow first hit stores in November 2017, with a restock that released on December 14, 2018. Dressed in adidas’ signature Primeknit upper, the lifestyle runner is finished in an energetic bright yellow hue, one that extends to the laces, heel tab, and Boost-infused ribbed rubber midsole. Zebra-like black stripes add another design dimension to the upper, along with a tonal side stripe emblazoned with ‘SPLY 350’ in reverse red print. A gum rubber outsole adds grippy traction to the eye-catching design.</p>\n",
+        "story_html": "<p>Kanye West’s Yeezy Boost 350 V2 in Semi Frozen Yellow first hit stores in November 2017, with a restock that released on December 14, 2018. Dressed in adidas’ signature Primeknit upper, the Lifestyle runner is finished in an energetic bright yellow hue, one that extends to the laces, heel tab, and Boost-infused ribbed rubber midsole. Zebra-like black stripes add another design dimension to the upper, along with a tonal side stripe emblazoned with ‘SPLY 350’ in reverse red print. A gum rubber outsole adds grippy traction to the eye-catching design.</p>\n",
         "upper_material": "Primeknit"
       },
       {
         "box_condition": "good_condition",
-        "brand_name": "adidas",
+        "brand_name": "Adidas",
         "category": [
-          "running"
+          "Other"
         ],
         "collection_slugs": [
           "under-retail-10"
@@ -6053,7 +6053,7 @@
         "sku": "B79759",
         "slug": "nmd_r1-blizzard-b79759",
         "status": "active",
-        "story_html": "<p>adidas dropped the NMD_R1 &#39;Blizzard&#39; colorway in January 2018. It features a stretch mesh upper made from twisted two-tone yarn for a unique textured effect reminiscent of medieval chainmail armor. It also comes with a Carbon tongue patch with a Trefoil, Welded Core Black Three-Stripes on the side panel, and a molded matte black heel patch. Underfoot, the shoe boasts a white Boost midsole with Carbon EVA midsole bumpers and an all-black rubber outsole.</p>\n",
+        "story_html": "<p>Adidas dropped the NMD_R1 &#39;Blizzard&#39; colorway in January 2018. It features a stretch mesh upper made from twisted two-tone yarn for a unique textured effect reminiscent of medieval chainmail armor. It also comes with a Carbon tongue patch with a Trefoil, Welded Core Black Three-Stripes on the side panel, and a molded matte black heel patch. Underfoot, the shoe boasts a white Boost midsole with Carbon EVA midsole bumpers and an all-black rubber outsole.</p>\n",
         "upper_material": ""
       }
     ]

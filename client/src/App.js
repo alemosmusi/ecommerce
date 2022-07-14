@@ -12,6 +12,7 @@ import CarShopContainer from "./component/carShop/Container/CarshopContainer";
 import GeneralContainer from "./component/cardFilters/GeneralContainer";
 import { InfoProfile } from "./component/infoProfile/infoProfile";
 
+
 import ListProductsAdmin from "./panelAdmin/listproducts/ListProductsAdmin";
 import New from "./panelAdmin/new/New";
 
@@ -19,6 +20,12 @@ import ListClients from "./panelAdmin/listClients/ListClients";
 import HomeAdmin from "./panelAdmin/homeAdmin/HomeAdmin";
 import ListOrdersAdmin from "./panelAdmin/listOrders/ListOrdersAdmin";
 import DetailAdmin from "./panelAdmin/single/DetailAdmin";
+
+
+import ListOrders from "./panelUser/listOrders/ListOrdenes"
+
+
+
 function App() {
   return (
     <div className="container-fluid text-center" >
@@ -45,8 +52,13 @@ function App() {
           <Route path="orders" element={<ListOrdersAdmin />} />
           <Route path="profile" element={<DetailAdmin />} />
         </Route>
-        ;
+        ; 
+        <Route path="user">
+          <Route index element={<ListOrders />} />
+          <Route path="orders" element={<ListOrders />} />
+       </Route>
       </Routes>
+     
       <Footer />
     </div>
   );

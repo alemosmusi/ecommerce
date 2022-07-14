@@ -23,9 +23,11 @@ const Questions = (sequelize)=>{
     json.forEach(async (value) => {
       const { question, answers} = value
 
-      await model.create({
-        question,
-        answers
+      await model.findOrCreate({
+        where: {
+          question,
+          answers
+        }
       })
     })
   }

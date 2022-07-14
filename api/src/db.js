@@ -29,6 +29,28 @@ const modelUsers = Users(sequelize)
 const modelColors = Colors(sequelize)
 const modelQuestions = Questions(sequelize)
 
+modelProducts.belongsToMany(modelCategories, { through: 'product_category' })
+modelCategories.belongsToMany(modelProducts, { through: 'product_category' })
+
+modelProducts.belongsTo(modelBrands)
+modelBrands.hasMany(modelProducts)
+
+modelProducts.belongsTo(modelGenders)
+modelGenders.hasMany(modelProducts)
+
+modelProducts.belongsTo(modelColors)
+modelColors.hasMany(modelProducts)
+
+modelUsers.belongsTo(modelRoles)
+modelRoles.hasMany(modelUsers)
+
+modelUsers.belongsToMany(modelOrdens, { through: 'user_order' })
+modelOrdens.hasOne(modelUsers)
+
+modelOrdens.hasMany(modelProducts)
+modelProducts.belongsToMany(modelOrdens, { through: 'product_order' })
+
+
 module.exports = {
   sequelize,
   modelBrands,
