@@ -4,8 +4,16 @@ import Navbar from "../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { productInputs } from "./formSource";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { productInputs, sizes } from "./formSource";
+import {
+  Formik,
+  Form,
+  Field,
+  ErrorMessage,
+  FieldArray
+} from "formik";
+// import * as Yup from "yup";
+import {validSchema , initialValue} from './validNew'
 import {
   createShoes,
   getAllGenders,
@@ -19,19 +27,20 @@ import {
 } from "../../redux/actions/index.js";
 
 const New = () => {
-  // const [file, setFile] = useState("");
   const dispatch = useDispatch();
-    useEffect(() => {
-      dispatch(getAllGenders());
-      dispatch(getAllCategories());
-      dispatch(getAllColors());
-      dispatch(getAllBrands());
-    }, [dispatch]);
-    const Categories = useSelector((state) => state.Categories);
-    const Brands = useSelector((state) => state.Brands);
-    const Colors = useSelector((state) => state.Colors);
-    const Genders = useSelector((state) => state.Genders);
-    const inputs = productInputs;
+  useEffect(() => {
+    dispatch(getAllGenders());
+    dispatch(getAllCategories());
+    dispatch(getAllColors());
+    dispatch(getAllBrands());
+  }, [dispatch]);
+  const Categories = useSelector((state) => state.Categories);
+  const Brands = useSelector((state) => state.Brands);
+  const Colors = useSelector((state) => state.Colors);
+  const Genders = useSelector((state) => state.Genders);
+  // const inputs = productInputs;
+  const [file, setFile] = useState("");
+  const [enviado , setEnviado] = useState(false)
 
   return (
     <div className="new">
@@ -41,73 +50,323 @@ const New = () => {
         <div className="top">
           <h1>Agregar Nuevo Producto</h1>
         </div>
-        <Formik 
-        className="bottom"
-        initialValues={{
-          name: "",
-          brand_name: "",
-          description: "",
-          price: 0,
-          img: "",
-          stock: 0,
-          color: "",
-          size_range: [],
-          material: "",
-          released: "",
-          genders: [],
-          designer: "",
-          details: "",
-          shoe_condition: "",
-          rating: 0,
-          category: "",
-        }}
-        onSubmit={(valores, { resetForm }) => {
-          resetForm();
-          dispatch(createShoes(valores))
-          console.log("Formulario enviado");
-          // cambiarFormularioEnviado(true);
-          //      setTimeout(() => cambiarFormularioEnviado(false), 5000);
+        <Formik
+          
+          initialValues={initialValue}
+          validationSchema={validSchema}
+          onSubmit={(valores ,{ resetForm }) => {
+            console.log(valores);
+            console.log("formulario enviado");
+            dispatch(createShoes(valores))
+            setEnviado(true)
+            resetForm()
+            setTimeout(()=>{
+              setEnviado(false)
+            },3000)
           }}
         >
-   {({ values, errors }) => (
-
-          <Form>
-          <div className="left">
-            <img
-              src={
-                values.img
-                  ? URL.createObjectURL(values.img)
-                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-              }
-              alt=""
-            />
-          </div>
-          <div className="right">
-            <form>
-              <div className="formInput">
-                <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
-                </label>
-                <Field
-                  type="file"
-                  id="file"
-                  name='img'
-                  // onChange={(e) => setFile(e.target.files[0])}
-                  style={{ display: "none" }}
+          {({ errors ,values }) => (
+            <Form className='form'>
+              {/* <div className="left">
+                <img
+                  src={
+                    values.img
+                      ? URL.createObjectURL(values.img)
+                      : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+                  }
+                  alt=""
                 />
-              </div>
-
-              {inputs.map((input) => (
-                <div className="formInput" key={input.id}>
-                  <label>{input.label}</label>
-                  <Field type={input.type} placeholder={input.placeholder} />
+              </div> */}
+             <div className="bottom"> 
+              <div className="right">
+                <div className="formInput">
+                  <label htmlFor="file">
+                    Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  </label>
+                  <Field
+                    type="file"
+                    id="file"
+                    name="img"
+                    // onChange={(e) => setFile(e.target.files[0])}
+                    style={{ display: "none" }}
+                  />
                 </div>
-              ))}
-              <button>Send</button>
-            </form>
-          </div>
-          </Form>
-   )}
+                
+                {/* <div className="right">
+                    {inputs.map((input) => (
+                    <div className="formInput" key={input.id}>
+                      <label htmlFor={input.name}>{input.label}</label>
+                      <Field
+                        type={input.type}
+                        placeholder={input.placeholder}
+                        name={input.name}
+                        
+                      />
+                        <ErrorMessage
+                             name={input.name}
+                         component={() => <div className="error">{errors.input.name}</div>}
+                            /> 
+                        
+                       
+                    </div>
+                  ))}  
+                        </div> */}
+                       
+                 
+                  <div className="formInput">
+                  <label htmlFor="name">Name</label>
+                  <Field
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="name"
+                  />
+                  <ErrorMessage
+                    name="name"
+                    component={() => (
+                      <div className="error">{errors.name}</div>
+                    )}
+                  />
+                
+                </div>
+                
+                <div className="formInput">
+                  <label htmlFor="description">Description</label>
+                  <Field
+                    type="text"
+                    id="description"
+                    name="description"
+                    placeholder="description"
+                  />
+                  <ErrorMessage
+                    name="description"
+                    component={() => (
+                      <div className="error">{errors.description}</div>
+                    )}
+                  />
+                  </div>
+                <div className="formInput">
+                  <label htmlFor="price">Price</label>
+                  <Field
+                    type="number"
+                    id="price"
+                    name="price"
+                    placeholder="price"
+                  />
+                  <ErrorMessage
+                    name="price"
+                    component={() => (
+                      <div className="error">{errors.price}</div>
+                    )}
+                  />
+                  </div>
+                <div className="formInput">
+                  <label htmlFor="material">Material</label>
+                  <Field
+                    type="text"
+                    id="material"
+                    name="material"
+                    placeholder="material"
+                  />
+                  <ErrorMessage
+                    name="material"
+                    component={() => (
+                      <div className="error">{errors.material}</div>
+                    )}
+                  />
+                </div>
+                <div className="formInput">
+                  <label htmlFor="released">Released</label>
+                  <Field
+                    type="date"
+                    id="released"
+                    name="released"
+                    placeholder="released"
+                  />
+                  <ErrorMessage
+                    name="released"
+                    component={() => (
+                      <div className="error">{errors.released}</div>
+                    )}
+                  />
+                </div>
+                <div className="formInput">
+                  <label htmlFor="designer">Designer</label>
+                  <Field
+                    type="text"
+                    id="designer"
+                    name="designer"
+                    placeholder="designer"
+                  />
+                  <ErrorMessage
+                    name="designer"
+                    component={() => (
+                      <div className="error">{errors.designer}</div>
+                    )}
+                  />
+                </div>
+                <div className="formInput">
+                  <label htmlFor="details">Details</label>
+                  <Field
+                    type="text"
+                    id="details"
+                    name="details"
+                    placeholder="details"
+                  />
+                  <ErrorMessage
+                    name="details"
+                    component={() => (
+                      <div className="error">{errors.details}</div>
+                    )}
+                  />
+                </div>
+                <div className="formInput">
+                  <label htmlFor="shoe_condition">Shoe condition</label>
+                  <Field
+                    type="text"
+                    id="shoe_condition"
+                    name="shoe_condition"
+                    placeholder="shoe_condition"
+                  />
+                  <ErrorMessage
+                    name="shoe_condition"
+                    component={() => (
+                      <div className="error">{errors.shoe_condition}</div>
+                    )}
+                  />
+                </div> 
+                
+                 
+              
+                <FieldArray name="size_range">
+            {({ insert, remove, push }) => (
+              <div>
+                {values.size_range.length > 0 &&
+                  values.size_range.map((size, index) => (
+                    <div className="row" key={index}>
+                      <div className="col">
+                        <label htmlFor={`size_range.${index}.size`}>Size</label>
+                        <Field
+                          name={`size_range.${index}.size`}
+                          as="select"
+                        >
+                        <option value="">Select sizes</option>
+                           {sizes?.map((theSize, i) => (
+                             <option key={i} value={theSize}>
+                               {theSize}
+                             </option>
+                           ))}
+                    </Field>
+                        <ErrorMessage
+                          name={`size_range.${index}.size`}
+                          component={() => (
+                            <div className="error">{errors.size_range}</div>)}
+                        />
+                      </div>
+                      <div className="col">
+                        <label htmlFor={`size_range.${index}.stock`}>Stock</label>
+                        <Field
+                          name={`size_range.${index}.stock`}
+                          placeholder="21"
+                          type="number"
+                        />
+                        <ErrorMessage
+                          name={`size_range.${index}.stock`}
+                          component={() => (
+                            <div className="error">{errors.size_range}</div>)}
+                        />
+                      </div>
+                      <div className="col">
+                        <button
+                          type="button"
+                          className="secondary"
+                          onClick={() => remove(index)}
+                        >
+                          X
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                <button
+                  type="button"
+                  className="secondary"
+                  onClick={() => push({ size: '', stock: 0 })}
+                >
+                  Add Size
+                </button>
+              </div>
+            )}
+          </FieldArray>
+              <div className="formInput">
+                   <label>generos</label>
+                  <Field name="genders" as="select">
+                    <option value="">Select genders</option>
+                    {Genders?.map((theGender, i) => (
+                      <option key={i} value={theGender.name}>
+                        {theGender.name}
+                      </option>
+                    ))}
+                  </Field>
+                  <ErrorMessage
+                          name="genders"
+                          component={() => (
+                            <div className="error">{errors.genders}</div>)}
+                        />
+                </div> 
+                <div className="formInput">
+                  <label>Brands</label>
+                  <Field name="brand_name" as="select">
+                    <option value="">Select brands</option>
+                    {Brands?.map((theBrands, i) => (
+                      <option key={i} value={theBrands.name}>
+                        {theBrands.name}
+                      </option>
+                    ))}
+                  </Field>
+                  <ErrorMessage
+                          name="brand_name"
+                          component={() => (
+                            <div className="error">{errors.brand_name}</div>)}
+                        />
+                </div>
+                <div className="formInput">
+                  <label>Categories</label>
+                  <Field name="category" as="select">
+                    <option value="">Select categories</option>
+                    {Categories?.map((theCategory, i) => (
+                      <option key={i} value={theCategory.name}>
+                        {theCategory.name}
+                      </option>
+                    ))}
+                  </Field>
+                  <ErrorMessage
+                          name="category"
+                          component={() => (
+                            <div className="error">{errors.category}</div>)}
+                        />
+                </div>
+                <div className="formInput">
+                  <label>Colors</label>
+                  <Field name="color" as="select">
+                    <option value="">Select colors</option>
+                    {Colors?.map((color, i) => (
+                      <option key={i} value={color.name}>
+                        {color.name}
+                      </option>
+                    ))}
+                  </Field>
+                  <ErrorMessage
+                          name="color"
+                          component={() => (
+                            <div className="error">{errors.color}</div>)}
+                        />
+                </div>
+                <button type="submit">Send</button>
+              </div>
+              {!!enviado === false ? null : <div className="exito">Se creó con éxito</div>} 
+              </div>
+            </Form>
+          )}
         </Formik>
       </div>
     </div>
@@ -115,4 +374,3 @@ const New = () => {
 };
 
 export default New;
-
