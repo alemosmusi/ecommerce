@@ -1,4 +1,5 @@
 export const userInputs = [
+<<<<<<< HEAD
     {
       id: 1,
       label: "Username",

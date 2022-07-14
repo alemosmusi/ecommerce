@@ -45,7 +45,7 @@ const Sidebar = () => {
             </li>
           </Link>
           <p className="title">LISTAS</p>
-          <Link to="/admin/users" style={{ textDecoration: "none" }}>
+          <Link to="/admin/clients" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Clientes</span>

@@ -63,7 +63,7 @@ export default function CardsFiltered() {
                   size_range={s.size_range}
                   material={s.material}
                   released={s.released}
-                  gender={s.genders[0]}
+                  gender={s.genders}
                   designer={s.designer}
                   details={s.details}
                   shoe_condition={s.shoe_condition}
