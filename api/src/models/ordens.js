@@ -16,16 +16,15 @@ const Ordens = (sequelize) => {
         },
         status: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 'En proceso'
         },
         view: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 1
         }
-
     })
-
-
 
     return model
 }

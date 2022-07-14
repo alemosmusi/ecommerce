@@ -1,16 +1,16 @@
-import CardShop from "../Card/CardShop";
+import CardShop from '../Card/CardShop'
 
 export default function ProductsContainer({ carProducts }) {
   return (
     <div className="Products">
       {carProducts && carProducts.length ? (
-        carProducts?.map((s) => (
+        carProducts?.map(s => (
           <>
             <CardShop
               key={s.id}
               id={s.id}
               name={s.name}
-              brand_name={s.brand_name}
+              brand={s.brand}
               price={s.price}
               img={s.img}
               stock={s.stock}
@@ -33,5 +33,5 @@ export default function ProductsContainer({ carProducts }) {
         <h1 className="text">El carrito está vacío</h1>
       )}
     </div>
-  );
+  )
 }
