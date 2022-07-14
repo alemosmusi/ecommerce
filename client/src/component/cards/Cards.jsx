@@ -5,6 +5,8 @@ const style = {
 };
 export default function Cards({ shoes }) {
   shoes = shoes.slice(0, 4);
+  console.log(shoes)
+
   return (
     <div className="container-fluid" style={style}>
       <div className="row m-2">
@@ -17,16 +19,16 @@ export default function Cards({ shoes }) {
               <Card
                 key={s.id}
                 name={s.name}
-                brand_name={s.brand_name}
+                brand={s.brand.name}
                 description={s.description}
                 price={s.price}
                 img={s.img}
-                stock={s.stock}
-                color={s.color}
+                stock_total={s.stock_total}
+                color={s.color.name}
                 size_range={s.size_range}
                 material={s.material}
                 released={s.released}
-                gender={s.genders}
+                gender={s.gender.name}
                 designer={s.designer}
                 details={s.details}
                 shoe_condition={s.shoe_condition}
