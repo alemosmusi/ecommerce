@@ -17,16 +17,16 @@ export default function Cards({ shoes }) {
               <Card
                 key={s.id}
                 name={s.name}
-                brand={s.brand.name}
+                brand={s.brand}
                 description={s.description}
                 price={s.price}
                 img={s.img}
                 stock={s.stock_total}
-                color={s.color.name}
+                color={s.color}
                 size_range={s.size_range}
                 material={s.material}
                 released={s.released}
-                gender={s.gender.name}
+                gender={s.gender}
                 designer={s.designer}
                 details={s.details}
                 shoe_condition={s.shoe_condition}

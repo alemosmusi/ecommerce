@@ -55,14 +55,14 @@ export default function CardShop({ id, name, brand, price, img, color, size_rang
       <div className="endDetails">
         <div className="title">
           <p>Color: </p>
-          {color}
+          {color.name}
         </div>
         <div className="title">
           <p>Genero: </p>
-          {gender}
+          {gender.name}
         </div>
         <div className="title">
-          <p>Marca: </p> {brand}
+          <p>Marca: </p> {brand.name}
         </div>
       </div>
       <div className="prices">
