@@ -10,10 +10,6 @@ const Products = (sequelize)=>{
       nickname: {
         type: DataTypes.STRING
       },
-      brand_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
       description: {
         type: DataTypes.TEXT
       },
@@ -29,12 +25,8 @@ const Products = (sequelize)=>{
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      color: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
       size_range: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.ARRAY(DataTypes.JSON),
         allowNull: false
       },
       material: {
@@ -42,10 +34,6 @@ const Products = (sequelize)=>{
       },
       released: {
         type: DataTypes.STRING
-      },
-      genders: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: false
       },
       designer: {
         type: DataTypes.STRING
@@ -61,10 +49,6 @@ const Products = (sequelize)=>{
       rating: {
         type: DataTypes.INTEGER,
         allowNull: false
-      },
-      category: {
-        type: DataTypes.STRING,
-        allowNull: false
       }
     },
     {
@@ -77,33 +61,70 @@ const Products = (sequelize)=>{
     const json = require('../temporal-json/api.json')
 
     json.sneakers.forEach(async (value) => {
-      const { name, nickname, brand_name, story_html: description, retail_price_cents: price, original_picture_url: img, color, size_range, material, release_year: released, gender: genders, designer, details, shoe_condition, category} = value
+      const { name, nickname, brand_name, story_html: description, retail_price_cents: price, original_picture_url: img, color, size_range, material, release_year: released, gender, designer, details, shoe_condition, category} = value
 
       const arraySizes = size_range.map(value => { return {size: value, stock: Math.floor(Math.random()*20)}})
 
-      await model.create({
+      const product = await model.create({
         name,
-        nickname,
-        brand_name,
-        description,
+        nickname: nickname,
+        description: description.replace(/<\/?[^>]+(>|$)/g, ""),
         price,
         img,
         stock_total: arraySizes.reduce((a, value) => a+=value.stock, 0),
-        color,
         size_range: arraySizes,
         material,
         released,
-        genders,
         designer,
         details,
         shoe_condition,
-        rating: Math.floor(Math.random()*5),
-        category: category.join('')
+        rating: 5
       })
+      
+      const { modelCategories, modelBrands, modelColors, modelGenders } = require('../db')
+
+      const mapCategories = category.map(async (value) => {
+        const responseCategory = await modelCategories.findOne({
+          where: {
+            name: value
+          }
+        })
+
+        return responseCategory.dataValues.id
+      })
+
+      const responseBrand = await modelBrands.findOne({
+        where: {
+          name: brand_name
+        }
+      })
+
+      const responseColor = await modelColors.findOne({
+        where: {
+          name: color
+        }
+      })
+
+      const responseGender = await modelGenders.findOne({
+        where: {
+          name: gender[0]
+        }
+      })
+
+      const { id: brandID } = responseBrand.dataValues
+      const { id: colorID } = responseColor.dataValues
+      const { id: genderID } = responseGender.dataValues
+
+      const categories = await Promise.all(mapCategories)
+      product.setCategories(categories)
+
+      product.setBrand(brandID)
+      product.setColor(colorID)
+      product.setGender(genderID)
     })
   }
 
-  setTimeout(preStart, 3000)
+  setTimeout(preStart, 6000)
 
   return model
 };

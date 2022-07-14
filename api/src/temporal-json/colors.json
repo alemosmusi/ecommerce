@@ -26,5 +26,33 @@
     {
         "id": 7,
         "name": "Pink"
+    },
+    {
+        "id": 8,
+        "name": "Brown"
+    },
+    {
+        "id": 9,
+        "name": "Purple"
+    },
+    {
+        "id": 10,
+        "name": "Cream"
+    },
+    {
+        "id": 11,
+        "name": "Multi-Color"
+    },
+    {
+        "id": 12,
+        "name": "Orange"
+    },
+    {
+        "id": 13,
+        "name": "Tan"
+    },
+    {
+        "id": 14,
+        "name": "Grey"
     }
 ]
