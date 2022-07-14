@@ -57,7 +57,7 @@ const New = () => {
           onSubmit={(valores ,{ resetForm }) => {
             console.log(valores);
             console.log("formulario enviado");
-            dispatch(createShoes(valores))
+            // dispatch(createShoes(valores))
             setEnviado(true)
             resetForm()
             setTimeout(()=>{
