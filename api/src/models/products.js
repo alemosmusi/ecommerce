@@ -26,7 +26,7 @@ const Products = (sequelize)=>{
         allowNull: false
       },
       size_range: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.ARRAY(DataTypes.JSON),
         allowNull: false
       },
       material: {
@@ -80,7 +80,7 @@ const Products = (sequelize)=>{
         shoe_condition,
         rating: 5
       })
-
+      
       const { modelCategories, modelBrands, modelColors, modelGenders } = require('../db')
 
       const mapCategories = category.map(async (value) => {

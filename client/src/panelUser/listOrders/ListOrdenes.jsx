@@ -3,17 +3,17 @@ import Sidebar from "../components/sidebar/Sidebar";
 // import Datatable from "../components/dataTable/Datatable";
 import  CollapsibleTable  from "../components/dataTable/Datatable2"
 // import Navbar from "../components/navbar/Navbar";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ordersColumns } from "./ordersColumns";
+import { useDispatch } from "react-redux";
+// import { ordersColumns } from "./ordersColumns";
 import { getAllShoes } from "../../redux/actions";
 const ListOrders = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllShoes());
   }, [dispatch]);
-  const  orderRows= useSelector((state) => state.Shoes);
+  // const  orderRows= useSelector((state) => state.Shoes);
 
 
   // Columnas adicionales aparte de la data
