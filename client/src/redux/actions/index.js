@@ -1,36 +1,14 @@
-import axios from 'axios'
+import Axios from 'axios'
+import * as actionTypes from '../action-types'
 
-const {
-  GET_ALL_USERS,
-  GET_ALL_SHOES,
-  GET_ALL_BRANDS,
-  GET_ALL_CATEGORIES,
-  GET_ALL_COLORS,
-  GET_ALL_GENDERS,
-  GET_SHOES_DETAILS,
-  CLEAN_DETAIL,
-  GET_FILTERS_BRANDS,
-  GET_FILTERS_CATEGORY,
-  UPDATE_FILTERS,
-  GET_FILTERS_SEARCHBAR,
-  GET_ADD_CARRITO,
-  GET_QUESTIONS,
-  DELETE_QUESTIONS,
-  CREATE_QUESTION,
-  CHANGE_AMOUNT_PRODUCT,
-  DELETE_PRODUCT_CARRITO,
-  LOGIN_USER,
-  DEL_LOGIN,
-} = require('../action-types')
-
-const URL = 'http://localhost:3001'
+Axios.defaults.baseURL = 'http://localhost:3001'
 
 export const getUsers = ()=>{
   return async function (dispatch) {
     try {
-      let users = await axios(`${URL}/users`)
+      let users = await Axios('/users')
       return dispatch({
-        type: GET_ALL_USERS,
+        type: actionTypes.GET_ALL_USERS,
         payload: users.data
       })
     } catch (error) {
@@ -38,12 +16,13 @@ export const getUsers = ()=>{
     }
   }
 }
+
 export const getAllShoes = () => {
   return async function (dispatch) {
     try {
-      let info = await axios(`${URL}/shoes`)
+      let info = await Axios('/shoes')
       return dispatch({
-        type: GET_ALL_SHOES,
+        type: actionTypes.GET_ALL_SHOES,
         payload: info.data,
       })
     } catch (error) {
@@ -55,11 +34,11 @@ export const getAllShoes = () => {
 export const getAllBrands = () => {
   return async function (dispatch) {
     try {
-      const response = await axios(`${URL}/brands`)
+      const response = await Axios('/brands')
       const { data: payload } = response
 
       return dispatch({
-        type: GET_ALL_BRANDS,
+        type: actionTypes.GET_ALL_BRANDS,
         payload,
       })
     } catch (error) {
@@ -71,9 +50,9 @@ export const getAllBrands = () => {
 export const getAllCategories = () => {
   return async function (dispatch) {
     try {
-      let categories = await axios(`${URL}/categories`)
+      let categories = await Axios('/categories')
       return dispatch({
-        type: GET_ALL_CATEGORIES,
+        type: actionTypes.GET_ALL_CATEGORIES,
         payload: categories.data,
       })
     } catch (error) {
@@ -85,11 +64,11 @@ export const getAllCategories = () => {
 export const getAllColors = () => {
   return async function (dispatch) {
     try {
-      const response = await axios(`${URL}/colors`)
+      const response = await Axios('/colors')
       const { data: payload } = response
 
       return dispatch({
-        type: GET_ALL_COLORS,
+        type: actionTypes.GET_ALL_COLORS,
         payload,
       })
     } catch (error) {
@@ -101,11 +80,11 @@ export const getAllColors = () => {
 export const getAllGenders = () => {
   return async function (dispatch) {
     try {
-      const response = await axios(`${URL}/genders`)
+      const response = await Axios('/genders')
       const { data: payload } = response
 
       return dispatch({
-        type: GET_ALL_GENDERS,
+        type: actionTypes.GET_ALL_GENDERS,
         payload,
       })
     } catch (error) {
@@ -117,9 +96,9 @@ export const getAllGenders = () => {
 export const getAllDetails = id => {
   return async function (dispatch) {
     try {
-      let categories = await axios(`${URL}/productDetails/${id}`)
+      let categories = await Axios(`/productDetails/${id}`)
       return dispatch({
-        type: GET_SHOES_DETAILS,
+        type: actionTypes.GET_SHOES_DETAILS,
         payload: categories.data,
       })
     } catch (error) {
@@ -130,7 +109,7 @@ export const getAllDetails = id => {
 
 export function CleanStateDetail(payload) {
   return {
-    type: CLEAN_DETAIL,
+    type: actionTypes.CLEAN_DETAIL,
     payload,
   }
 }
@@ -138,7 +117,7 @@ export function CleanStateDetail(payload) {
 export const getFilterCategories = payload => {
   return function (dispatch) {
     return dispatch({
-      type: GET_FILTERS_CATEGORY,
+      type: actionTypes.GET_FILTERS_CATEGORY,
       payload,
     })
   }
@@ -147,7 +126,7 @@ export const getFilterCategories = payload => {
 export const getFilterBrands = payload => {
   return function (dispatch) {
     return dispatch({
-      type: GET_FILTERS_BRANDS,
+      type: actionTypes.GET_FILTERS_BRANDS,
       payload,
     })
   }
@@ -156,7 +135,7 @@ export const getFilterBrands = payload => {
 export const updateFilters = payload => {
   return dispatch => {
     return dispatch({
-      type: UPDATE_FILTERS,
+      type: actionTypes.UPDATE_FILTERS,
       payload,
     })
   }
@@ -165,7 +144,7 @@ export const updateFilters = payload => {
 export const getFiltersSearchbar = payload => {
   return function (dispatch) {
     return dispatch({
-      type: GET_FILTERS_SEARCHBAR,
+      type: actionTypes.GET_FILTERS_SEARCHBAR,
       payload,
     })
   }
@@ -174,9 +153,9 @@ export const getFiltersSearchbar = payload => {
 export const getQuestions = () => {
   return async function (dispatch) {
     try {
-      let info = await axios(`${URL}/questions`)
+      let info = await Axios('questions')
       return dispatch({
-        type: GET_QUESTIONS,
+        type: actionTypes.GET_QUESTIONS,
         payload: info.data,
       })
     } catch (error) {
@@ -187,9 +166,9 @@ export const getQuestions = () => {
 
 export function deleteQuestions(id) {
   return function (dispatch) {
-    return axios.delete(`${URL}/questions/${id}`).then(response => {
+    return Axios.delete(`/questions/${id}`).then(response => {
       dispatch({
-        type: DELETE_QUESTIONS,
+        type: actionTypes.DELETE_QUESTIONS,
         payload: response.data,
       })
     })
@@ -198,9 +177,9 @@ export function deleteQuestions(id) {
 
 export function createQuestion(question) {
   return function (dispatch) {
-    return axios.post(`${URL}/questions`, question).then(response => {
+    return Axios.post('/questions', question).then(response => {
       dispatch({
-        type: CREATE_QUESTION,
+        type: actionTypes.CREATE_QUESTION,
         payload: response.data,
       })
     })
@@ -210,15 +189,16 @@ export function createQuestion(question) {
 export const addCarrito = producto => {
   return function (dispatch) {
     return dispatch({
-      type: GET_ADD_CARRITO,
+      type: actionTypes.GET_ADD_CARRITO,
       payload: producto,
     })
   }
 }
+
 export const deleteProductCarrito = payload => {
   return function (dispatch) {
     return dispatch({
-      type: DELETE_PRODUCT_CARRITO,
+      type: actionTypes.DELETE_PRODUCT_CARRITO,
       payload,
     })
   }
@@ -227,35 +207,85 @@ export const deleteProductCarrito = payload => {
 export const changeAmount = payload => {
   return function (dispatch) {
     return dispatch({
-      type: CHANGE_AMOUNT_PRODUCT,
+      type: actionTypes.CHANGE_AMOUNT_PRODUCT,
       payload,
     })
   }
 }
 
-
-
-export function getLogin(user){
-
-  return function(dispatch){
-      return axios.post(`${URL}/login`, user)
-      .then((response) => {
-          dispatch({
-              type: LOGIN_USER,
-              payload: response.data
-          })
-      })
+export const createShoes = shoes =>{
+  return async function(){
+    try {
+      const post = await Axios.post('/shoes',shoes)
+      return post
+    } catch (error) {
+      console.log(error)
+    }
   }
-
-     
-
 }
 
+export const createCategories = categories =>{
+  return async function(){
+    try {
+      const post = await Axios.post('/categories', categories)
+      return post      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const createBrands = brands =>{
+  return async function(){
+    try {
+      const post = await Axios.post('/brands',brands)
+      return post
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const createColors= colors =>{
+  return async function(){
+    try {
+      const post = await Axios.post('/colors',colors)
+      return post
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const createGenders = gender =>{
+  return async function(){
+    try {
+      const post = await Axios.post('/genders',gender)
+      return post
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export function getLogin(user){
+  return function(dispatch){
+    return Axios.post('/login', user)
+      .then((response) => {
+        dispatch({
+            type: actionTypes.LOGIN_USER,
+            payload: response.data
+        })
+    })
+  }
+}
 
 export function delLogin(){
   return function(dispatch){
     return {
-      type: DEL_LOGIN
+      type: actionTypes.DEL_LOGIN
     }
   }
 }

@@ -170,8 +170,29 @@ const rootReducer = (state = initialState, action) => {
     case actionTypes.CHANGE_AMOUNT_PRODUCT:
       return {
         ...state,
+
         Carrito: changeAmountFromLocalStorage(action.payload),
       };
+    case actionTypes.CREATE_SHOES:
+      return{
+        ...state,
+      }
+    case actionTypes.CREATE_CATEGORIES:
+        return{
+          ...state,
+        }
+    case actionTypes.CREATE_COLORS:
+        return{
+          ...state,
+        }
+    case actionTypes.CREATE_BRANDS:
+        return{
+          ...state,
+        }
+    case actionTypes.CREATE_GENDERS:
+        return{
+          ...state,
+        }
     case actionTypes.LOGIN_USER:
       return {
         ...state,
