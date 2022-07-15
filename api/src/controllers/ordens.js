@@ -40,6 +40,8 @@ const createOrden = async (req, res) => {
             return res.status(400).send({msg: 'Uno de los productos no están registrados en la base de datos.'})
         }
 
+        let array = []
+
         for (let i = 0; i < details.length; i++) {
             const { size_range } = products[i]
 
@@ -47,11 +49,13 @@ const createOrden = async (req, res) => {
             if (!modSizes) {
                 return res.status(400).send({msg: `El producto ${products[i].id} de la talla ${modSizes} no cuenta con el stock necesario (o no existe la talla) para generar esta orden.`})
             }
-
-            products[i].update({size_range: modSizes})
+            
+            array.push(modSizes)
         }
 
-        products.forEach(product => product.save())
+        array.forEach(async (obj, index) => {
+            await modelProducts.update({size_range: obj}, {where: {id: products[index].id}})
+        })
 
         const order = await modelOrdens.create({
             amount_total,
