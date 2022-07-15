@@ -10,7 +10,7 @@ const { getQuestions, createQuestion, updateQuestion, deleteQuestion } = require
 const { getOrdens, createOrden, updateOrden, getOrdensUser } = require('../controllers/ordens')
 const { getUsers } = require('../controllers/users')
 const { getLogin } = require('../controllers/login')
-
+const { notification } = require('../controllers/notification')
 const routes = Router()
 
 routes.get('/shoes', getProducts)
@@ -55,5 +55,7 @@ routes.get('/ordensUser/:id', getOrdensUser)
 routes.get('/users', getUsers)
 
 routes.post('/login', getLogin)
+
+routes.post('/send-email',notification)
 
 module.exports = routes
