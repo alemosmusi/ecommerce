@@ -23,7 +23,9 @@ const {
   CREATE_CATEGORIES,
   CREATE_COLORS,
   CREATE_BRANDS,
-  CREATE_GENDERS
+  CREATE_GENDERS,
+  LOGIN_USER,
+  DEL_LOGIN,
 } = require('../action-types')
 
 const URL = 'http://localhost:3001'
@@ -235,7 +237,6 @@ export const changeAmount = payload => {
     })
   }
 }
-
 export const createShoes = shoes =>{
     return async function(){
       try {
@@ -294,5 +295,28 @@ export const createGenders = gender =>{
       console.log(error)
     }
     }
- 
+  }
+export function getLogin(user){
+
+  return function(dispatch){
+      return axios.post(`${URL}/login`, user)
+      .then((response) => {
+          dispatch({
+              type: LOGIN_USER,
+              payload: response.data
+          })
+      })
+  }
+
+     
+
+}
+
+
+export function delLogin(){
+  return function(dispatch){
+    return {
+      type: DEL_LOGIN
+    }
+  }
 }

@@ -1,10 +1,10 @@
-import { useState } from "react";
-import Card from "../cardProduct/CardProduct";
+import { useState } from 'react'
+import Card from '../cardProduct/CardProduct'
 const style = {
-  padding: "0 5% 0 5%",
-};
+  padding: '0 5% 0 5%',
+}
 export default function Cards({ shoes }) {
-  shoes = shoes.slice(0, 4);
+  shoes = shoes.slice(0, 4)
   return (
     <div className="container-fluid" style={style}>
       <div className="row m-2">
@@ -12,21 +12,21 @@ export default function Cards({ shoes }) {
       </div>
       <div className="row">
         {shoes &&
-          shoes?.map((s) => (
+          shoes?.map(s => (
             <div key={s.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
               <Card
                 key={s.id}
                 name={s.name}
-                brand_name={s.brand_name}
+                brand={s.brand}
                 description={s.description}
                 price={s.price}
                 img={s.img}
-                stock={s.stock}
+                stock={s.stock_total}
                 color={s.color}
                 size_range={s.size_range}
                 material={s.material}
                 released={s.released}
-                gender={s.genders}
+                gender={s.gender}
                 designer={s.designer}
                 details={s.details}
                 shoe_condition={s.shoe_condition}
@@ -38,5 +38,5 @@ export default function Cards({ shoes }) {
           ))}
       </div>
     </div>
-  );
+  )
 }
