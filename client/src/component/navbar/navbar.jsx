@@ -80,7 +80,6 @@ export default function Navbar() {
                 height="30"
                 alt="logo"
               />
-
               <Link className="nav-link active" aria-current="page" to="/">
                 <li className="nav-item">Inicio</li>
               </Link>
@@ -104,6 +103,8 @@ export default function Navbar() {
                   </li>
                 </>
               )}
+
+
               {!userLog.name ? "":
               userLog.roleId === 1?
               <Link className="nav-link active" aria-current="page" to="/admin">
@@ -116,7 +117,7 @@ export default function Navbar() {
             
             
             }
-              
+
               <li className="nav-item dropdown">
                 <div
                   className="nav-link dropdown-toggle"
@@ -162,6 +163,26 @@ export default function Navbar() {
                 >{carrito.length}</i>
                   }
                 </Link>
+              </li>{" "}
+              <li
+                className="nav-item"
+                onClick={() => {
+                  localStorage.removeItem("username");
+                  console.log(
+                    "eliminado: ",
+                    JSON.parse(localStorage.getItem("username"))
+                  );
+                }}
+              >
+                <div className="nav-item">Borrar Storage-User</div>
+              </li>
+              <li
+                className="nav-item"
+                onClick={() =>
+                  console.log(JSON.parse(localStorage.getItem("username")))
+                }
+              >
+                <div className="nav-item">Mostrar Storage-User</div>
               </li>
             </ul>
 

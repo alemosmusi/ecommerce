@@ -3,10 +3,10 @@ import { Formik, Form, Field } from "formik";
 import { amountSchema } from "../../../Validations/amountSchema.js";
 import { changeAmount } from "../../../redux/actions";
 
-export default function FormAmount({ amountP, id, dispatch }) {
+export default function FormAmount({ amountP, key_value, dispatch }) {
   if (!amountP) {
     amountP = 1;
-    dispatch(changeAmount({ id, amount: 1 }));
+    dispatch(changeAmount({ key_value, amount: 1 }));
   }
   return (
     <div>
@@ -16,7 +16,7 @@ export default function FormAmount({ amountP, id, dispatch }) {
         }}
         validationSchema={amountSchema}
         onSubmit={({ amount }) => {
-          dispatch(changeAmount({ id, amount: Number(amount) }));
+          dispatch(changeAmount({ key_value, amount: Number(amount) }));
         }}
       >
         {({ errors, touched }) => (
