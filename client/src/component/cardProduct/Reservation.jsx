@@ -1,4 +1,5 @@
-// import * as React from "react";
+import './Reservation.css'
+import React, {useState} from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -7,6 +8,17 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
+
+const validate=(email)=>{
+  let error={}
+  if(email===''){
+    error.email = 'colocar un email'
+  }
+  else if(!/\S+@\S+\.\S+/.test(email)){
+    error.email = 'colocar un email valido'
+  }
+return error
+}
 export default function ReservationButton({
   reserve,
   setReserve,
@@ -21,9 +33,23 @@ export default function ReservationButton({
     setReserve(false);
   };
   const handleNotificate = () => {
-    console.log("notificacion a: ");
-    setReserve(false);
+    if(Object.keys(error).length !== 0){
+      return null
+    }else{
+      setEmail('')
+      setReserve(false);
+      console.log("notificacion a: ");
+      }
   };
+  const [error , setError] = useState({})
+  const [email , setEmail]=useState('')
+  // const [message , setMessage]=useState(false)
+  const handleInput =(e)=>{
+     e.preventDefault()
+     setEmail(e.target.value)
+     setError(validate(e.target.value))
+    }
+
   return (
     <div>
       <div
@@ -55,12 +81,16 @@ export default function ReservationButton({
           <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="email"
             label="Email"
             type="email"
             fullWidth
+            name="email"
             variant="standard"
+            value={email}
+            onChange={e=>handleInput(e)}
           />
+          {error.email ? <div className='error'>{error.email}</div> :null}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
