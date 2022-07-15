@@ -13,6 +13,10 @@ const { getLogin } = require('../controllers/login')
 
 const routes = Router()
 
+const verifyRol = async (req, res, next) => {
+    console.log(req)
+}
+
 routes.get('/shoes', getProducts)
 routes.post('/shoes', createProduct)
 routes.put('/shoes/:id', updateProduct)
