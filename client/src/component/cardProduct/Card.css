@@ -16,6 +16,7 @@
 
   --label-index: #960796;
   --danger-index: #5bc257;
+  --label-no-stock: #da1313;
   /* PAGINATE */
   --link-color: #000;
   --link-color-hover: #fff;
@@ -84,7 +85,21 @@
   border-radius: 3px;
   text-transform: uppercase;
 }
-
+.label-top-stock {
+  display: none;
+}
+.label-top-noStock {
+  position: absolute;
+  background-color: var(--label-no-stock);
+  color: #fff;
+  top: 8px;
+  left: 8px;
+  padding: 5px 10px 5px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
 .top-right {
   position: absolute;
   top: 24px;
@@ -216,7 +231,9 @@
   background-color: #b4b6b9;
   color: #acacab;
 }
-
+.display {
+  cursor: pointer;
+}
 .ratings i {
   color: orange;
 }
