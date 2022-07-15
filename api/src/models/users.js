@@ -1,7 +1,5 @@
 const { DataTypes } = require('sequelize')
 
-const { modelRoles } = require('../db')
-
 const Users = (sequelize) => {
     const model = sequelize.define('users', {
         email: {
@@ -14,10 +12,6 @@ const Users = (sequelize) => {
             allowNull: false,
             unique: false
         },
-        // password: {
-        //     type: DataTypes.TEXT,
-        //     allowNull: false
-        // },
         avatar_url: {
             type: DataTypes.TEXT,
             allowNull: false
@@ -57,12 +51,11 @@ const Users = (sequelize) => {
         const json = require('../temporal-json/users.json')
         
         json.forEach(async (value) => {
-            const { dni, username, password, name, lastname, genre, email, phone, adress, country, avatar_url, rol } = value
+            const { dni, username, name, lastname, genre, email, phone, adress, country, avatar_url, rol } = value
 
             const user = await model.create({
                 dni, 
                 username,
-                // password,
                 name,
                 lastname,
                 genre,
