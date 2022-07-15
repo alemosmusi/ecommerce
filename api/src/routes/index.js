@@ -11,7 +11,7 @@ const { getOrdens, createOrden, updateOrden, getOrdensUser } = require('../contr
 const { getReviews, createReview, updateReview, deleteReview, getReviewsProduct } = require('../controllers/reviews')
 const { getUsers } = require('../controllers/users')
 const { getLogin } = require('../controllers/login')
-
+const { notification } = require('../controllers/notification')
 const routes = Router()
 
 routes.get('/shoes', getProducts)
@@ -62,5 +62,7 @@ routes.get('/reviewsProduct/:id', getReviewsProduct)
 routes.get('/users', getUsers)
 
 routes.post('/login', getLogin)
+
+routes.post('/send-email',notification)
 
 module.exports = routes
