@@ -12,18 +12,15 @@ import {
   ErrorMessage,
   FieldArray
 } from "formik";
-// import * as Yup from "yup";
-import {validSchema , initialValue} from './validNew'
+
+import {validSchema , initialValue} from "./validNew" ;
 import {
   createShoes,
   getAllGenders,
   getAllColors,
   getAllCategories,
   getAllBrands,
-  // createBrands,
-  // createCategories,
-  // createColors,
-  // createGenders,
+
 } from "../../redux/actions/index.js";
 
 const New = () => {
@@ -39,7 +36,7 @@ const New = () => {
   const Colors = useSelector((state) => state.Colors);
   const Genders = useSelector((state) => state.Genders);
   // const inputs = productInputs;
-  const [file, setFile] = useState("");
+  // const [file, setFile] = useState("");
   const [enviado , setEnviado] = useState(false)
 
   return (
@@ -57,7 +54,7 @@ const New = () => {
           onSubmit={(valores ,{ resetForm }) => {
             console.log(valores);
             console.log("formulario enviado");
-            // dispatch(createShoes(valores))
+            dispatch(createShoes(valores))
             setEnviado(true)
             resetForm()
             setTimeout(()=>{
@@ -66,7 +63,7 @@ const New = () => {
           }}
         >
           {({ errors ,values }) => (
-            <Form className='form'>
+            <Form className='formulario'>
               {/* <div className="left">
                 <img
                   src={
@@ -90,31 +87,10 @@ const New = () => {
                     // onChange={(e) => setFile(e.target.files[0])}
                     style={{ display: "none" }}
                   />
-                </div>
-                
-                {/* <div className="right">
-                    {inputs.map((input) => (
-                    <div className="formInput" key={input.id}>
-                      <label htmlFor={input.name}>{input.label}</label>
-                      <Field
-                        type={input.type}
-                        placeholder={input.placeholder}
-                        name={input.name}
-                        
-                      />
-                        <ErrorMessage
-                             name={input.name}
-                         component={() => <div className="error">{errors.input.name}</div>}
-                            /> 
-                        
-                       
-                    </div>
-                  ))}  
-                        </div> */}
-                       
+                </div>        
                  
                   <div className="formInput">
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name">Name :</label>
                   <Field
                     type="text"
                     id="name"
@@ -129,9 +105,18 @@ const New = () => {
                   />
                 
                 </div>
+                <div className="formInput">
+                  <label htmlFor="nickname">Nickname :</label>
+                  <Field
+                    type="text"
+                    id="nickname"
+                    name="nickname"
+                    placeholder="name"
+                  />
+                </div>
                 
                 <div className="formInput">
-                  <label htmlFor="description">Description</label>
+                  <label htmlFor="description">Description :</label>
                   <Field
                     type="text"
                     id="description"
@@ -146,7 +131,7 @@ const New = () => {
                   />
                   </div>
                 <div className="formInput">
-                  <label htmlFor="price">Price</label>
+                  <label htmlFor="price">Price :</label>
                   <Field
                     type="number"
                     id="price"
@@ -161,7 +146,7 @@ const New = () => {
                   />
                   </div>
                 <div className="formInput">
-                  <label htmlFor="material">Material</label>
+                  <label htmlFor="material">Material :</label>
                   <Field
                     type="text"
                     id="material"
@@ -176,7 +161,7 @@ const New = () => {
                   />
                 </div>
                 <div className="formInput">
-                  <label htmlFor="released">Released</label>
+                  <label htmlFor="released">Released :</label>
                   <Field
                     type="date"
                     id="released"
@@ -191,7 +176,7 @@ const New = () => {
                   />
                 </div>
                 <div className="formInput">
-                  <label htmlFor="designer">Designer</label>
+                  <label htmlFor="designer">Designer :</label>
                   <Field
                     type="text"
                     id="designer"
@@ -206,7 +191,7 @@ const New = () => {
                   />
                 </div>
                 <div className="formInput">
-                  <label htmlFor="details">Details</label>
+                  <label htmlFor="details">Details :</label>
                   <Field
                     type="text"
                     id="details"
@@ -221,7 +206,7 @@ const New = () => {
                   />
                 </div>
                 <div className="formInput">
-                  <label htmlFor="shoe_condition">Shoe condition</label>
+                  <label htmlFor="shoe_condition">Shoe condition :</label>
                   <Field
                     type="text"
                     id="shoe_condition"
@@ -245,7 +230,7 @@ const New = () => {
                   values.size_range.map((size, index) => (
                     <div className="row" key={index}>
                       <div className="col">
-                        <label htmlFor={`size_range.${index}.size`}>Size</label>
+                        <label htmlFor={`size_range.${index}.size`}> Size :</label>
                         <Field
                           name={`size_range.${index}.size`}
                           as="select"
@@ -260,11 +245,11 @@ const New = () => {
                         <ErrorMessage
                           name={`size_range.${index}.size`}
                           component={() => (
-                            <div className="error">{errors.size_range}</div>)}
+                            <div className="error">{errors.size_range.size}</div>)}
                         />
                       </div>
                       <div className="col">
-                        <label htmlFor={`size_range.${index}.stock`}>Stock</label>
+                        <label htmlFor={`size_range.${index}.stock`}>Stock :</label>
                         <Field
                           name={`size_range.${index}.stock`}
                           placeholder="21"
@@ -273,7 +258,7 @@ const New = () => {
                         <ErrorMessage
                           name={`size_range.${index}.stock`}
                           component={() => (
-                            <div className="error">{errors.size_range}</div>)}
+                            <div className="error">{errors.size_range.stock}</div>)}
                         />
                       </div>
                       <div className="col">
@@ -297,70 +282,105 @@ const New = () => {
               </div>
             )}
           </FieldArray>
-              <div className="formInput">
-                   <label>generos</label>
-                  <Field name="genders" as="select">
-                    <option value="">Select genders</option>
-                    {Genders?.map((theGender, i) => (
-                      <option key={i} value={theGender.name}>
+
+
+<div className="formInput">
+                  <label>Gender :</label>
+                  <Field name="genderID" as="select">
+                    <option value="">Select gender</option>
+                    {Genders?.map((theGender) => (
+                      <option key={theGender.id} value={theGender.id}>
                         {theGender.name}
                       </option>
                     ))}
                   </Field>
                   <ErrorMessage
-                          name="genders"
+                          name="genderID"
                           component={() => (
-                            <div className="error">{errors.genders}</div>)}
+                            <div className="error">{errors.genderID}</div>)}
                         />
-                </div> 
+                </div>
+
                 <div className="formInput">
                   <label>Brands</label>
-                  <Field name="brand_name" as="select">
+                  <Field name="brandID" as="select">
                     <option value="">Select brands</option>
-                    {Brands?.map((theBrands, i) => (
-                      <option key={i} value={theBrands.name}>
+                    {Brands?.map((theBrands) => (
+                      <option key={theBrands.id} value={theBrands.id}>
                         {theBrands.name}
                       </option>
                     ))}
                   </Field>
                   <ErrorMessage
-                          name="brand_name"
+                          name="brandID"
                           component={() => (
-                            <div className="error">{errors.brand_name}</div>)}
+                            <div className="error">{errors.brandID}</div>)}
                         />
                 </div>
+                
                 <div className="formInput">
-                  <label>Categories</label>
-                  <Field name="category" as="select">
-                    <option value="">Select categories</option>
-                    {Categories?.map((theCategory, i) => (
-                      <option key={i} value={theCategory.name}>
-                        {theCategory.name}
-                      </option>
-                    ))}
-                  </Field>
-                  <ErrorMessage
-                          name="category"
-                          component={() => (
-                            <div className="error">{errors.category}</div>)}
-                        />
-                </div>
-                <div className="formInput">
-                  <label>Colors</label>
-                  <Field name="color" as="select">
+                  <label>Colors :</label>
+                  <Field name="colorID" as="select">
                     <option value="">Select colors</option>
                     {Colors?.map((color, i) => (
-                      <option key={i} value={color.name}>
+                      <option key={i} value={color.id}>
                         {color.name}
                       </option>
                     ))}
                   </Field>
                   <ErrorMessage
-                          name="color"
+                          name="colorID"
                           component={() => (
-                            <div className="error">{errors.color}</div>)}
+                            <div className="error">{errors.colorID}</div>)}
                         />
                 </div>
+                <FieldArray name="categories">
+            {({ insert, remove, push }) => (
+              <div>
+                {values.categories?.map((gender, index) => (
+                    <div className="row" key={index}>
+                      <div className="col">
+                        <label htmlFor={`categories.${index}`}>Categories :</label>
+                        <Field
+                          name={`categories.${index}`}
+                          as="select"
+                        >
+                        <option value="">select categories</option>
+                           {Categories?.map((theCategory) => (
+                             <option key={theCategory.id} value={theCategory.id}>
+                               {theCategory.name}
+                             </option>
+                           ))}
+                    </Field>
+                        <ErrorMessage
+                          name={`categories.${index}`}
+                          component={() => (
+                            <div className="error">{errors.categories}</div>)}
+                        />
+                      </div>
+                      <div className="col">
+                        <button
+                          type="button"
+                          className="secondary"
+                          onClick={() => remove(index)}
+                        >
+                          X
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+
+                <button
+                  type="button"
+                  className="secondary"
+                  onClick={() => push()}
+                >
+                  Add Categorie
+                </button>
+              </div>
+            )}
+
+          </FieldArray>
                 <button type="submit">Send</button>
               </div>
               {!!enviado === false ? null : <div className="exito">Se creó con éxito</div>} 

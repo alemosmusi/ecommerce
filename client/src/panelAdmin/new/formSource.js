@@ -1,5 +1,4 @@
 export const userInputs = [
-<<<<<<< HEAD
     {
       id: 1,
       label: "Username",
@@ -58,13 +57,7 @@ export const userInputs = [
       name:'description',
       placeholder: "Description",
     },
-    // {
-    //   id: 3,
-    //   label: "Category",
-    //   type: "text",
-    //   name:'category',
-    //   placeholder: "Category",
-    // },
+    
     {
       id: 4,
       label: "Price",
@@ -79,13 +72,7 @@ export const userInputs = [
       name:'stock',
       placeholder: "In stock",
     },
-    // {
-    //   id: 6,
-    //   label: "Brand name",
-    //   type: "text",
-    //   name:'brand_name',
-    //   placeholder: "Brand name",
-    // },
+    
     {
       id: 6,
       label: "Material",
@@ -131,41 +118,7 @@ export const userInputs = [
     },
 
   ];
-  // export const sizes = [
-  //     {size:'10',stock:0},
-  //     {size:'10.5',stock:0},
-  //     {size:'11',stock:0},
-  //     {size:'11.5',stock:0},
-  //     {size:'12',stock:0},
-  //     {size:'12.5',stock:0},
-  //     {size:'13',stock:0},
-  //     {size:'13.5',stock:0},
-  //     {size:'14',stock:0},
-  //     {size:'14.5',stock:0},
-  //     {size:'15',stock:0},
-  //     {size:'15.5',stock:0},
-  //     {size:'16',stock:0},
-  //     {size:'16.5',stock:0},
-  //     {size:'17',stock:0},
-  //     {size:'17.5',stock:0},
-  //     {size:'18',stock:0},
-  //     {size:'3.5',stock:0},
-  //     {size:'4',stock:0},
-  //     {size:'4.5',stock:0},
-  //     {size:'5',stock:0},
-  //     {size:'5.5',stock:0},
-  //     {size:'6',stock:0},
-  //     {size:'6.5',stock:0},
-  //     {size:'7',stock:0},
-  //     {size:'7.5',stock:0},
-  //     {size:'8',stock:0},
-  //     {size:'8.5',stock:0},
-  //     {size:'9',stock:0},
-  //     {size:'9.5',stock:0},
-  //     {size:'3',stock:0},
-  //     {size:'19',stock:0},
-  //     {size:'2',stock:0}
-  //   ]
+ 
   export const sizes = [
     '10',
     '10.5',
