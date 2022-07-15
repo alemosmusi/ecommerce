@@ -8,14 +8,11 @@ const { getColors, createColor, updateColor, getProductsColor } = require('../co
 const { getRoles, createRole, updateUserRole } = require('../controllers/roles')
 const { getQuestions, createQuestion, updateQuestion, deleteQuestion } = require('../controllers/quetions')
 const { getOrdens, createOrden, updateOrden, getOrdensUser } = require('../controllers/ordens')
+const { getReviews, createReview, updateReview, deleteReview, getReviewsProduct } = require('../controllers/reviews')
 const { getUsers } = require('../controllers/users')
 const { getLogin } = require('../controllers/login')
 
 const routes = Router()
-
-const verifyRol = async (req, res, next) => {
-    console.log(req)
-}
 
 routes.get('/shoes', getProducts)
 routes.post('/shoes', createProduct)
@@ -55,6 +52,12 @@ routes.get('/ordens', getOrdens)
 routes.post('/ordens/:id', createOrden)
 routes.put('/ordens/:id', updateOrden)
 routes.get('/ordensUser/:id', getOrdensUser)
+
+routes.get('/reviews', getReviews)
+routes.post('/reviews/:id', createReview)
+routes.put('/reviews/:id', updateReview)
+routes.delete('/reviews/:id', deleteReview)
+routes.get('/reviewsProduct/:id', getReviewsProduct)
 
 routes.get('/users', getUsers)
 

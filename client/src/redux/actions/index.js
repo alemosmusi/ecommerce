@@ -34,7 +34,7 @@ export const getAllShoes = () => {
 export const getAllBrands = () => {
   return async function (dispatch) {
     try {
-      const response = await Axios('brands')
+      const response = await Axios('/brands')
       const { data: payload } = response
 
       return dispatch({
@@ -223,10 +223,11 @@ export const createShoes = shoes =>{
     }
   }
 }
+
 export const createCategories = categories =>{
   return async function(){
     try {
-      const post = await Axios.post('/categories',categories)
+      const post = await Axios.post('/categories', categories)
       return post      
     } catch (error) {
       console.log(error)
