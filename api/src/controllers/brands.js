@@ -5,7 +5,7 @@ const getBrands = async (req, res) => {
         const response = await modelBrands.findAll({raw: true})
         res.status(200).json(response)
     } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
+        res.status(500).send({msg: 'Error interno del servidor', error})
     }
 }
 
@@ -14,25 +14,28 @@ const createBrand = async (req, res) => {
 
     try {
         const brand = await modelBrands.findOne({where: {name}}, {raw: true})
-        if (brand) return res.status(200).send({msg: 'Brand exists database!'})
+        if (brand) return res.status(400).send({msg: `Ya existe ${name} en la base de datos.`})
 
         await modelBrands.create({
             name
         })
 
-        res.status(200).send({msg: 'Brand create successfully'})
+        res.status(200).send({msg: 'Marca creada correctamente.'})
     } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
+        res.status(500).send({msg: 'Error interno del servidor', error})
     }
 }
 
 const updateBrand = async (req, res) => {
-    const { id } = req.params
+    const { brandId: id } = req.params
     const { name } = req.body
 
     try {
         const brand = await modelBrands.findByPk(id)
-        if (!brand) return res.status(200).send({msg: 'Brand not exists database!'})
+        if (!brand) return res.status(400).send({msg: `No existe ${id} en la base de datos.`})
+
+        const exists = await modelBrands.findOne({where: {name}}, {raw: true})
+        if (exists) return res.status(400).send({msg: `Ya existe ${name} en la base de datos.`})
 
         await modelBrands.update(
             { name },
@@ -41,18 +44,18 @@ const updateBrand = async (req, res) => {
             }
         )
 
-        res.status(200).send({msg: 'Brand update!'})
+        res.status(200).send({msg: 'Marca actualizada.'})
     } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
+        res.status(500).send({msg: 'Error interno del servidor', error})
     }
 }
 
 const getProductsBrand = async (req, res) => {
-    const { id } = req.params
+    const { brandId: id } = req.params
 
     try {
         const brand = await modelBrands.findByPk(id)
-        if (!brand) return res.status(200).send({msg: 'Brand not exists database!'})
+        if (!brand) return res.status(400).send({msg: `No existe ${id} en la base de datos.`})
 
         const response = await modelBrands.findOne({
             where: {
@@ -65,29 +68,9 @@ const getProductsBrand = async (req, res) => {
 
         res.status(200).json(response)
     } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
+        res.status(500).send({msg: 'Error interno del servidor', error})
     }
 }
-
-/*const deleteBrands = async (req, res) => {
-    const { id } = req.body
-
-    try {
-        const brand = await modelBrands.destroy({
-            where: {
-                id
-            }
-        })
-
-        if (!brand) {
-            return res.status(200).send({msg: "Brand not found!"})
-        }
-
-        res.status(200).send({msg: "Brand delete successfully"})
-    } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
-    }
-}*/
 
 module.exports = {
     getBrands,

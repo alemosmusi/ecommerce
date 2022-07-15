@@ -63,7 +63,7 @@ const Products = (sequelize)=>{
     json.sneakers.forEach(async (value) => {
       const { name, nickname, brand_name, story_html: description, retail_price_cents: price, original_picture_url: img, color, size_range, material, release_year: released, gender, designer, details, shoe_condition, category} = value
 
-      const arraySizes = size_range.map(value => { return {size: value, stock: Math.floor(Math.random()*20)}})
+      const arraySizes = size_range.map(value => { return {size: value, stock: 10}})
 
       const product = await model.create({
         name,
