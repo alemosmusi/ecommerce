@@ -19,6 +19,11 @@ const {
   CREATE_QUESTION,
   CHANGE_AMOUNT_PRODUCT,
   DELETE_PRODUCT_CARRITO,
+  CREATE_SHOES,
+  CREATE_CATEGORIES,
+  CREATE_COLORS,
+  CREATE_BRANDS,
+  CREATE_GENDERS,
   LOGIN_USER,
   DEL_LOGIN,
 } = require('../action-types')
@@ -232,9 +237,65 @@ export const changeAmount = payload => {
     })
   }
 }
-
-
-
+export const createShoes = shoes =>{
+    return async function(){
+      try {
+        const post = await axios.post(`${URL}/shoes`,shoes)
+        return post
+        
+      } catch (error) {
+        console.log(error)
+      }
+      }
+   
+}
+export const createCategories = categories =>{
+  return async function(){
+    try {
+      const post = await axios.post(`${URL}/categories`,categories)
+      return post
+      
+    } catch (error) {
+      console.log(error)
+    }
+    }
+ 
+}
+export const createBrands = brands =>{
+  return async function(){
+    try {
+      const post = await axios.post(`${URL}/brands`,brands)
+      return post
+      
+    } catch (error) {
+      console.log(error)
+    }
+    }
+ 
+}
+export const createColors= colors =>{
+  return async function(){
+    try {
+      const post = await axios.post(`${URL}/colors`,colors)
+      return post
+      
+    } catch (error) {
+      console.log(error)
+    }
+    }
+ 
+}
+export const createGenders = gender =>{
+  return async function(){
+    try {
+      const post = await axios.post(`${URL}/genders`,gender)
+      return post
+      
+    } catch (error) {
+      console.log(error)
+    }
+    }
+  }
 export function getLogin(user){
 
   return function(dispatch){

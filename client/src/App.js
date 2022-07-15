@@ -52,7 +52,6 @@ function App() {
           <Route path="orders" element={<ListOrdersAdmin />} />
           <Route path="profile" element={<DetailAdmin />} />
         </Route>
-        ; 
         <Route path="user">
           <Route index element={<ListOrders />} />
           <Route path="orders" element={<ListOrders />} />
