@@ -17,7 +17,7 @@ const verifyRol = async (req, res, next) => {
     console.log(req)
 }
 
-routes.get('/shoes', verifyRol, getProducts)
+routes.get('/shoes', getProducts)
 routes.post('/shoes', createProduct)
 routes.put('/shoes/:id', updateProduct)
 routes.get('/productDetails/:id', productDetails)
