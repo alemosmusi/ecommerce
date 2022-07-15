@@ -8,6 +8,7 @@ const { getColors, createColor, updateColor, getProductsColor } = require('../co
 const { getRoles, createRole, updateUserRole } = require('../controllers/roles')
 const { getQuestions, createQuestion, updateQuestion, deleteQuestion } = require('../controllers/quetions')
 const { getUsers } = require('../controllers/users')
+const { getLogin } = require('../controllers/login')
 
 const routes = Router() 
 
@@ -46,5 +47,7 @@ routes.post('/roles', createRole)
 routes.put('/rolesUser/:id', updateUserRole)
 
 routes.get('/users', getUsers)
+
+routes.post('/login', getLogin)
 
 module.exports = routes

@@ -19,6 +19,8 @@ const {
   CREATE_QUESTION,
   CHANGE_AMOUNT_PRODUCT,
   DELETE_PRODUCT_CARRITO,
+  LOGIN_USER,
+  DEL_LOGIN,
 } = require('../action-types')
 
 const URL = 'http://localhost:3001'
@@ -228,5 +230,32 @@ export const changeAmount = payload => {
       type: CHANGE_AMOUNT_PRODUCT,
       payload,
     })
+  }
+}
+
+
+
+export function getLogin(user){
+
+  return function(dispatch){
+      return axios.post(`${URL}/login`, user)
+      .then((response) => {
+          dispatch({
+              type: LOGIN_USER,
+              payload: response.data
+          })
+      })
+  }
+
+     
+
+}
+
+
+export function delLogin(){
+  return function(dispatch){
+    return {
+      type: DEL_LOGIN
+    }
   }
 }

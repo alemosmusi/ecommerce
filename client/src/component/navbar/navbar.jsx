@@ -32,6 +32,7 @@ export default function Navbar() {
 
   const categories = useSelector((state) => state.Categories);
   const brands = useSelector((state) => state.Brands);
+  const userLog = useSelector((state) => state.UserLog);
   const [nameSearch, setNameSearch] = useState("");
 
   const navigate = useNavigate();
@@ -102,12 +103,19 @@ export default function Navbar() {
                   </li>
                 </>
               )}
+              {!userLog.name ? "":
+              userLog.roleId === 1?
               <Link className="nav-link active" aria-current="page" to="/admin">
-                <li className="nav-item">Soy Admin</li>
-              </Link>
-              <Link className="nav-link active" aria-current="page" to="/user">
-                <li className="nav-item">Soy Usuario</li>
-              </Link>
+              <li className="nav-item">Soy Admin</li>
+            </Link>:
+            <Link className="nav-link active" aria-current="page" to="/user">
+              <li className="nav-item">Soy Usuario</li>
+            </Link>
+
+            
+            
+            }
+              
               <li className="nav-item dropdown">
                 <div
                   className="nav-link dropdown-toggle"
