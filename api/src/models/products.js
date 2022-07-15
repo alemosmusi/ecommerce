@@ -80,7 +80,7 @@ const Products = (sequelize)=>{
         shoe_condition,
         rating: 5
       })
-
+      
       const { modelCategories, modelBrands, modelColors, modelGenders } = require('../db')
 
       const mapCategories = category.map(async (value) => {

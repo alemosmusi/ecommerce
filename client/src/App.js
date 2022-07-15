@@ -10,11 +10,25 @@ import Copyright from "./component/copyright/copyright";
 import Terms from "./component/terms/terms";
 import CarShopContainer from "./component/carShop/Container/CarshopContainer";
 import GeneralContainer from "./component/cardFilters/GeneralContainer";
-import { InfoProfile } from "./component/infoProfile/infoProfile.jsx";
-import ListProducts from "./panelAdmin/listproducts/ListProducts";
+import { InfoProfile } from "./component/infoProfile/infoProfile";
+
+
+import ListProductsAdmin from "./panelAdmin/listproducts/ListProductsAdmin";
+import New from "./panelAdmin/new/New";
+
+import ListClients from "./panelAdmin/listClients/ListClients";
+import HomeAdmin from "./panelAdmin/homeAdmin/HomeAdmin";
+import ListOrdersAdmin from "./panelAdmin/listOrders/ListOrdersAdmin";
+import DetailAdmin from "./panelAdmin/single/DetailAdmin";
+
+
+import ListOrders from "./panelUser/listOrders/ListOrdenes"
+
+
+
 function App() {
   return (
-    <div className="container-fluid text-center">
+    <div className="container-fluid text-center" >
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -30,15 +44,21 @@ function App() {
         <Route exact path="/carshop" element={<CarShopContainer />} />
         <Route exact path="/infoperfil" element={<InfoProfile />} />
         <Route path="admin">
-          <Route index element={<ListProducts />} />
-          <Route path="products" element={<ListProducts />} />
-          <Route
-            path="new"
-            // element={<New inputs={userInputs} title="Add New User" />}
-          />
+          {/* <Route index element={<DashBoard />} /> */}
+          <Route index element={<HomeAdmin />} />
+          <Route path="products/new" element={<New />} />
+          <Route path="products" element={<ListProductsAdmin />} />
+          <Route path="clients" element={<ListClients />} />
+          <Route path="orders" element={<ListOrdersAdmin />} />
+          <Route path="profile" element={<DetailAdmin />} />
         </Route>
-        ;
+        ; 
+        <Route path="user">
+          <Route index element={<ListOrders />} />
+          <Route path="orders" element={<ListOrders />} />
+       </Route>
       </Routes>
+     
       <Footer />
     </div>
   );

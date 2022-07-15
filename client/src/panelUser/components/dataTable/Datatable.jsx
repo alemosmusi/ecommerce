@@ -15,7 +15,7 @@ const Datatable = ({
       <div className="datatableTitle">
         {name}
         {buttonName ? (
-          <Link to={pathButton ? pathButton : "/"} className="link">
+          <Link to={pathButton ? pathButton : ""} className="link">
             {buttonName}
           </Link>
         ) : (

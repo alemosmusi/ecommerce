@@ -1,13 +1,10 @@
 import "./new.scss";
-import Sidebar from "../components/sidebar/Sidebar";
-import Navbar from "../components/navbar/Navbar";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
-import { productInputs } from "./formSource";
 
-const inputs = productInputs;
-
-const New = () => {
+const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
 
   return (
@@ -16,7 +13,7 @@ const New = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Agregar Nuevo Producto</h1>
+          <h1>{title}</h1>
         </div>
         <div className="bottom">
           <div className="left">
