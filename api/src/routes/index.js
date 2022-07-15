@@ -9,6 +9,7 @@ const { getRoles, createRole, updateUserRole } = require('../controllers/roles')
 const { getQuestions, createQuestion, updateQuestion, deleteQuestion } = require('../controllers/quetions')
 const { getOrdens, createOrden, updateOrden, getOrdensUser } = require('../controllers/ordens')
 const { getUsers } = require('../controllers/users')
+const { getLogin } = require('../controllers/login')
 
 const routes = Router()
 
@@ -52,5 +53,7 @@ routes.put('/ordens/:id', updateOrden)
 routes.get('/ordensUser/:id', getOrdensUser)
 
 routes.get('/users', getUsers)
+
+routes.post('/login', getLogin)
 
 module.exports = routes

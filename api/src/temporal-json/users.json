@@ -1,16 +1,17 @@
 [
     {
         "dni": 12346,
-        "username": "john_smith",
+        "username": "ADMIN",
         "password": "1234",
-        "name": "John Smith",
-        "lastname": "Smith",
+        "name": "AD",
+        "lastname": "MIN",
         "genre":"Men",
-        "email":"John@example.com",
+        "email":"admin@admin.com",
         "phone":60,
         "adress":"Calle Siempre Alegre",
         "country":"Colombia",
-        "avatar_url": "https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-File.png"
+        "avatar_url": "https://flyclipart.com/thumbs/bull-sticker-bull-ox-photo-editing-1092606.png",
+        "rol": 1
     },
     {   
         "dni": 27654,
@@ -23,6 +24,7 @@
         "phone":50,
         "adress":"Calle Siempre Viva",
         "country":"Argentina",
-        "avatar_url": "https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-File.png"
+        "avatar_url": "https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-File.png",
+        "rol": 2
     }
 ]
