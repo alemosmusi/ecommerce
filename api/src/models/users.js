@@ -14,10 +14,10 @@ const Users = (sequelize) => {
             allowNull: false,
             unique: false
         },
-        password: {
-            type: DataTypes.TEXT,
-            allowNull: false
-        },
+        // password: {
+        //     type: DataTypes.TEXT,
+        //     allowNull: false
+        // },
         avatar_url: {
             type: DataTypes.TEXT,
             allowNull: false
@@ -57,12 +57,12 @@ const Users = (sequelize) => {
         const json = require('../temporal-json/users.json')
         
         json.forEach(async (value) => {
-            const { dni, username, password, name, lastname, genre, email, phone, adress, country, avatar_url } = value
+            const { dni, username, password, name, lastname, genre, email, phone, adress, country, avatar_url, rol } = value
 
             const user = await model.create({
                 dni, 
                 username,
-                password,
+                // password,
                 name,
                 lastname,
                 genre,
@@ -74,7 +74,7 @@ const Users = (sequelize) => {
                 avatar_url
             })
 
-            user.setRole(2)
+            user.setRole(rol)
         })
 
     }

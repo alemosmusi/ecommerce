@@ -15,6 +15,7 @@ const initialState = {
   Qdelete: [],
   ShoesDetails: {},
   Carrito: [],
+  UserLog: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -163,6 +164,17 @@ const rootReducer = (state = initialState, action) => {
           return product
         }),
       }
+    case actionTypes.LOGIN_USER:
+      return {
+        ...state,
+        UserLog: action.payload
+      }
+    case actionTypes.DEL_LOGIN:
+      return {
+        ...state,
+        UserLog: []
+      }
+
     default:
       return state
   }
