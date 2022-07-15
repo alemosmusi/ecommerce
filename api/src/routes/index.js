@@ -1,19 +1,19 @@
 const { Router } = require('express')
 
 const { getProducts, createProduct, productDetails, updateProduct } = require('../controllers/shoes')
-const { getBrands, createBrand, updateBrand, getProductsBrand} = require('../controllers/brands')
+const { getBrands, createBrand, updateBrand, getProductsBrand } = require('../controllers/brands')
 const { getCategories, createCategory, updateCategory, getProductsCategory } = require('../controllers/categories')
 const { getGenders, createGender, updateGender, getProductsGender } = require('../controllers/genders')
 const { getColors, createColor, updateColor, getProductsColor } = require('../controllers/colors')
 const { getRoles, createRole, updateUserRole } = require('../controllers/roles')
 const { getQuestions, createQuestion, updateQuestion, deleteQuestion } = require('../controllers/quetions')
-const { getOrdens, createOrden, updateOrden } = require('../controllers/ordens')
+const { getOrdens, createOrden, updateOrden, getOrdensUser } = require('../controllers/ordens')
 const { getUsers } = require('../controllers/users')
 const { getLogin } = require('../controllers/login')
 
-const routes = Router() 
+const routes = Router()
 
-routes.get('/shoes' , getProducts)
+routes.get('/shoes', getProducts)
 routes.post('/shoes', createProduct)
 routes.put('/shoes/:id', updateProduct)
 routes.get('/productDetails/:id', productDetails)
@@ -48,8 +48,9 @@ routes.post('/roles', createRole)
 routes.put('/rolesUser/:id', updateUserRole)
 
 routes.get('/ordens', getOrdens)
-routes.post('/ordens', createOrden)
+routes.post('/ordens/:id', createOrden)
 routes.put('/ordens/:id', updateOrden)
+routes.get('/ordensUser/:id', getOrdensUser)
 
 routes.get('/users', getUsers)
 

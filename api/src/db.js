@@ -16,10 +16,9 @@ const Questions = require('./models/questions')
 const { DB_USER, DB_PASS, DB_HOST } = process.env
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:5432/ecommerce`, {
-    logging: false,
-    native: false,
-  }
-);
+  logging: false,
+  native: false,
+})
 
 const modelBrands = Brands(sequelize)
 const modelCategories = Categories(sequelize)
@@ -48,11 +47,11 @@ modelColors.hasMany(modelProducts)
 modelUsers.belongsTo(modelRoles)
 modelRoles.hasMany(modelUsers)
 
-modelUsers.belongsToMany(modelOrdens, { through: 'user_order' })
-modelOrdens.hasOne(modelUsers)
+modelOrdens.belongsTo(modelUsers)
+modelUsers.hasMany(modelOrdens)
 
-modelOrdens.hasMany(modelProducts)
-modelProducts.belongsToMany(modelOrdens, { through: 'product_order' })
+modelOrdens.belongsToMany(modelProducts, { through: 'order_product' })
+modelProducts.belongsToMany(modelOrdens, { through: 'order_product' })
 
 module.exports = {
   sequelize,
@@ -66,5 +65,5 @@ module.exports = {
   modelColors,
   modelReviews,
   modelShopcart,
-  modelQuestions
+  modelQuestions,
 }

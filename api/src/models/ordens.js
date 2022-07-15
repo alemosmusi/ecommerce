@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 
 const Ordens = (sequelize) => {
     const model = sequelize.define('ordens', {
-        amount: {
+        amount_total: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
@@ -10,7 +10,7 @@ const Ordens = (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        product_size: {
+        details: {
             type: DataTypes.ARRAY(DataTypes.JSON),
             allowNull: false
         },
@@ -25,6 +25,25 @@ const Ordens = (sequelize) => {
             defaultValue: 1
         }
     })
+
+    const preStart = () => {
+        const json = require('../temporal-json/ordens.json')
+
+        json.forEach(async (value) => {
+            const {products, details, amount_total, price_total} = value
+
+            const order = await model.create({
+                amount_total,
+                price_total,
+                details
+            })
+    
+            order.setUser(1)
+            order.setProducts(products)
+        })
+    }
+
+    setTimeout(preStart, 6000)
 
     return model
 }
