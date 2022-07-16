@@ -8,7 +8,7 @@ const { getColors, createColor, updateColor, getProductsColor } = require('../co
 const { getRoles, createRole, updateUserRole } = require('../controllers/roles')
 const { getQuestions, createQuestion, updateQuestion, deleteQuestion } = require('../controllers/quetions')
 const { getOrdens, createOrden, updateOrden, getOrdensUser } = require('../controllers/ordens')
-const { getReviews, createReview, updateReview, deleteReview, getReviewsProduct } = require('../controllers/reviews')
+const { getReviews, createReview, updateReview, deleteReview, getReviewsProduct, getReviewsUser } = require('../controllers/reviews')
 const { getUsers, loginUser } = require('../controllers/users')
 const { sendNotification } = require('../controllers/notification')
 
@@ -58,6 +58,7 @@ routes.post('/reviews/:userId', createReview)
 routes.put('/reviews/:reviewId', updateReview)
 routes.delete('/reviews/:reviewId', deleteReview)
 routes.get('/reviewsProduct/:productId', getReviewsProduct)
+routes.get('/reviewsUser/:userId', getReviewsUser)
 
 routes.get('/users', getUsers)
 routes.post('/login', loginUser)
