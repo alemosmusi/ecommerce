@@ -19,9 +19,9 @@ const createOrden = async (req, res) => {
     const updateStock = (arraySizes, size, amount) => {
         const obj = arraySizes.find(obj => obj.size === size)
 
-        if (!obj) return size
-        if (obj.stock === 0) return size
-        if (obj.stock < amount) return size
+        if (!obj) return false
+        if (obj.stock === 0) return false
+        if (obj.stock < amount) return false
         
         const index = arraySizes.indexOf(obj)
         arraySizes[index].stock -= amount
@@ -47,12 +47,12 @@ const createOrden = async (req, res) => {
 
             const modSizes = updateStock(size_range, details[i].size, details[i].amount)
             if (!modSizes) {
-                return res.status(400).send({msg: `El producto ${products[i].id} de la talla ${modSizes} no cuenta con el stock necesario (o no existe la talla) para generar esta orden.`})
+                return res.status(400).send({msg: `El producto ${products[i].id} de la talla ${details[i].size} no cuenta con el stock necesario (o no existe la talla) para generar esta orden.`})
             }
             
             array.push(modSizes)
         }
-
+        
         array.forEach(async (obj, index) => {
             await modelProducts.update({size_range: obj}, {where: {id: products[index].id}})
         })
