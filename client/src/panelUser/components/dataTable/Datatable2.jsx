@@ -49,31 +49,37 @@ function Row({id, amount_total, createdAt, price_total, state, details, products
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Img</TableCell>
-                    <TableCell>Color</TableCell>
-                    <TableCell>Talla</TableCell>
-                    <TableCell align="right">Uni P</TableCell>
-                    <TableCell align="right">Total price ($)</TableCell>
+                    <TableCell >Name</TableCell>
+                    <TableCell >Img</TableCell>
+                    <TableCell align="right">Color</TableCell>
+                    <TableCell align="right">Talla</TableCell>
+                    <TableCell align="right">Producto (Unidad)</TableCell>
+                    <TableCell align="right">Precio (Unidad)</TableCell>
+                    <TableCell align="right">Pricio Total ($)</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {products.map((e) => (
-                    <TableRow key="historyRow.date">
+                  {products.map((e) => {
+                      const d = details.find(obj=>obj.productID===e.id)
+                    return (
+                      <TableRow key="historyRow.date">
                       <TableCell component="th" scope="row">
                         {e.nickname}
                       </TableCell>
                       <TableCell component="th" scope="row">
                         <img className="cellImg" src={e.img} alt="avatar" />
                         </TableCell>
-                      <TableCell align="right">color</TableCell>
-                      <TableCell align="right">talla</TableCell>
-                      <TableCell align="right">unidades</TableCell>
+                      <TableCell align="right">{e.color.name}</TableCell>
+                      <TableCell align="right">{d.size}</TableCell>
+                      <TableCell align="right">{d.amount}</TableCell>
+                      <TableCell align="right">{d.priceUnit}</TableCell>
+                      <TableCell align="right">{d.priceTotal}</TableCell>
                       <TableCell align="right">
-                        total
                       </TableCell>
                     </TableRow>
-                  ))}
+                    ) 
+                    
+                  })}
                 </TableBody>
               </Table>
             </Box>

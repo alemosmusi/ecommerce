@@ -9,13 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllOrdersUser } from "../../redux/actions/index"
 // import { ordersColumns } from "./ordersColumns";
 // import { getAllShoes } from "../../redux/actions";
+
 const ListOrders = () => {
   const dispatch = useDispatch();
-  
+  const idUser = useSelector((state)=> state.UserLog)
 
   useEffect(() => {
     dispatch(getAllOrdersUser(1));
-  }, [dispatch]);;
+  },[dispatch, idUser]);
   const OrdersUser = useSelector((state)=> state.OrdersUser)
   // const  orderRows= useSelector((state) => state.Shoes);
   // console.log(OrdersUser.ordens.map(e=>e))

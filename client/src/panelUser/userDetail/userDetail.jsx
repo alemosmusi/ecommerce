@@ -9,12 +9,12 @@ import { getAllOrdersUser } from "../../redux/actions"
 
 
 const UserDetail = () => {
-
+  const idUser = useSelector((state)=> state.UserLog)
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllOrdersUser(1));
-  }, [dispatch]);;
+  }, [dispatch, idUser]);;
   const OrdersUser = useSelector((state)=> state.OrdersUser)
 
   return (
