@@ -4,6 +4,7 @@ var q = 1
 
 const initialState = {
   Users:[],
+  OrdersUser:[],
   Shoes: [],
   Filters: [],
   backupFilters: [],
@@ -24,6 +25,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Users: action.payload,
+      }
+      case actionTypes.GET_ALL_ORDERS_USER:
+      return {
+        ...state,
+        OrdersUser: action.payload,
       }
     case actionTypes.GET_ALL_SHOES:
       return {

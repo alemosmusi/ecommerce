@@ -1,6 +1,9 @@
 import Sidebar from "../components/sidebar/Sidebar";
 import Navbar from "../components/navbar/Navbar";
 import "./home.scss";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllOrdersUser } from "../../redux/actions"
 // import Widget from "./dataWidget";
 // import Featured from "../components/featured/Featured";
 // import Chart from "../components/chart/Chart";
@@ -8,6 +11,12 @@ import "./home.scss";
 // import { dataBalance, dataEarning, dataOrder, dataUser } from "./dataWidget";
 
 const HomeUser = () => {
+  const dispatch = useDispatch();
+  const OrdersUser = useSelector((state)=> state.OrdersUser)
+  useEffect(() => {
+    dispatch(getAllOrdersUser(1));
+  }, [dispatch]);
+  // console.log (OrdersUser)
   // const users = {
   //   amount: 20,
   //   diff: 5,
@@ -27,9 +36,9 @@ const HomeUser = () => {
 
   return (
     <div className="home">
-      <Sidebar />
+      <Sidebar dataUser={OrdersUser} />
       <div className="homeContainer">
-        <Navbar />
+        <Navbar dataUser={OrdersUser} />
         {/* <div className="widgets">
           <Widget data={{ ...dataUser, ...users }} />
           <Widget data={{ ...dataOrder, ...orders }} />

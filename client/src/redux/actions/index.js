@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const {
   GET_ALL_USERS,
+  GET_ALL_ORDERS_USER,
   GET_ALL_SHOES,
   GET_ALL_BRANDS,
   GET_ALL_CATEGORIES,
@@ -35,6 +36,19 @@ export const getUsers = ()=>{
       })
     } catch (error) {
         console.log(error)
+    }
+  }
+}
+export const getAllOrdersUser = id => {
+  return async function (dispatch) {
+    try {
+      let info = await axios(`${URL}/ordensUser/${id}`)
+      return dispatch({
+        type: GET_ALL_ORDERS_USER,
+        payload: info.data,
+      })
+    } catch (error) {
+      console.log(error.response)
     }
   }
 }
