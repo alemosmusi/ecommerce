@@ -14,7 +14,7 @@ const Ordens = (sequelize) => {
             type: DataTypes.ARRAY(DataTypes.JSON),
             allowNull: false
         },
-        status: {
+        state: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: 'En proceso'

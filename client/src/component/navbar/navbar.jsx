@@ -34,6 +34,7 @@ export default function Navbar() {
   const brands = useSelector((state) => state.Brands);
   const userLog = useSelector((state) => state.UserLog);
   const [nameSearch, setNameSearch] = useState("");
+  const carrito = useSelector((state) => state.Carrito);
 
   const navigate = useNavigate();
 
@@ -79,7 +80,6 @@ export default function Navbar() {
                 height="30"
                 alt="logo"
               />
-
               <Link className="nav-link active" aria-current="page" to="/">
                 <li className="nav-item">Inicio</li>
               </Link>
@@ -88,13 +88,13 @@ export default function Navbar() {
                   <li className="nav-item">
                     <LogoutButton></LogoutButton>
                   </li>
-                  <Link
+                  {/* <Link
                     className="nav-link active"
                     aria-current="page"
                     to="/infoperfil"
                   >
                     Perfil
-                  </Link>
+                  </Link> */}
                 </>
               ) : (
                 <>
@@ -103,19 +103,21 @@ export default function Navbar() {
                   </li>
                 </>
               )}
+
+
               {!userLog.name ? "":
               userLog.roleId === 1?
               <Link className="nav-link active" aria-current="page" to="/admin">
-              <li className="nav-item">Soy Admin</li>
+              <li className="nav-item">Panel Admin</li>
             </Link>:
             <Link className="nav-link active" aria-current="page" to="/user">
-              <li className="nav-item">Soy Usuario</li>
+              <li className="nav-item">Panel Usuario</li>
             </Link>
 
             
             
             }
-              
+
               <li className="nav-item dropdown">
                 <div
                   className="nav-link dropdown-toggle"
@@ -150,11 +152,37 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to="/carshop">
+                  {carrito.length === 0? 
                   <i
-                    className="fa fa-shopping-cart fa-lg"
+                    className="fa fa-shopping-cart fa-lg "
                     aria-hidden="true"
-                  ></i>
+                  ></i>:
+                  <i
+                  className="fa fa-shopping-cart fa-lg text-danger"
+                  aria-hidden="true"
+                >{carrito.length}</i>
+                  }
                 </Link>
+              </li>{" "}
+              <li
+                className="nav-item"
+                onClick={() => {
+                  localStorage.removeItem("username");
+                  console.log(
+                    "eliminado: ",
+                    JSON.parse(localStorage.getItem("username"))
+                  );
+                }}
+              >
+                <div className="nav-item">Borrar Storage-User</div>
+              </li>
+              <li
+                className="nav-item"
+                onClick={() =>
+                  console.log(JSON.parse(localStorage.getItem("username")))
+                }
+              >
+                <div className="nav-item">Mostrar Storage-User</div>
               </li>
             </ul>
 

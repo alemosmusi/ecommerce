@@ -21,13 +21,21 @@ import HomeAdmin from "./panelAdmin/homeAdmin/HomeAdmin";
 import ListOrdersAdmin from "./panelAdmin/listOrders/ListOrdersAdmin";
 import DetailAdmin from "./panelAdmin/single/DetailAdmin";
 
+<<<<<<< HEAD
 // User Panel
 import HomeUser from "./panelUser/homeUser/HomeUser";
 import ListOrders from "./panelUser/listOrders/ListOrdenes";
 import UserDetail from "./panelUser/userDetail/userDetail";
+=======
+
+import ListOrders from "./panelUser/listOrders/ListOrdenes"
+import { useSelector } from "react-redux";
+
+>>>>>>> main
 
 
 function App() {
+  const userLog = useSelector((state) => state.UserLog);
   return (
     <div className="container-fluid text-center" >
       <Navbar />
@@ -44,6 +52,8 @@ function App() {
         <Route exact path="/filters" element={<GeneralContainer />} />
         <Route exact path="/carshop" element={<CarShopContainer />} />
         <Route exact path="/infoperfil" element={<InfoProfile />} />
+        {!userLog.name ? "":
+              userLog.roleId === 1?
         <Route path="admin">
           {/* <Route index element={<DashBoard />} /> */}
           <Route index element={<HomeAdmin />} />
@@ -52,13 +62,20 @@ function App() {
           <Route path="clients" element={<ListClients />} />
           <Route path="orders" element={<ListOrdersAdmin />} />
           <Route path="profile" element={<DetailAdmin />} />
-        </Route>
-        ; 
+        </Route>:
         <Route path="user">
+<<<<<<< HEAD
           <Route index element={<HomeUser />} />
           <Route path="orders" element={<ListOrders />} />
           <Route path="profile" element={<UserDetail />} />
        </Route>
+=======
+        <Route index element={<ListOrders />} />
+        <Route path="orders" element={<ListOrders />} />
+     </Route>        
+        }
+        
+>>>>>>> main
       </Routes>
      
       <Footer />

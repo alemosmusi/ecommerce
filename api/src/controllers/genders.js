@@ -5,7 +5,7 @@ const getGenders = async (req, res) => {
         const response = await modelGenders.findAll({raw: true})
         res.status(200).json(response)
     } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
+        res.status(500).send({msg: 'Error interno del servidor.', error})
     }
 }
 
@@ -14,25 +14,28 @@ const createGender = async (req, res) => {
 
     try {
         const gender = await modelGenders.findOne({where: {name}}, {raw: true})
-        if (gender) return res.status(200).send({msg: 'Gender exists database!'})
+        if (gender) return res.status(400).send({msg: `Ya existe ${name} en la base de datos.`})
 
         await modelGenders.create({
             name
         })
 
-        res.status(200).send({msg: 'Gender create successfully'})
+        res.status(200).send({msg: 'Género creado correctamente.'})
     } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
+        res.status(500).send({msg: 'Error interno del servidor.', error})
     }
 }
 
 const updateGender = async (req, res) => {
-    const { id } = req.params
+    const { genderId: id } = req.params
     const { name } = req.body
 
     try {
         const gender = await modelGenders.findByPk(id)
-        if (!gender) return res.status(200).send({msg: 'Gender not exists database!'})
+        if (!gender) return res.status(400).send({msg: `No existe ${id} en la base de datos.`})
+
+        const exists = await modelGenders.findOne({where: {name}}, {raw: true})
+        if (exists) return res.status(400).send({msg: `Ya existe ${name} en la base de datos.`})
 
         await modelGenders.update(
             { name },
@@ -41,18 +44,18 @@ const updateGender = async (req, res) => {
             }
         )
 
-        res.status(200).send({msg: 'Gender update!'})
+        res.status(200).send({msg: 'Género actualizado.'})
     } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
+        res.status(500).send({msg: 'Error interno del servidor.', error})
     }
 }
 
 const getProductsGender = async (req, res) => {
-    const { id } = req.params
+    const { genderId: id } = req.params
 
     try {
         const gender = await modelGenders.findByPk(id)
-        if (!gender) return res.status(200).send({msg: 'Gender not exists database!'})
+        if (!gender) return res.status(400).send({msg: `No existe ${id} en la base de datos.`})
 
         const response = await modelGenders.findOne({
             where: {
@@ -65,25 +68,9 @@ const getProductsGender = async (req, res) => {
 
         res.status(200).json(response)
     } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
+        res.status(500).send({msg: 'Error interno del servidor.', error})
     }
 }
-
-/*const deleteGender = async (req, res) => {
-    const { name } = req.params;
-
-    try {
-        const gender = await modelGenders.destroy({
-            where: {
-                name
-            }
-        })
-        
-        res.status(200).send({msg: 'Gender removed successfully'})
-    } catch (error) {
-        res.status(500).send({msg: 'Error internal server', error})
-    }
-}*/
 
 module.exports = {
     getGenders,

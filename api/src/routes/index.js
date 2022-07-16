@@ -8,35 +8,36 @@ const { getColors, createColor, updateColor, getProductsColor } = require('../co
 const { getRoles, createRole, updateUserRole } = require('../controllers/roles')
 const { getQuestions, createQuestion, updateQuestion, deleteQuestion } = require('../controllers/quetions')
 const { getOrdens, createOrden, updateOrden, getOrdensUser } = require('../controllers/ordens')
-const { getUsers } = require('../controllers/users')
-const { getLogin } = require('../controllers/login')
+const { getReviews, createReview, updateReview, deleteReview, getReviewsProduct, getReviewsUser } = require('../controllers/reviews')
+const { getUsers, loginUser } = require('../controllers/users')
+const { sendNotification } = require('../controllers/notification')
 
 const routes = Router()
 
 routes.get('/shoes', getProducts)
 routes.post('/shoes', createProduct)
-routes.put('/shoes/:id', updateProduct)
-routes.get('/productDetails/:id', productDetails)
+routes.put('/shoes/:productId', updateProduct)
+routes.get('/productDetails/:productId', productDetails)
 
 routes.get('/brands', getBrands)
 routes.post('/brands', createBrand)
-routes.put('/brands/:id', updateBrand)
-routes.get('/productsBrand/:id', getProductsBrand)
+routes.put('/brands/:brandId', updateBrand)
+routes.get('/productsBrand/:brandId', getProductsBrand)
 
 routes.get('/categories', getCategories)
 routes.post('/categories', createCategory)
-routes.put('/categories/:id', updateCategory)
-routes.get('/productsCategory/:id', getProductsCategory)
+routes.put('/categories/:categoryId', updateCategory)
+routes.get('/productsCategory/:categoryId', getProductsCategory)
 
 routes.get('/genders', getGenders)
 routes.post('/genders', createGender)
-routes.put('/genders/:id', updateGender)
-routes.get('/productsGender/:id', getProductsGender)
+routes.put('/genders/:genderId', updateGender)
+routes.get('/productsGender/:genderId', getProductsGender)
 
 routes.get('/colors', getColors)
 routes.post('/colors', createColor)
-routes.put('/colors/:id', updateColor)
-routes.get('/productsColor/:id', getProductsColor)
+routes.put('/colors/:colorId', updateColor)
+routes.get('/productsColor/:colorId', getProductsColor)
 
 routes.get('/questions', getQuestions)
 routes.post('/questions', createQuestion)
@@ -45,15 +46,23 @@ routes.delete('/questions/:id', deleteQuestion)
 
 routes.get('/roles', getRoles)
 routes.post('/roles', createRole)
-routes.put('/rolesUser/:id', updateUserRole)
+routes.put('/rolesUser/:userId', updateUserRole)
 
 routes.get('/ordens', getOrdens)
-routes.post('/ordens/:id', createOrden)
-routes.put('/ordens/:id', updateOrden)
-routes.get('/ordensUser/:id', getOrdensUser)
+routes.post('/ordens/:userId', createOrden)
+routes.put('/ordens/:ordenId', updateOrden)
+routes.get('/ordensUser/:userId', getOrdensUser)
+
+routes.get('/reviews', getReviews)
+routes.post('/reviews/:userId', createReview)
+routes.put('/reviews/:reviewId', updateReview)
+routes.delete('/reviews/:reviewId', deleteReview)
+routes.get('/reviewsProduct/:productId', getReviewsProduct)
+routes.get('/reviewsUser/:userId', getReviewsUser)
 
 routes.get('/users', getUsers)
+routes.post('/login', loginUser)
 
-routes.post('/login', getLogin)
+routes.post('/send-email', sendNotification)
 
 module.exports = routes

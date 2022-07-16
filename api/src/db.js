@@ -53,6 +53,12 @@ modelUsers.hasMany(modelOrdens)
 modelOrdens.belongsToMany(modelProducts, { through: 'order_product' })
 modelProducts.belongsToMany(modelOrdens, { through: 'order_product' })
 
+modelReviews.belongsTo(modelUsers)
+modelUsers.hasMany(modelReviews)
+
+modelReviews.belongsTo(modelProducts)
+modelProducts.hasMany(modelReviews)
+
 module.exports = {
   sequelize,
   modelBrands,

@@ -15,8 +15,9 @@ import { Link } from "react-router-dom";
 // import { DarkModeContext } from "../../context/darkModeContext";
 // import { useContext } from "react";
 // import logotoro from "../../../logotoro.png";
-const Sidebar = () => {
+const Sidebar = ({dataUser}) => {
   // const { dispatch } = useContext(DarkModeContext);
+  dataUser = dataUser.slice()
   return (
     <div className="sidebar">
       <div className="top">
