@@ -1,35 +1,7 @@
 import Axios from 'axios'
 import * as actionTypes from '../action-types'
 
-<<<<<<< HEAD
-const {
-  GET_ALL_USERS,
-  GET_ALL_ORDERS_USER,
-  GET_ALL_SHOES,
-  GET_ALL_BRANDS,
-  GET_ALL_CATEGORIES,
-  GET_ALL_COLORS,
-  GET_ALL_GENDERS,
-  GET_SHOES_DETAILS,
-  CLEAN_DETAIL,
-  GET_FILTERS_BRANDS,
-  GET_FILTERS_CATEGORY,
-  UPDATE_FILTERS,
-  GET_FILTERS_SEARCHBAR,
-  GET_ADD_CARRITO,
-  GET_QUESTIONS,
-  DELETE_QUESTIONS,
-  CREATE_QUESTION,
-  CHANGE_AMOUNT_PRODUCT,
-  DELETE_PRODUCT_CARRITO,
-  LOGIN_USER,
-  DEL_LOGIN,
-} = require('../action-types')
-
-const URL = 'http://localhost:3001'
-=======
 Axios.defaults.baseURL = 'http://localhost:3001'
->>>>>>> main
 
 export const getUsers = ()=>{
   return async function (dispatch) {
@@ -44,13 +16,12 @@ export const getUsers = ()=>{
     }
   }
 }
-<<<<<<< HEAD
 export const getAllOrdersUser = id => {
   return async function (dispatch) {
     try {
-      let info = await axios(`${URL}/ordensUser/${id}`)
+      let info = await Axios(`/ordensUser/${id}`)
       return dispatch({
-        type: GET_ALL_ORDERS_USER,
+        type: actionTypes.GET_ALL_ORDERS_USER,
         payload: info.data,
       })
     } catch (error) {
@@ -58,9 +29,6 @@ export const getAllOrdersUser = id => {
     }
   }
 }
-=======
-
->>>>>>> main
 export const getAllShoes = () => {
   return async function (dispatch) {
     try {

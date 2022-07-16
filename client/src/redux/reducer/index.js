@@ -8,12 +8,8 @@ import {
 var q = 1;
 
 const initialState = {
-<<<<<<< HEAD
   Users:[],
   OrdersUser:[],
-=======
-  Users: [],
->>>>>>> main
   Shoes: [],
   Filters: [],
   backupFilters: [],
@@ -34,16 +30,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Users: action.payload,
-<<<<<<< HEAD
       }
       case actionTypes.GET_ALL_ORDERS_USER:
       return {
         ...state,
         OrdersUser: action.payload,
       }
-=======
-      };
->>>>>>> main
     case actionTypes.GET_ALL_SHOES:
       return {
         ...state,

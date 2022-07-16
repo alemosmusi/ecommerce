@@ -6,19 +6,19 @@ import  CollapsibleTable  from "../components/dataTable/Datatable2"
 // import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllOrdersUser } from "../../redux/actions"
+import { getAllOrdersUser } from "../../redux/actions/index"
 // import { ordersColumns } from "./ordersColumns";
 // import { getAllShoes } from "../../redux/actions";
 const ListOrders = () => {
   const dispatch = useDispatch();
   
-  // console.log
+
   useEffect(() => {
     dispatch(getAllOrdersUser(1));
   }, [dispatch]);;
   const OrdersUser = useSelector((state)=> state.OrdersUser)
   // const  orderRows= useSelector((state) => state.Shoes);
-
+  // console.log(OrdersUser)
 
   // Columnas adicionales aparte de la data
   // let actionColum = [
@@ -51,7 +51,7 @@ const ListOrders = () => {
       <Sidebar />
       <div className="listContainer">
         {/* <Navbar /> */}
-        <CollapsibleTable Orders={OrdersUser.ordens}/>
+        <CollapsibleTable />
         {/* <Datatable
           name={"Mis Ordenes"}
           buttonName={"New Order"}

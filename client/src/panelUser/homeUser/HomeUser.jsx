@@ -16,6 +16,7 @@ const HomeUser = () => {
   useEffect(() => {
     dispatch(getAllOrdersUser(1));
   }, [dispatch]);
+  // console.log(OrdersUser)
   // console.log (OrdersUser)
   // const users = {
   //   amount: 20,
