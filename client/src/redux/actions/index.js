@@ -16,7 +16,19 @@ export const getUsers = ()=>{
     }
   }
 }
-
+export const getAllOrdersUser = id => {
+  return async function (dispatch) {
+    try {
+      let info = await Axios(`/ordensUser/${id}`)
+      return dispatch({
+        type: actionTypes.GET_ALL_ORDERS_USER,
+        payload: info.data,
+      })
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+}
 export const getAllShoes = () => {
   return async function (dispatch) {
     try {
