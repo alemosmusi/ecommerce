@@ -37,7 +37,7 @@ function Row({id, amount_total, createdAt, price_total, state, details, products
         </TableCell>
         <TableCell align="right">{amount_total}</TableCell>
         <TableCell align="right">{price_total}</TableCell>
-        <TableCell align="right">{state}</TableCell>
+        <div align="right" className={state === "En proceso" ? "proceso" : state=== "Finalizada" ? "fin" : "activa"  } >{state}</div>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -87,7 +87,8 @@ function Row({id, amount_total, createdAt, price_total, state, details, products
 
 
 function CollapsibleTable({Orders}) {
-
+// const dataUnidad = {data: [...Orders.ordens.details, ...Orders.ordens.prodcuts]}
+// console.log(dataUnidad)
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
