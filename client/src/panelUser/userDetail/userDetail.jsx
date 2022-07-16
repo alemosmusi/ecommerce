@@ -3,8 +3,20 @@ import Sidebar from "../components/sidebar/Sidebar";
 import Navbar from "../components/navbar/Navbar";
 // import Chart from "../../components/chart/Chart";
 // import List from "../../components/table/Table";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllOrdersUser } from "../../redux/actions"
+
 
 const UserDetail = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllOrdersUser(1));
+  }, [dispatch]);;
+  const OrdersUser = useSelector((state)=> state.OrdersUser)
+
   return (
     <div className="single">
       <Sidebar />
@@ -17,9 +29,9 @@ const UserDetail = () => {
         <div className="bottom">
           <div className="left">
             <div className="item">
-              <h1 className="itemTitle">Jane Doe</h1>
+              <h1 className="itemTitle">{OrdersUser.name} {OrdersUser.lastname}</h1>
               <img
-                src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                src={OrdersUser.avatar_url}
                 alt=""
                 className="itemImg"
               />
@@ -31,21 +43,21 @@ const UserDetail = () => {
               <h1 className="title">Información Personal</h1>
               <div className="detailItem">
                 <span className="itemKey">Email:</span>
-                <span className="itemValue">janedoe@gmail.com</span>
+                <span className="itemValue">{OrdersUser.email}</span>
               </div>
               <div className="detailItem">
                 <span className="itemKey">Celular:</span>
-                <span className="itemValue">+1 2345 67 89</span>
+                <span className="itemValue">{OrdersUser.phone}</span>
               </div>
               <div className="detailItem">
                 <span className="itemKey">Dirección:</span>
                 <span className="itemValue">
-                  Elton St. 234 Garden Yd. NewYork
+                {OrdersUser.adress}
                 </span>
               </div>
               <div className="detailItem">
                 <span className="itemKey">País:</span>
-                <span className="itemValue">USA</span>
+                <span className="itemValue">{OrdersUser.country}</span>
               </div>
               <div className="detailItem">
                 <span className="itemKey">Ciudad:</span>
@@ -61,7 +73,7 @@ const UserDetail = () => {
               <div className="detailItem">
                 <span className="itemKey">Entrega en:</span>
                 <span className="itemValue">
-                  Elton St. 234 Garden Yd. NewYork
+                {OrdersUser.adress}
                 </span>
               </div>
               <div className="detailItem">

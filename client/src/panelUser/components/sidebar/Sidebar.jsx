@@ -2,7 +2,7 @@ import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 // import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
+// import CreditCardIcon from "@mui/icons-material/CreditCard";
 // import StoreIcon from "@mui/icons-material/Store";
 // import InsertChartIcon from "@mui/icons-material/InsertChart";
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
@@ -15,9 +15,9 @@ import { Link } from "react-router-dom";
 // import { DarkModeContext } from "../../context/darkModeContext";
 // import { useContext } from "react";
 // import logotoro from "../../../logotoro.png";
-const Sidebar = ({dataUser}) => {
+const Sidebar = () => {
   // const { dispatch } = useContext(DarkModeContext);
-  // dataUser = dataUser.slice()
+
   return (
     <div className="sidebar">
       <div className="top">
@@ -45,51 +45,18 @@ const Sidebar = ({dataUser}) => {
               <span>Dashboard</span>
             </li>
           </Link>
+      
           <p className="title">LISTAS</p>
-          {/* <Link to="/admin/users" style={{ textDecoration: "none" }}>
-            <li>
-              <PersonOutlineIcon className="icon" />
-              <span>Clientes</span>
-            </li>
-          </Link> */}
-          {/* <Link to="/admin/products" style={{ textDecoration: "none" }}>
-            <li>
-              <StoreIcon className="icon" />
-              <span>Productos</span>
-            </li>
-          </Link> */}
-          <Link to="/user/orders" style={{ textDecoration: "none" }}>
-            <li>
-              <CreditCardIcon className="icon" />
-              <span>Ordenes</span>
-            </li>
-          </Link>
           <Link to="/user/orders" style={{ textDecoration: "none" }}>
             <li>
               <LocalShippingIcon className="icon" />
-              <span>Delivery</span>
+              <span>Orders</span>
             </li>
           </Link>
-          {/* <p className="title">USEFUL</p>
-
-          <li>
-            <InsertChartIcon className="icon" />
-            <span>Stats</span>
-          </li>
-          <li>
-            <NotificationsNoneIcon className="icon" />
-            <span>Notifications</span>
-          </li> */}
+         
           <p className="title">SERVICIOS </p>
-          {/* <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
-          </li>
-          <li>
-            <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
-          </li> */}
-          <Link to="/user" style={{ textDecoration: "none" }}>
+        
+          <Link to="/user/atualizar" style={{ textDecoration: "none" }}>
             <li>
               <SettingsApplicationsIcon className="icon" />
               <span>Ajustes</span>
@@ -102,7 +69,7 @@ const Sidebar = ({dataUser}) => {
               <span>Perfil</span>
             </li>
           </Link>
-          <Link to="/user" style={{ textDecoration: "none" }}>
+          <Link to="/" style={{ textDecoration: "none" }}>
             <li>
               <ExitToAppIcon className="icon" />
               <span>Salir</span>

@@ -23,8 +23,10 @@ import DetailAdmin from "./panelAdmin/single/DetailAdmin";
 
 
 import ListOrders from "./panelUser/listOrders/ListOrdenes"
-// import HomeUser from "./panelUser/homeUser/HomeUser"
-import CollapsibleTable from "./panelUser/components/dataTable/Datatable2"
+import HomeUser from "./panelUser/homeUser/HomeUser"
+// import CollapsibleTable from "./panelUser/components/dataTable/Datatable2"
+// import Orders from "./panelUser/components/dataTable/row"
+import DetailUser from "./panelUser/userDetail/userDetail"
 // import { useSelector } from "react-redux";
 
 
@@ -59,8 +61,9 @@ function App() {
           <Route path="profile" element={<DetailAdmin />} />
         </Route>:
         <Route path="user">
-        <Route index element={<ListOrders />} />
-        <Route path="orders" element={<CollapsibleTable />} />
+        <Route index element={<HomeUser />} />
+        <Route path="orders" element={<ListOrders />} />
+        <Route path="profile" element={<DetailUser />} />
      </Route>        
         {/* } */}
         

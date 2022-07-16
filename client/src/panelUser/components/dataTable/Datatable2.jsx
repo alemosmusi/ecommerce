@@ -1,58 +1,123 @@
 import * as React from 'react';
-// import PropTypes from 'prop-types';
-// import Box from '@mui/material/Box';
-// import Collapse from '@mui/material/Collapse';
-// import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-// import Typography from '@mui/material/Typography';
+import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-// import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import Row from './row';
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllOrdersUser } from "../../../redux/actions";
-import Order from "./dataRow"
-  //  const numOrders = OrdersUser.slice(-1)
-// admin@admin.com 
-// Admin123
-         
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import "./datatable.scss";
+import "./data.css"
 
-function CollapsibleTable() {
-  const dispatch = useDispatch();
-  // console.log(Orders)
-  useEffect(() => {
-    dispatch(getAllOrdersUser(1));
-  }, [dispatch]);
-  const OrdersUser = useSelector((state)=> state.OrdersUser)
-  // const Orders = OrdersUser.ordens
-  const details = OrdersUser.ordens
-  console.log(details)
-  
-  
 
-    return (
-      <TableContainer component={Paper}>
-        <Table aria-label="collapsible table">
-          <TableHead>
-            <TableRow>
-              <TableCell />
-              <TableCell>1 Numero de Orden</TableCell>
-              <TableCell align="right">Calories / Unidades Total </TableCell>
-              <TableCell align="right">Fat / Price Total de Orden</TableCell>
-              {/* <TableCell align="right">Carbs&nbsp;(g)</TableCell> */}
-              {/* <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
-            </TableRow>
-          </TableHead>
-          <Row details={details} />
-        </Table>
-      </TableContainer>
-    );
+function Row({id, amount_total, createdAt, price_total, state, details, products } ) {
+
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <React.Fragment>
+      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+        <TableCell>
+          <IconButton
+            aria-label="expand row"
+            size="small"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </IconButton>
+        </TableCell>
+        <TableCell component="th" scope="row">
+          {id}
+        </TableCell>
+        <TableCell align="right">{amount_total}</TableCell>
+        <TableCell align="right">{price_total}</TableCell>
+        <TableCell align="right">{state}</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <Box sx={{ margin: 1 }}>
+              <Typography variant="h6" gutterBottom component="div">
+                History:  {createdAt.slice(0,-14)}
+              </Typography>
+              <Table size="small" aria-label="purchases">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Name</TableCell>
+                    <TableCell>Img</TableCell>
+                    <TableCell>Color</TableCell>
+                    <TableCell>Talla</TableCell>
+                    <TableCell align="right">Uni P</TableCell>
+                    <TableCell align="right">Total price ($)</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {products.map((e) => (
+                    <TableRow key="historyRow.date">
+                      <TableCell component="th" scope="row">
+                        {e.nickname}
+                      </TableCell>
+                      <TableCell component="th" scope="row">
+                        <img className="cellImg" src={e.img} alt="avatar" />
+                        </TableCell>
+                      <TableCell align="right">color</TableCell>
+                      <TableCell align="right">talla</TableCell>
+                      <TableCell align="right">unidades</TableCell>
+                      <TableCell align="right">
+                        total
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </Box>
+          </Collapse>
+        </TableCell>
+      </TableRow>
+    </React.Fragment>
+  );
+}
+
+
+
+function CollapsibleTable({Orders}) {
+
+  return (
+    <TableContainer component={Paper}>
+      <Table aria-label="collapsible table">
+        <TableHead>
+          <TableRow>
+            <TableCell />
+            <TableCell>Numero De Orden</TableCell>
+            <TableCell align="right">Unidades Total</TableCell>
+            <TableCell align="right">Precio Total Orden</TableCell>
+            <TableCell align="right">Estado de Orden</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {
+           (Orders.ordens)? Orders.ordens.map((e) => (
+            <Row 
+            id={e.id}
+            amount_total={e.amount_total}
+            createdAt={e.createdAt}
+            price_total={e.price_total}
+            state={e.state}
+            details={e.details}
+            products={e.products}
+              />
+          )) : <div>No tiene Ordenes Disponibles</div>
+          }
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
 }
 
 
