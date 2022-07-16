@@ -2,6 +2,17 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllColors, getAllGenders, getAllBrands, updateFilters } from '../../redux/actions'
 
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Checkbox from '@mui/material/Checkbox';
+import MaleIcon from '@mui/icons-material/Male';
+import FemaleIcon from '@mui/icons-material/Female';
+import WcIcon from '@mui/icons-material/Wc';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
 export default function FiltersContainer() {
   const dispatch = useDispatch()
 
@@ -85,43 +96,47 @@ export default function FiltersContainer() {
 
   return (
     <div className="d-flex align-items-start flex-column" style={{ height: '200px' }}>
-      <div className="modal-content">
-        <div className="col w-90 p-2" style={{ width: '200px' }}>
-          Filtro de Generos
+      <div className="modal-content p-2 my-1">
+        <div className="col w-90 p-2 fw-bold" style={{ width: '200px' }}>
+          GÉNERO
         </div>
-        {genders.map(e => (
-          <div className="modal-body">
-            <input key={e.name} type="checkbox" name={e.name} value={e.name} onClick={handleInputGendersClick} />
-            <label>{e.name}</label>
-          </div>
-        ))}
-        <button onClick={handleSubmitGenders}>Aplicar </button>
+        <ul className='list-group text-start mb-1'>
+          {genders.map(e => (
+            <li className="list-group-item">
+              <input key={e.name} className='form-check-input me-1' type="checkbox" name={e.name} value={e.name} onClick={handleInputGendersClick} />
+              <label>{e.name}</label>
+            </li>
+          ))}
+        </ul>
+        <button className='btn btn-primary' onClick={handleSubmitGenders}>Aplicar </button>
       </div>
-      <div className="col w-90 p-2" style={{ width: '200px' }}>
-        Filtro de Precio
-      </div>
-      <div className="modal-content">
-        <label>Min</label>
-        <input id="filterPrice_min" type="numbers" min="0" max="100000" value={filters.prices.min} onChange={handleInputGendersPrices} />
-        <label>Max</label>
-        <input id="filterPrice_max" type="numbers" min="0" max="100000" value={filters.prices.max} onChange={handleInputGendersPrices} />
-
-        <button onClick={handleSubmitPrices}>Aplicar</button>
-      </div>
-
-      <div className="col w-90 p-2" style={{ width: '200px' }}>
-        Filtro de Colores
-        <div>
-          <div>
-            {colors.map(e => (
-              <div>
-                <input key={e.name} type="checkbox" name={e.name} value={e.name} onClick={handleInputColorsClick} />
-                <label>{e.name}</label>
-              </div>
-            ))}
-            <button onClick={handleSubmitColors}>Aplicar </button>
-          </div>
+      <div className='modal-content p-2 my-1'>
+        <div className="col w-90 p-2 fw-bold" style={{ width: '200px' }}>
+          PRECIO
         </div>
+        <div className='form-floating mb-1'>
+          <input id="filterPrice_min" className='form-control' type="numbers" min="0" max="100000" value={filters.prices.min} onChange={handleInputGendersPrices} placeholder='a' />
+          <label for='filterPrice_min'>Mín.</label>
+        </div>  
+        <div className='form-floating mb-1'>
+          <input id="filterPrice_max" className='form-control' type="numbers" min="0" max="100000" value={filters.prices.max} onChange={handleInputGendersPrices} placeholder='a' />
+          <label for='filterPrice_max'>Max.</label>
+        </div>
+        <button className='btn btn-primary' onClick={handleSubmitPrices}>Aplicar</button>
+      </div>
+      <div className='col modal-content h-auto p-2 my-1'>
+        <div className="p-2 fw-bold" style={{ width: '200px' }}>
+          COLOR
+        </div>
+        <ul className='list-group text-start overflow-auto mb-1 colorFilters_box'>
+          {colors.map(e => (
+            <li className='list-group-item'>
+              <input key={e.name} className='form-check-input me-1' type="checkbox" name={e.name} value={e.name} onClick={handleInputColorsClick} />
+              <label>{e.name}</label>
+            </li>
+          ))}
+        </ul>
+        <button className='btn btn-primary' onClick={handleSubmitColors}>Aplicar </button>
       </div>
     </div>
   )
