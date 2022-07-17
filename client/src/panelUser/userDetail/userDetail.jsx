@@ -13,7 +13,7 @@ const UserDetail = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllOrdersUser(1));
+    dispatch(getAllOrdersUser(idUser.id));
   }, [dispatch, idUser]);;
   const OrdersUser = useSelector((state)=> state.OrdersUser)
 
@@ -31,8 +31,8 @@ const UserDetail = () => {
             <div className="item">
               <h1 className="itemTitle">{OrdersUser.name} {OrdersUser.lastname}</h1>
               <img
-                src={OrdersUser.avatar_url}
-                alt=""
+                src={idUser.avatar_url}
+                alt="img"
                 className="itemImg"
               />
             </div>
