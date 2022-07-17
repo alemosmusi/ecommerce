@@ -21,8 +21,11 @@ import HomeAdmin from "./panelAdmin/homeAdmin/HomeAdmin";
 import ListOrdersAdmin from "./panelAdmin/listOrders/ListOrdersAdmin";
 import DetailAdmin from "./panelAdmin/single/DetailAdmin";
 
-
+//    User Panel 
+import HomeUser from "./panelUser/homeUser/HomeUser"
 import ListOrders from "./panelUser/listOrders/ListOrdenes"
+import DetailUser from "./panelUser/userDetail/userDetail"
+
 import { useSelector } from "react-redux";
 
 
@@ -56,10 +59,13 @@ function App() {
           <Route path="orders" element={<ListOrdersAdmin />} />
           <Route path="profile" element={<DetailAdmin />} />
         </Route>:
+         
         <Route path="user">
-        <Route index element={<ListOrders />} />
-        <Route path="orders" element={<ListOrders />} />
-     </Route>        
+          <Route index element={<HomeUser />} />
+          <Route path="orders" element={<ListOrders />} />
+          <Route path="profile" element={<DetailUser />} />
+          <Route path="update" element={<HomeUser />} />
+        </Route>        
         }
         
       </Routes>

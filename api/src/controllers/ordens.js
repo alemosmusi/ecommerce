@@ -1,4 +1,4 @@
-const { modelOrdens, modelUsers, modelProducts } = require("../db")
+const { modelOrdens, modelUsers, modelProducts, modelBrands, modelColors, modelGenders } = require("../db")
 
 const getOrdens = async (req, res) => {
     try {
@@ -19,9 +19,9 @@ const createOrden = async (req, res) => {
     const updateStock = (arraySizes, size, amount) => {
         const obj = arraySizes.find(obj => obj.size === size)
 
-        if (!obj) return size
-        if (obj.stock === 0) return size
-        if (obj.stock < amount) return size
+        if (!obj) return false
+        if (obj.stock === 0) return false
+        if (obj.stock < amount) return false
         
         const index = arraySizes.indexOf(obj)
         arraySizes[index].stock -= amount
@@ -40,18 +40,22 @@ const createOrden = async (req, res) => {
             return res.status(400).send({msg: 'Uno de los productos no están registrados en la base de datos.'})
         }
 
+        let array = []
+
         for (let i = 0; i < details.length; i++) {
             const { size_range } = products[i]
 
             const modSizes = updateStock(size_range, details[i].size, details[i].amount)
             if (!modSizes) {
-                return res.status(400).send({msg: `El producto ${products[i].id} de la talla ${modSizes} no cuenta con el stock necesario (o no existe la talla) para generar esta orden.`})
+                return res.status(400).send({msg: `El producto ${products[i].id} de la talla ${details[i].size} no cuenta con el stock necesario (o no existe la talla) para generar esta orden.`})
             }
-
-            products[i].update({size_range: modSizes})
+            
+            array.push(modSizes)
         }
-
-        products.forEach(product => product.save())
+        
+        array.forEach(async (obj, index) => {
+            await modelProducts.update({size_range: obj}, {where: {id: products[index].id}})
+        })
 
         const order = await modelOrdens.create({
             amount_total,
@@ -59,7 +63,8 @@ const createOrden = async (req, res) => {
             details
         })
 
-        const relProduct = details.map(obj => obj.productID)
+        let relProduct = details.map(obj => obj.productID)
+        relProduct = [... new Set(relProduct)]
 
         order.setUser(id)
         order.setProducts(relProduct)
@@ -74,7 +79,11 @@ const updateOrden = async (req, res) => {
     const { ordenId: id } = req.params
     const { state } = req.body
 
+    const validateState = ["Cancelada", "En proceso", "Enviado", "Entregado"]
+
     try {
+        if (!validateState.includes(state)) return res.status(400).json(validateState)
+
         const orden = await modelOrdens.findByPk(id)
         if (!orden) return res.status(400).send({msg: `No existe la orden ${id} en la base de datos.`})
 
@@ -103,7 +112,10 @@ const getOrdensUser = async (req, res   ) => {
             },
             include: {
                 model: modelOrdens,
-                include: modelProducts
+                include: {
+                    model: modelProducts,
+                    include: [modelBrands, modelColors, modelGenders]
+                }
             }
         })
 

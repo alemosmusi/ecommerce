@@ -1,14 +1,18 @@
 import * as actionTypes from "../action-types/";
+import Swal from 'sweetalert2'
 
 import {
   addToLocalStorage,
   changeAmountFromLocalStorage,
   deleteFromLocalStorage,
+  getCarritoFromStorage,
 } from "./getLocalstorage";
+
 var q = 1;
 
 const initialState = {
-  Users: [],
+  Users:[],
+  OrdersUser:[],
   Shoes: [],
   Filters: [],
   backupFilters: [],
@@ -29,7 +33,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Users: action.payload,
-      };
+      }
+      case actionTypes.GET_ALL_ORDERS_USER:
+      return {
+        ...state,
+        OrdersUser: action.payload,
+      }
     case actionTypes.GET_ALL_SHOES:
       return {
         ...state,
@@ -155,6 +164,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         ShoesDetails: {},
       };
+    case actionTypes.GET_PRODUCTS_FROM_STORAGE:
+      return {
+        ...state,
+        Carrito: action.payload,
+      };
     case actionTypes.GET_ADD_CARRITO:
       state.Carrito = addToLocalStorage(action.payload);
       return {
@@ -174,25 +188,25 @@ const rootReducer = (state = initialState, action) => {
         Carrito: changeAmountFromLocalStorage(action.payload),
       };
     case actionTypes.CREATE_SHOES:
-      return{
+      return {
         ...state,
-      }
+      };
     case actionTypes.CREATE_CATEGORIES:
-        return{
-          ...state,
-        }
+      return {
+        ...state,
+      };
     case actionTypes.CREATE_COLORS:
-        return{
-          ...state,
-        }
+      return {
+        ...state,
+      };
     case actionTypes.CREATE_BRANDS:
-        return{
-          ...state,
-        }
+      return {
+        ...state,
+      };
     case actionTypes.CREATE_GENDERS:
-        return{
-          ...state,
-        }
+      return {
+        ...state,
+      };
     case actionTypes.LOGIN_USER:
       return {
         ...state,
@@ -203,7 +217,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         UserLog: [],
       };
-
+    case actionTypes.CREATE_ORDEN: 
+      Swal.fire(
+        'Orden creada con éxito!',
+        'Puedes cerrar esta ventana.',
+        'success'
+      )
+      
+      return {
+        ...state
+      }
     default:
       return state;
   }

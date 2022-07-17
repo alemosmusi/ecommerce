@@ -104,19 +104,25 @@ export default function Navbar() {
                 </>
               )}
 
-
-              {!userLog.name ? "":
-              userLog.roleId === 1?
-              <Link className="nav-link active" aria-current="page" to="/admin">
-              <li className="nav-item">Panel Admin</li>
-            </Link>:
-            <Link className="nav-link active" aria-current="page" to="/user">
-              <li className="nav-item">Panel Usuario</li>
-            </Link>
-
-            
-            
-            }
+              {!userLog.name ? (
+                ""
+              ) : userLog.roleId === 1 ? (
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/admin"
+                >
+                  <li className="nav-item">Panel Admin</li>
+                </Link>
+              ) : (
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/user"
+                >
+                  <li className="nav-item">Panel Usuario</li>
+                </Link>
+              )}
 
               <li className="nav-item dropdown">
                 <div
@@ -152,37 +158,20 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to="/carshop">
-                  {carrito.length === 0? 
-                  <i
-                    className="fa fa-shopping-cart fa-lg "
-                    aria-hidden="true"
-                  ></i>:
-                  <i
-                  className="fa fa-shopping-cart fa-lg text-danger"
-                  aria-hidden="true"
-                >{carrito.length}</i>
-                  }
+                  {carrito.length === 0 ? (
+                    <i
+                      className="fa fa-shopping-cart fa-lg "
+                      aria-hidden="true"
+                    ></i>
+                  ) : (
+                    <i
+                      className="fa fa-shopping-cart fa-lg text-danger"
+                      aria-hidden="true"
+                    >
+                      {carrito.length}
+                    </i>
+                  )}
                 </Link>
-              </li>{" "}
-              <li
-                className="nav-item"
-                onClick={() => {
-                  localStorage.removeItem("username");
-                  console.log(
-                    "eliminado: ",
-                    JSON.parse(localStorage.getItem("username"))
-                  );
-                }}
-              >
-                <div className="nav-item">Borrar Storage-User</div>
-              </li>
-              <li
-                className="nav-item"
-                onClick={() =>
-                  console.log(JSON.parse(localStorage.getItem("username")))
-                }
-              >
-                <div className="nav-item">Mostrar Storage-User</div>
               </li>
             </ul>
 

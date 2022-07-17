@@ -8,9 +8,9 @@ const { getColors, createColor, updateColor, getProductsColor } = require('../co
 const { getRoles, createRole, updateUserRole } = require('../controllers/roles')
 const { getQuestions, createQuestion, updateQuestion, deleteQuestion } = require('../controllers/quetions')
 const { getOrdens, createOrden, updateOrden, getOrdensUser } = require('../controllers/ordens')
-const { getReviews, createReview, updateReview, deleteReview, getReviewsProduct } = require('../controllers/reviews')
-const { getUsers, loginUser } = require('../controllers/users')
-const { notification } = require('../controllers/notification')
+const { getReviews, createReview, updateReview, getReviewsProduct, getReviewsUser } = require('../controllers/reviews')
+const { getUsers, updateUser, getUserDetails, loginUser } = require('../controllers/users')
+const { sendNotification } = require('../controllers/notification')
 
 const routes = Router()
 
@@ -56,12 +56,14 @@ routes.get('/ordensUser/:userId', getOrdensUser)
 routes.get('/reviews', getReviews)
 routes.post('/reviews/:userId', createReview)
 routes.put('/reviews/:reviewId', updateReview)
-routes.delete('/reviews/:reviewId', deleteReview)
 routes.get('/reviewsProduct/:productId', getReviewsProduct)
+routes.get('/reviewsUser/:userId', getReviewsUser)
 
 routes.get('/users', getUsers)
+routes.put('/usersUpdate/:userId', updateUser)
+routes.get('/userDetails/:userId', getUserDetails)
 routes.post('/login', loginUser)
 
-routes.post('/send-email',notification)
+routes.post('/send-email', sendNotification)
 
 module.exports = routes
