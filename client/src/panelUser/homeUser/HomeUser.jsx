@@ -22,8 +22,8 @@ const HomeUser = () => {
       <div className="homeContainer">
           <Navbar />
         <div className="charts">
-          <Featured />
-          <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
+          <Featured Info={OrdersUser}/>
+          <Chart Info={OrdersUser} aspect={2 / 1} />
         </div>
       </div>
     </div>
