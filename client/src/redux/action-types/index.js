@@ -1,4 +1,5 @@
 export const GET_ALL_USERS = "GET_ALL_USERS";
+export const GET_ALL_ORDERS = "GET_ALL_ORDERS";
 export const GET_ALL_SHOES = "GET_ALL_SHOES";
 export const GET_ALL_BRANDS = "GET_ALL_BRANDS";
 export const GET_ALL_CATEGORIES = "GET_ALL_CATEGORIES";
