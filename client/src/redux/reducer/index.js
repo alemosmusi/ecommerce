@@ -1,4 +1,5 @@
 import * as actionTypes from "../action-types/";
+import Swal from 'sweetalert2'
 
 import {
   addToLocalStorage,
@@ -6,10 +7,12 @@ import {
   deleteFromLocalStorage,
   getCarritoFromStorage,
 } from "./getLocalstorage";
+
 var q = 1;
 
 const initialState = {
-  Users: [],
+  Users:[],
+  OrdersUser:[],
   Shoes: [],
   Filters: [],
   backupFilters: [],
@@ -30,7 +33,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Users: action.payload,
-      };
+      }
+      case actionTypes.GET_ALL_ORDERS_USER:
+      return {
+        ...state,
+        OrdersUser: action.payload,
+      }
     case actionTypes.GET_ALL_SHOES:
       return {
         ...state,
@@ -209,7 +217,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         UserLog: [],
       };
-
+    case actionTypes.CREATE_ORDEN: 
+      Swal.fire(
+        'Orden creada con éxito!',
+        'Puedes cerrar esta ventana.',
+        'success'
+      )
+      
+      return {
+        ...state
+      }
     default:
       return state;
   }

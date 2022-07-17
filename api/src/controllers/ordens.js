@@ -1,4 +1,4 @@
-const { modelOrdens, modelUsers, modelProducts } = require("../db")
+const { modelOrdens, modelUsers, modelProducts, modelBrands, modelColors, modelGenders } = require("../db")
 
 const getOrdens = async (req, res) => {
     try {
@@ -63,7 +63,8 @@ const createOrden = async (req, res) => {
             details
         })
 
-        const relProduct = details.map(obj => obj.productID)
+        let relProduct = details.map(obj => obj.productID)
+        relProduct = [... new Set(relProduct)]
 
         order.setUser(id)
         order.setProducts(relProduct)
@@ -107,7 +108,10 @@ const getOrdensUser = async (req, res   ) => {
             },
             include: {
                 model: modelOrdens,
-                include: modelProducts
+                include: {
+                    model: modelProducts,
+                    include: [modelBrands, modelColors, modelGenders]
+                }
             }
         })
 
