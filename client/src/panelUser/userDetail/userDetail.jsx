@@ -1,21 +1,20 @@
-import "./single.scss";
-import Sidebar from "../components/sidebar/Sidebar";
-import Navbar from "../components/navbar/Navbar";
+import './single.scss'
+import Sidebar from '../components/sidebar/Sidebar'
+import Navbar from '../components/navbar/Navbar'
 // import Chart from "../../components/chart/Chart";
 // import List from "../../components/table/Table";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllOrdersUser } from "../../redux/actions"
-
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllOrdersUser } from '../../redux/actions'
 
 const UserDetail = () => {
-  const idUser = useSelector((state)=> state.UserLog)
-  const dispatch = useDispatch();
+  const userDetails = useSelector(state => state.UserLog)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllOrdersUser(1));
-  }, [dispatch, idUser]);;
-  const OrdersUser = useSelector((state)=> state.OrdersUser)
+    dispatch(getAllOrdersUser(userDetails.id))
+  }, [dispatch, userDetails])
+  const OrdersUser = useSelector(state => state.OrdersUser)
 
   return (
     <div className="single">
@@ -29,12 +28,10 @@ const UserDetail = () => {
         <div className="bottom">
           <div className="left">
             <div className="item">
-              <h1 className="itemTitle">{OrdersUser.name} {OrdersUser.lastname}</h1>
-              <img
-                src={OrdersUser.avatar_url}
-                alt=""
-                className="itemImg"
-              />
+              <h1 className="itemTitle">
+                {userDetails.name} {userDetails.lastname}
+              </h1>
+              <img src={userDetails.avatar_url} alt="" className="itemImg" />
             </div>
           </div>
           <div className="right">
@@ -43,21 +40,19 @@ const UserDetail = () => {
               <h1 className="title">Información Personal</h1>
               <div className="detailItem">
                 <span className="itemKey">Email:</span>
-                <span className="itemValue">{OrdersUser.email}</span>
+                <span className="itemValue">{userDetails.email}</span>
               </div>
               <div className="detailItem">
                 <span className="itemKey">Celular:</span>
-                <span className="itemValue">{OrdersUser.phone}</span>
+                <span className="itemValue">{userDetails.phone}</span>
               </div>
               <div className="detailItem">
                 <span className="itemKey">Dirección:</span>
-                <span className="itemValue">
-                {OrdersUser.adress}
-                </span>
+                <span className="itemValue">{userDetails.adress}</span>
               </div>
               <div className="detailItem">
                 <span className="itemKey">País:</span>
-                <span className="itemValue">{OrdersUser.country}</span>
+                <span className="itemValue">{userDetails.country}</span>
               </div>
               <div className="detailItem">
                 <span className="itemKey">Ciudad:</span>
@@ -72,9 +67,7 @@ const UserDetail = () => {
               </div>
               <div className="detailItem">
                 <span className="itemKey">Entrega en:</span>
-                <span className="itemValue">
-                {OrdersUser.adress}
-                </span>
+                <span className="itemValue">{userDetails.adress}</span>
               </div>
               <div className="detailItem">
                 <span className="itemKey">Envío:</span>
@@ -97,6 +90,6 @@ const UserDetail = () => {
         </div> */}
       </div>
     </div>
-  );
-};
-export default UserDetail;
+  )
+}
+export default UserDetail

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Collapse from '@mui/material/Collapse'
 import IconButton from '@mui/material/IconButton'
@@ -40,7 +41,7 @@ function Row({ id, amount_total, createdAt, price_total, state, details, product
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                History: {createdAt.slice(0, -14)}
+                History: {`${createdAt.slice(0, -14)} - ${createdAt.slice(-13, 19)}`}
               </Typography>
               <Table size="small" aria-label="purchases">
                 <TableHead>
@@ -71,6 +72,9 @@ function Row({ id, amount_total, createdAt, price_total, state, details, product
                         <TableCell align="right">{orden.priceUnit}</TableCell>
                         <TableCell align="right">{orden.priceTotal}</TableCell>
                         <TableCell align="right"></TableCell>
+                        <Link to={`/productDetails/${product.id}`} className="btn btn-primary m-auto px-3">
+                          View
+                        </Link>
                       </TableRow>
                     )
                   })}
