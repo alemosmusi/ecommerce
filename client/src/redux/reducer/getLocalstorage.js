@@ -1,9 +1,20 @@
 import { Toast } from "../../component/alerts";
+import { GET_PRODUCTS_FROM_STORAGE } from "../action-types";
 
 // Obtener el estado del localstorage
-export const getCarritoInStorage = () => {
-  var local = JSON.parse(localStorage.getItem("username"));
-  return local.carrito;
+export const getCarritoFromStorage = () => {
+  return (dispatch) => {
+    var local = JSON.parse(localStorage.getItem("username"));
+    //   Si no existe lo crea con un array vacío
+    if (!local) {
+      localStorage.setItem("username", JSON.stringify({ carrito: [] }));
+      local = JSON.parse(localStorage.getItem("username"));
+    }
+    return dispatch({
+      type: GET_PRODUCTS_FROM_STORAGE,
+      payload: local.carrito,
+    });
+  };
 };
 export const addToLocalStorage = (payload) => {
   var local = JSON.parse(localStorage.getItem("username"));
@@ -52,3 +63,24 @@ export const changeAmountFromLocalStorage = (payload) => {
   localStorage.setItem("username", carritoJson); // save string
   return local.carrito;
 };
+
+//  <li
+//                 className="nav-item"
+//                 onClick={() => {
+//                   localStorage.removeItem("username");
+//                   console.log(
+//                     "eliminado: ",
+//                     JSON.parse(localStorage.getItem("username"))
+//                   );
+//                 }}
+//               >
+//                 <div className="nav-item">Borrar Storage-User</div>
+//               </li>
+//               <li
+//                 className="nav-item"
+//                 onClick={() =>
+//                   console.log(JSON.parse(localStorage.getItem("username")))
+//                 }
+//               >
+//                 <div className="nav-item">Mostrar Storage-User</div>
+//               </li>

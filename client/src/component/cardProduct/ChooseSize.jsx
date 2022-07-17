@@ -17,7 +17,7 @@ export default function ChooseSize({
   const sizes = size_range.map((o) => o.size);
   // console.log(`la talla actual es ${size}`);
   // const current_stock_size = size_range?.find((o) => o.size === size).stock;
-  console.log(`hay ${stock_size} para la talla ${size}`);
+  // console.log(`hay ${stock_size} para la talla ${size}`);
 
   // let arrStock = new Array(stock_size).fill(0, 0).map((e, i) => i + 1);
   const handleChangeSize = (event) => {

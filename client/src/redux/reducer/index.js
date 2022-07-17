@@ -4,6 +4,7 @@ import {
   addToLocalStorage,
   changeAmountFromLocalStorage,
   deleteFromLocalStorage,
+  getCarritoFromStorage,
 } from "./getLocalstorage";
 var q = 1;
 
@@ -155,6 +156,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         ShoesDetails: {},
       };
+    case actionTypes.GET_PRODUCTS_FROM_STORAGE:
+      return {
+        ...state,
+        Carrito: action.payload,
+      };
     case actionTypes.GET_ADD_CARRITO:
       state.Carrito = addToLocalStorage(action.payload);
       return {
@@ -174,25 +180,25 @@ const rootReducer = (state = initialState, action) => {
         Carrito: changeAmountFromLocalStorage(action.payload),
       };
     case actionTypes.CREATE_SHOES:
-      return{
+      return {
         ...state,
-      }
+      };
     case actionTypes.CREATE_CATEGORIES:
-        return{
-          ...state,
-        }
+      return {
+        ...state,
+      };
     case actionTypes.CREATE_COLORS:
-        return{
-          ...state,
-        }
+      return {
+        ...state,
+      };
     case actionTypes.CREATE_BRANDS:
-        return{
-          ...state,
-        }
+      return {
+        ...state,
+      };
     case actionTypes.CREATE_GENDERS:
-        return{
-          ...state,
-        }
+      return {
+        ...state,
+      };
     case actionTypes.LOGIN_USER:
       return {
         ...state,
