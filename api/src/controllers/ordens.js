@@ -63,7 +63,8 @@ const createOrden = async (req, res) => {
             details
         })
 
-        const relProduct = details.map(obj => obj.productID)
+        let relProduct = details.map(obj => obj.productID)
+        relProduct = [... new Set(relProduct)]
 
         order.setUser(id)
         order.setProducts(relProduct)
@@ -78,7 +79,11 @@ const updateOrden = async (req, res) => {
     const { ordenId: id } = req.params
     const { state } = req.body
 
+    const validateState = ["Cancelada", "En proceso", "Enviado", "Entregado"]
+
     try {
+        if (!validateState.includes(state)) return res.status(400).json(validateState)
+
         const orden = await modelOrdens.findByPk(id)
         if (!orden) return res.status(400).send({msg: `No existe la orden ${id} en la base de datos.`})
 

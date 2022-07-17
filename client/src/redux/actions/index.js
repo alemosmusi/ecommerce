@@ -1,18 +1,19 @@
 import Axios from 'axios'
+import { Toast } from '../../component/alerts'
 import * as actionTypes from '../action-types'
 
 Axios.defaults.baseURL = 'http://localhost:3001'
 
-export const getUsers = ()=>{
+export const getUsers = () => {
   return async function (dispatch) {
     try {
       let users = await Axios('/users')
       return dispatch({
         type: actionTypes.GET_ALL_USERS,
-        payload: users.data
+        payload: users.data,
       })
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
   }
 }
@@ -225,10 +226,10 @@ export const changeAmount = payload => {
   }
 }
 
-export const createShoes = shoes =>{
-  return async function(){
+export const createShoes = shoes => {
+  return async function () {
     try {
-      const post = await Axios.post('/shoes',shoes)
+      const post = await Axios.post('/shoes', shoes)
       return post
     } catch (error) {
       console.log(error)
@@ -236,21 +237,10 @@ export const createShoes = shoes =>{
   }
 }
 
-export const createCategories = categories =>{
-  return async function(){
+export const createCategories = categories => {
+  return async function () {
     try {
       const post = await Axios.post('/categories', categories)
-      return post      
-    } catch (error) {
-      console.log(error)
-    }
-  }
-}
-
-export const createBrands = brands =>{
-  return async function(){
-    try {
-      const post = await Axios.post('/brands',brands)
       return post
     } catch (error) {
       console.log(error)
@@ -258,46 +248,64 @@ export const createBrands = brands =>{
   }
 }
 
-export const createColors= colors =>{
-  return async function(){
+export const createBrands = brands => {
+  return async function () {
     try {
-      const post = await Axios.post('/colors',colors)
+      const post = await Axios.post('/brands', brands)
       return post
-      
     } catch (error) {
       console.log(error)
     }
   }
 }
 
-export const createGenders = gender =>{
-  return async function(){
+export const createColors = colors => {
+  return async function () {
     try {
-      const post = await Axios.post('/genders',gender)
+      const post = await Axios.post('/colors', colors)
       return post
-      
     } catch (error) {
       console.log(error)
     }
   }
 }
 
-export function getLogin(user){
-  return function(dispatch){
-    return Axios.post('/login', user)
-      .then((response) => {
-        dispatch({
-            type: actionTypes.LOGIN_USER,
-            payload: response.data
-        })
+export const createGenders = gender => {
+  return async function () {
+    try {
+      const post = await Axios.post('/genders', gender)
+      return post
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export function getLogin(user) {
+  return function (dispatch) {
+    return Axios.post('/login', user).then(response => {
+      dispatch({
+        type: actionTypes.LOGIN_USER,
+        payload: response.data,
+      })
     })
   }
 }
 
-export function delLogin(){
-  return function(dispatch){
+export function delLogin() {
+  return function (dispatch) {
     return {
-      type: actionTypes.DEL_LOGIN
+      type: actionTypes.DEL_LOGIN,
     }
+  }
+}
+
+export function createOrden (payload, userId) {
+  return async function (dispatch) {
+    const response = await Axios.post(`/ordens/${userId}`, payload)
+    return dispatch({
+      type: actionTypes.CREATE_ORDEN,
+      payload: response.data.msg
+    })
   }
 }
