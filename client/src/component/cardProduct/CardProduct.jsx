@@ -12,7 +12,7 @@ import { List } from "@mui/material";
 export default function Card({
   id,
   name,
-  nickname,
+  // nickname,
   price,
   img,
   stock_total,
@@ -23,7 +23,6 @@ export default function Card({
   gender,
 }) {
   const dispatch = useDispatch();
-  const [amount, setAmount] = useState(1);
   const [heart, setheart] = useState(1);
   const [reserve, setReserve] = useState(false);
   //Esto tiene que ver con el carrito
@@ -36,7 +35,7 @@ export default function Card({
 
   const current_stock_size = size_range?.find((o) => o.size === size).stock;
   let arrStock = new Array(current_stock_size).fill(0, 0).map((e, i) => i + 1);
-
+  // console.log(nickname, stock_size);
   // console.log(
   //   `CardProduct: total: ${stock_total} producto talla ${size} stock: ${stock_size}, puede?: ${
   //     stock_total && stock_size
@@ -53,23 +52,19 @@ export default function Card({
       addCarrito({
         key_value: `${id}${size}`,
         id,
-        nickname,
+        nickname: name.split("'")[1],
         price,
         img,
         // stock: stock_size,
-        size,
         rating,
         brand,
         color,
         gender,
+        size,
         amount: amountProduct,
+        stock_size,
       })
     );
-  };
-  const DecBag = () => {
-    if (amount >= 1) {
-      setAmount(amount - 1);
-    }
   };
   const Heart = () => {
     if (heart) {
