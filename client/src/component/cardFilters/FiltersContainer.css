@@ -29,10 +29,7 @@
 .type {
   display: inline-flex;
 }
-.type label {
-  font-weight: normal;
-  font-family: var(--font3);
-}
-type .filter input {
-  width: 20px;
+
+.colorFilters_box {
+  height: 200px;
 }

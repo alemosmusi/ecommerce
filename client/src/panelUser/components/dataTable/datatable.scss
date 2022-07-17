@@ -22,7 +22,14 @@
       cursor: pointer;
     }
   }
-
+  .list {
+    display: flex;
+    width: 100%;
+    .listContainer {
+      flex: 6;
+      min-height: 100vh;
+    }
+  }
   .cellWithImg {
     display: flex;
     align-items: center;
@@ -75,4 +82,5 @@
       cursor: pointer;
     }
   }
+
 }
