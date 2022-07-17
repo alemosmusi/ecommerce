@@ -6,8 +6,18 @@ import Featured from "../components/featured/Featured";
 import Chart from "../components/chart/Chart";
 import Table from "../components/table/Table";
 import { dataBalance, dataEarning, dataOrder, dataUser } from "./dataWidget";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllOrders, getUsers } from "../../redux/actions";
 
 const HomeAdmin = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllOrders());
+    dispatch(getUsers());
+  }, [dispatch]);
+  const productRows = useSelector((state) => state.Shoes);
+
   const users = {
     amount: 20,
     diff: 5,

@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ordersColumns } from "./ordersColumns";
-import { getAllShoes } from "../../redux/actions";
+import { getAllOrders } from "../../redux/actions";
 const ListOrdersAdmin = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllShoes());
+    dispatch(getAllOrders());
   }, [dispatch]);
   const productRows = useSelector((state) => state.Shoes);
 
