@@ -28,10 +28,10 @@ function Row({ id, amount_total, createdAt, price_total, state, details, product
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {id}
+          {`#${id}`}
         </TableCell>
         <TableCell align="right">{amount_total}</TableCell>
-        <TableCell align="right">{price_total}</TableCell>
+        <TableCell align="right">{`$${price_total}`}</TableCell>
         <div align="right" className={state === 'En proceso' ? 'proceso' : state === 'Finalizada' ? 'fin' : 'activa'}>
           {state}
         </div>
@@ -69,8 +69,8 @@ function Row({ id, amount_total, createdAt, price_total, state, details, product
                         <TableCell align="right">{product.color.name}</TableCell>
                         <TableCell align="right">{orden.size}</TableCell>
                         <TableCell align="right">{orden.amount}</TableCell>
-                        <TableCell align="right">{orden.priceUnit}</TableCell>
-                        <TableCell align="right">{orden.priceTotal}</TableCell>
+                        <TableCell align="right">{`$${orden.priceUnit}`}</TableCell>
+                        <TableCell align="right">{`$${orden.priceTotal}`}</TableCell>
                         <TableCell align="right"></TableCell>
                         <Link to={`/productDetails/${product.id}`} className="btn btn-primary m-auto px-3">
                           View
@@ -89,15 +89,13 @@ function Row({ id, amount_total, createdAt, price_total, state, details, product
 }
 
 function CollapsibleTable({ Orders }) {
-  // const dataUnidad = {data: [...Orders.ordens.details, ...Orders.ordens.prodcuts]}
-  // console.log(dataUnidad)
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>Numero De Orden</TableCell>
+            <TableCell>Orden #</TableCell>
             <TableCell align="right">Unidades Total</TableCell>
             <TableCell align="right">Precio Total Orden</TableCell>
             <TableCell align="right">Estado de Orden</TableCell>

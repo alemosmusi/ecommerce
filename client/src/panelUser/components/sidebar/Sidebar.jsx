@@ -56,7 +56,7 @@ const Sidebar = () => {
          
           <p className="title">SERVICIOS </p>
         
-          <Link to="/user/atualizar" style={{ textDecoration: "none" }}>
+          <Link to="/user/update" style={{ textDecoration: "none" }}>
             <li>
               <SettingsApplicationsIcon className="icon" />
               <span>Ajustes</span>

@@ -29,9 +29,9 @@ const UserDetail = () => {
           <div className="left">
             <div className="item">
               <h1 className="itemTitle">
-                {userDetails.name} {userDetails.lastname}
+                {OrdersUser.name} {OrdersUser.lastname}
               </h1>
-              <img src={userDetails.avatar_url} alt="" className="itemImg" />
+              <img src={userDetails.avatar_url} alt="img" className="itemImg" />
             </div>
           </div>
           <div className="right">
