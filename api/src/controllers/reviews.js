@@ -44,8 +44,6 @@ const createReview = async (req, res) => {
 
 const updateReview = () => {}
 
-const deleteReview = () => {}
-
 const getReviewsProduct = async (req, res) => {
     const { productId: id } = req.params
 
@@ -84,7 +82,6 @@ module.exports = {
     getReviews,
     createReview,
     updateReview,
-    deleteReview,
     getReviewsProduct,
     getReviewsUser
 }
