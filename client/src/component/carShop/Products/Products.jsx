@@ -1,8 +1,8 @@
 import CardShop from "../Card/CardShop";
-
+import "./Products.scss";
 export default function ProductsContainer({ carProducts }) {
   return (
-    <div className="Products">
+    <>
       {carProducts && carProducts.length ? (
         carProducts?.map((s) => (
           <div key={s.key_value}>
@@ -14,10 +14,11 @@ export default function ProductsContainer({ carProducts }) {
               img={s.img}
               rating={s.rating}
               brand={s.brand}
-              stock={s.stock}
+              stock_size={s.stock_size}
               color={s.color}
               gender={s.gender}
               size_range={s.size_range}
+              size={s.size}
               amount={s.amount}
               // material={s.material}
               // released={s.released}
@@ -26,12 +27,11 @@ export default function ProductsContainer({ carProducts }) {
               // shoe_condition={s.shoe_condition}
               // categories={s.categories}
             />
-            <hr />
           </div>
         ))
       ) : (
         <h1 className="text">El carrito está vacío</h1>
       )}
-    </div>
+    </>
   );
 }

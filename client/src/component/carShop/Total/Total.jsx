@@ -6,6 +6,13 @@ export default function Total({ totalPrice, totalProducts }) {
       <table className="table">
         <tbody>
           <tr>
+            <td colSpan={2}>
+              <div className="title">
+                <h4>TOTAL DE COMPRA</h4>
+              </div>
+            </td>
+          </tr>
+          <tr>
             <td> {totalProducts} articulos</td>
             <td>$./{totalPrice}</td>
           </tr>
