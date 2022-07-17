@@ -2,16 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllColors, getAllGenders, getAllBrands, updateFilters } from '../../redux/actions'
 
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Checkbox from '@mui/material/Checkbox';
-import MaleIcon from '@mui/icons-material/Male';
-import FemaleIcon from '@mui/icons-material/Female';
-import WcIcon from '@mui/icons-material/Wc';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import './FiltersContainer.css'
 
 export default function FiltersContainer() {
   const dispatch = useDispatch()
@@ -124,7 +115,7 @@ export default function FiltersContainer() {
         </div>
         <button className='btn btn-primary' onClick={handleSubmitPrices}>Aplicar</button>
       </div>
-      <div className='col modal-content h-auto p-2 my-1'>
+      <div className='modal-content h-auto p-2 my-1'>
         <div className="p-2 fw-bold" style={{ width: '200px' }}>
           COLOR
         </div>
