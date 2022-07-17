@@ -4,12 +4,12 @@ import {
   addToLocalStorage,
   changeAmountFromLocalStorage,
   deleteFromLocalStorage,
-  getCarritoFromStorage,
 } from "./getLocalstorage";
 var q = 1;
 
 const initialState = {
   Users: [],
+  Orders: [],
   Shoes: [],
   Filters: [],
   backupFilters: [],
@@ -30,6 +30,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Users: action.payload,
+      };
+    case actionTypes.GET_ALL_ORDERS:
+      return {
+        ...state,
+        Orders: action.payload,
       };
     case actionTypes.GET_ALL_SHOES:
       return {
