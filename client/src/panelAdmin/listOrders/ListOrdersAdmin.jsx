@@ -1,61 +1,32 @@
-import "./list.scss";
-import Sidebar from "../components/sidebar/Sidebar";
-import Datatable from "../components/dataTable/Datatable";
-import Navbar from "../components/navbar/Navbar";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ordersColumns } from "./ordersColumns";
-import { getAllOrders } from "../../redux/actions";
-const ListOrdersAdmin = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllOrders());
-  }, [dispatch]);
-  const productRows = useSelector((state) => state.Shoes);
+import './list.scss'
+import Sidebar from '../components/sidebar/Sidebar'
+import CollapsibleTable from '../components/dataAllOrders/TableOrders'
+import Navbar from '../components/navbar/Navbar'
 
-  // Columnas adicionales aparte de la data
-  let actionColum = [
-    {
-      field: "action",
-      headerName: "Action",
-      width: 200,
-      renderCell: ({ row }) => {
-        return (
-          <div className="cellAction">
-            <Link
-              to={`/admin/products/${row.id}`}
-              style={{ textDecoration: "none" }}
-            >
-              <div className="viewButton">View</div>
-            </Link>
-            <div
-              className="deleteButton"
-              // onClick={() => handleDelete(params.row.id)}
-            >
-              Delete
-            </div>
-          </div>
-        );
-      },
-    },
-  ];
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllOrders } from '../../redux/actions'
+
+
+const ListOrders = () => {
+  const dispatch = useDispatch()
+  // const userDetails = useSelector(state => state.UserLog)
+
+  useEffect(() => {
+    dispatch(getAllOrders())
+    // dispatch(getUsers())
+  }, [dispatch])
+  const allOrders = useSelector(state => state.Orders)
+  // const allUsers = useSelector(state => state.Users)
+
   return (
     <div className="list">
       <Sidebar />
       <div className="listContainer">
         <Navbar />
-        <Datatable
-          name={"Ordenes"}
-          buttonName={false}
-          pathButton={false}
-          rows={productRows}
-          columns={[...ordersColumns, ...actionColum]}
-          rowsInPage={9}
-        />
+        <CollapsibleTable allOrders={allOrders} />
       </div>
     </div>
-  );
-};
-
-export default ListOrdersAdmin;
+  )
+}
+export default ListOrders

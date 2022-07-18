@@ -7,7 +7,23 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-const data = [
+// January 
+// February
+// March
+// April
+// May
+// June
+// July
+// August
+// September
+// Octuber
+// November
+// December
+
+
+
+const Chart = ({ aspect, Info }) => {
+  const data = [
     { name: "January", Total: 1200 },
     { name: "February", Total: 2100 },
     { name: "March", Total: 800 },
@@ -15,9 +31,6 @@ const data = [
     { name: "May", Total: 900 },
     { name: "June", Total: 1700 },
   ];
-  
-
-const Chart = ({ aspect, Info }) => {
     return (
       <div className="chart">
         <div className="title">Shopping Statistics</div>
