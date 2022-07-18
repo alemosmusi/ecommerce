@@ -34,10 +34,10 @@ function Row({ id, amount_total, price_total, state, createdAt, user, details, p
         <TableCell component="th" scope="row" >
           {`${user.name} ${user.lastname}`} 
         </TableCell>
-        <TableCell component="th" scope="row" align="right" >{user.email}</TableCell>
-        <TableCell component="th" scope="row">
-           <img className="cellImg" src={user.avatar_url} alt="img/" />
-        </TableCell>
+        <TableCell component="th" scope="row"  ><img className="cellImg" src={user.avatar_url} alt="img/" />{user.email}</TableCell>
+        <div className={state === 'En proceso' ? 'proceso' : state === 'Finalizada' ? 'fin' : 'activa'}>
+           Cambiar estado
+        </div>
         
       </TableRow>
       <TableRow>
@@ -100,9 +100,9 @@ function CollapsibleTable({ allOrders }) {
           <TableRow>
             <TableCell />
             <TableCell>Usuario #</TableCell>
-            <TableCell >Name</TableCell>
-            <TableCell align="right" >User</TableCell>
-            <TableCell > </TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell>User</TableCell>
+            <TableCell align="right"> State </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
