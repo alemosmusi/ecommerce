@@ -19,27 +19,6 @@ const Questions = sequelize => {
     }
   )
 
-  const preStart = async () => {
-    const json = require('../temporal-json/questions.json')
-
-    json.forEach(async value => {
-      const { question, answers } = value
-
-      try {
-        await model.findOrCreate({
-          where: {
-            question,
-            answers,
-          },
-        })
-      } catch (error) {
-        console.log(error)
-      }
-    })
-  }
-
-  setTimeout(preStart, 3000)
-
   return model
 }
 

@@ -21,26 +21,6 @@ const Categories = sequelize => {
     }
   )
 
-  const preStart = async () => {
-    const json = require('../temporal-json/categories.json')
-
-    json.forEach(async value => {
-      const { name } = value
-
-      try {
-        await model.findOrCreate({
-          where: {
-            name,
-          },
-        })
-      } catch (error) {
-        console.log(error)
-      }
-    })
-  }
-
-  setTimeout(preStart, 3000)
-
   return model
 }
 

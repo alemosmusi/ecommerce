@@ -26,29 +26,6 @@ const Ordens = sequelize => {
     },
   })
 
-  const preStart = () => {
-    const json = require('../temporal-json/ordens.json')
-
-    json.forEach(async value => {
-      const { products, details, amount_total, price_total } = value
-
-      try {
-        const order = await model.create({
-          amount_total,
-          price_total,
-          details,
-        })
-
-        order.setUser(1)
-        order.setProducts(products)
-      } catch (error) {
-        console.log(error)
-      }
-    })
-  }
-
-  setTimeout(preStart, 6000)
-
   return model
 }
 

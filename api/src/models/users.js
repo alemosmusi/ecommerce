@@ -50,36 +50,6 @@ const Users = sequelize => {
     }
   )
 
-  const preStart = () => {
-    const json = require('../temporal-json/users.json')
-
-    json.forEach(async value => {
-      const { dni, username, name, lastname, genre, email, phone, adress, country, avatar_url, rol } = value
-
-      try {
-        const user = await model.create({
-          dni,
-          username,
-          name,
-          lastname,
-          genre,
-          email,
-          phone,
-          adress,
-          country,
-          status: 'Active',
-          avatar_url,
-        })
-
-        user.setRole(rol)
-      } catch (error) {
-        console.log(error)
-      }
-    })
-  }
-
-  setTimeout(preStart, 3000)
-
   return model
 }
 

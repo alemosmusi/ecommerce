@@ -18,40 +18,6 @@ const Reviews = sequelize => {
     }
   )
 
-  const preStart = () => {
-    const json = require('../temporal-json/reviews.json')
-
-    const { modelProducts, modelReviews } = require('../db')
-
-    json.forEach(async obj => {
-      try {
-        const review = await modelReviews.create({
-          comment: obj.comment,
-          rating: obj.rating,
-        })
-
-        await review.setUser(obj.userId)
-        await review.setProduct(obj.productId)
-
-        const product = await modelProducts.findByPk(obj.productId)
-
-        let reviews = await product.getReviews()
-        await modelProducts.update(
-          {
-            rating: (reviews.length * obj.rating * 5) / 100,
-          },
-          {
-            where: { id: obj.productId },
-          }
-        )
-      } catch (error) {
-        console.log(error)
-      }
-    })
-  }
-
-  setTimeout(preStart, 8000)
-
   return model
 }
 
