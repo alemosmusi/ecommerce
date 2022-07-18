@@ -38,7 +38,6 @@ const New = () => {
   // const inputs = productInputs;
   // const [file, setFile] = useState("");
   const [enviado , setEnviado] = useState(false)
-
   return (
     <div className="new">
       <Sidebar />
@@ -77,17 +76,25 @@ const New = () => {
              <div className="bottom"> 
               <div className="right">
                 <div className="formInput">
-                  <label htmlFor="file">
-                    Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  <label htmlFor="img">
+                    Image: 
+                    {/* <DriveFolderUploadOutlinedIcon className="icon" /> */}
                   </label>
                   <Field
-                    type="file"
-                    id="file"
+                    type="url"
+                    id="img"
                     name="img"
+                    placeholder="URL"
                     // onChange={(e) => setFile(e.target.files[0])}
-                    style={{ display: "none" }}
+                    // style={{ display: "none" }}
                   />
-                </div>        
+                </div>     
+                <ErrorMessage
+                    name="img"
+                    component={() => (
+                      <div className="error">{errors.img}</div>
+                    )}
+                  />   
                  
                   <div className="formInput">
                   <label htmlFor="name">Name :</label>
@@ -220,9 +227,9 @@ const New = () => {
                     )}
                   />
                 </div> 
-                
-                 
-              
+                </div>
+
+           <div className="nobottom">    
                 <FieldArray name="size_range">
             {({ insert, remove, push }) => (
               <div>
@@ -232,12 +239,13 @@ const New = () => {
                       <div className="col">
                         <label htmlFor={`size_range.${index}.size`}> Size :</label>
                         <Field
+                         className="form-select"
                           name={`size_range.${index}.size`}
                           as="select"
                         >
                         <option value="">Select sizes</option>
                            {sizes?.map((theSize, i) => (
-                             <option key={i} value={theSize}>
+                             <option key={i}  value={theSize}>
                                {theSize}
                              </option>
                            ))}
@@ -245,7 +253,7 @@ const New = () => {
                         <ErrorMessage
                           name={`size_range.${index}.size`}
                           component={() => (
-                            <div className="error">{errors.size_range.size}</div>)}
+                            <div className="error">{errors.size_range}</div>)}
                         />
                       </div>
                       <div className="col">
@@ -258,7 +266,7 @@ const New = () => {
                         <ErrorMessage
                           name={`size_range.${index}.stock`}
                           component={() => (
-                            <div className="error">{errors.size_range.stock}</div>)}
+                            <div className="error">{errors.size_range}</div>)}
                         />
                       </div>
                       <div className="col">
@@ -284,9 +292,9 @@ const New = () => {
           </FieldArray>
 
 
-<div className="formInput">
+          <div >
                   <label>Gender :</label>
-                  <Field name="genderID" as="select">
+                  <Field className="form-select" name="genderID" as="select">
                     <option value="">Select gender</option>
                     {Genders?.map((theGender) => (
                       <option key={theGender.id} value={theGender.id}>
@@ -303,7 +311,7 @@ const New = () => {
 
                 <div className="formInput">
                   <label>Brands</label>
-                  <Field name="brandID" as="select">
+                  <Field className="form-select" name="brandID" as="select">
                     <option value="">Select brands</option>
                     {Brands?.map((theBrands) => (
                       <option key={theBrands.id} value={theBrands.id}>
@@ -320,7 +328,7 @@ const New = () => {
                 
                 <div className="formInput">
                   <label>Colors :</label>
-                  <Field name="colorID" as="select">
+                  <Field className="form-select" name="colorID" as="select">
                     <option value="">Select colors</option>
                     {Colors?.map((color, i) => (
                       <option key={i} value={color.id}>
@@ -336,12 +344,13 @@ const New = () => {
                 </div>
                 <FieldArray name="categories">
             {({ insert, remove, push }) => (
-              <div>
+              <div >
                 {values.categories?.map((gender, index) => (
-                    <div className="row" key={index}>
-                      <div className="col">
+                    <div key={index}>
+                      <div >
                         <label htmlFor={`categories.${index}`}>Categories :</label>
                         <Field
+                        className="form-select"
                           name={`categories.${index}`}
                           as="select"
                         >
@@ -381,11 +390,11 @@ const New = () => {
             )}
 
           </FieldArray>
+              </div>
+              </div>
                 <button type="submit">Send</button>
-              </div>
               {!!enviado === false ? null : <div className="exito">Se creó con éxito</div>} 
-              </div>
-            </Form>
+             </Form>
           )}
         </Formik>
       </div>

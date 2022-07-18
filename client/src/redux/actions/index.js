@@ -1,5 +1,7 @@
-import Axios from "axios";
-import * as actionTypes from "../action-types";
+
+import Axios from 'axios'
+import { Toast } from '../../component/alerts'
+import * as actionTypes from '../action-types'
 
 Axios.defaults.baseURL = "http://localhost:3001";
 
@@ -10,6 +12,7 @@ export const getUsers = () => {
       return dispatch({
         type: actionTypes.GET_ALL_USERS,
         payload: users.data,
+
       });
     } catch (error) {
       console.log(error);
@@ -29,6 +32,21 @@ export const getAllOrders = () => {
     }
   };
 };
+
+
+export const getAllOrdersUser = id => {
+  return async function (dispatch) {
+    try {
+      let info = await Axios(`/ordensUser/${id}`)
+      return dispatch({
+        type: actionTypes.GET_ALL_ORDERS_USER,
+        payload: info.data,
+      })
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+}
 
 export const getAllShoes = () => {
   return async function (dispatch) {
@@ -226,55 +244,62 @@ export const changeAmount = (payload) => {
   };
 };
 
-export const createShoes = (shoes) => {
+
+export const createShoes = shoes => {
   return async function () {
     try {
-      const post = await Axios.post("/shoes", shoes);
-      return post;
+      const post = await Axios.post('/shoes', shoes)
+      return post
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-export const createCategories = (categories) => {
+export const createCategories = categories => {
   return async function () {
     try {
-      const post = await Axios.post("/categories", categories);
-      return post;
+      const post = await Axios.post('/categories', categories)
+      return post
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-export const createBrands = (brands) => {
+
+export const createBrands = brands => {
   return async function () {
     try {
-      const post = await Axios.post("/brands", brands);
-      return post;
+      const post = await Axios.post('/brands', brands)
+      return post
+
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-export const createColors = (colors) => {
+
+export const createColors = colors => {
   return async function () {
     try {
-      const post = await Axios.post("/colors", colors);
-      return post;
+      const post = await Axios.post('/colors', colors)
+      return post
+
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-export const createGenders = (gender) => {
+
+export const createGenders = gender => {
   return async function () {
     try {
-      const post = await Axios.post("/genders", gender);
-      return post;
+      const post = await Axios.post('/genders', gender)
+      return post
+
     } catch (error) {
       console.log(error);
     }
@@ -283,19 +308,33 @@ export const createGenders = (gender) => {
 
 export function getLogin(user) {
   return function (dispatch) {
-    return Axios.post("/login", user).then((response) => {
+
+    return Axios.post('/login', user).then(response => {
       dispatch({
         type: actionTypes.LOGIN_USER,
         payload: response.data,
-      });
-    });
-  };
+      })
+    })
+  }
+
 }
 
 export function delLogin() {
   return function (dispatch) {
     return {
       type: actionTypes.DEL_LOGIN,
-    };
-  };
+
+    }
+  }
+}
+
+export function createOrden (payload, userId) {
+  return async function (dispatch) {
+    const response = await Axios.post(`/ordens/${userId}`, payload)
+    return dispatch({
+      type: actionTypes.CREATE_ORDEN,
+      payload: response.data.msg
+    })
+  }
+
 }

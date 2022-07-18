@@ -1,17 +1,27 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllShoes } from "../../../redux/actions";
-import Total from "../Total/Total";
-import ProductsContainer from "../Products/Products";
-import "./CarshopContainer.scss";
-import { getCarritoFromStorage } from "../../../redux/reducer/getLocalstorage";
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useAuth0 } from '@auth0/auth0-react'
+
+import { createOrden, getAllShoes } from '../../../redux/actions'
+
+import Total from '../Total/Total'
+import ProductsContainer from '../Products/Products'
+import { getCarritoFromStorage } from '../../../redux/reducer/getLocalstorage'
+
+import './CarshopContainer.scss'
 
 export default function CarShopContainer() {
-  const dispatch = useDispatch();
+  const { isAuthenticated, loginWithRedirect } = useAuth0()
+
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    dispatch(getCarritoFromStorage());
-  }, [dispatch]);
-  let carProducts = useSelector((state) => state.Carrito);
+    dispatch(getCarritoFromStorage())
+  }, [dispatch])
+
+  let carProducts = useSelector(state => state.Carrito)
+  const userDetails = useSelector(store => store.UserLog)
+
   // let localCarrito = JSON.parse(localStorage.getItem("username"));
 
   // console.log("localcarrito", localCarrito);
@@ -22,17 +32,35 @@ export default function CarShopContainer() {
   //   ? localCarrito?.carrito
   //   : [];
   // console.log(carProducts);
-  const totalProducts = carProducts
-    .map((product) => product.amount)
-    .reduce((prev, curr) => prev + curr, 0);
 
-  const totalPrice = carProducts
-    .map((product) => product.price * product.amount)
-    .reduce((prev, curr) => prev + curr, 0);
+  const totalProducts = carProducts.map(product => product.amount).reduce((prev, curr) => prev + curr, 0)
+  const totalPrice = carProducts.map(product => product.price * product.amount).reduce((prev, curr) => prev + curr, 0)
 
   useEffect(() => {
-    dispatch(getAllShoes());
-  }, [dispatch]);
+    dispatch(getAllShoes())
+  }, [dispatch])
+
+  const handleBuy = () => {
+    if (!isAuthenticated) return loginWithRedirect
+
+    const details = carProducts.map(obj => {
+      return {
+        productID: obj.id,
+        size: obj.size,
+        amount: obj.amount,
+        priceUnit: obj.price,
+        priceTotal: obj.price * obj.amount,
+      }
+    })
+
+    const orden = {
+      details,
+      price_total: totalPrice,
+      amount_total: totalProducts,
+    }
+
+    dispatch(createOrden(orden, userDetails.id))
+  }
 
   return (
     <div className="carshop container-fluid">
@@ -72,10 +100,13 @@ export default function CarShopContainer() {
             <h1 className="text">El carrito está vacío</h1>
           )} */}
         </div>
-        <div className="right">
+        <div className="d-flex flex-column right">
           <Total totalProducts={totalProducts} totalPrice={totalPrice} />
+          <button className="mx-auto p-3 px-5 btn btn-success" onClick={() => handleBuy()}>
+            PAGAR
+          </button>
         </div>
       </div>
     </div>
-  );
+  )
 }
