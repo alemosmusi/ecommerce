@@ -1,42 +1,46 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize')
 
-const Questions = (sequelize)=>{
-  const model = sequelize.define('questions', {
+const Questions = sequelize => {
+  const model = sequelize.define(
+    'questions',
+    {
       question: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       answers: {
         type: DataTypes.TEXT,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     },
     {
       createdAt: false,
-      updatedAt: false
+      updatedAt: false,
     }
   )
 
   const preStart = async () => {
     const json = require('../temporal-json/questions.json')
 
-    json.forEach(async (value) => {
-      const { question, answers} = value
+    json.forEach(async value => {
+      const { question, answers } = value
 
-      await model.findOrCreate({
-        where: {
-          question,
-          answers
-        }
-      })
+      try {
+        await model.findOrCreate({
+          where: {
+            question,
+            answers,
+          },
+        })
+      } catch (error) {
+        console.log(error)
+      }
     })
   }
 
   setTimeout(preStart, 3000)
 
   return model
-};
+}
 
 module.exports = Questions
-
-
