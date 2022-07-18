@@ -1,42 +1,52 @@
-export const productColumns = [
+export const clientColumns = [
+  { field: "id", headerName: "ID", width: 70 },
   {
-    field: "product",
-    headerName: "Producto",
+    field: "user",
+    headerName: "User",
     width: 230,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
-          {params.row.name.split("'")[1]}
+          <img className="cellImg" src={params.row.avatar_url} alt="avatar" />
+          {params.row.name}
         </div>
       );
     },
   },
-  { field: "stock", headerName: "Stock", width: 70 },
-  { field: "price", headerName: "Precio $/.", width: 100 },
-  { field: "color", headerName: "Color", width: 80 },
-  { field: "size_range", headerName: "Tallas", width: 240 },
   {
-    field: "category",
-    headerName: "Categoria",
-    width: 110,
+    field: "email",
+    headerName: "Email",
+    width: 230,
   },
 
   {
-    field: "brand_name",
-    headerName: "Marca",
+    field: "phone",
+    headerName: "Teléfono",
     width: 100,
   },
-  // {
-  //   field: "color",
-  //   headerName: "Status",
-  //   width: 160,
-  //   renderCell: (params) => {
-  //     return (
-  //       <div className={`cellWithStatus ${params.row.status}`}>
-  //         {params.row.status}
-  //       </div>
-  //     );
-  //   },
-  // },
+  {
+    field: "status",
+    headerName: "Status",
+    width: 160,
+    renderCell: (params) => {
+      return (
+        <div className={`cellWithStatus ${params.row.status}`}>
+          {params.row.status}
+        </div>
+      );
+    },
+  },
 ];
+
+// {
+//   field: "color",
+//   headerName: "Status",
+//   width: 160,
+//   renderCell: (params) => {
+//     return (
+//       <div className={`cellWithStatus ${params.row.status}`}>
+//         {params.row.status}
+//       </div>
+//     );
+//   },
+// },

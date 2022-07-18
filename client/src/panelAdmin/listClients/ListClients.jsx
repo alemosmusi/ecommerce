@@ -5,14 +5,14 @@ import Navbar from "../components/navbar/Navbar";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { productColumns } from "./clientsColumns";
-import { getAllShoes } from "../../redux/actions";
+import { clientColumns } from "./clientsColumns";
+import { getUsers } from "../../redux/actions";
 const ListClients = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllShoes());
+    dispatch(getUsers());
   }, [dispatch]);
-  const productRows = useSelector((state) => state.Shoes);
+  const clientsRows = useSelector((state) => state.Users);
 
   // Columnas adicionales aparte de la data
   let actionColum = [
@@ -49,8 +49,8 @@ const ListClients = () => {
           name={"Mis Clientes"}
           buttonName={false}
           pathButton={false}
-          rows={productRows}
-          columns={[...productColumns, ...actionColum]}
+          rows={clientsRows}
+          columns={[...clientColumns, ...actionColum]}
           rowsInPage={9}
         />
       </div>
