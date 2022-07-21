@@ -1,5 +1,6 @@
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import CommentIcon from '@mui/icons-material/Comment';
 // import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 // import CreditCardIcon from "@mui/icons-material/CreditCard";
@@ -49,7 +50,7 @@ const Sidebar = () => {
           <p className="title">LISTAS</p>
           <Link to="/user/orders" style={{ textDecoration: "none" }}>
             <li>
-              <LocalShippingIcon className="icon" />
+            <CommentIcon className="icon" />
               <span>Orders</span>
             </li>
           </Link>

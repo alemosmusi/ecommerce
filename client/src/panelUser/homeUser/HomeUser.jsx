@@ -6,7 +6,7 @@ import "./home.scss";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllOrdersUser } from "../../redux/actions"
+import { getAllOrdersUser, getAllUserReviews } from "../../redux/actions"
 
 
 const HomeUser = () => {
@@ -14,6 +14,7 @@ const HomeUser = () => {
   const OrdersUser = useSelector((state)=> state.OrdersUser)
   useEffect(() => {
     dispatch(getAllOrdersUser(1));
+    dispatch(getAllUserReviews(1));
   }, [dispatch]);
  
   return (

@@ -1,116 +1,221 @@
-import * as React from 'react'
-import { Link } from 'react-router-dom'
-import Box from '@mui/material/Box'
-import Collapse from '@mui/material/Collapse'
-import IconButton from '@mui/material/IconButton'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import { DataGrid, gridClasses } from '@mui/x-data-grid';
+import Link from '@mui/material/Link';
 import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TableHead from '@mui/material/TableHead'
-import TableRow from '@mui/material/TableRow'
-import Typography from '@mui/material/Typography'
-import Paper from '@mui/material/Paper'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
-import './datatable.scss'
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 import './data.css'
 
-function Row({ id, amount_total, createdAt, price_total, state, details, products }) {
-  const [open, setOpen] = React.useState(false)
+
+
+
+
+function CollapsibleTable({reviews}) {
+
+  const rows = [];
+
+  for (let i = 0; i < reviews.length; ++i) {
+  
+    rows.push({
+      id: reviews[i].id,
+      img: reviews[i].product.img,
+      name: reviews[i].product.nickname,
+      rating: reviews[i].rating,
+      reviews:reviews[i].comment
+    })
+  }
+
+  const columns = [
+    { field: 'id', width: 80 },
+    { field: 'img', 
+     renderCell: (params) => <Img {...params} />
+    },
+    { field: 'name', },
+    { field: 'rating',
+     type: 'number',
+     width: 140,
+     renderCell: (params) => <HalfRating {...params} /> , 
+    },
+    {
+      field: 'reviews',
+      width: 550,
+      renderCell: (params) => <ExpandableCell {...params} />,
+    },
+  ];
+
+  const Img = ({value}) => {
+    return (
+      <TableCell component="th" scope="row">
+        <img className="cellImg" src={value} alt="img" />
+      </TableCell>
+    );
+  }
+  
+  const HalfRating = ({value}) => {
+    return (
+      <Stack spacing={1}>
+        <Rating name="half-rating-read" defaultValue={value} precision={1} readOnly />
+      </Stack>
+    );
+  }
+  
+  const ExpandableCell = ({ value }) => {
+    const [expanded, setExpanded] = React.useState(false);
+  
+    return (
+      <Box>
+        {expanded ? value : value.slice(0, 176)}&nbsp;
+        {value.length > 176 && (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <Link
+            type="button"
+            component="button"
+            sx={{ fontSize: 'inherit' }}
+            onClick={() => setExpanded(!expanded)}
+          >
+            {expanded ? 'view less' : 'view more'}
+          </Link>
+        )}
+      </Box>
+    );
+  };
+  
+  
+  
+ 
 
   return (
-    <React.Fragment>
-      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-        <TableCell>
-          <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </IconButton>
-        </TableCell>
-        <TableCell component="th" scope="row">
-          {`#${id}`}
-        </TableCell>
-        <TableCell align="right">{amount_total}</TableCell>
-        <TableCell align="right">{`$${price_total}`}</TableCell>
-        <div align="right" className={state === 'En proceso' ? 'proceso' : state === 'Finalizada' ? 'fin' : 'activa'}>
-          {state}
-        </div>
-      </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
-                History: {`${createdAt.slice(0, -14)} - ${createdAt.slice(-13, 19)}`}
-              </Typography>
-              <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Img</TableCell>
-                    <TableCell align="right">Color</TableCell>
-                    <TableCell align="right">Talla</TableCell>
-                    <TableCell align="right">Producto (Unidad)</TableCell>
-                    <TableCell align="right">Precio (Unidad)</TableCell>
-                    <TableCell align="right">Pricio Total ($)</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {details.map(orden => {
-                    const product = products.find(value => value.id === orden.productID)
-                    return (
-                      <TableRow key="historyRow.date">
-                        <TableCell component="th" scope="row">
-                          {product.nickname}
-                        </TableCell>
-                        <TableCell component="th" scope="row">
-                          <img className="cellImg" src={product.img} alt="avatar" />
-                        </TableCell>
-                        <TableCell align="right">{product.color.name}</TableCell>
-                        <TableCell align="right">{orden.size}</TableCell>
-                        <TableCell align="right">{orden.amount}</TableCell>
-                        <TableCell align="right">{`$${orden.priceUnit}`}</TableCell>
-                        <TableCell align="right">{`$${orden.priceTotal}`}</TableCell>
-                        <TableCell align="right"></TableCell>
-                        <Link to={`/productDetails/${product.id}`} className="btn btn-primary m-auto px-3">
-                          View
-                        </Link>
-                      </TableRow>
-                    )
-                  })}
-                </TableBody>
-              </Table>
-            </Box>
-          </Collapse>
-        </TableCell>
-      </TableRow>
-    </React.Fragment>
-  )
-}
+    <Box sx={{ height: 400, width: '100%' }}>
+      { rows ? (
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        getRowHeight={() => 'auto'}
+        sx={{
+          [`& .${gridClasses.cell}`]: {
+            py: 1,
+          },
+        }}
+      /> ) : (<div> No hay reviews</div>)
+      }
+    </Box>
+  );
 
-function CollapsibleTable({ Orders }) {
-  return (
-    <TableContainer component={Paper}>
-      <Table aria-label="collapsible table">
-        <TableHead>
-          <TableRow>
-            <TableCell />
-            <TableCell>Orden #</TableCell>
-            <TableCell align="right">Unidades Total</TableCell>
-            <TableCell align="right">Precio Total Orden</TableCell>
-            <TableCell align="right">Estado de Orden</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {Orders.ordens ? (
-            Orders.ordens.map(e => <Row id={e.id} amount_total={e.amount_total} createdAt={e.createdAt} price_total={e.price_total} state={e.state} details={e.details} products={e.products} />)
-          ) : (
-            <div>No tiene Ordenes Disponibles</div>
-          )}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  )
 }
 
 export default CollapsibleTable
+
+// import * as React from 'react';
+// import PropTypes from 'prop-types';
+// import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+// import Box from '@mui/material/Box';
+// import Link from '@mui/material/Link';
+// // import {
+// //   randomInt,
+// //   randomUserName,
+// //   randomArrayItem,
+// // } from '@mui/x-data-grid-generator';
+
+// // const lines = [
+// //   'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+// //   'Aliquam dapibus, lorem vel mattis aliquet, purus lorem tincidunt mauris, in blandit quam risus sed ipsum.',
+// //   'Maecenas non felis venenatis, porta velit quis, consectetur elit.',
+// //   'Vestibulum commodo et odio a laoreet.',
+// //   'Nullam cursus tincidunt auctor.',
+// //   'Sed feugiat venenatis nulla, sit amet dictum nulla convallis sit amet.',
+// //   'Nulla venenatis justo non felis vulputate, eu mollis metus ornare.',
+// //   'Nam ullamcorper ligula id consectetur auctor.',
+// //   'Phasellus et ultrices dui.',
+// //   'Fusce facilisis egestas massa, et eleifend magna imperdiet et.',
+// //   'Pellentesque ac metus velit.',
+// //   'Vestibulum in massa nibh.',
+// //   'Vestibulum pulvinar aliquam turpis, ac faucibus risus varius a.',
+// // ];
+
+// const ExpandableCell = ({ value }) => {
+//   const [expanded, setExpanded] = React.useState(false);
+
+//   return (
+//     <Box>
+//       {expanded ? value : value.slice(0, 176)}&nbsp;
+//       {value.length > 176 && (
+//         // eslint-disable-next-line jsx-a11y/anchor-is-valid
+//         <Link
+//           type="button"
+//           component="button"
+//           sx={{ fontSize: 'inherit' }}
+//           onClick={() => setExpanded(!expanded)}
+//         >
+//           {expanded ? 'view less' : 'view more'}
+//         </Link>
+//       )}
+//     </Box>
+//   );
+// };
+
+// ExpandableCell.propTypes = {
+//   /**
+//    * The cell value, but if the column has valueGetter, use getValue.
+//    */
+//   value: PropTypes.any,
+// };
+
+// const columns = [
+//   { field: 'id' },
+//   { field: 'img' },
+//   { field: 'name' },
+//   { field: 'rating', type: 'number' },
+//   {
+//     field: 'reviews',
+//     width: 400,
+//     renderCell: (params) => <ExpandableCell {...params} />,
+//   },
+// ];
+
+// const rows = [
+//   { id: 1, img: "img" , name: "name", rating: 3, reviews: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dapibus, lorem vel mattis aliquet, purus lorem tincidunt mauris, in blandit quam risus sed ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+//   { id: 2, img: "img" , name: "name",  rating: 4, reviews: "Vestibulum in massa nibh. Nulla venenatis justo non felis vulputate, eu mollis metus ornare. Vestibulum in massa nibh" }
+// ];
+
+// // for (let i = 0; i < 10; i += 1) {
+// //   const bio = [];
+
+// //   for (let j = 0; j < randomInt(3, 8); j += 1) {
+// //     bio.push(randomArrayItem(lines));
+// //   }
+
+// //   rows.push({
+// //     id: i,
+// //     username: randomUserName(),
+// //     age: randomInt(10, 80),
+// //     bio: bio.join(' '),
+// //   });
+// // }
+
+// function CollapsibleTable() {
+//   return (
+//     <div style={{ height: 400, width: 800 }}>
+//       <DataGrid
+//         rows={rows}
+//         columns={columns}
+//         getEstimatedRowHeight={() => 100}
+//         getRowHeight={() => 'auto'}
+//         components={{ Toolbar: GridToolbar }}
+//         sx={{
+//           '&.MuiDataGrid-root--densityCompact .MuiDataGrid-cell': {
+//             py: 1,
+//           },
+//           '&.MuiDataGrid-root--densityStandard .MuiDataGrid-cell': {
+//             py: '15px',
+//           },
+//           '&.MuiDataGrid-root--densityComfortable .MuiDataGrid-cell': {
+//             py: '22px',
+//           },
+//         }}
+//       />
+//     </div>
+//   );
+// }
+
+// export default CollapsibleTable

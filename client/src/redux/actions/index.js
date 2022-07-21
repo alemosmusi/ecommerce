@@ -3,7 +3,7 @@ import Axios from 'axios'
 import { Toast } from '../../component/alerts'
 import * as actionTypes from '../action-types'
 
-Axios.defaults.baseURL = "http://localhost:3001";
+Axios.defaults.baseURL = "https://app-henry-shoes.herokuapp.com/api";
 
 export const getUsers = () => {
   return async function (dispatch) {
@@ -19,6 +19,20 @@ export const getUsers = () => {
     }
   };
 };
+export const getAllUserReviews = id => {
+  return async function (dispatch) {
+    try {
+      let info = await Axios(`/reviewsUser/${id}`)
+      return dispatch({
+        type: actionTypes.GET_ALL_USER_REVIEWS,
+        payload: info.data,
+      })
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+}
+
 export const getAllOrders = () => {
   return async function (dispatch) {
     try {
